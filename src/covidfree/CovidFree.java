@@ -62,6 +62,7 @@ public class CovidFree extends javax.swing.JFrame {
         setBackground(new java.awt.Color(255, 255, 255));
         setIconImage(new ImageIcon("icon.png").getImage());
         setPreferredSize(new java.awt.Dimension(500, 400));
+        setResizable(false);
 
         Panel_covidfree.setBackground(new java.awt.Color(255, 255, 255));
 
