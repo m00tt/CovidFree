@@ -1,9 +1,10 @@
 /**
- *
- * @author Andrea Mottini 742605 VA
  * 
+ * @author Andrea Mottini 742605 VA
+ * @author Riccardo Bianchi 736701 VA
  * 
  */
+
 
 package covidfree;
 import java.text.SimpleDateFormat;
