@@ -61,17 +61,17 @@ public class CovidFree extends javax.swing.JFrame {
         setAutoRequestFocus(false);
         setBackground(new java.awt.Color(255, 255, 255));
         setIconImage(new ImageIcon("icon.png").getImage());
-        setPreferredSize(new java.awt.Dimension(500, 400));
-        setResizable(false);
+        setMinimumSize(new java.awt.Dimension(600, 450));
+        setPreferredSize(new java.awt.Dimension(600, 450));
 
         Panel_covidfree.setBackground(new java.awt.Color(255, 255, 255));
 
-        appTitle_covidfree.setFont(new java.awt.Font("Teko SemiBold", 1, 30)); // NOI18N
+        appTitle_covidfree.setFont(new java.awt.Font("Teko SemiBold", 1, 36)); // NOI18N
         appTitle_covidfree.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/app-logo.png"))); // NOI18N
         appTitle_covidfree.setText("Covid Free");
 
         centrivaccinaliPnl_covidfree.setBackground(new java.awt.Color(255, 255, 255));
-        centrivaccinaliPnl_covidfree.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Centri Vaccinali", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Teko SemiBold", 1, 14))); // NOI18N
+        centrivaccinaliPnl_covidfree.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Centri Vaccinali", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14))); // NOI18N
         centrivaccinaliPnl_covidfree.setPreferredSize(new java.awt.Dimension(210, 200));
 
         centrivaccinaliBtn_covidfree.setBackground(new java.awt.Color(255, 255, 255));
@@ -82,15 +82,15 @@ public class CovidFree extends javax.swing.JFrame {
         centrivaccinaliPnl_covidfree.setLayout(centrivaccinaliPnl_covidfreeLayout);
         centrivaccinaliPnl_covidfreeLayout.setHorizontalGroup(
             centrivaccinaliPnl_covidfreeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(centrivaccinaliBtn_covidfree, javax.swing.GroupLayout.DEFAULT_SIZE, 198, Short.MAX_VALUE)
+            .addComponent(centrivaccinaliBtn_covidfree, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         centrivaccinaliPnl_covidfreeLayout.setVerticalGroup(
             centrivaccinaliPnl_covidfreeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(centrivaccinaliBtn_covidfree, javax.swing.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE)
+            .addComponent(centrivaccinaliBtn_covidfree, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         cittadiniPnl_covidfree.setBackground(new java.awt.Color(255, 255, 255));
-        cittadiniPnl_covidfree.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Cittadini", javax.swing.border.TitledBorder.RIGHT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Teko SemiBold", 1, 14))); // NOI18N
+        cittadiniPnl_covidfree.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Cittadini", javax.swing.border.TitledBorder.RIGHT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14))); // NOI18N
         cittadiniPnl_covidfree.setPreferredSize(new java.awt.Dimension(210, 200));
         cittadiniPnl_covidfree.setVerifyInputWhenFocusTarget(false);
 
@@ -102,19 +102,19 @@ public class CovidFree extends javax.swing.JFrame {
         cittadiniPnl_covidfree.setLayout(cittadiniPnl_covidfreeLayout);
         cittadiniPnl_covidfreeLayout.setHorizontalGroup(
             cittadiniPnl_covidfreeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(cittadiniBtn_covidfree, javax.swing.GroupLayout.DEFAULT_SIZE, 198, Short.MAX_VALUE)
+            .addComponent(cittadiniBtn_covidfree, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         cittadiniPnl_covidfreeLayout.setVerticalGroup(
             cittadiniPnl_covidfreeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(cittadiniBtn_covidfree, javax.swing.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE)
+            .addComponent(cittadiniBtn_covidfree, javax.swing.GroupLayout.DEFAULT_SIZE, 211, Short.MAX_VALUE)
         );
 
         date.setBackground(new java.awt.Color(255, 255, 255));
-        date.setFont(new java.awt.Font("Teko SemiBold", 0, 12)); // NOI18N
+        date.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         date.setText("DATA");
 
         hours.setBackground(new java.awt.Color(255, 255, 255));
-        hours.setFont(new java.awt.Font("Teko SemiBold", 0, 12)); // NOI18N
+        hours.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         hours.setText("ORA");
 
         javax.swing.GroupLayout Panel_covidfreeLayout = new javax.swing.GroupLayout(Panel_covidfree);
@@ -122,38 +122,43 @@ public class CovidFree extends javax.swing.JFrame {
         Panel_covidfreeLayout.setHorizontalGroup(
             Panel_covidfreeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Panel_covidfreeLayout.createSequentialGroup()
-                .addComponent(appTitle_covidfree)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(appTitle_covidfree, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(166, 166, 166)
                 .addGroup(Panel_covidfreeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(hours, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(date, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_covidfreeLayout.createSequentialGroup()
+                        .addGap(5, 5, 5)
+                        .addComponent(hours, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(date, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(50, 50, 50))
             .addGroup(Panel_covidfreeLayout.createSequentialGroup()
                 .addGap(25, 25, 25)
-                .addComponent(centrivaccinaliPnl_covidfree, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(centrivaccinaliPnl_covidfree, javax.swing.GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(cittadiniPnl_covidfree, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addComponent(cittadiniPnl_covidfree, javax.swing.GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE)
+                .addGap(25, 25, 25))
         );
         Panel_covidfreeLayout.setVerticalGroup(
             Panel_covidfreeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Panel_covidfreeLayout.createSequentialGroup()
                 .addGroup(Panel_covidfreeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(Panel_covidfreeLayout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addComponent(appTitle_covidfree))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_covidfreeLayout.createSequentialGroup()
-                        .addContainerGap()
+                        .addGap(47, 47, 47)
                         .addGroup(Panel_covidfreeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_covidfreeLayout.createSequentialGroup()
-                                .addComponent(date)
+                                .addComponent(date, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGap(22, 22, 22))
-                            .addComponent(hours, javax.swing.GroupLayout.Alignment.TRAILING))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_covidfreeLayout.createSequentialGroup()
+                                .addGap(22, 22, 22)
+                                .addComponent(hours, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGap(48, 48, 48))
+                    .addGroup(Panel_covidfreeLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(appTitle_covidfree, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
                 .addGroup(Panel_covidfreeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(centrivaccinaliPnl_covidfree, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cittadiniPnl_covidfree, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21))
+                    .addComponent(centrivaccinaliPnl_covidfree, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 236, Short.MAX_VALUE)
+                    .addComponent(cittadiniPnl_covidfree, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 236, Short.MAX_VALUE))
+                .addGap(45, 45, 45))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
