@@ -59,6 +59,8 @@ public class CovidFree extends javax.swing.JFrame {
         hours = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Covid Free");
+        setIconImage(new ImageIcon("icon.png").getImage());
         setResizable(false);
 
         Panel_covidfree.setBackground(new java.awt.Color(255, 255, 255));
