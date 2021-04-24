@@ -59,15 +59,16 @@ public class CovidFree extends javax.swing.JFrame {
         hours = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         Panel_covidfree.setBackground(new java.awt.Color(255, 255, 255));
 
-        appTitle_covidfree.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        appTitle_covidfree.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         appTitle_covidfree.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/app-logo.png"))); // NOI18N
         appTitle_covidfree.setText("Covid Free");
 
         cittadiniPnl_covidfree.setBackground(new java.awt.Color(255, 255, 255));
-        cittadiniPnl_covidfree.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Cittadini", javax.swing.border.TitledBorder.RIGHT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 12))); // NOI18N
+        cittadiniPnl_covidfree.setBorder(javax.swing.BorderFactory.createTitledBorder(null, " Cittadini ", javax.swing.border.TitledBorder.RIGHT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14))); // NOI18N
 
         cittadiniBtn_covidfree.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cittadini-logo.png"))); // NOI18N
 
@@ -89,7 +90,7 @@ public class CovidFree extends javax.swing.JFrame {
         );
 
         centrovacciniPnl_covidfree.setBackground(new java.awt.Color(255, 255, 255));
-        centrovacciniPnl_covidfree.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Centri Vaccinali", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 12))); // NOI18N
+        centrovacciniPnl_covidfree.setBorder(javax.swing.BorderFactory.createTitledBorder(null, " Centri Vaccinali ", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14))); // NOI18N
 
         centrovacciniBtn_covidfree.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/centrivaccinali-logo.png"))); // NOI18N
 
@@ -126,7 +127,7 @@ public class CovidFree extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(cittadiniPnl_covidfree, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(Panel_covidfreeLayout.createSequentialGroup()
-                        .addComponent(appTitle_covidfree, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(appTitle_covidfree)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(Panel_covidfreeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(hours)
@@ -143,7 +144,7 @@ public class CovidFree extends javax.swing.JFrame {
                         .addComponent(date)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(hours)))
-                .addGap(51, 51, 51)
+                .addGap(40, 40, 40)
                 .addGroup(Panel_covidfreeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(cittadiniPnl_covidfree, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(centrovacciniPnl_covidfree, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
