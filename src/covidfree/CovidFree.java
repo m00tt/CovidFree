@@ -4,8 +4,15 @@
  * @author Riccardo Bianchi 736701 VA
  * 
  */
-
 package covidfree;
+
+import java.text.SimpleDateFormat;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Date;
+import java.util.Locale;
+import javax.swing.Timer;
+import javax.swing.ImageIcon;
 
 public class CovidFree extends javax.swing.JFrame {
 
@@ -14,7 +21,26 @@ public class CovidFree extends javax.swing.JFrame {
      */
     public CovidFree() {
         initComponents();
+        date();
+        time();
     }
+    
+    //ShowDate
+    public void date (){
+        String txtDate = new SimpleDateFormat ("dd/MM/yyyy",Locale.ITALY).format(new Date());
+        date.setText("Data:  " +txtDate);
+    }
+    //ShowTime
+    public void time() {
+        new Timer (0, new ActionListener() {
+            public void actionPerformed (ActionEvent e) {
+                java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("HH:mm:ss");
+                String texte_date = sdf.format (new Date());
+                hours.setText("Ora:  " +texte_date);
+            }
+        }).start();
+    }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
