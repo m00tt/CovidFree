@@ -7,6 +7,8 @@
 
 package cittadini;
 
+import javax.swing.ImageIcon;
+
 public class Login extends javax.swing.JFrame {
 
     public Login() {

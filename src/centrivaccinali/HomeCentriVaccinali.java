@@ -7,6 +7,8 @@
 
 package centrivaccinali;
 
+import javax.swing.ImageIcon;
+
 public class HomeCentriVaccinali extends javax.swing.JFrame {
 
 

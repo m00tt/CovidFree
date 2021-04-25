@@ -5,6 +5,8 @@
  */
 package centrivaccinali;
 
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author andre
