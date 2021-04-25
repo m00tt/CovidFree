@@ -21,111 +21,117 @@ public class HomeCittadini extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        Panel_homecittadini = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        Btn_login = new javax.swing.JButton();
-        Btn_register = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
-        Search_name = new javax.swing.JTextField();
-        Search_comune = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        ScrollPane_info = new javax.swing.JScrollPane();
-        List_infocentri = new javax.swing.JList<>();
+        Panel_HomeCittadini = new javax.swing.JPanel();
+        title_HomeCittadini = new javax.swing.JLabel();
+        loginBtn_HomeCittadini = new javax.swing.JButton();
+        registerBtn_HomeCittadini = new javax.swing.JButton();
+        centriVaccinaliPnl_HomeCittadini = new javax.swing.JPanel();
+        searchName_HomeCittadini = new javax.swing.JTextField();
+        searchComune_HomeCittadini = new javax.swing.JTextField();
+        subtitle_HomeCittadini = new javax.swing.JLabel();
+        scrollPnlInfo_HomeCittadini = new javax.swing.JScrollPane();
+        infocentriList_HomeCittadini = new javax.swing.JList<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Home Cittadini");
+        setIconImage(new ImageIcon("icon.png").getImage());
         setPreferredSize(new java.awt.Dimension(600, 450));
 
-        Panel_homecittadini.setBackground(new java.awt.Color(255, 255, 255));
+        Panel_HomeCittadini.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setFont(new java.awt.Font("Arial", 1, 30)); // NOI18N
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cittadini-logo.png"))); // NOI18N
-        jLabel1.setText("Home Cittadini");
+        title_HomeCittadini.setFont(new java.awt.Font("Arial", 1, 30)); // NOI18N
+        title_HomeCittadini.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cittadini-logo.png"))); // NOI18N
+        title_HomeCittadini.setText("Home Cittadini");
 
-        Btn_login.setText("Accedi");
-        Btn_login.addMouseListener(new java.awt.event.MouseAdapter() {
+        loginBtn_HomeCittadini.setText("Accedi");
+        loginBtn_HomeCittadini.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Btn_loginMouseClicked(evt);
+                loginBtn_HomeCittadiniMouseClicked(evt);
+            }
+        });
+        loginBtn_HomeCittadini.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loginBtn_HomeCittadiniActionPerformed(evt);
             }
         });
 
-        Btn_register.setText("Registrati");
+        registerBtn_HomeCittadini.setText("Registrati");
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        centriVaccinaliPnl_HomeCittadini.setBackground(new java.awt.Color(255, 255, 255));
+        centriVaccinaliPnl_HomeCittadini.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        Search_name.setText("Inserisci Nome Centro");
+        searchName_HomeCittadini.setText("Inserisci Nome Centro");
 
-        Search_comune.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        Search_comune.setText("Inserisci Comune");
+        searchComune_HomeCittadini.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        searchComune_HomeCittadini.setText("Inserisci Comune");
 
-        jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel2.setText("Ricerca il tuo Centro Vaccini");
+        subtitle_HomeCittadini.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        subtitle_HomeCittadini.setText("Ricerca il tuo Centro Vaccini");
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        javax.swing.GroupLayout centriVaccinaliPnl_HomeCittadiniLayout = new javax.swing.GroupLayout(centriVaccinaliPnl_HomeCittadini);
+        centriVaccinaliPnl_HomeCittadini.setLayout(centriVaccinaliPnl_HomeCittadiniLayout);
+        centriVaccinaliPnl_HomeCittadiniLayout.setHorizontalGroup(
+            centriVaccinaliPnl_HomeCittadiniLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(centriVaccinaliPnl_HomeCittadiniLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Search_name))
+                .addGroup(centriVaccinaliPnl_HomeCittadiniLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(subtitle_HomeCittadini, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(searchName_HomeCittadini))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(Search_comune, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(searchComune_HomeCittadini, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+        centriVaccinaliPnl_HomeCittadiniLayout.setVerticalGroup(
+            centriVaccinaliPnl_HomeCittadiniLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, centriVaccinaliPnl_HomeCittadiniLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(subtitle_HomeCittadini, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Search_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Search_comune, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(centriVaccinaliPnl_HomeCittadiniLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(searchName_HomeCittadini, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(searchComune_HomeCittadini, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
-        List_infocentri.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        List_infocentri.setModel(new javax.swing.AbstractListModel<String>() {
+        infocentriList_HomeCittadini.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        infocentriList_HomeCittadini.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        ScrollPane_info.setViewportView(List_infocentri);
+        scrollPnlInfo_HomeCittadini.setViewportView(infocentriList_HomeCittadini);
 
-        javax.swing.GroupLayout Panel_homecittadiniLayout = new javax.swing.GroupLayout(Panel_homecittadini);
-        Panel_homecittadini.setLayout(Panel_homecittadiniLayout);
-        Panel_homecittadiniLayout.setHorizontalGroup(
-            Panel_homecittadiniLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_homecittadiniLayout.createSequentialGroup()
+        javax.swing.GroupLayout Panel_HomeCittadiniLayout = new javax.swing.GroupLayout(Panel_HomeCittadini);
+        Panel_HomeCittadini.setLayout(Panel_HomeCittadiniLayout);
+        Panel_HomeCittadiniLayout.setHorizontalGroup(
+            Panel_HomeCittadiniLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_HomeCittadiniLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(Panel_homecittadiniLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(ScrollPane_info)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, Panel_homecittadiniLayout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 415, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(Panel_HomeCittadiniLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(centriVaccinaliPnl_HomeCittadini, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(scrollPnlInfo_HomeCittadini)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, Panel_HomeCittadiniLayout.createSequentialGroup()
+                        .addComponent(title_HomeCittadini, javax.swing.GroupLayout.PREFERRED_SIZE, 415, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
-                        .addGroup(Panel_homecittadiniLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(Btn_register, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(Btn_login, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGroup(Panel_HomeCittadiniLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(registerBtn_HomeCittadini, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(loginBtn_HomeCittadini, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
-        Panel_homecittadiniLayout.setVerticalGroup(
-            Panel_homecittadiniLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Panel_homecittadiniLayout.createSequentialGroup()
+        Panel_HomeCittadiniLayout.setVerticalGroup(
+            Panel_HomeCittadiniLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Panel_HomeCittadiniLayout.createSequentialGroup()
                 .addGap(34, 34, 34)
-                .addGroup(Panel_homecittadiniLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(Panel_homecittadiniLayout.createSequentialGroup()
-                        .addComponent(Btn_login)
+                .addGroup(Panel_HomeCittadiniLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(Panel_HomeCittadiniLayout.createSequentialGroup()
+                        .addComponent(loginBtn_HomeCittadini)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Btn_register))
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(registerBtn_HomeCittadini))
+                    .addComponent(title_HomeCittadini, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(centriVaccinaliPnl_HomeCittadini, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(ScrollPane_info, javax.swing.GroupLayout.DEFAULT_SIZE, 222, Short.MAX_VALUE)
+                .addComponent(scrollPnlInfo_HomeCittadini, javax.swing.GroupLayout.DEFAULT_SIZE, 222, Short.MAX_VALUE)
                 .addGap(18, 18, 18))
         );
 
@@ -135,28 +141,32 @@ public class HomeCittadini extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(Panel_homecittadini, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Panel_HomeCittadini, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(Panel_homecittadini, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Panel_HomeCittadini, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void Btn_loginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Btn_loginMouseClicked
+    private void loginBtn_HomeCittadiniMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginBtn_HomeCittadiniMouseClicked
         // TODO add your handling code here:
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Login().setVisible(true);
             }
         });
-    }//GEN-LAST:event_Btn_loginMouseClicked
+    }//GEN-LAST:event_loginBtn_HomeCittadiniMouseClicked
+
+    private void loginBtn_HomeCittadiniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtn_HomeCittadiniActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_loginBtn_HomeCittadiniActionPerformed
 
     /**
      * @param args the command line arguments
@@ -194,15 +204,15 @@ public class HomeCittadini extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Btn_login;
-    private javax.swing.JButton Btn_register;
-    private javax.swing.JList<String> List_infocentri;
-    private javax.swing.JPanel Panel_homecittadini;
-    private javax.swing.JScrollPane ScrollPane_info;
-    private javax.swing.JTextField Search_comune;
-    private javax.swing.JTextField Search_name;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel Panel_HomeCittadini;
+    private javax.swing.JPanel centriVaccinaliPnl_HomeCittadini;
+    private javax.swing.JList<String> infocentriList_HomeCittadini;
+    private javax.swing.JButton loginBtn_HomeCittadini;
+    private javax.swing.JButton registerBtn_HomeCittadini;
+    private javax.swing.JScrollPane scrollPnlInfo_HomeCittadini;
+    private javax.swing.JTextField searchComune_HomeCittadini;
+    private javax.swing.JTextField searchName_HomeCittadini;
+    private javax.swing.JLabel subtitle_HomeCittadini;
+    private javax.swing.JLabel title_HomeCittadini;
     // End of variables declaration//GEN-END:variables
 }

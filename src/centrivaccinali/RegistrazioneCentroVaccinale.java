@@ -42,6 +42,8 @@ public class RegistrazioneCentroVaccinale extends javax.swing.JFrame {
         add_RegistrazioneCentroVaccinale = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Registra Centro Vaccinale");
+        setIconImage(new ImageIcon("icon.png").getImage());
         setPreferredSize(new java.awt.Dimension(600, 450));
         setResizable(false);
 

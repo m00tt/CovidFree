@@ -30,6 +30,7 @@ public class HomeCentriVaccinali extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Home Centri Vaccinali");
+        setIconImage(new ImageIcon("icon.png").getImage());
         setPreferredSize(new java.awt.Dimension(600, 450));
         setResizable(false);
         setSize(new java.awt.Dimension(0, 0));
