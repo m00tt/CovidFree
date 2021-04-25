@@ -4,6 +4,7 @@
  * @author Riccardo Bianchi 736701 VA
  * 
  */
+
 package cittadini;
 
 public class Login extends javax.swing.JFrame {
