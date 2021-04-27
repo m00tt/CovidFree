@@ -95,7 +95,6 @@ public class RegistrazioneVaccinato extends javax.swing.JFrame {
         vaccino_RegistrazioneVaccinato.setPreferredSize(new java.awt.Dimension(82, 30));
 
         dataVaccino_RegistrazioneVaccinato.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("dd/MM/yyyy"))));
-        dataVaccino_RegistrazioneVaccinato.setText("Data");
         dataVaccino_RegistrazioneVaccinato.setToolTipText("");
         dataVaccino_RegistrazioneVaccinato.setFont(new java.awt.Font("Arial", 2, 11)); // NOI18N
         dataVaccino_RegistrazioneVaccinato.setPreferredSize(new java.awt.Dimension(82, 30));
@@ -118,7 +117,7 @@ public class RegistrazioneVaccinato extends javax.swing.JFrame {
         datiPnl_RegistrazioneVaccinatoLayout.setHorizontalGroup(
             datiPnl_RegistrazioneVaccinatoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(datiPnl_RegistrazioneVaccinatoLayout.createSequentialGroup()
-                .addGap(76, 76, 76)
+                .addContainerGap(76, Short.MAX_VALUE)
                 .addGroup(datiPnl_RegistrazioneVaccinatoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(codiceFiscaleLbl_RegistrazioneVaccinato)
                     .addComponent(nome_RegistrazioneVaccinato, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
