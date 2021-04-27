@@ -94,8 +94,9 @@ public class RegistrazioneVaccinato extends javax.swing.JFrame {
         vaccino_RegistrazioneVaccinato.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pfizer", "AstraZeneca", "Moderna", "J&J" }));
         vaccino_RegistrazioneVaccinato.setPreferredSize(new java.awt.Dimension(82, 30));
 
-        dataVaccino_RegistrazioneVaccinato.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
+        dataVaccino_RegistrazioneVaccinato.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("dd/MM/yyyy"))));
         dataVaccino_RegistrazioneVaccinato.setText("Data");
+        dataVaccino_RegistrazioneVaccinato.setToolTipText("");
         dataVaccino_RegistrazioneVaccinato.setFont(new java.awt.Font("Arial", 2, 11)); // NOI18N
         dataVaccino_RegistrazioneVaccinato.setPreferredSize(new java.awt.Dimension(82, 30));
 
