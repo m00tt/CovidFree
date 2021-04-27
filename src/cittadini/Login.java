@@ -35,6 +35,7 @@ public class Login extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login Cittadini");
         setIconImage(new ImageIcon("icon.png").getImage());
+        setName("frame_Login"); // NOI18N
         setResizable(false);
 
         Panel_Login.setBackground(new java.awt.Color(255, 255, 255));

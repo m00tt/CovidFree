@@ -37,6 +37,7 @@ public class HomeCittadini extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Home Cittadini");
         setIconImage(new ImageIcon("icon.png").getImage());
+        setName("frame_HomeCittadini"); // NOI18N
         setPreferredSize(new java.awt.Dimension(600, 450));
 
         Panel_HomeCittadini.setBackground(new java.awt.Color(255, 255, 255));

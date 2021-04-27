@@ -61,6 +61,7 @@ public class CentriVaccinali extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Covid Free");
         setIconImage(new ImageIcon("icon.png").getImage());
+        setName("frame_CentriVaccinali"); // NOI18N
         setResizable(false);
 
         Panel_covidfree.setBackground(new java.awt.Color(255, 255, 255));
