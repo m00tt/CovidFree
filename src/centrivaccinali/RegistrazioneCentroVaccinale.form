@@ -84,8 +84,8 @@
                   <Component id="datiPnl_RegistrazioneCentroVaccinale" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="ann_RegistrazioneCentroVaccinale" pref="30" max="32767" attributes="0"/>
                       <Component id="add_RegistrazioneCentroVaccinale" max="32767" attributes="0"/>
-                      <Component id="ann_RegistrazioneCentroVaccinale" min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
