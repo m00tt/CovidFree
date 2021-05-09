@@ -9,16 +9,18 @@ package centrivaccinali;
 import java.text.SimpleDateFormat;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Date;
 import java.util.Locale;
 import javax.swing.Timer;
 import javax.swing.ImageIcon;
+import static javax.swing.JOptionPane.showMessageDialog;
 
 public class CentriVaccinali extends javax.swing.JFrame {
 
-    /**
-     * Creates new form test
-     */
+
     public CentriVaccinali() {
         initComponents();
         date();
@@ -178,35 +180,6 @@ public class CentriVaccinali extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CentriVaccinali.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CentriVaccinali.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CentriVaccinali.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CentriVaccinali.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -214,6 +187,21 @@ public class CentriVaccinali extends javax.swing.JFrame {
                 new CentriVaccinali().setVisible(true);
             }
         });
+        checkDataDir();
+        
+    }
+    
+    public static boolean checkDataDir(){
+        
+        String workingDir = System.getProperty("user.dir");
+        String path;
+        path = workingDir + File.separator + "data";
+        showMessageDialog(null, "Current relative path is: " + path);
+        /*Path currentRelativePath = Paths.get("");
+        String relPath = currentRelativePath.toAbsolutePath().toString();
+        relPath += "\\data";
+        showMessageDialog(null, "Current relative path is: " + relPath + os.path.sep.toString());*/
+        return true;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
