@@ -134,7 +134,7 @@
                               <Group type="102" alignment="1" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="usrnameLbl_RegistrazioneCittadino" min="-2" max="-2" attributes="0"/>
-                                      <Component id="usrName_RegistrazioneCittadino" min="-2" pref="100" max="-2" attributes="0"/>
+                                      <Component id="userId_RegistrazioneCittadino" min="-2" pref="100" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -144,7 +144,7 @@
                                   <EmptySpace max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="idCittadinoLbl_RegistrazioneCittadino" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="idCittadino_RegistrazioneCittadino" alignment="0" min="-2" pref="130" max="-2" attributes="0"/>
+                                      <Component id="idVaccino_RegistrazioneCittadino" alignment="0" min="-2" pref="130" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -188,8 +188,8 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="pwdUsr_RegistrazioneCittadino" max="32767" attributes="0"/>
-                          <Component id="idCittadino_RegistrazioneCittadino" max="32767" attributes="0"/>
-                          <Component id="usrName_RegistrazioneCittadino" alignment="0" pref="30" max="32767" attributes="0"/>
+                          <Component id="idVaccino_RegistrazioneCittadino" max="32767" attributes="0"/>
+                          <Component id="userId_RegistrazioneCittadino" alignment="0" pref="30" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -251,12 +251,12 @@
                 <Property name="text" type="java.lang.String" value="Nome"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="idCittadino_RegistrazioneCittadino">
+            <Component class="javax.swing.JTextField" name="idVaccino_RegistrazioneCittadino">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial" size="11" style="2"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="ID cittadino"/>
+                <Property name="text" type="java.lang.String" value="ID vaccino"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="usrnameLbl_RegistrazioneCittadino">
@@ -264,7 +264,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial" size="11" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Username"/>
+                <Property name="text" type="java.lang.String" value="User ID"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="pwdLbl_RegistrazioneCittadino">
@@ -280,7 +280,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial" size="11" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="ID cittadino"/>
+                <Property name="text" type="java.lang.String" value="ID vaccino"/>
                 <Property name="toolTipText" type="java.lang.String" value=""/>
               </Properties>
             </Component>
@@ -289,7 +289,7 @@
                 <Property name="text" type="java.lang.String" value="jPasswordField1"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="usrName_RegistrazioneCittadino">
+            <Component class="javax.swing.JTextField" name="userId_RegistrazioneCittadino">
             </Component>
             <Component class="javax.swing.JTextField" name="email_RegistrazioneCittadino">
               <Properties>

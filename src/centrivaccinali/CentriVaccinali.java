@@ -5,6 +5,7 @@
  * 
  */
 package centrivaccinali;
+import cittadini.HomeCittadini;
 
 import java.text.SimpleDateFormat;
 import java.awt.event.ActionEvent;
@@ -17,10 +18,11 @@ import java.util.Locale;
 import javax.swing.Timer;
 import javax.swing.ImageIcon;
 import static javax.swing.JOptionPane.showMessageDialog;
+import static utils.GeneralFunctions.checkInitDir;
 
 public class CentriVaccinali extends javax.swing.JFrame {
 
-
+    
     public CentriVaccinali() {
         initComponents();
         date();
@@ -76,6 +78,11 @@ public class CentriVaccinali extends javax.swing.JFrame {
         cittadiniPnl_covidfree.setBorder(javax.swing.BorderFactory.createTitledBorder(null, " Cittadini ", javax.swing.border.TitledBorder.RIGHT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14))); // NOI18N
 
         cittadiniBtn_covidfree.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cittadini-logo.png"))); // NOI18N
+        cittadiniBtn_covidfree.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cittadiniBtn_covidfreeActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout cittadiniPnl_covidfreeLayout = new javax.swing.GroupLayout(cittadiniPnl_covidfree);
         cittadiniPnl_covidfree.setLayout(cittadiniPnl_covidfreeLayout);
@@ -98,6 +105,11 @@ public class CentriVaccinali extends javax.swing.JFrame {
         centrovacciniPnl_covidfree.setBorder(javax.swing.BorderFactory.createTitledBorder(null, " Centri Vaccinali ", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14))); // NOI18N
 
         centrovacciniBtn_covidfree.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/centrivaccinali-logo.png"))); // NOI18N
+        centrovacciniBtn_covidfree.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                centrovacciniBtn_covidfreeActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout centrovacciniPnl_covidfreeLayout = new javax.swing.GroupLayout(centrovacciniPnl_covidfree);
         centrovacciniPnl_covidfree.setLayout(centrovacciniPnl_covidfreeLayout);
@@ -176,6 +188,18 @@ public class CentriVaccinali extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void centrovacciniBtn_covidfreeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_centrovacciniBtn_covidfreeActionPerformed
+        HomeCentriVaccinali homeCentriVaccinali = new HomeCentriVaccinali();
+        homeCentriVaccinali.setVisible(true);
+        this.setVisible(Boolean.FALSE);
+    }//GEN-LAST:event_centrovacciniBtn_covidfreeActionPerformed
+
+    private void cittadiniBtn_covidfreeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cittadiniBtn_covidfreeActionPerformed
+        HomeCittadini homeCittadini = new HomeCittadini();
+        homeCittadini.setVisible(true);
+        this.setVisible(Boolean.FALSE);
+    }//GEN-LAST:event_cittadiniBtn_covidfreeActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -187,22 +211,10 @@ public class CentriVaccinali extends javax.swing.JFrame {
                 new CentriVaccinali().setVisible(true);
             }
         });
-        checkDataDir();
         
+        checkInitDir();
     }
     
-    public static boolean checkDataDir(){
-        
-        String workingDir = System.getProperty("user.dir");
-        String path;
-        path = workingDir + File.separator + "data";
-        showMessageDialog(null, "Current relative path is: " + path);
-        /*Path currentRelativePath = Paths.get("");
-        String relPath = currentRelativePath.toAbsolutePath().toString();
-        relPath += "\\data";
-        showMessageDialog(null, "Current relative path is: " + relPath + os.path.sep.toString());*/
-        return true;
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Panel_covidfree;

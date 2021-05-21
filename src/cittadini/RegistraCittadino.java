@@ -17,7 +17,10 @@ public class RegistraCittadino extends javax.swing.JFrame {
     public RegistraCittadino() {
         initComponents();
     }
-
+    
+    HomeCittadini homeCittadini = new HomeCittadini();
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -36,12 +39,12 @@ public class RegistraCittadino extends javax.swing.JFrame {
         cognomeLbl_RegistrazioneCittadino = new javax.swing.JLabel();
         codiceFiscaleLbl_RegistrazioneCittadino = new javax.swing.JLabel();
         nome_RegistrazioneCittadino = new javax.swing.JTextField();
-        idCittadino_RegistrazioneCittadino = new javax.swing.JTextField();
+        idVaccino_RegistrazioneCittadino = new javax.swing.JTextField();
         usrnameLbl_RegistrazioneCittadino = new javax.swing.JLabel();
         pwdLbl_RegistrazioneCittadino = new javax.swing.JLabel();
         idCittadinoLbl_RegistrazioneCittadino = new javax.swing.JLabel();
         pwdUsr_RegistrazioneCittadino = new javax.swing.JPasswordField();
-        usrName_RegistrazioneCittadino = new javax.swing.JTextField();
+        userId_RegistrazioneCittadino = new javax.swing.JTextField();
         email_RegistrazioneCittadino = new javax.swing.JTextField();
         emailLbl_RegistrazioneCittadino = new javax.swing.JLabel();
         add_RegistrazioneCittadino = new javax.swing.JButton();
@@ -84,17 +87,17 @@ public class RegistraCittadino extends javax.swing.JFrame {
         nome_RegistrazioneCittadino.setFont(new java.awt.Font("Arial", 2, 11)); // NOI18N
         nome_RegistrazioneCittadino.setText("Nome");
 
-        idCittadino_RegistrazioneCittadino.setFont(new java.awt.Font("Arial", 2, 11)); // NOI18N
-        idCittadino_RegistrazioneCittadino.setText("ID cittadino");
+        idVaccino_RegistrazioneCittadino.setFont(new java.awt.Font("Arial", 2, 11)); // NOI18N
+        idVaccino_RegistrazioneCittadino.setText("ID vaccino");
 
         usrnameLbl_RegistrazioneCittadino.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
-        usrnameLbl_RegistrazioneCittadino.setText("Username");
+        usrnameLbl_RegistrazioneCittadino.setText("User ID");
 
         pwdLbl_RegistrazioneCittadino.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         pwdLbl_RegistrazioneCittadino.setText("Password");
 
         idCittadinoLbl_RegistrazioneCittadino.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
-        idCittadinoLbl_RegistrazioneCittadino.setText("ID cittadino");
+        idCittadinoLbl_RegistrazioneCittadino.setText("ID vaccino");
         idCittadinoLbl_RegistrazioneCittadino.setToolTipText("");
 
         pwdUsr_RegistrazioneCittadino.setText("jPasswordField1");
@@ -134,7 +137,7 @@ public class RegistraCittadino extends javax.swing.JFrame {
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, datiPnl_RegistrazioneCittadinoLayout.createSequentialGroup()
                             .addGroup(datiPnl_RegistrazioneCittadinoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(usrnameLbl_RegistrazioneCittadino)
-                                .addComponent(usrName_RegistrazioneCittadino, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(userId_RegistrazioneCittadino, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGap(37, 37, 37)
                             .addGroup(datiPnl_RegistrazioneCittadinoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(pwdLbl_RegistrazioneCittadino)
@@ -142,7 +145,7 @@ public class RegistraCittadino extends javax.swing.JFrame {
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(datiPnl_RegistrazioneCittadinoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(idCittadinoLbl_RegistrazioneCittadino)
-                                .addComponent(idCittadino_RegistrazioneCittadino, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(idVaccino_RegistrazioneCittadino, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         datiPnl_RegistrazioneCittadinoLayout.setVerticalGroup(
@@ -175,8 +178,8 @@ public class RegistraCittadino extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(datiPnl_RegistrazioneCittadinoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(pwdUsr_RegistrazioneCittadino)
-                    .addComponent(idCittadino_RegistrazioneCittadino)
-                    .addComponent(usrName_RegistrazioneCittadino, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE))
+                    .addComponent(idVaccino_RegistrazioneCittadino)
+                    .addComponent(userId_RegistrazioneCittadino, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -245,7 +248,8 @@ public class RegistraCittadino extends javax.swing.JFrame {
     }//GEN-LAST:event_codiceFiscale_RegistrazioneCittadinoActionPerformed
 
     private void ann_RegistrazioneCittadinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ann_RegistrazioneCittadinoActionPerformed
-        // TODO add your handling code here:
+        homeCittadini.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_ann_RegistrazioneCittadinoActionPerformed
 
     private void email_RegistrazioneCittadinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_email_RegistrazioneCittadinoActionPerformed
@@ -300,13 +304,13 @@ public class RegistraCittadino extends javax.swing.JFrame {
     private javax.swing.JLabel emailLbl_RegistrazioneCittadino;
     private javax.swing.JTextField email_RegistrazioneCittadino;
     private javax.swing.JLabel idCittadinoLbl_RegistrazioneCittadino;
-    private javax.swing.JTextField idCittadino_RegistrazioneCittadino;
+    private javax.swing.JTextField idVaccino_RegistrazioneCittadino;
     private javax.swing.JLabel nomeLbl_RegistrazioneCittadino;
     private javax.swing.JTextField nome_RegistrazioneCittadino;
     private javax.swing.JLabel pwdLbl_RegistrazioneCittadino;
     private javax.swing.JPasswordField pwdUsr_RegistrazioneCittadino;
     private javax.swing.JLabel titleLbl_RegistrazioneCittadino;
-    private javax.swing.JTextField usrName_RegistrazioneCittadino;
+    private javax.swing.JTextField userId_RegistrazioneCittadino;
     private javax.swing.JLabel usrnameLbl_RegistrazioneCittadino;
     // End of variables declaration//GEN-END:variables
 }

@@ -7,7 +7,10 @@
 
 package centrivaccinali;
 
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import javax.swing.ImageIcon;
+import static javax.swing.JOptionPane.showMessageDialog;
 
 public class HomeCentriVaccinali extends javax.swing.JFrame {
 
@@ -29,6 +32,7 @@ public class HomeCentriVaccinali extends javax.swing.JFrame {
         registraCentroVaccinaleBtn_HomeCentriVaccinali = new javax.swing.JButton();
         vaccinatoPnl_HomeCentriVaccinali = new javax.swing.JPanel();
         registraVaccinatoBtn_HomeCentriVaccinali = new javax.swing.JButton();
+        back_HomeCentriVaccinali = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Home Centri Vaccinali");
@@ -50,6 +54,16 @@ public class HomeCentriVaccinali extends javax.swing.JFrame {
         registraCentroVaccinaleBtn_HomeCentriVaccinali.setBackground(new java.awt.Color(255, 255, 255));
         registraCentroVaccinaleBtn_HomeCentriVaccinali.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/new_centrovaccinale.png"))); // NOI18N
         registraCentroVaccinaleBtn_HomeCentriVaccinali.setBorderPainted(false);
+        registraCentroVaccinaleBtn_HomeCentriVaccinali.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                registraCentroVaccinaleBtn_HomeCentriVaccinaliFocusGained(evt);
+            }
+        });
+        registraCentroVaccinaleBtn_HomeCentriVaccinali.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                registraCentroVaccinaleBtn_HomeCentriVaccinaliActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout centroVaccinalePnl_HomeCentriVaccinaliLayout = new javax.swing.GroupLayout(centroVaccinalePnl_HomeCentriVaccinali);
         centroVaccinalePnl_HomeCentriVaccinali.setLayout(centroVaccinalePnl_HomeCentriVaccinaliLayout);
@@ -74,6 +88,11 @@ public class HomeCentriVaccinali extends javax.swing.JFrame {
         registraVaccinatoBtn_HomeCentriVaccinali.setBackground(new java.awt.Color(255, 255, 255));
         registraVaccinatoBtn_HomeCentriVaccinali.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/new_vaccinato.png"))); // NOI18N
         registraVaccinatoBtn_HomeCentriVaccinali.setBorderPainted(false);
+        registraVaccinatoBtn_HomeCentriVaccinali.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                registraVaccinatoBtn_HomeCentriVaccinaliActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout vaccinatoPnl_HomeCentriVaccinaliLayout = new javax.swing.GroupLayout(vaccinatoPnl_HomeCentriVaccinali);
         vaccinatoPnl_HomeCentriVaccinali.setLayout(vaccinatoPnl_HomeCentriVaccinaliLayout);
@@ -92,6 +111,16 @@ public class HomeCentriVaccinali extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        back_HomeCentriVaccinali.setBackground(new java.awt.Color(255, 255, 255));
+        back_HomeCentriVaccinali.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/back.png"))); // NOI18N
+        back_HomeCentriVaccinali.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        back_HomeCentriVaccinali.setBorderPainted(false);
+        back_HomeCentriVaccinali.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                back_HomeCentriVaccinaliActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -105,17 +134,23 @@ public class HomeCentriVaccinali extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(vaccinatoPnl_HomeCentriVaccinali, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(back_HomeCentriVaccinali, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(back_HomeCentriVaccinali, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(4, 4, 4)
                 .addComponent(title_HomeCentriVaccinali)
-                .addGap(65, 65, 65)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(centroVaccinalePnl_HomeCentriVaccinali, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(vaccinatoPnl_HomeCentriVaccinali, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -138,6 +173,28 @@ public class HomeCentriVaccinali extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void registraCentroVaccinaleBtn_HomeCentriVaccinaliFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_registraCentroVaccinaleBtn_HomeCentriVaccinaliFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_registraCentroVaccinaleBtn_HomeCentriVaccinaliFocusGained
+
+    private void back_HomeCentriVaccinaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_back_HomeCentriVaccinaliActionPerformed
+        CentriVaccinali centriVaccinali = new CentriVaccinali();
+        centriVaccinali.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_back_HomeCentriVaccinaliActionPerformed
+
+    private void registraCentroVaccinaleBtn_HomeCentriVaccinaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registraCentroVaccinaleBtn_HomeCentriVaccinaliActionPerformed
+        RegistrazioneCentroVaccinale registrazioneCentroVaccinale = new RegistrazioneCentroVaccinale();
+        registrazioneCentroVaccinale.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_registraCentroVaccinaleBtn_HomeCentriVaccinaliActionPerformed
+
+    private void registraVaccinatoBtn_HomeCentriVaccinaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registraVaccinatoBtn_HomeCentriVaccinaliActionPerformed
+        RegistrazioneVaccinato registrazioneVaccinato = new RegistrazioneVaccinato();
+        registrazioneVaccinato.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_registraVaccinatoBtn_HomeCentriVaccinaliActionPerformed
 
     /**
      * @param args the command line arguments
@@ -173,9 +230,12 @@ public class HomeCentriVaccinali extends javax.swing.JFrame {
                 new HomeCentriVaccinali().setVisible(true);
             }
         });
+
     }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton back_HomeCentriVaccinali;
     private javax.swing.JPanel centroVaccinalePnl_HomeCentriVaccinali;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton registraCentroVaccinaleBtn_HomeCentriVaccinali;

@@ -59,6 +59,11 @@ public class HomeCittadini extends javax.swing.JFrame {
         });
 
         registerBtn_HomeCittadini.setText("Registrati");
+        registerBtn_HomeCittadini.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                registerBtn_HomeCittadiniActionPerformed(evt);
+            }
+        });
 
         centriVaccinaliPnl_HomeCittadini.setBackground(new java.awt.Color(255, 255, 255));
         centriVaccinaliPnl_HomeCittadini.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -168,8 +173,16 @@ public class HomeCittadini extends javax.swing.JFrame {
     }//GEN-LAST:event_loginBtn_HomeCittadiniMouseClicked
 
     private void loginBtn_HomeCittadiniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtn_HomeCittadiniActionPerformed
-        // TODO add your handling code here:
+        Login login = new Login();
+        login.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_loginBtn_HomeCittadiniActionPerformed
+
+    private void registerBtn_HomeCittadiniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerBtn_HomeCittadiniActionPerformed
+        RegistraCittadino registraCittadino = new RegistraCittadino();
+        registraCittadino.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_registerBtn_HomeCittadiniActionPerformed
 
     /**
      * @param args the command line arguments

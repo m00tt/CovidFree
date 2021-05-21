@@ -247,7 +247,9 @@ public class RegistrazioneVaccinato extends javax.swing.JFrame {
     }//GEN-LAST:event_codiceFiscale_RegistrazioneVaccinatoActionPerformed
 
     private void ann_RegistrazioneVaccinatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ann_RegistrazioneVaccinatoActionPerformed
-        // TODO add your handling code here:
+        HomeCentriVaccinali homeCentriVaccinali = new HomeCentriVaccinali();
+        homeCentriVaccinali.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_ann_RegistrazioneVaccinatoActionPerformed
 
     /**

@@ -153,6 +153,9 @@
                   <Image iconType="3" name="/img/cittadini-logo.png"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cittadiniBtn_covidfreeActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -197,6 +200,9 @@
                   <Image iconType="3" name="/img/centrivaccinali-logo.png"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="centrovacciniBtn_covidfreeActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

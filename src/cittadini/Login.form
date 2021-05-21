@@ -112,7 +112,10 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="pwdField_Login" min="-2" pref="256" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="emailField_Login" min="-2" pref="256" max="-2" attributes="0"/>
+                          <Component id="pwdField_Login" min="-2" pref="256" max="-2" attributes="0"/>
+                      </Group>
                       <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
                   </Group>
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
@@ -124,14 +127,10 @@
                                   <EmptySpace min="-2" pref="199" max="-2" attributes="0"/>
                                   <Component id="accediBtn_Login" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="emailLabel_Login" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
-                                  <Component id="emailField_Login" min="-2" pref="256" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="emailLabel_Login" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="passwordLabel_Login" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="52" max="32767" attributes="0"/>
+                          <EmptySpace pref="62" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -139,17 +138,16 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+                      <Component id="emailField_Login" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="pwdField_Login" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="127" max="32767" attributes="0"/>
                   </Group>
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="emailLabel_Login" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="emailField_Login" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                          <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
+                          <Component id="emailLabel_Login" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="passwordLabel_Login" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
@@ -166,7 +164,7 @@
           <SubComponents>
             <Component class="javax.swing.JLabel" name="emailLabel_Login">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Email"/>
+                <Property name="text" type="java.lang.String" value="User ID"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="passwordLabel_Login">
@@ -177,7 +175,7 @@
             <Component class="javax.swing.JTextField" name="emailField_Login">
               <Properties>
                 <Property name="horizontalAlignment" type="int" value="2"/>
-                <Property name="text" type="java.lang.String" value="Inserisci indirizzo email"/>
+                <Property name="text" type="java.lang.String" value="Inserisci il tuo User ID"/>
                 <Property name="disabledTextColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
