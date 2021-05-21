@@ -9,6 +9,7 @@ package utils;
 import java.io.File;
 import java.nio.file.Files;
 import static java.nio.file.LinkOption.NOFOLLOW_LINKS;
+import java.util.List;
 import static javax.swing.JOptionPane.showMessageDialog;
 
 
@@ -27,9 +28,6 @@ public class GeneralFunctions {
             else{
                 showMessageDialog(null, "La cartella contenente i dati è stata spostata o eliminata.\n A causa di un errore non è stato possibile ripristinare i dati.\nRiavviare il programma.");
             }
-        }
-        else{
-            showMessageDialog(null, "Tutto OK");
         }
     }
     
@@ -70,6 +68,44 @@ public class GeneralFunctions {
          }
          return false;
 
+    }
+    
+    //Controlli per campi di inserimento
+    public static boolean checkProvincia(String p){
+        if(p.length()!=2){
+            return false;
+        }
+        return true;
+    }
+    
+    public static boolean checkCAP(String p){
+        
+        if(p.length()!=5){
+            return false;
+        }
+        else{
+            try{
+                int parse = Integer.parseInt(p);
+                return true;
+            }
+            catch(Exception e){
+                return false;
+            }
+        }
+    }
+    
+    public static boolean checkCompiled(String p){
+        if(p.length()<4){
+            return false;
+        }
+        return true;
+    }
+    
+    public static boolean checkCivico(String p){
+        if(p.length()>0){
+            return true;
+        }
+        return false;
     }
     
     

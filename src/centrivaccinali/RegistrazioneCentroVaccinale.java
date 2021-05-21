@@ -7,7 +7,16 @@
 
 package centrivaccinali;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.ImageIcon;
+import static javax.swing.JOptionPane.showMessageDialog;
+import static utils.GeneralFunctions.checkCAP;
+import static utils.GeneralFunctions.checkCivico;
+import static utils.GeneralFunctions.checkCompiled;
+import static utils.GeneralFunctions.checkProvincia;
 
 public class RegistrazioneCentroVaccinale extends javax.swing.JFrame {
 
@@ -63,7 +72,6 @@ public class RegistrazioneCentroVaccinale extends javax.swing.JFrame {
         datiPnl_RegistrazioneCentroVaccinale.setToolTipText("");
 
         name_RegistrazioneCentroVaccinale.setFont(new java.awt.Font("Arial", 2, 11)); // NOI18N
-        name_RegistrazioneCentroVaccinale.setText("Inserisci il nome del Centro Vaccinale");
         name_RegistrazioneCentroVaccinale.setToolTipText("");
         name_RegistrazioneCentroVaccinale.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -75,10 +83,8 @@ public class RegistrazioneCentroVaccinale extends javax.swing.JFrame {
         qualificatore_RegistrazioneCentroVaccinale.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Via", "Viale", "Piazza" }));
 
         via_RegistrazioneCentroVaccinale.setFont(new java.awt.Font("Arial", 2, 11)); // NOI18N
-        via_RegistrazioneCentroVaccinale.setText("Inserisci l'indirizzo");
 
         n_RegistrazioneCentroVaccinale.setFont(new java.awt.Font("Arial", 2, 11)); // NOI18N
-        n_RegistrazioneCentroVaccinale.setText("N°");
         n_RegistrazioneCentroVaccinale.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 n_RegistrazioneCentroVaccinaleActionPerformed(evt);
@@ -89,10 +95,9 @@ public class RegistrazioneCentroVaccinale extends javax.swing.JFrame {
         tipologia_RegistrazioneCentroVaccinale.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ospedaliero", "Aziendale", "Hub" }));
 
         comune_RegistrazioneCentroVaccinale.setFont(new java.awt.Font("Arial", 2, 11)); // NOI18N
-        comune_RegistrazioneCentroVaccinale.setText("Inserisci il comune");
 
         prov_RegistrazioneCentroVaccinale.setFont(new java.awt.Font("Arial", 2, 11)); // NOI18N
-        prov_RegistrazioneCentroVaccinale.setText("Prov.");
+        prov_RegistrazioneCentroVaccinale.setToolTipText("");
         prov_RegistrazioneCentroVaccinale.setPreferredSize(new java.awt.Dimension(32, 30));
         prov_RegistrazioneCentroVaccinale.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -101,7 +106,6 @@ public class RegistrazioneCentroVaccinale extends javax.swing.JFrame {
         });
 
         cap_RegistrazioneCentroVaccinale.setFont(new java.awt.Font("Arial", 2, 11)); // NOI18N
-        cap_RegistrazioneCentroVaccinale.setText("CAP");
 
         centroVaccinaleLbl_RegistrazioneCentroVaccinale.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         centroVaccinaleLbl_RegistrazioneCentroVaccinale.setText("Nome Centro Vaccinale");
@@ -286,7 +290,47 @@ public class RegistrazioneCentroVaccinale extends javax.swing.JFrame {
     }//GEN-LAST:event_prov_RegistrazioneCentroVaccinaleActionPerformed
 
     private void add_RegistrazioneCentroVaccinaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_RegistrazioneCentroVaccinaleActionPerformed
-        // TODO add your handling code here:
+        String nomeCentroVaccinale = name_RegistrazioneCentroVaccinale.getText();
+        String tipologiaCentroVaccinale = tipologia_RegistrazioneCentroVaccinale.getSelectedItem().toString();
+        String qualificatoreCentroVaccinale = qualificatore_RegistrazioneCentroVaccinale.getSelectedItem().toString();
+        String indirizzoCentroVaccinale = via_RegistrazioneCentroVaccinale.getText();
+        String civicoCentroVaccinale = n_RegistrazioneCentroVaccinale.getText();
+        String provinciaCentroVaccinale = prov_RegistrazioneCentroVaccinale.getText();
+        String comuneCentroVaccinale = comune_RegistrazioneCentroVaccinale.getText();
+        String capCentroVaccinale= cap_RegistrazioneCentroVaccinale.getText();
+        
+        String insert = nomeCentroVaccinale + "|" + tipologiaCentroVaccinale + "|" + qualificatoreCentroVaccinale + "|" + civicoCentroVaccinale + "|" + provinciaCentroVaccinale + "|" + comuneCentroVaccinale + "|" + capCentroVaccinale;
+      
+        
+        if(checkProvincia(provinciaCentroVaccinale) && checkCAP(capCentroVaccinale) && checkCivico(civicoCentroVaccinale) && checkCompiled(nomeCentroVaccinale) && checkCompiled(indirizzoCentroVaccinale) && checkCompiled(comuneCentroVaccinale)){
+            try{
+                //fare check per esistenza cartella-file
+                String path = System.getProperty("user.dir") + File.separator + "data" + File.separator + "list" + File.separator + "CentriVaccinali_list.txt";
+                FileWriter fw = new FileWriter(path);
+                fw.append(nomeCentroVaccinale);
+                fw.close();
+                
+                
+
+                path = System.getProperty("user.dir") + File.separator + "data" + File.separator + "centri_vaccinali" + File.separator + "CentriVaccinali.dati";
+                FileWriter fw2 = new FileWriter(path);
+                fw2.append(insert);
+                fw2.close();
+               
+                showMessageDialog(null, "Centro vaccinale aggiunto con successo!");
+                HomeCentriVaccinali homeCentriVaccinali = new HomeCentriVaccinali();
+                homeCentriVaccinali.setVisible(true);
+                this.setVisible(false);          
+            }
+            catch(Exception e){
+                //DIOCAN
+            }
+
+        }
+        else{
+            showMessageDialog(null, "Risultano errori nella compilazione, prova a controllare.");
+        }
+        
     }//GEN-LAST:event_add_RegistrazioneCentroVaccinaleActionPerformed
 
     private void ann_RegistrazioneCentroVaccinaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ann_RegistrazioneCentroVaccinaleActionPerformed
