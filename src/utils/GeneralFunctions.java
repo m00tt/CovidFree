@@ -64,13 +64,17 @@ public class GeneralFunctions {
         }
         return check;
     }
+    
+    public static List[] getCentriVaccinaliList(){
+        List[] retList = null;
+        
+        return retList;
+    }
  
     //Controlli per campi di inserimento
     public static boolean checkProvincia(String p){
-        if(p.length()!=2){
-            return false;
-        }
-        return true;
+        //controllare se sono solamente caratteri
+        return p.length() == 2;
     }
     
     public static boolean checkCAP(String p){
@@ -83,24 +87,18 @@ public class GeneralFunctions {
                 int parse = Integer.parseInt(p);
                 return true;
             }
-            catch(Exception e){
+            catch(NumberFormatException e){
                 return false;
             }
         }
     }
     
     public static boolean checkCompiled(String p){
-        if(p.length()<4){
-            return false;
-        }
-        return true;
+        return !(p.length()<4 || p.contains("-"));
     }
     
     public static boolean checkCivico(String p){
-        if(p.length()>0){
-            return true;
-        }
-        return false;
+        return p.length()>0;
     }
     
     

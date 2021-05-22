@@ -308,7 +308,7 @@ public class RegistrazioneCentroVaccinale extends javax.swing.JFrame {
         String comuneCentroVaccinale = comune_RegistrazioneCentroVaccinale.getText().strip();
         String capCentroVaccinale= cap_RegistrazioneCentroVaccinale.getText().strip();
         
-        String insert = nomeCentroVaccinale + "|" + tipologiaCentroVaccinale + "|" + qualificatoreCentroVaccinale + "|" + indirizzoCentroVaccinale +"|" + civicoCentroVaccinale + "|" + provinciaCentroVaccinale + "|" + comuneCentroVaccinale + "|" + capCentroVaccinale;
+        String insert = nomeCentroVaccinale + "-" + tipologiaCentroVaccinale + "-" + qualificatoreCentroVaccinale + "-" + indirizzoCentroVaccinale +"-" + civicoCentroVaccinale + "-" + provinciaCentroVaccinale + "-" + comuneCentroVaccinale + "-" + capCentroVaccinale;
       
         
         if(checkProvincia(provinciaCentroVaccinale) && checkCAP(capCentroVaccinale) && checkCivico(civicoCentroVaccinale) && checkCompiled(nomeCentroVaccinale) && checkCompiled(indirizzoCentroVaccinale) && checkCompiled(comuneCentroVaccinale)){
@@ -323,9 +323,10 @@ public class RegistrazioneCentroVaccinale extends javax.swing.JFrame {
                 String thisLine = null;
                 boolean ok = true;
                 while ((thisLine = br.readLine()) != null) {
-                    String lcThisLine = thisLine.toLowerCase();
-                    String lcIsert = insert.toLowerCase();
-                    if(lcThisLine.equals(lcIsert)){
+                    String[] spThisLine = thisLine.split("-");
+                    String toTest = spThisLine[0].toLowerCase();
+                    String lcNomeCentro = nomeCentroVaccinale.toLowerCase();
+                    if(toTest.equals(lcNomeCentro)){
                         ok = false;
                     }
                 }
@@ -344,7 +345,7 @@ public class RegistrazioneCentroVaccinale extends javax.swing.JFrame {
                     this.setVisible(false); 
                 }
                 else{
-                    showMessageDialog(null, "Il centro vaccinale è già registrato nel database.");
+                    showMessageDialog(null, "Il centro vaccinale con nome"+nomeCentroVaccinale+"è già registrato nel database.");
                 }
                 
             }catch(Exception e){
