@@ -26,8 +26,10 @@ public class GeneralFunctions {
     public static String CENTRIVACCINALIDIR = WORKINGDIR + File.separator + "centri_vaccinali";
     public static String CITTADINIDIR = WORKINGDIR + File.separator + "cittadini";
     
+    static Pattern onlyCodiceFiscale = Pattern.compile("[a-zA-Z]{6}[0-9]{2}[abcdehlmprstABCDEHLMPRST]{1}[0-9]{2}[a-zA-Z]{1}[0-9]{3}[a-zA-Z]{1}");
     static Pattern onlyLettersPattern = Pattern.compile("[^a-zA-Zàèòìù'\\s]");
     static Pattern onlyNumbersPattern = Pattern.compile("[^0-9]");
+    static Pattern onlyDataPattern = Pattern.compile("^(3[01]|[12][0-9]|0[1-9])/(1[0-2]|0[1-9])/[0-9]{4}$");
     
     public static boolean checkDirHierarchy(){
         boolean check = true;
@@ -58,9 +60,27 @@ public class GeneralFunctions {
             }
             
             f = new File(CITTADINIDIR);
-            if(!f.exists()){
+            if(f.exists()){
+                f = new File(CITTADINIDIR + File.separator + "Cittadini_Registrati.dati");
+                if(!f.exists()){
+                    try{
+                        f.createNewFile();
+                        check = false;
+                    }catch(IOException e){
+                        showMessageDialog(null, "Impossibile creare il database, provare a riavviare il programma.");
+                    }
+                }
+            }
+            else{
                 f.mkdirs();
                 check = false;
+                f = new File(CITTADINIDIR + File.separator + "Cittadini_Registrati.dati");
+                try{
+                    f.createNewFile();
+                    check = false;
+                }catch(IOException e){
+                    showMessageDialog(null, "Impossibile creare il database, provare a riavviare il programma.");
+                }    
             }
             
         }
@@ -73,7 +93,7 @@ public class GeneralFunctions {
     
     public static List<String> getCentriVaccinaliList(){
         List<String> retList = new ArrayList();
-        String thisLine = null;
+        String thisLine;
     
         if(checkDirHierarchy()){
         try {
@@ -83,15 +103,32 @@ public class GeneralFunctions {
                     retList.add(tmp[0]);
                 }       
             } catch(IOException e) {
-                showMessageDialog(null, e.getMessage().toString());
+                showMessageDialog(null, "Errore di lettura del database, riprova.");
             }
         }else{
-            showMessageDialog(null, "Errore di lettura del database");
+            showMessageDialog(null, "Errore di lettura del database, riprova.");
         }
         return retList;
     }
- 
+    
+    
     //Controlli per campi di inserimento
+    public static boolean checkData(String p){
+        Matcher matcher = onlyDataPattern.matcher(p);
+        return !matcher.find();
+    }
+    
+    public static boolean checkIdVaccino(String p){
+        Matcher matcher = onlyNumbersPattern.matcher(p);
+        return !matcher.find() && p.length() == 16;
+    }
+    
+    //non funziona
+    public static boolean checkCodiceFiscale(String p){
+        Matcher matcher = onlyCodiceFiscale.matcher(p);
+        return !matcher.find();
+    }
+ 
     public static boolean checkProvincia(String p){
         Matcher matcher = onlyLettersPattern.matcher(p);
         return p.trim().length() == 2 && !matcher.find();
