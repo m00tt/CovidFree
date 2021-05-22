@@ -7,13 +7,16 @@
 
 package centrivaccinali;
 
+import java.util.List;
 import javax.swing.ImageIcon;
+import static utils.GeneralFunctions.getCentriVaccinaliList;
 
 public class RegistrazioneVaccinato extends javax.swing.JFrame {
 
     
     public RegistrazioneVaccinato() {
         initComponents();
+        fillCentriVaccinali();
     }
 
     /**
@@ -62,10 +65,8 @@ public class RegistrazioneVaccinato extends javax.swing.JFrame {
         datiPnl_RegistrazioneVaccinato.setToolTipText("");
 
         cognome_RegistrazioneVaccinato.setFont(new java.awt.Font("Arial", 2, 11)); // NOI18N
-        cognome_RegistrazioneVaccinato.setText("Cognome");
 
         codiceFiscale_RegistrazioneVaccinato.setFont(new java.awt.Font("Arial", 2, 11)); // NOI18N
-        codiceFiscale_RegistrazioneVaccinato.setText("Codice fiscale");
         codiceFiscale_RegistrazioneVaccinato.setPreferredSize(new java.awt.Dimension(32, 30));
         codiceFiscale_RegistrazioneVaccinato.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -88,7 +89,11 @@ public class RegistrazioneVaccinato extends javax.swing.JFrame {
         centroVaccinale_RegistrazioneVaccinato.setFont(new java.awt.Font("Arial", 2, 11)); // NOI18N
 
         nome_RegistrazioneVaccinato.setFont(new java.awt.Font("Arial", 2, 11)); // NOI18N
-        nome_RegistrazioneVaccinato.setText("Nome");
+        nome_RegistrazioneVaccinato.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nome_RegistrazioneVaccinatoActionPerformed(evt);
+            }
+        });
 
         vaccino_RegistrazioneVaccinato.setFont(new java.awt.Font("Arial", 2, 11)); // NOI18N
         vaccino_RegistrazioneVaccinato.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pfizer", "AstraZeneca", "Moderna", "J&J" }));
@@ -100,7 +105,7 @@ public class RegistrazioneVaccinato extends javax.swing.JFrame {
         dataVaccino_RegistrazioneVaccinato.setPreferredSize(new java.awt.Dimension(82, 30));
 
         idVaccino_RegistrazioneVaccinato.setFont(new java.awt.Font("Arial", 2, 11)); // NOI18N
-        idVaccino_RegistrazioneVaccinato.setText("ID vaccino");
+        idVaccino_RegistrazioneVaccinato.setToolTipText("");
 
         vaccinoLbl_RegistrazioneVaccinato.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         vaccinoLbl_RegistrazioneVaccinato.setText("Vaccino");
@@ -204,9 +209,9 @@ public class RegistrazioneVaccinato extends javax.swing.JFrame {
                     .addComponent(titleLbl_RegistrazioneVaccinato, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(datiPnl_RegistrazioneVaccinato, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_RegistrazioneVaccinatoLayout.createSequentialGroup()
-                        .addComponent(ann_RegistrazioneVaccinato)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 395, Short.MAX_VALUE)
-                        .addComponent(add_RegistrazioneVaccinato, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(ann_RegistrazioneVaccinato, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(add_RegistrazioneVaccinato, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         Panel_RegistrazioneVaccinatoLayout.setVerticalGroup(
@@ -252,6 +257,10 @@ public class RegistrazioneVaccinato extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_ann_RegistrazioneVaccinatoActionPerformed
 
+    private void nome_RegistrazioneVaccinatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nome_RegistrazioneVaccinatoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nome_RegistrazioneVaccinatoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -285,6 +294,14 @@ public class RegistrazioneVaccinato extends javax.swing.JFrame {
                 new RegistrazioneVaccinato().setVisible(true);
             }
         });
+    }
+    
+    private void fillCentriVaccinali(){
+        List<String> centriVaccinali = getCentriVaccinaliList();
+                
+        for(int i=0; i<centriVaccinali.size(); i++){
+            centroVaccinale_RegistrazioneVaccinato.addItem(centriVaccinali.get(i));
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -12,6 +12,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import static java.nio.file.LinkOption.NOFOLLOW_LINKS;
+import java.util.ArrayList;
 import java.util.List;
 import static javax.swing.JOptionPane.showMessageDialog;
 import java.util.regex.Matcher; 
@@ -25,7 +26,7 @@ public class GeneralFunctions {
     public static String CENTRIVACCINALIDIR = WORKINGDIR + File.separator + "centri_vaccinali";
     public static String CITTADINIDIR = WORKINGDIR + File.separator + "cittadini";
     
-    static Pattern onlyLettersPattern = Pattern.compile("[^a-zA-Z]");
+    static Pattern onlyLettersPattern = Pattern.compile("[^a-zA-Zàèòìù'\\s]");
     static Pattern onlyNumbersPattern = Pattern.compile("[^0-9]");
     
     public static boolean checkDirHierarchy(){
@@ -70,9 +71,23 @@ public class GeneralFunctions {
         return check;
     }
     
-    public static List[] getCentriVaccinaliList(){
-        List[] retList = null;
-        
+    public static List<String> getCentriVaccinaliList(){
+        List<String> retList = new ArrayList();
+        String thisLine = null;
+    
+        if(checkDirHierarchy()){
+        try {
+                BufferedReader br = new BufferedReader(new FileReader(CENTRIVACCINALIDIR + File.separator + "CentriVaccinali.dati"));
+                while ((thisLine = br.readLine()) != null) {
+                    String[] tmp = thisLine.split("-");
+                    retList.add(tmp[0]);
+                }       
+            } catch(IOException e) {
+                showMessageDialog(null, e.getMessage().toString());
+            }
+        }else{
+            showMessageDialog(null, "Errore di lettura del database");
+        }
         return retList;
     }
  

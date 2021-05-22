@@ -66,9 +66,9 @@
                       <Component id="titleLbl_RegistrazioneVaccinato" alignment="0" max="32767" attributes="0"/>
                       <Component id="datiPnl_RegistrazioneVaccinato" alignment="1" max="32767" attributes="0"/>
                       <Group type="102" alignment="1" attributes="0">
-                          <Component id="ann_RegistrazioneVaccinato" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="395" max="32767" attributes="0"/>
-                          <Component id="add_RegistrazioneVaccinato" min="-2" max="-2" attributes="0"/>
+                          <Component id="ann_RegistrazioneVaccinato" min="-2" pref="95" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="add_RegistrazioneVaccinato" min="-2" pref="95" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -210,7 +210,6 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial" size="11" style="2"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Cognome"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="codiceFiscale_RegistrazioneVaccinato">
@@ -218,7 +217,6 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial" size="11" style="2"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Codice fiscale"/>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[32, 30]"/>
                 </Property>
@@ -280,8 +278,10 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial" size="11" style="2"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Nome"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nome_RegistrazioneVaccinatoActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JComboBox" name="vaccino_RegistrazioneVaccinato">
               <Properties>
@@ -323,7 +323,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial" size="11" style="2"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="ID vaccino"/>
+                <Property name="toolTipText" type="java.lang.String" value=""/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="vaccinoLbl_RegistrazioneVaccinato">
