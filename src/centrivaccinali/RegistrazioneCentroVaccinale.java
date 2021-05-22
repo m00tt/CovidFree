@@ -7,16 +7,25 @@
 
 package centrivaccinali;
 
+import java.awt.HeadlessException;
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import static javax.swing.JOptionPane.showMessageDialog;
+import static utils.GeneralFunctions.CENTRIVACCINALIDIR;
 import static utils.GeneralFunctions.checkCAP;
 import static utils.GeneralFunctions.checkCivico;
 import static utils.GeneralFunctions.checkCompiled;
 import static utils.GeneralFunctions.checkProvincia;
+import static utils.GeneralFunctions.checkDirHierarchy;
 
 public class RegistrazioneCentroVaccinale extends javax.swing.JFrame {
 
@@ -290,45 +299,61 @@ public class RegistrazioneCentroVaccinale extends javax.swing.JFrame {
     }//GEN-LAST:event_prov_RegistrazioneCentroVaccinaleActionPerformed
 
     private void add_RegistrazioneCentroVaccinaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_RegistrazioneCentroVaccinaleActionPerformed
-        String nomeCentroVaccinale = name_RegistrazioneCentroVaccinale.getText();
+        String nomeCentroVaccinale = name_RegistrazioneCentroVaccinale.getText().strip();
         String tipologiaCentroVaccinale = tipologia_RegistrazioneCentroVaccinale.getSelectedItem().toString();
         String qualificatoreCentroVaccinale = qualificatore_RegistrazioneCentroVaccinale.getSelectedItem().toString();
-        String indirizzoCentroVaccinale = via_RegistrazioneCentroVaccinale.getText();
-        String civicoCentroVaccinale = n_RegistrazioneCentroVaccinale.getText();
-        String provinciaCentroVaccinale = prov_RegistrazioneCentroVaccinale.getText();
-        String comuneCentroVaccinale = comune_RegistrazioneCentroVaccinale.getText();
-        String capCentroVaccinale= cap_RegistrazioneCentroVaccinale.getText();
+        String indirizzoCentroVaccinale = via_RegistrazioneCentroVaccinale.getText().strip();
+        String civicoCentroVaccinale = n_RegistrazioneCentroVaccinale.getText().strip();
+        String provinciaCentroVaccinale = prov_RegistrazioneCentroVaccinale.getText().strip();
+        String comuneCentroVaccinale = comune_RegistrazioneCentroVaccinale.getText().strip();
+        String capCentroVaccinale= cap_RegistrazioneCentroVaccinale.getText().strip();
         
-        String insert = nomeCentroVaccinale + "|" + tipologiaCentroVaccinale + "|" + qualificatoreCentroVaccinale + "|" + civicoCentroVaccinale + "|" + provinciaCentroVaccinale + "|" + comuneCentroVaccinale + "|" + capCentroVaccinale;
+        String insert = nomeCentroVaccinale + "|" + tipologiaCentroVaccinale + "|" + qualificatoreCentroVaccinale + "|" + indirizzoCentroVaccinale +"|" + civicoCentroVaccinale + "|" + provinciaCentroVaccinale + "|" + comuneCentroVaccinale + "|" + capCentroVaccinale;
       
         
         if(checkProvincia(provinciaCentroVaccinale) && checkCAP(capCentroVaccinale) && checkCivico(civicoCentroVaccinale) && checkCompiled(nomeCentroVaccinale) && checkCompiled(indirizzoCentroVaccinale) && checkCompiled(comuneCentroVaccinale)){
+            //check esistenza stesso centro vaccinale
+            String path = CENTRIVACCINALIDIR + File.separator + "CentriVaccinali.dati";
+            if(!checkDirHierarchy()){
+                showMessageDialog(null, "I database risultano corrotti.\nI dati sono stati ripristinati.");
+            }
+            
             try{
-                //fare check per esistenza cartella-file
-                String path = System.getProperty("user.dir") + File.separator + "data" + File.separator + "list" + File.separator + "CentriVaccinali_list.txt";
-                FileWriter fw = new FileWriter(path);
-                fw.append(nomeCentroVaccinale);
-                fw.close();
+                BufferedReader br = new BufferedReader(new FileReader(path));  
+                String thisLine = null;
+                boolean ok = true;
+                while ((thisLine = br.readLine()) != null) {
+                    String lcThisLine = thisLine.toLowerCase();
+                    String lcIsert = insert.toLowerCase();
+                    if(lcThisLine.equals(lcIsert)){
+                        ok = false;
+                    }
+                }
                 
+                if(ok)
+                {
+                    try (FileWriter fw2 = new FileWriter(path, true)) {
+                        fw2.append(insert+"\n");
+                        showMessageDialog(null, "Centro vaccinale aggiunto con successo!");
+                    }catch(HeadlessException | IOException e){
+                        showMessageDialog(null, "Errore in fase di scrittura dei dati, riprova.");
+                    }
+
+                    HomeCentriVaccinali homeCentriVaccinali = new HomeCentriVaccinali();
+                    homeCentriVaccinali.setVisible(true);
+                    this.setVisible(false); 
+                }
+                else{
+                    showMessageDialog(null, "Il centro vaccinale è già registrato nel database.");
+                }
                 
-
-                path = System.getProperty("user.dir") + File.separator + "data" + File.separator + "centri_vaccinali" + File.separator + "CentriVaccinali.dati";
-                FileWriter fw2 = new FileWriter(path);
-                fw2.append(insert);
-                fw2.close();
-               
-                showMessageDialog(null, "Centro vaccinale aggiunto con successo!");
-                HomeCentriVaccinali homeCentriVaccinali = new HomeCentriVaccinali();
-                homeCentriVaccinali.setVisible(true);
-                this.setVisible(false);          
+            }catch(Exception e){
+                showMessageDialog(null, "Errore in fase di scrittura dei dati, riprova.");
             }
-            catch(Exception e){
-                //DIOCAN
-            }
-
+                     
         }
         else{
-            showMessageDialog(null, "Risultano errori nella compilazione, prova a controllare.");
+            showMessageDialog(null, "Errore in fase di scrittura dei dati, riprova.");
         }
         
     }//GEN-LAST:event_add_RegistrazioneCentroVaccinaleActionPerformed

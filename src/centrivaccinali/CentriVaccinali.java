@@ -18,7 +18,7 @@ import java.util.Locale;
 import javax.swing.Timer;
 import javax.swing.ImageIcon;
 import static javax.swing.JOptionPane.showMessageDialog;
-import static utils.GeneralFunctions.checkInitDir;
+import static utils.GeneralFunctions.checkDirHierarchy;
 
 public class CentriVaccinali extends javax.swing.JFrame {
 
@@ -212,7 +212,9 @@ public class CentriVaccinali extends javax.swing.JFrame {
             }
         });
         
-        checkInitDir();
+        if(!checkDirHierarchy()){
+            showMessageDialog(null, "Database non trovati.\nI dati sono stati re-inizializzati.");
+        }
     }
     
 

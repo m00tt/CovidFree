@@ -6,7 +6,10 @@
  */
 package utils;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.nio.file.Files;
 import static java.nio.file.LinkOption.NOFOLLOW_LINKS;
 import java.util.List;
@@ -16,60 +19,52 @@ import static javax.swing.JOptionPane.showMessageDialog;
 
 public class GeneralFunctions {
     
-    static String workingDir = System.getProperty("user.dir");
+    public static String WORKINGDIR = System.getProperty("user.dir") + File.separator + "data";
+    public static String CENTRIVACCINALIDIR = WORKINGDIR + File.separator + "centri_vaccinali";
+    public static String CITTADINIDIR = WORKINGDIR + File.separator + "cittadini";
     
-    public static void checkInitDir(){
-        File f = new File(workingDir + File.separator + "data");
-        
-        if(!f.exists()){
-            if(initializeDirectory()){
-                showMessageDialog(null, "La cartella contenente i dati è stata spostata o eliminata.\n I file sono stati re-inizializzati.");
+    public static boolean checkDirHierarchy(){
+        boolean check = true;
+        File f = new File(WORKINGDIR);      
+        if(f.exists()){
+            f = new File(CENTRIVACCINALIDIR);
+            if(f.exists()){
+                f = new File(CENTRIVACCINALIDIR + File.separator + "CentriVaccinali.dati");
+                if(!f.exists()){
+                    try{
+                        f.createNewFile();
+                        check = false;
+                    }catch(IOException e){
+                        showMessageDialog(null, "Impossibile creare il database, provare a riavviare il programma.");
+                    }
+                }
             }
             else{
-                showMessageDialog(null, "La cartella contenente i dati è stata spostata o eliminata.\n A causa di un errore non è stato possibile ripristinare i dati.\nRiavviare il programma.");
+                f.mkdirs();
+                check = false;
+                f = new File(CENTRIVACCINALIDIR + File.separator + "CentriVaccinali.dati");
+                try{
+                    f.createNewFile();
+                    check = false;
+                }catch(IOException e){
+                    showMessageDialog(null, "Impossibile creare il database, provare a riavviare il programma.");
+                }    
             }
+            
+            f = new File(CITTADINIDIR);
+            if(!f.exists()){
+                f.mkdirs();
+                check = false;
+            }
+            
         }
+        else{
+            f.mkdirs();
+            checkDirHierarchy();
+        }
+        return check;
     }
-    
-    private static boolean initializeDirectory(){
-         File f1 = new File(workingDir + File.separator + "data" + File.separator + "centri_vaccinali");
-         File f2 = new File(workingDir + File.separator + "data" + File.separator + "cittadini");
-         File f3 = new File(workingDir + File.separator + "data" + File.separator + "list");
-         
-         boolean rf2 = f2.mkdirs();
-         boolean rf1 = true;
-         boolean rf3 = true;
-         
-         if(f1.mkdirs()){
-             File f11 = new File(workingDir + File.separator + "data" + File.separator + "centri_vaccinali" + File.separator + "CentriVaccinali.dati");
-             try{
-                boolean rf11 = f11.createNewFile();
-             }
-             catch(Exception e){
-                 showMessageDialog(null, e.toString());
-                 rf1 = false;
-             }   
-         } else{rf1 = false;}
-
-         if(f3.mkdirs()){
-             File f13 = new File(workingDir + File.separator + "data" + File.separator + "list" + File.separator + "CentriVaccinali_list.txt");
-             try{
-                boolean rf13 = f13.createNewFile();
-             }
-             catch(Exception e){
-                 showMessageDialog(null, e.toString());
-                 rf3 = false;
-             }   
-         } else{rf3 = false;}
-         
-                  
-         if(rf1 && rf2 && rf3){
-             return true;
-         }
-         return false;
-
-    }
-    
+ 
     //Controlli per campi di inserimento
     public static boolean checkProvincia(String p){
         if(p.length()!=2){
