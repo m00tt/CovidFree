@@ -366,6 +366,9 @@
               <Dimension value="[83, 30]"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="add_RegistrazioneVaccinatoActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="ann_RegistrazioneVaccinato">
           <Properties>

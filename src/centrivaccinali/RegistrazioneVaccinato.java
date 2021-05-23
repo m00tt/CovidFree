@@ -7,8 +7,25 @@
 
 package centrivaccinali;
 
+import java.awt.HeadlessException;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.text.ParseException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import static javax.swing.JOptionPane.showMessageDialog;
+import static utils.GeneralFunctions.CENTRIVACCINALIDIR;
+import static utils.GeneralFunctions.CITTADINIDIR;
+import static utils.GeneralFunctions.checkCodiceFiscale;
+import static utils.GeneralFunctions.checkCompiled;
+import static utils.GeneralFunctions.checkData;
+import static utils.GeneralFunctions.checkDirHierarchy;
+import static utils.GeneralFunctions.checkIdVaccino;
 import static utils.GeneralFunctions.getCentriVaccinaliList;
 
 public class RegistrazioneVaccinato extends javax.swing.JFrame {
@@ -191,6 +208,11 @@ public class RegistrazioneVaccinato extends javax.swing.JFrame {
         add_RegistrazioneVaccinato.setMaximumSize(new java.awt.Dimension(83, 30));
         add_RegistrazioneVaccinato.setMinimumSize(new java.awt.Dimension(83, 30));
         add_RegistrazioneVaccinato.setPreferredSize(new java.awt.Dimension(83, 30));
+        add_RegistrazioneVaccinato.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                add_RegistrazioneVaccinatoActionPerformed(evt);
+            }
+        });
 
         ann_RegistrazioneVaccinato.setText("Annulla");
         ann_RegistrazioneVaccinato.addActionListener(new java.awt.event.ActionListener() {
@@ -261,9 +283,71 @@ public class RegistrazioneVaccinato extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_nome_RegistrazioneVaccinatoActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+    private void add_RegistrazioneVaccinatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_RegistrazioneVaccinatoActionPerformed
+        try {
+            String nomeCentroVaccinale = centroVaccinale_RegistrazioneVaccinato.getSelectedItem().toString();
+            String nomeVaccinato = nome_RegistrazioneVaccinato.getText().strip();
+            String cognomeVaccinato = cognome_RegistrazioneVaccinato.getText().strip();
+            String codiceFiscaleVaccinato = codiceFiscale_RegistrazioneVaccinato.getText().strip();
+            String nomeVaccino = vaccino_RegistrazioneVaccinato.getSelectedItem().toString();
+            String dataVaccino = dataVaccino_RegistrazioneVaccinato.getText().strip();
+            String idVaccino = idVaccino_RegistrazioneVaccinato.getText().strip();
+            
+            if(nomeCentroVaccinale != null && checkCompiled(nomeVaccinato) && checkCompiled(cognomeVaccinato) && checkCodiceFiscale(codiceFiscaleVaccinato) && checkData(dataVaccino) && checkIdVaccino(idVaccino)){
+                String insert = nomeCentroVaccinale + "-" + nomeVaccinato + "-" + cognomeVaccinato + "-" + codiceFiscaleVaccinato + "-" + nomeVaccino + "-" + dataVaccino + "-" + idVaccino;
+                String path = CENTRIVACCINALIDIR + File.separator + "Vaccinati_"+nomeCentroVaccinale+".dati";
+                if(!checkDirHierarchy()){
+                    showMessageDialog(null, "I database risultano corrotti.\nI dati sono stati ripristinati.");
+                }
+                File f = new File(path);
+                if(!f.exists()){
+                    f.createNewFile();
+                }
+                try{
+                    BufferedReader br = new BufferedReader(new FileReader(path));
+                    String thisLine;
+                    boolean ok = true;
+                    while ((thisLine = br.readLine()) != null) {
+                        String[] spThisLine = thisLine.split("-");
+                        if(spThisLine[3].equalsIgnoreCase(codiceFiscaleVaccinato) || spThisLine[6].equals(idVaccino)){
+                            ok = false;
+                        }
+                    }
+                    
+                    if(ok)
+                    {
+                        try (FileWriter fw2 = new FileWriter(path, true)) { 
+                            fw2.append(insert+"\n");
+                            showMessageDialog(null, "Vaccinato registrato con successo!");
+                        }catch(HeadlessException | IOException e){
+                            showMessageDialog(null, "Errore in fase di scrittura dei dati, riprova.");
+                        }
+                        
+                        HomeCentriVaccinali homeCentriVaccinali = new HomeCentriVaccinali();
+                        homeCentriVaccinali.setVisible(true);
+                        this.setVisible(false);
+                    }
+                    else{
+                        showMessageDialog(null, "Codice fiscale o ID Vaccino già presenti nel database.");
+                    }
+                    
+                }catch(Exception e){
+                    showMessageDialog(null, "Errore in fase di scrittura dei dati, riprova.");
+                }
+                
+            }
+            else{
+                showMessageDialog(null, "I dati inseriti non sono corretti, prova a ricontrollare.");
+            }
+        } catch (ParseException ex) {
+            showMessageDialog(null, "I dati inseriti non sono corretti, prova a ricontrollare.");
+        } catch (IOException ex) {
+            showMessageDialog(null, "Errore in fase di scrittura dei dati, riprova.");
+        }
+        
+    }//GEN-LAST:event_add_RegistrazioneVaccinatoActionPerformed
+
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

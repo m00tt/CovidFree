@@ -307,12 +307,10 @@ public class RegistrazioneCentroVaccinale extends javax.swing.JFrame {
         String provinciaCentroVaccinale = prov_RegistrazioneCentroVaccinale.getText().strip();
         String comuneCentroVaccinale = comune_RegistrazioneCentroVaccinale.getText().strip();
         String capCentroVaccinale= cap_RegistrazioneCentroVaccinale.getText().strip();
-        
-        String insert = nomeCentroVaccinale + "-" + tipologiaCentroVaccinale + "-" + qualificatoreCentroVaccinale + "-" + indirizzoCentroVaccinale +"-" + civicoCentroVaccinale + "-" + provinciaCentroVaccinale + "-" + comuneCentroVaccinale + "-" + capCentroVaccinale;
       
         
         if(checkProvincia(provinciaCentroVaccinale) && checkCAP(capCentroVaccinale) && checkCivico(civicoCentroVaccinale) && checkCompiled(nomeCentroVaccinale) && checkCompiled(indirizzoCentroVaccinale) && checkCompiled(comuneCentroVaccinale)){
-            //check esistenza stesso centro vaccinale
+            String insert = nomeCentroVaccinale + "-" + tipologiaCentroVaccinale + "-" + qualificatoreCentroVaccinale + "-" + indirizzoCentroVaccinale +"-" + civicoCentroVaccinale + "-" + provinciaCentroVaccinale + "-" + comuneCentroVaccinale + "-" + capCentroVaccinale;
             String path = CENTRIVACCINALIDIR + File.separator + "CentriVaccinali.dati";
             if(!checkDirHierarchy()){
                 showMessageDialog(null, "I database risultano corrotti.\nI dati sono stati ripristinati.");
@@ -320,7 +318,7 @@ public class RegistrazioneCentroVaccinale extends javax.swing.JFrame {
             
             try{
                 BufferedReader br = new BufferedReader(new FileReader(path));  
-                String thisLine = null;
+                String thisLine;
                 boolean ok = true;
                 while ((thisLine = br.readLine()) != null) {
                     String[] spThisLine = thisLine.split("-");
@@ -345,7 +343,7 @@ public class RegistrazioneCentroVaccinale extends javax.swing.JFrame {
                     this.setVisible(false); 
                 }
                 else{
-                    showMessageDialog(null, "Il centro vaccinale con nome"+nomeCentroVaccinale+"è già registrato nel database.");
+                    showMessageDialog(null, "Il centro vaccinale con nome "+nomeCentroVaccinale+" è già registrato nel database.");
                 }
                 
             }catch(Exception e){

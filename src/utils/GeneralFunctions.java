@@ -12,7 +12,12 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import static java.nio.file.LinkOption.NOFOLLOW_LINKS;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import static javax.swing.JOptionPane.showMessageDialog;
 import java.util.regex.Matcher; 
@@ -26,10 +31,11 @@ public class GeneralFunctions {
     public static String CENTRIVACCINALIDIR = WORKINGDIR + File.separator + "centri_vaccinali";
     public static String CITTADINIDIR = WORKINGDIR + File.separator + "cittadini";
     
-    static Pattern onlyCodiceFiscale = Pattern.compile("[a-zA-Z]{6}[0-9]{2}[abcdehlmprstABCDEHLMPRST]{1}[0-9]{2}[a-zA-Z]{1}[0-9]{3}[a-zA-Z]{1}");
+    static Pattern onlyCodiceFiscale = Pattern.compile("^[a-zA-Z]{6}[0-9]{2}[abcdehlmprstABCDEHLMPRST]{1}[0-9]{2}([a-zA-Z]{1}[0-9]{3})[a-zA-Z]{1}$");
     static Pattern onlyLettersPattern = Pattern.compile("[^a-zA-Zàèòìù'\\s]");
     static Pattern onlyNumbersPattern = Pattern.compile("[^0-9]");
     static Pattern onlyDataPattern = Pattern.compile("^(3[01]|[12][0-9]|0[1-9])/(1[0-2]|0[1-9])/[0-9]{4}$");
+    static Pattern onlyPasswordPattern = Pattern.compile("((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$!£&=?_%]).{8,20})");
     
     public static boolean checkDirHierarchy(){
         boolean check = true;
@@ -113,9 +119,17 @@ public class GeneralFunctions {
     
     
     //Controlli per campi di inserimento
-    public static boolean checkData(String p){
-        Matcher matcher = onlyDataPattern.matcher(p);
-        return !matcher.find();
+    public static boolean checkData(String p) throws ParseException{
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");  
+        Date date = new Date();  
+        String str1 = formatter.format(date);
+        try{
+            Date dateNow = formatter.parse(str1);
+            Date insertDate = formatter.parse(p);
+            return !insertDate.after(dateNow);
+        }catch(ParseException e){
+            return false;
+        }
     }
     
     public static boolean checkIdVaccino(String p){
@@ -123,10 +137,9 @@ public class GeneralFunctions {
         return !matcher.find() && p.length() == 16;
     }
     
-    //non funziona
     public static boolean checkCodiceFiscale(String p){
         Matcher matcher = onlyCodiceFiscale.matcher(p);
-        return !matcher.find();
+        return matcher.find();
     }
  
     public static boolean checkProvincia(String p){
@@ -141,7 +154,7 @@ public class GeneralFunctions {
     
     public static boolean checkCompiled(String p){
         Matcher matcher = onlyLettersPattern.matcher(p);
-        return p.trim().length()>3 && !matcher.find();
+        return p.trim().length()>3 && !matcher.find() && p.trim().length() < 41;
     }
     
     public static boolean checkCivico(String p){
