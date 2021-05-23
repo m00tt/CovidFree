@@ -101,7 +101,9 @@ public class GeneralFunctions {
         List<String> retList = new ArrayList();
         String thisLine;
     
-        if(checkDirHierarchy()){
+        if(!checkDirHierarchy()){
+            showMessageDialog(null, "I database risultano corrotti.\nI dati sono stati ripristinati.");
+        }
         try {
                 BufferedReader br = new BufferedReader(new FileReader(CENTRIVACCINALIDIR + File.separator + "CentriVaccinali.dati"));
                 while ((thisLine = br.readLine()) != null) {
@@ -111,12 +113,48 @@ public class GeneralFunctions {
             } catch(IOException e) {
                 showMessageDialog(null, "Errore di lettura del database, riprova.");
             }
-        }else{
-            showMessageDialog(null, "Errore di lettura del database, riprova.");
-        }
+        
         return retList;
     }
     
+    public static List<String> getUniqueList(){
+        List<String> nomeCentriVaccinali = getCentriVaccinaliList();
+        List<String> retList = new ArrayList<>();
+        
+        for(int i=0; i<nomeCentriVaccinali.size(); i++){
+            String path = CENTRIVACCINALIDIR + File.separator + "Vaccinati_"+nomeCentriVaccinali.get(i)+".dati";
+            if(new File(path).exists()){
+                try {
+                    String thisLine;
+                    BufferedReader br = new BufferedReader(new FileReader(path));
+                    while ((thisLine = br.readLine()) != null) {
+                        String[] tmp = thisLine.split("-");
+                        retList.add(tmp[1]);
+                        retList.add(tmp[2]);
+                    }       
+                } catch(IOException e) {
+                    showMessageDialog(null, "Errore di lettura del database, riprova.");
+                }
+            }
+        }
+        
+        if(new File(CITTADINIDIR + File.separator +"Cittadini_Registrati.dati").exists()){
+            
+                try {
+                    String thisLine;
+                    BufferedReader br = new BufferedReader(new FileReader(CITTADINIDIR + File.separator +"Cittadini_Registrati.dati"));
+                    while ((thisLine = br.readLine()) != null) {
+                        String[] tmp = thisLine.split("-");
+                        retList.add(tmp[1]);
+                        retList.add(tmp[2]);
+                    }       
+                } catch(IOException e) {
+                    showMessageDialog(null, "Errore di lettura del database, riprova.");
+                }
+        }
+        
+        return retList;
+    }
     
     //Controlli per campi di inserimento
     public static boolean checkData(String p) throws ParseException{

@@ -81,7 +81,16 @@ public class RegistrazioneCentroVaccinale extends javax.swing.JFrame {
         datiPnl_RegistrazioneCentroVaccinale.setToolTipText("");
 
         name_RegistrazioneCentroVaccinale.setFont(new java.awt.Font("Arial", 2, 11)); // NOI18N
+        name_RegistrazioneCentroVaccinale.setText("Da 3 a 40 caratteri...");
         name_RegistrazioneCentroVaccinale.setToolTipText("");
+        name_RegistrazioneCentroVaccinale.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                name_RegistrazioneCentroVaccinaleFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                name_RegistrazioneCentroVaccinaleFocusLost(evt);
+            }
+        });
         name_RegistrazioneCentroVaccinale.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 name_RegistrazioneCentroVaccinaleActionPerformed(evt);
@@ -92,6 +101,15 @@ public class RegistrazioneCentroVaccinale extends javax.swing.JFrame {
         qualificatore_RegistrazioneCentroVaccinale.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Via", "Viale", "Piazza" }));
 
         via_RegistrazioneCentroVaccinale.setFont(new java.awt.Font("Arial", 2, 11)); // NOI18N
+        via_RegistrazioneCentroVaccinale.setText("Da 3 a 40 caratteri...");
+        via_RegistrazioneCentroVaccinale.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                via_RegistrazioneCentroVaccinaleFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                via_RegistrazioneCentroVaccinaleFocusLost(evt);
+            }
+        });
 
         n_RegistrazioneCentroVaccinale.setFont(new java.awt.Font("Arial", 2, 11)); // NOI18N
         n_RegistrazioneCentroVaccinale.addActionListener(new java.awt.event.ActionListener() {
@@ -104,10 +122,28 @@ public class RegistrazioneCentroVaccinale extends javax.swing.JFrame {
         tipologia_RegistrazioneCentroVaccinale.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ospedaliero", "Aziendale", "Hub" }));
 
         comune_RegistrazioneCentroVaccinale.setFont(new java.awt.Font("Arial", 2, 11)); // NOI18N
+        comune_RegistrazioneCentroVaccinale.setText("Da 3 a 40 caratteri...");
+        comune_RegistrazioneCentroVaccinale.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                comune_RegistrazioneCentroVaccinaleFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                comune_RegistrazioneCentroVaccinaleFocusLost(evt);
+            }
+        });
 
         prov_RegistrazioneCentroVaccinale.setFont(new java.awt.Font("Arial", 2, 11)); // NOI18N
+        prov_RegistrazioneCentroVaccinale.setText("Sigla");
         prov_RegistrazioneCentroVaccinale.setToolTipText("");
         prov_RegistrazioneCentroVaccinale.setPreferredSize(new java.awt.Dimension(32, 30));
+        prov_RegistrazioneCentroVaccinale.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                prov_RegistrazioneCentroVaccinaleFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                prov_RegistrazioneCentroVaccinaleFocusLost(evt);
+            }
+        });
         prov_RegistrazioneCentroVaccinale.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 prov_RegistrazioneCentroVaccinaleActionPerformed(evt);
@@ -363,9 +399,56 @@ public class RegistrazioneCentroVaccinale extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_ann_RegistrazioneCentroVaccinaleActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+    private void name_RegistrazioneCentroVaccinaleFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_name_RegistrazioneCentroVaccinaleFocusGained
+        if(name_RegistrazioneCentroVaccinale.getText().equals("Da 3 a 40 caratteri...")){
+            name_RegistrazioneCentroVaccinale.setText("");
+        }
+    }//GEN-LAST:event_name_RegistrazioneCentroVaccinaleFocusGained
+
+    private void name_RegistrazioneCentroVaccinaleFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_name_RegistrazioneCentroVaccinaleFocusLost
+        if(name_RegistrazioneCentroVaccinale.getText().equals("")){
+            name_RegistrazioneCentroVaccinale.setText("Da 3 a 40 caratteri...");
+        }
+    }//GEN-LAST:event_name_RegistrazioneCentroVaccinaleFocusLost
+
+    private void via_RegistrazioneCentroVaccinaleFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_via_RegistrazioneCentroVaccinaleFocusGained
+        if(via_RegistrazioneCentroVaccinale.getText().equals("Da 3 a 40 caratteri...")){
+            via_RegistrazioneCentroVaccinale.setText("");
+        }
+    }//GEN-LAST:event_via_RegistrazioneCentroVaccinaleFocusGained
+
+    private void via_RegistrazioneCentroVaccinaleFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_via_RegistrazioneCentroVaccinaleFocusLost
+        if(via_RegistrazioneCentroVaccinale.getText().equals("")){
+            via_RegistrazioneCentroVaccinale.setText("Da 3 a 40 caratteri...");
+        }
+    }//GEN-LAST:event_via_RegistrazioneCentroVaccinaleFocusLost
+
+    private void comune_RegistrazioneCentroVaccinaleFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_comune_RegistrazioneCentroVaccinaleFocusGained
+        if(comune_RegistrazioneCentroVaccinale.getText().equals("Da 3 a 40 caratteri...")){
+            comune_RegistrazioneCentroVaccinale.setText("");
+        }
+    }//GEN-LAST:event_comune_RegistrazioneCentroVaccinaleFocusGained
+
+    private void comune_RegistrazioneCentroVaccinaleFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_comune_RegistrazioneCentroVaccinaleFocusLost
+        if(comune_RegistrazioneCentroVaccinale.getText().equals("")){
+            comune_RegistrazioneCentroVaccinale.setText("Da 3 a 40 caratteri...");
+        }
+    }//GEN-LAST:event_comune_RegistrazioneCentroVaccinaleFocusLost
+
+    private void prov_RegistrazioneCentroVaccinaleFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_prov_RegistrazioneCentroVaccinaleFocusGained
+        if(prov_RegistrazioneCentroVaccinale.getText().equals("Sigla")){
+            prov_RegistrazioneCentroVaccinale.setText("");
+        }
+    }//GEN-LAST:event_prov_RegistrazioneCentroVaccinaleFocusGained
+
+    private void prov_RegistrazioneCentroVaccinaleFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_prov_RegistrazioneCentroVaccinaleFocusLost
+        if(prov_RegistrazioneCentroVaccinale.getText().equals("")){
+            prov_RegistrazioneCentroVaccinale.setText("Sigla");
+        }
+    }//GEN-LAST:event_prov_RegistrazioneCentroVaccinaleFocusLost
+
+    
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

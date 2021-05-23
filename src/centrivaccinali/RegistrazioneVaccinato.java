@@ -27,6 +27,7 @@ import static utils.GeneralFunctions.checkData;
 import static utils.GeneralFunctions.checkDirHierarchy;
 import static utils.GeneralFunctions.checkIdVaccino;
 import static utils.GeneralFunctions.getCentriVaccinaliList;
+import static utils.GeneralFunctions.getUniqueList;
 
 public class RegistrazioneVaccinato extends javax.swing.JFrame {
 
@@ -82,6 +83,15 @@ public class RegistrazioneVaccinato extends javax.swing.JFrame {
         datiPnl_RegistrazioneVaccinato.setToolTipText("");
 
         cognome_RegistrazioneVaccinato.setFont(new java.awt.Font("Arial", 2, 11)); // NOI18N
+        cognome_RegistrazioneVaccinato.setText("Da 3 a 40 caratteri...");
+        cognome_RegistrazioneVaccinato.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                cognome_RegistrazioneVaccinatoFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                cognome_RegistrazioneVaccinatoFocusLost(evt);
+            }
+        });
 
         codiceFiscale_RegistrazioneVaccinato.setFont(new java.awt.Font("Arial", 2, 11)); // NOI18N
         codiceFiscale_RegistrazioneVaccinato.setPreferredSize(new java.awt.Dimension(32, 30));
@@ -106,6 +116,15 @@ public class RegistrazioneVaccinato extends javax.swing.JFrame {
         centroVaccinale_RegistrazioneVaccinato.setFont(new java.awt.Font("Arial", 2, 11)); // NOI18N
 
         nome_RegistrazioneVaccinato.setFont(new java.awt.Font("Arial", 2, 11)); // NOI18N
+        nome_RegistrazioneVaccinato.setText("Da 3 a 40 caratteri...");
+        nome_RegistrazioneVaccinato.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                nome_RegistrazioneVaccinatoFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                nome_RegistrazioneVaccinatoFocusLost(evt);
+            }
+        });
         nome_RegistrazioneVaccinato.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nome_RegistrazioneVaccinatoActionPerformed(evt);
@@ -117,12 +136,30 @@ public class RegistrazioneVaccinato extends javax.swing.JFrame {
         vaccino_RegistrazioneVaccinato.setPreferredSize(new java.awt.Dimension(82, 30));
 
         dataVaccino_RegistrazioneVaccinato.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("dd/MM/yyyy"))));
+        dataVaccino_RegistrazioneVaccinato.setText("dd/mm/aaaa");
         dataVaccino_RegistrazioneVaccinato.setToolTipText("");
         dataVaccino_RegistrazioneVaccinato.setFont(new java.awt.Font("Arial", 2, 11)); // NOI18N
         dataVaccino_RegistrazioneVaccinato.setPreferredSize(new java.awt.Dimension(82, 30));
+        dataVaccino_RegistrazioneVaccinato.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                dataVaccino_RegistrazioneVaccinatoFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                dataVaccino_RegistrazioneVaccinatoFocusLost(evt);
+            }
+        });
 
         idVaccino_RegistrazioneVaccinato.setFont(new java.awt.Font("Arial", 2, 11)); // NOI18N
+        idVaccino_RegistrazioneVaccinato.setText("16 cifre");
         idVaccino_RegistrazioneVaccinato.setToolTipText("");
+        idVaccino_RegistrazioneVaccinato.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                idVaccino_RegistrazioneVaccinatoFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                idVaccino_RegistrazioneVaccinatoFocusLost(evt);
+            }
+        });
 
         vaccinoLbl_RegistrazioneVaccinato.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         vaccinoLbl_RegistrazioneVaccinato.setText("Vaccino");
@@ -228,8 +265,8 @@ public class RegistrazioneVaccinato extends javax.swing.JFrame {
             .addGroup(Panel_RegistrazioneVaccinatoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(Panel_RegistrazioneVaccinatoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(datiPnl_RegistrazioneVaccinato, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(titleLbl_RegistrazioneVaccinato, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(datiPnl_RegistrazioneVaccinato, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_RegistrazioneVaccinatoLayout.createSequentialGroup()
                         .addComponent(ann_RegistrazioneVaccinato, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -243,9 +280,9 @@ public class RegistrazioneVaccinato extends javax.swing.JFrame {
                 .addGap(5, 5, 5)
                 .addComponent(datiPnl_RegistrazioneVaccinato, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(Panel_RegistrazioneVaccinatoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(add_RegistrazioneVaccinato, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ann_RegistrazioneVaccinato, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(Panel_RegistrazioneVaccinatoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ann_RegistrazioneVaccinato, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(add_RegistrazioneVaccinato, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -285,7 +322,11 @@ public class RegistrazioneVaccinato extends javax.swing.JFrame {
 
     private void add_RegistrazioneVaccinatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_RegistrazioneVaccinatoActionPerformed
         try {
-            String nomeCentroVaccinale = centroVaccinale_RegistrazioneVaccinato.getSelectedItem().toString();
+            String nomeCentroVaccinale;
+            if(centroVaccinale_RegistrazioneVaccinato.getSelectedItem() == null)
+                nomeCentroVaccinale = "";
+            else
+                nomeCentroVaccinale = centroVaccinale_RegistrazioneVaccinato.getSelectedItem().toString();
             String nomeVaccinato = nome_RegistrazioneVaccinato.getText().strip();
             String cognomeVaccinato = cognome_RegistrazioneVaccinato.getText().strip();
             String codiceFiscaleVaccinato = codiceFiscale_RegistrazioneVaccinato.getText().strip();
@@ -293,8 +334,8 @@ public class RegistrazioneVaccinato extends javax.swing.JFrame {
             String dataVaccino = dataVaccino_RegistrazioneVaccinato.getText().strip();
             String idVaccino = idVaccino_RegistrazioneVaccinato.getText().strip();
             
-            if(nomeCentroVaccinale != null && checkCompiled(nomeVaccinato) && checkCompiled(cognomeVaccinato) && checkCodiceFiscale(codiceFiscaleVaccinato) && checkData(dataVaccino) && checkIdVaccino(idVaccino)){
-                String insert = nomeCentroVaccinale + "-" + nomeVaccinato + "-" + cognomeVaccinato + "-" + codiceFiscaleVaccinato + "-" + nomeVaccino + "-" + dataVaccino + "-" + idVaccino;
+            if(nomeCentroVaccinale != "" && checkCompiled(nomeVaccinato) && checkCompiled(cognomeVaccinato) && checkCodiceFiscale(codiceFiscaleVaccinato) && checkData(dataVaccino) && checkIdVaccino(idVaccino)){
+                String insert = nomeCentroVaccinale + "-" + codiceFiscaleVaccinato + "-" + idVaccino + "-" + nomeVaccinato + "-" + cognomeVaccinato + "-" + nomeVaccino + "-" + dataVaccino;
                 String path = CENTRIVACCINALIDIR + File.separator + "Vaccinati_"+nomeCentroVaccinale+".dati";
                 if(!checkDirHierarchy()){
                     showMessageDialog(null, "I database risultano corrotti.\nI dati sono stati ripristinati.");
@@ -304,14 +345,13 @@ public class RegistrazioneVaccinato extends javax.swing.JFrame {
                     f.createNewFile();
                 }
                 try{
-                    BufferedReader br = new BufferedReader(new FileReader(path));
-                    String thisLine;
-                    boolean ok = true;
-                    while ((thisLine = br.readLine()) != null) {
-                        String[] spThisLine = thisLine.split("-");
-                        if(spThisLine[3].equalsIgnoreCase(codiceFiscaleVaccinato) || spThisLine[6].equals(idVaccino)){
+                    boolean ok = true;            
+                    List<String> toCheckUnique = getUniqueList();
+                    for (int i=0; i<toCheckUnique.size(); i++){
+                        if(toCheckUnique.get(i).equalsIgnoreCase(codiceFiscaleVaccinato) || toCheckUnique.get(i).equalsIgnoreCase(idVaccino)){
                             ok = false;
-                        }
+                            break;
+                        }                        
                     }
                     
                     if(ok)
@@ -346,6 +386,50 @@ public class RegistrazioneVaccinato extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_add_RegistrazioneVaccinatoActionPerformed
+
+    private void nome_RegistrazioneVaccinatoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_nome_RegistrazioneVaccinatoFocusGained
+        if(nome_RegistrazioneVaccinato.getText().equals("Da 3 a 40 caratteri...")){
+            nome_RegistrazioneVaccinato.setText("");
+        }
+    }//GEN-LAST:event_nome_RegistrazioneVaccinatoFocusGained
+
+    private void nome_RegistrazioneVaccinatoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_nome_RegistrazioneVaccinatoFocusLost
+        if(nome_RegistrazioneVaccinato.getText().equals("")){
+            nome_RegistrazioneVaccinato.setText("Da 3 a 40 caratteri...");
+        }
+    }//GEN-LAST:event_nome_RegistrazioneVaccinatoFocusLost
+
+    private void cognome_RegistrazioneVaccinatoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cognome_RegistrazioneVaccinatoFocusGained
+        if(cognome_RegistrazioneVaccinato.getText().equals("Da 3 a 40 caratteri...")){
+            cognome_RegistrazioneVaccinato.setText("");
+        }
+    }//GEN-LAST:event_cognome_RegistrazioneVaccinatoFocusGained
+
+    private void cognome_RegistrazioneVaccinatoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cognome_RegistrazioneVaccinatoFocusLost
+        if(cognome_RegistrazioneVaccinato.getText().equals("")){
+            cognome_RegistrazioneVaccinato.setText("Da 3 a 40 caratteri...");
+        }
+    }//GEN-LAST:event_cognome_RegistrazioneVaccinatoFocusLost
+
+    private void idVaccino_RegistrazioneVaccinatoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_idVaccino_RegistrazioneVaccinatoFocusGained
+        if(idVaccino_RegistrazioneVaccinato.getText().equals("16 cifre")){
+            idVaccino_RegistrazioneVaccinato.setText("");
+        }
+    }//GEN-LAST:event_idVaccino_RegistrazioneVaccinatoFocusGained
+
+    private void idVaccino_RegistrazioneVaccinatoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_idVaccino_RegistrazioneVaccinatoFocusLost
+        if(idVaccino_RegistrazioneVaccinato.getText().equals("")){
+            idVaccino_RegistrazioneVaccinato.setText("16 cifre");
+        }
+    }//GEN-LAST:event_idVaccino_RegistrazioneVaccinatoFocusLost
+
+    private void dataVaccino_RegistrazioneVaccinatoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_dataVaccino_RegistrazioneVaccinatoFocusGained
+
+    }//GEN-LAST:event_dataVaccino_RegistrazioneVaccinatoFocusGained
+
+    private void dataVaccino_RegistrazioneVaccinatoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_dataVaccino_RegistrazioneVaccinatoFocusLost
+
+    }//GEN-LAST:event_dataVaccino_RegistrazioneVaccinatoFocusLost
 
 
     public static void main(String args[]) {

@@ -60,11 +60,11 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="datiPnl_RegistrazioneVaccinato" max="32767" attributes="0"/>
                       <Component id="titleLbl_RegistrazioneVaccinato" alignment="0" max="32767" attributes="0"/>
-                      <Component id="datiPnl_RegistrazioneVaccinato" alignment="1" max="32767" attributes="0"/>
                       <Group type="102" alignment="1" attributes="0">
                           <Component id="ann_RegistrazioneVaccinato" min="-2" pref="95" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
@@ -82,9 +82,9 @@
                   <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
                   <Component id="datiPnl_RegistrazioneVaccinato" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="add_RegistrazioneVaccinato" min="-2" max="-2" attributes="0"/>
-                      <Component id="ann_RegistrazioneVaccinato" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="ann_RegistrazioneVaccinato" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="add_RegistrazioneVaccinato" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -210,7 +210,12 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial" size="11" style="2"/>
                 </Property>
+                <Property name="text" type="java.lang.String" value="Da 3 a 40 caratteri..."/>
               </Properties>
+              <Events>
+                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="cognome_RegistrazioneVaccinatoFocusGained"/>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="cognome_RegistrazioneVaccinatoFocusLost"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="codiceFiscale_RegistrazioneVaccinato">
               <Properties>
@@ -278,8 +283,11 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial" size="11" style="2"/>
                 </Property>
+                <Property name="text" type="java.lang.String" value="Da 3 a 40 caratteri..."/>
               </Properties>
               <Events>
+                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="nome_RegistrazioneVaccinatoFocusGained"/>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="nome_RegistrazioneVaccinatoFocusLost"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nome_RegistrazioneVaccinatoActionPerformed"/>
               </Events>
             </Component>
@@ -309,6 +317,7 @@
                 <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
                   <Format format="dd/MM/yyyy" subtype="-1" type="1"/>
                 </Property>
+                <Property name="text" type="java.lang.String" value="dd/mm/aaaa"/>
                 <Property name="toolTipText" type="java.lang.String" value=""/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial" size="11" style="2"/>
@@ -317,14 +326,23 @@
                   <Dimension value="[82, 30]"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="dataVaccino_RegistrazioneVaccinatoFocusGained"/>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="dataVaccino_RegistrazioneVaccinatoFocusLost"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="idVaccino_RegistrazioneVaccinato">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial" size="11" style="2"/>
                 </Property>
+                <Property name="text" type="java.lang.String" value="16 cifre"/>
                 <Property name="toolTipText" type="java.lang.String" value=""/>
               </Properties>
+              <Events>
+                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="idVaccino_RegistrazioneVaccinatoFocusGained"/>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="idVaccino_RegistrazioneVaccinatoFocusLost"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="vaccinoLbl_RegistrazioneVaccinato">
               <Properties>
