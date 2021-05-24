@@ -348,7 +348,7 @@ public class RegistrazioneVaccinato extends javax.swing.JFrame {
                     boolean ok = true;            
                     List<String> toCheckUnique = getUniqueList();
                     for (int i=0; i<toCheckUnique.size(); i++){
-                        if(toCheckUnique.get(i).equalsIgnoreCase(codiceFiscaleVaccinato) || toCheckUnique.get(i).equalsIgnoreCase(idVaccino)){
+                        if(/*toCheckUnique.get(i).equalsIgnoreCase(codiceFiscaleVaccinato) || */toCheckUnique.get(i).equalsIgnoreCase(idVaccino)){
                             ok = false;
                             break;
                         }                        
