@@ -94,7 +94,7 @@
                       <Component id="centroVaccinalePnl_HomeCentriVaccinali" max="32767" attributes="0"/>
                       <Component id="vaccinatoPnl_HomeCentriVaccinali" alignment="1" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="12" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
