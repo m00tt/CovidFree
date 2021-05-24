@@ -239,7 +239,6 @@
               <Events>
                 <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="name_RegistrazioneCentroVaccinaleFocusGained"/>
                 <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="name_RegistrazioneCentroVaccinaleFocusLost"/>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="name_RegistrazioneCentroVaccinaleActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JComboBox" name="qualificatore_RegistrazioneCentroVaccinale">
@@ -277,9 +276,6 @@
                   <Font name="Arial" size="11" style="2"/>
                 </Property>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="n_RegistrazioneCentroVaccinaleActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JComboBox" name="tipologia_RegistrazioneCentroVaccinale">
               <Properties>
@@ -324,7 +320,6 @@
               <Events>
                 <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="prov_RegistrazioneCentroVaccinaleFocusGained"/>
                 <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="prov_RegistrazioneCentroVaccinaleFocusLost"/>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="prov_RegistrazioneCentroVaccinaleActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="cap_RegistrazioneCentroVaccinale">

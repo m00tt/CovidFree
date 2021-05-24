@@ -136,7 +136,7 @@ public class RegistrazioneVaccinato extends javax.swing.JFrame {
         vaccino_RegistrazioneVaccinato.setPreferredSize(new java.awt.Dimension(82, 30));
 
         dataVaccino_RegistrazioneVaccinato.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("dd/MM/yyyy"))));
-        dataVaccino_RegistrazioneVaccinato.setText("dd/mm/aaaa");
+        dataVaccino_RegistrazioneVaccinato.setText("gg/mm/aaaa");
         dataVaccino_RegistrazioneVaccinato.setToolTipText("");
         dataVaccino_RegistrazioneVaccinato.setFont(new java.awt.Font("Arial", 2, 11)); // NOI18N
         dataVaccino_RegistrazioneVaccinato.setPreferredSize(new java.awt.Dimension(82, 30));
@@ -321,70 +321,7 @@ public class RegistrazioneVaccinato extends javax.swing.JFrame {
     }//GEN-LAST:event_nome_RegistrazioneVaccinatoActionPerformed
 
     private void add_RegistrazioneVaccinatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_RegistrazioneVaccinatoActionPerformed
-        try {
-            String nomeCentroVaccinale;
-            if(centroVaccinale_RegistrazioneVaccinato.getSelectedItem() == null)
-                nomeCentroVaccinale = "";
-            else
-                nomeCentroVaccinale = centroVaccinale_RegistrazioneVaccinato.getSelectedItem().toString();
-            String nomeVaccinato = nome_RegistrazioneVaccinato.getText().strip();
-            String cognomeVaccinato = cognome_RegistrazioneVaccinato.getText().strip();
-            String codiceFiscaleVaccinato = codiceFiscale_RegistrazioneVaccinato.getText().strip();
-            String nomeVaccino = vaccino_RegistrazioneVaccinato.getSelectedItem().toString();
-            String dataVaccino = dataVaccino_RegistrazioneVaccinato.getText().strip();
-            String idVaccino = idVaccino_RegistrazioneVaccinato.getText().strip();
-            
-            if(nomeCentroVaccinale != "" && checkCompiled(nomeVaccinato) && checkCompiled(cognomeVaccinato) && checkCodiceFiscale(codiceFiscaleVaccinato) && checkData(dataVaccino) && checkIdVaccino(idVaccino)){
-                String insert = nomeCentroVaccinale + "-" + codiceFiscaleVaccinato + "-" + idVaccino + "-" + nomeVaccinato + "-" + cognomeVaccinato + "-" + nomeVaccino + "-" + dataVaccino;
-                String path = CENTRIVACCINALIDIR + File.separator + "Vaccinati_"+nomeCentroVaccinale+".dati";
-                if(!checkDirHierarchy()){
-                    showMessageDialog(null, "I database risultano corrotti.\nI dati sono stati ripristinati.");
-                }
-                File f = new File(path);
-                if(!f.exists()){
-                    f.createNewFile();
-                }
-                try{
-                    boolean ok = true;            
-                    List<String> toCheckUnique = getUniqueList();
-                    for (int i=0; i<toCheckUnique.size(); i++){
-                        if(/*toCheckUnique.get(i).equalsIgnoreCase(codiceFiscaleVaccinato) || */toCheckUnique.get(i).equalsIgnoreCase(idVaccino)){
-                            ok = false;
-                            break;
-                        }                        
-                    }
-                    
-                    if(ok)
-                    {
-                        try (FileWriter fw2 = new FileWriter(path, true)) { 
-                            fw2.append(insert+"\n");
-                            showMessageDialog(null, "Vaccinato registrato con successo!");
-                        }catch(HeadlessException | IOException e){
-                            showMessageDialog(null, "Errore in fase di scrittura dei dati, riprova.");
-                        }
-                        
-                        HomeCentriVaccinali homeCentriVaccinali = new HomeCentriVaccinali();
-                        homeCentriVaccinali.setVisible(true);
-                        this.setVisible(false);
-                    }
-                    else{
-                        showMessageDialog(null, "Codice fiscale o ID Vaccino già presenti nel database.");
-                    }
-                    
-                }catch(Exception e){
-                    showMessageDialog(null, "Errore in fase di scrittura dei dati, riprova.");
-                }
-                
-            }
-            else{
-                showMessageDialog(null, "I dati inseriti non sono corretti, prova a ricontrollare.");
-            }
-        } catch (ParseException ex) {
-            showMessageDialog(null, "I dati inseriti non sono corretti, prova a ricontrollare.");
-        } catch (IOException ex) {
-            showMessageDialog(null, "Errore in fase di scrittura dei dati, riprova.");
-        }
-        
+        registraVaccinato();
     }//GEN-LAST:event_add_RegistrazioneVaccinatoActionPerformed
 
     private void nome_RegistrazioneVaccinatoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_nome_RegistrazioneVaccinatoFocusGained
@@ -462,6 +399,72 @@ public class RegistrazioneVaccinato extends javax.swing.JFrame {
                 new RegistrazioneVaccinato().setVisible(true);
             }
         });
+    }
+    
+    private void registraVaccinato(){
+        try {
+            String nomeCentroVaccinale;
+            if(centroVaccinale_RegistrazioneVaccinato.getSelectedItem() == null)
+                nomeCentroVaccinale = "";
+            else
+                nomeCentroVaccinale = centroVaccinale_RegistrazioneVaccinato.getSelectedItem().toString();
+            String nomeVaccinato = nome_RegistrazioneVaccinato.getText().strip();
+            String cognomeVaccinato = cognome_RegistrazioneVaccinato.getText().strip();
+            String codiceFiscaleVaccinato = codiceFiscale_RegistrazioneVaccinato.getText().strip();
+            String nomeVaccino = vaccino_RegistrazioneVaccinato.getSelectedItem().toString();
+            String dataVaccino = dataVaccino_RegistrazioneVaccinato.getText().strip();
+            String idVaccino = idVaccino_RegistrazioneVaccinato.getText().strip();
+            
+            if(nomeCentroVaccinale != "" && checkCompiled(nomeVaccinato) && checkCompiled(cognomeVaccinato) && checkCodiceFiscale(codiceFiscaleVaccinato) && checkData(dataVaccino) && checkIdVaccino(idVaccino)){
+                String insert = nomeCentroVaccinale + "-" + codiceFiscaleVaccinato + "-" + idVaccino + "-" + nomeVaccinato + "-" + cognomeVaccinato + "-" + nomeVaccino + "-" + dataVaccino;
+                String path = CENTRIVACCINALIDIR + File.separator + "Vaccinati_"+nomeCentroVaccinale+".dati";
+                if(!checkDirHierarchy()){
+                    showMessageDialog(null, "I database risultano corrotti.\nI dati sono stati ripristinati.");
+                }
+                File f = new File(path);
+                if(!f.exists()){
+                    f.createNewFile();
+                }
+                try{
+                    boolean ok = true;            
+                    List<String> toCheckUnique = getUniqueList();
+                    for (int i=0; i<toCheckUnique.size(); i++){
+                        if(/*toCheckUnique.get(i).equalsIgnoreCase(codiceFiscaleVaccinato) || */toCheckUnique.get(i).equalsIgnoreCase(idVaccino)){
+                            ok = false;
+                            break;
+                        }                        
+                    }
+                    
+                    if(ok)
+                    {
+                        try (FileWriter fw2 = new FileWriter(path, true)) { 
+                            fw2.append(insert+"\n");
+                            showMessageDialog(null, "Vaccinato registrato con successo!");
+                        }catch(HeadlessException | IOException e){
+                            showMessageDialog(null, "Errore in fase di scrittura dei dati, riprova.");
+                        }
+                        
+                        HomeCentriVaccinali homeCentriVaccinali = new HomeCentriVaccinali();
+                        homeCentriVaccinali.setVisible(true);
+                        this.setVisible(false);
+                    }
+                    else{
+                        showMessageDialog(null, "Codice fiscale o ID Vaccino già presenti nel database.");
+                    }
+                    
+                }catch(Exception e){
+                    showMessageDialog(null, "Errore in fase di scrittura dei dati, riprova.");
+                }
+                
+            }
+            else{
+                showMessageDialog(null, "I dati inseriti non sono corretti, prova a ricontrollare.");
+            }
+        } catch (ParseException ex) {
+            showMessageDialog(null, "I dati inseriti non sono corretti, prova a ricontrollare.");
+        } catch (IOException ex) {
+            showMessageDialog(null, "Errore in fase di scrittura dei dati, riprova.");
+        }
     }
     
     private void fillCentriVaccinali(){
