@@ -1,18 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * 
+ * @author Andrea Mottini 742605 VA
+ * @author Riccardo Bianchi 736701 VA
+ * 
  */
 package cittadini;
 
-import centrivaccinali.HomeCentriVaccinali;
 import java.awt.HeadlessException;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.text.ParseException;
 import java.util.List;
-import java.util.regex.Pattern;
 import static javax.swing.JOptionPane.showMessageDialog;
 import static utils.GeneralFunctions.CITTADINIDIR;
 
@@ -20,6 +18,7 @@ import static utils.GeneralFunctions.checkCompiled;
 import static utils.GeneralFunctions.checkDirHierarchy;
 import static utils.GeneralFunctions.checkIdVaccino;
 import static utils.GeneralFunctions.checkMail;
+import static utils.GeneralFunctions.checkPassword;
 import static utils.GeneralFunctions.getCentriVaccinaliList;
 import static utils.GeneralFunctions.getUniqueList;
 
@@ -29,7 +28,7 @@ import static utils.GeneralFunctions.getUniqueList;
  * 
  */
 public class RegistraCittadini extends javax.swing.JFrame {
-    static Pattern onlyPasswordPattern = Pattern.compile("((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$!£&=?_%]).{8,20})"); //password che deve contenere un numero, un carattere minuscolo, uno maiuscolo e un carattere speciale tra @#$!£&=?_% e deve avere lunghezza min 8 e max 20
+    
 
     public RegistraCittadini() {
         initComponents();
@@ -298,9 +297,6 @@ public class RegistraCittadini extends javax.swing.JFrame {
         registraCittadino();
     }//GEN-LAST:event_add_RegistrazioneCittadinoMouseClicked
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -357,11 +353,11 @@ public class RegistraCittadini extends javax.swing.JFrame {
             String cognomeCittadino= cognome_RegistrazioneCittadino.getText().strip();
             String emailCittadino= email_RegistrazioneCittadino.getText().strip();
             String userID= userId_RegistrazioneCittadino.getText().strip();
-            String passwordCittadino =pwdUsr_RegistrazioneCittadino.toString().strip();
+            String passwordCittadino = new String(pwdUsr_RegistrazioneCittadino.getPassword()).strip();
             String vaccineID = idVaccino_RegistrazioneCittadino.getText().strip();
             
             
-            if (nomeCentroVaccinale != "" && checkCompiled(nomeCittadino)&& checkCompiled(userID) && checkCompiled(cognomeCittadino) && checkIdVaccino(vaccineID) && passwordCittadino.matches(onlyPasswordPattern.toString()) && checkMail(emailCittadino))
+            if (nomeCentroVaccinale != "" && checkCompiled(nomeCittadino)&& checkCompiled(userID) && checkCompiled(cognomeCittadino) && checkIdVaccino(vaccineID) && checkPassword(passwordCittadino) && checkMail(emailCittadino))
             {
                 String insert = nomeCentroVaccinale + "-" + codiceFiscale + "-" + vaccineID + "-" + nomeCittadino + "-" + cognomeCittadino + "-" + emailCittadino + "-" + userID + "-" + passwordCittadino;
                 String path = CITTADINIDIR + File.separator + "Cittadini_registrati.dati";
