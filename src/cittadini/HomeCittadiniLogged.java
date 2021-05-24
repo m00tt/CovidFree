@@ -91,8 +91,8 @@ public class HomeCittadiniLogged extends javax.swing.JFrame {
         searchComune_HomeCittadiniLogged.setHorizontalAlignment(javax.swing.JTextField.LEFT);
 
         cmbSearchType_HomeCittadiniLogged.setBackground(new java.awt.Color(255, 255, 255));
-        cmbSearchType_HomeCittadiniLogged.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        cmbSearchType_HomeCittadiniLogged.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbSearchType_HomeCittadiniLogged.setFont(new java.awt.Font("Arial", 2, 11)); // NOI18N
+        cmbSearchType_HomeCittadiniLogged.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ospedaliero", "Aziendale", "Hub" }));
 
         lblSearchComune_HomeCittadiniLogged.setBackground(new java.awt.Color(255, 255, 255));
         lblSearchComune_HomeCittadiniLogged.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N

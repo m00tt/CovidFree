@@ -60,13 +60,13 @@ public class HomeCittadini extends javax.swing.JFrame {
                 loginBtn_HomeCittadiniMouseClicked(evt);
             }
         });
-        loginBtn_HomeCittadini.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                loginBtn_HomeCittadiniActionPerformed(evt);
-            }
-        });
 
         registerBtn_HomeCittadini.setText("Registrati");
+        registerBtn_HomeCittadini.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                registerBtn_HomeCittadiniMouseClicked(evt);
+            }
+        });
 
         pnl_HomeCittadini.setBackground(new java.awt.Color(255, 255, 255));
         pnl_HomeCittadini.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Centri Vaccinali", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 12))); // NOI18N
@@ -110,8 +110,8 @@ public class HomeCittadini extends javax.swing.JFrame {
         searchComune_HomeCittadini.setHorizontalAlignment(javax.swing.JTextField.LEFT);
 
         cmbSearchType_HomeCittadino.setBackground(new java.awt.Color(255, 255, 255));
-        cmbSearchType_HomeCittadino.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        cmbSearchType_HomeCittadino.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbSearchType_HomeCittadino.setFont(new java.awt.Font("Arial", 2, 11)); // NOI18N
+        cmbSearchType_HomeCittadino.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ospedaliero", "Aziendale", "Hub" }));
 
         lblSearchComune_HomeCittadino.setBackground(new java.awt.Color(255, 255, 255));
         lblSearchComune_HomeCittadino.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -264,25 +264,24 @@ public class HomeCittadini extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void loginBtn_HomeCittadiniMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginBtn_HomeCittadiniMouseClicked
-        // TODO add your handling code here:
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new LoginCittadino().setVisible(true);
-            }
-        });
+       LoginCittadino login = new LoginCittadino();
+       login.setVisible(true);
+       this.setVisible(false);
+        
     }//GEN-LAST:event_loginBtn_HomeCittadiniMouseClicked
-
-    private void loginBtn_HomeCittadiniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtn_HomeCittadiniActionPerformed
-        LoginCittadino login = new LoginCittadino();
-        login.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_loginBtn_HomeCittadiniActionPerformed
 
     private void back_HomeCittadiniMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_back_HomeCittadiniMouseClicked
         CentriVaccinali centrivaccinali = new CentriVaccinali();
         centrivaccinali.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_back_HomeCittadiniMouseClicked
+
+    private void registerBtn_HomeCittadiniMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registerBtn_HomeCittadiniMouseClicked
+        RegistraCittadini reg = new RegistraCittadini();
+        reg.setVisible(true);
+        this.setVisible(false);
+       
+    }//GEN-LAST:event_registerBtn_HomeCittadiniMouseClicked
 
     /**
      * @param args the command line arguments
