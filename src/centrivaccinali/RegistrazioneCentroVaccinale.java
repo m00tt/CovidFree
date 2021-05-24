@@ -10,14 +10,9 @@ package centrivaccinali;
 import java.awt.HeadlessException;
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import static javax.swing.JOptionPane.showMessageDialog;
 import static utils.GeneralFunctions.CENTRIVACCINALIDIR;
@@ -309,36 +304,42 @@ public class RegistrazioneCentroVaccinale extends javax.swing.JFrame {
     }//GEN-LAST:event_add_RegistrazioneCentroVaccinaleActionPerformed
 
     private void ann_RegistrazioneCentroVaccinaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ann_RegistrazioneCentroVaccinaleActionPerformed
+        //Annulla l'operazione e ritorna alla home
         HomeCentriVaccinali homeCentriVaccinali = new HomeCentriVaccinali();
         homeCentriVaccinali.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_ann_RegistrazioneCentroVaccinaleActionPerformed
 
     private void name_RegistrazioneCentroVaccinaleFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_name_RegistrazioneCentroVaccinaleFocusGained
+        //hint per l'inserimento corretto dei dati
         if(name_RegistrazioneCentroVaccinale.getText().equals("Da 3 a 40 caratteri...")){
             name_RegistrazioneCentroVaccinale.setText("");
         }
     }//GEN-LAST:event_name_RegistrazioneCentroVaccinaleFocusGained
 
     private void name_RegistrazioneCentroVaccinaleFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_name_RegistrazioneCentroVaccinaleFocusLost
+        //hint per l'inserimento corretto dei dati
         if(name_RegistrazioneCentroVaccinale.getText().equals("")){
             name_RegistrazioneCentroVaccinale.setText("Da 3 a 40 caratteri...");
         }
     }//GEN-LAST:event_name_RegistrazioneCentroVaccinaleFocusLost
 
     private void via_RegistrazioneCentroVaccinaleFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_via_RegistrazioneCentroVaccinaleFocusGained
+        //hint per l'inserimento corretto dei dati
         if(via_RegistrazioneCentroVaccinale.getText().equals("Da 3 a 40 caratteri...")){
             via_RegistrazioneCentroVaccinale.setText("");
         }
     }//GEN-LAST:event_via_RegistrazioneCentroVaccinaleFocusGained
 
     private void via_RegistrazioneCentroVaccinaleFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_via_RegistrazioneCentroVaccinaleFocusLost
+        //hint per l'inserimento corretto dei dati
         if(via_RegistrazioneCentroVaccinale.getText().equals("")){
             via_RegistrazioneCentroVaccinale.setText("Da 3 a 40 caratteri...");
         }
     }//GEN-LAST:event_via_RegistrazioneCentroVaccinaleFocusLost
 
     private void comune_RegistrazioneCentroVaccinaleFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_comune_RegistrazioneCentroVaccinaleFocusGained
+        //hint per l'inserimento corretto dei dati
         if(comune_RegistrazioneCentroVaccinale.getText().equals("Da 3 a 40 caratteri...")){
             comune_RegistrazioneCentroVaccinale.setText("");
         }
@@ -351,12 +352,14 @@ public class RegistrazioneCentroVaccinale extends javax.swing.JFrame {
     }//GEN-LAST:event_comune_RegistrazioneCentroVaccinaleFocusLost
 
     private void prov_RegistrazioneCentroVaccinaleFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_prov_RegistrazioneCentroVaccinaleFocusGained
+        //hint per l'inserimento corretto dei dati
         if(prov_RegistrazioneCentroVaccinale.getText().equals("Sigla")){
             prov_RegistrazioneCentroVaccinale.setText("");
         }
     }//GEN-LAST:event_prov_RegistrazioneCentroVaccinaleFocusGained
 
     private void prov_RegistrazioneCentroVaccinaleFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_prov_RegistrazioneCentroVaccinaleFocusLost
+        //hint per l'inserimento corretto dei dati
         if(prov_RegistrazioneCentroVaccinale.getText().equals("")){
             prov_RegistrazioneCentroVaccinale.setText("Sigla");
         }
@@ -397,6 +400,7 @@ public class RegistrazioneCentroVaccinale extends javax.swing.JFrame {
         });
     }
     
+    //Funzione di registrazione di un nuovo centro vaccinale
     private void registraCentroVaccinale(){        
         String nomeCentroVaccinale = name_RegistrazioneCentroVaccinale.getText().strip();
         String tipologiaCentroVaccinale = tipologia_RegistrazioneCentroVaccinale.getSelectedItem().toString();

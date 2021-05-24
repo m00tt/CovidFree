@@ -8,19 +8,14 @@
 package centrivaccinali;
 
 import java.awt.HeadlessException;
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.text.ParseException;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import static javax.swing.JOptionPane.showMessageDialog;
 import static utils.GeneralFunctions.CENTRIVACCINALIDIR;
-import static utils.GeneralFunctions.CITTADINIDIR;
 import static utils.GeneralFunctions.checkCodiceFiscale;
 import static utils.GeneralFunctions.checkCompiled;
 import static utils.GeneralFunctions.checkData;
@@ -34,12 +29,10 @@ public class RegistrazioneVaccinato extends javax.swing.JFrame {
     
     public RegistrazioneVaccinato() {
         initComponents();
+        //Aggiunge i centri vaccinali registrati alla combobox
         fillCentriVaccinali();
     }
 
-    /**
-     * This method is called from within the constructor to initialize the form.
-     */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -95,11 +88,6 @@ public class RegistrazioneVaccinato extends javax.swing.JFrame {
 
         codiceFiscale_RegistrazioneVaccinato.setFont(new java.awt.Font("Arial", 2, 11)); // NOI18N
         codiceFiscale_RegistrazioneVaccinato.setPreferredSize(new java.awt.Dimension(32, 30));
-        codiceFiscale_RegistrazioneVaccinato.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                codiceFiscale_RegistrazioneVaccinatoActionPerformed(evt);
-            }
-        });
 
         centroVaccinaleLbl_RegistrazioneVaccinato.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         centroVaccinaleLbl_RegistrazioneVaccinato.setText("Nome Centro Vaccinale");
@@ -125,11 +113,6 @@ public class RegistrazioneVaccinato extends javax.swing.JFrame {
                 nome_RegistrazioneVaccinatoFocusLost(evt);
             }
         });
-        nome_RegistrazioneVaccinato.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nome_RegistrazioneVaccinatoActionPerformed(evt);
-            }
-        });
 
         vaccino_RegistrazioneVaccinato.setFont(new java.awt.Font("Arial", 2, 11)); // NOI18N
         vaccino_RegistrazioneVaccinato.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pfizer", "AstraZeneca", "Moderna", "J&J" }));
@@ -140,14 +123,6 @@ public class RegistrazioneVaccinato extends javax.swing.JFrame {
         dataVaccino_RegistrazioneVaccinato.setToolTipText("");
         dataVaccino_RegistrazioneVaccinato.setFont(new java.awt.Font("Arial", 2, 11)); // NOI18N
         dataVaccino_RegistrazioneVaccinato.setPreferredSize(new java.awt.Dimension(82, 30));
-        dataVaccino_RegistrazioneVaccinato.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                dataVaccino_RegistrazioneVaccinatoFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                dataVaccino_RegistrazioneVaccinatoFocusLost(evt);
-            }
-        });
 
         idVaccino_RegistrazioneVaccinato.setFont(new java.awt.Font("Arial", 2, 11)); // NOI18N
         idVaccino_RegistrazioneVaccinato.setText("16 cifre");
@@ -306,67 +281,58 @@ public class RegistrazioneVaccinato extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void codiceFiscale_RegistrazioneVaccinatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_codiceFiscale_RegistrazioneVaccinatoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_codiceFiscale_RegistrazioneVaccinatoActionPerformed
-
     private void ann_RegistrazioneVaccinatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ann_RegistrazioneVaccinatoActionPerformed
+        //Annulla l'operazione e ritorna in home
         HomeCentriVaccinali homeCentriVaccinali = new HomeCentriVaccinali();
         homeCentriVaccinali.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_ann_RegistrazioneVaccinatoActionPerformed
-
-    private void nome_RegistrazioneVaccinatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nome_RegistrazioneVaccinatoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_nome_RegistrazioneVaccinatoActionPerformed
 
     private void add_RegistrazioneVaccinatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_RegistrazioneVaccinatoActionPerformed
         registraVaccinato();
     }//GEN-LAST:event_add_RegistrazioneVaccinatoActionPerformed
 
     private void nome_RegistrazioneVaccinatoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_nome_RegistrazioneVaccinatoFocusGained
+        //hint per l'inserimento corretto dei dati
         if(nome_RegistrazioneVaccinato.getText().equals("Da 3 a 40 caratteri...")){
             nome_RegistrazioneVaccinato.setText("");
         }
     }//GEN-LAST:event_nome_RegistrazioneVaccinatoFocusGained
 
     private void nome_RegistrazioneVaccinatoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_nome_RegistrazioneVaccinatoFocusLost
+        //hint per l'inserimento corretto dei dati
         if(nome_RegistrazioneVaccinato.getText().equals("")){
             nome_RegistrazioneVaccinato.setText("Da 3 a 40 caratteri...");
         }
     }//GEN-LAST:event_nome_RegistrazioneVaccinatoFocusLost
 
     private void cognome_RegistrazioneVaccinatoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cognome_RegistrazioneVaccinatoFocusGained
+        //hint per l'inserimento corretto dei dati
         if(cognome_RegistrazioneVaccinato.getText().equals("Da 3 a 40 caratteri...")){
             cognome_RegistrazioneVaccinato.setText("");
         }
     }//GEN-LAST:event_cognome_RegistrazioneVaccinatoFocusGained
 
     private void cognome_RegistrazioneVaccinatoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cognome_RegistrazioneVaccinatoFocusLost
+        //hint per l'inserimento corretto dei dati
         if(cognome_RegistrazioneVaccinato.getText().equals("")){
             cognome_RegistrazioneVaccinato.setText("Da 3 a 40 caratteri...");
         }
     }//GEN-LAST:event_cognome_RegistrazioneVaccinatoFocusLost
 
     private void idVaccino_RegistrazioneVaccinatoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_idVaccino_RegistrazioneVaccinatoFocusGained
+        //hint per l'inserimento corretto dei dati
         if(idVaccino_RegistrazioneVaccinato.getText().equals("16 cifre")){
             idVaccino_RegistrazioneVaccinato.setText("");
         }
     }//GEN-LAST:event_idVaccino_RegistrazioneVaccinatoFocusGained
 
     private void idVaccino_RegistrazioneVaccinatoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_idVaccino_RegistrazioneVaccinatoFocusLost
+        //hint per l'inserimento corretto dei dati
         if(idVaccino_RegistrazioneVaccinato.getText().equals("")){
             idVaccino_RegistrazioneVaccinato.setText("16 cifre");
         }
     }//GEN-LAST:event_idVaccino_RegistrazioneVaccinatoFocusLost
-
-    private void dataVaccino_RegistrazioneVaccinatoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_dataVaccino_RegistrazioneVaccinatoFocusGained
-
-    }//GEN-LAST:event_dataVaccino_RegistrazioneVaccinatoFocusGained
-
-    private void dataVaccino_RegistrazioneVaccinatoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_dataVaccino_RegistrazioneVaccinatoFocusLost
-
-    }//GEN-LAST:event_dataVaccino_RegistrazioneVaccinatoFocusLost
 
 
     public static void main(String args[]) {
@@ -401,6 +367,7 @@ public class RegistrazioneVaccinato extends javax.swing.JFrame {
         });
     }
     
+    //Registra un nuovo vaccinato
     private void registraVaccinato(){
         try {
             String nomeCentroVaccinale;
@@ -467,6 +434,7 @@ public class RegistrazioneVaccinato extends javax.swing.JFrame {
         }
     }
     
+    //Recupera la lista di centri vaccinali registrati
     private void fillCentriVaccinali(){
         List<String> centriVaccinali = getCentriVaccinaliList();
                 

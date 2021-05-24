@@ -226,9 +226,6 @@
                   <Dimension value="[32, 30]"/>
                 </Property>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="codiceFiscale_RegistrazioneVaccinatoActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="centroVaccinaleLbl_RegistrazioneVaccinato">
               <Properties>
@@ -288,7 +285,6 @@
               <Events>
                 <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="nome_RegistrazioneVaccinatoFocusGained"/>
                 <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="nome_RegistrazioneVaccinatoFocusLost"/>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nome_RegistrazioneVaccinatoActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JComboBox" name="vaccino_RegistrazioneVaccinato">
@@ -326,10 +322,6 @@
                   <Dimension value="[82, 30]"/>
                 </Property>
               </Properties>
-              <Events>
-                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="dataVaccino_RegistrazioneVaccinatoFocusGained"/>
-                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="dataVaccino_RegistrazioneVaccinatoFocusLost"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="idVaccino_RegistrazioneVaccinato">
               <Properties>
