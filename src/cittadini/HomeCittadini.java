@@ -7,6 +7,8 @@
 
 package cittadini;
 
+import centrivaccinali.CentriVaccinali;
+
 import javax.swing.ImageIcon;
 
 
@@ -39,6 +41,7 @@ public class HomeCittadini extends javax.swing.JFrame {
         lblSearchType_HomeCittadino = new javax.swing.JLabel();
         scrollPnlInfo_HomeCittadini = new javax.swing.JScrollPane();
         infocentriList_HomeCittadini = new javax.swing.JList<>();
+        back_HomeCittadini = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Home Cittadini");
@@ -129,7 +132,7 @@ public class HomeCittadini extends javax.swing.JFrame {
                             .addComponent(lblSearchComune_HomeCittadino)
                             .addComponent(lblSearchType_HomeCittadino))
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(cmbSearchType_HomeCittadino, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(cmbSearchType_HomeCittadino, 0, 209, Short.MAX_VALUE))
                 .addContainerGap())
         );
         pnlSearchComune_HomeCittadinoLayout.setVerticalGroup(
@@ -152,16 +155,16 @@ public class HomeCittadini extends javax.swing.JFrame {
             .addGroup(centriVaccinaliPnl_HomeCittadiniLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(centriVaccinaliPnl_HomeCittadiniLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pnlSearchName_HomeCittadini, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pnlSearchComune_HomeCittadino, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(pnlSearchComune_HomeCittadino, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pnlSearchName_HomeCittadini, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         centriVaccinaliPnl_HomeCittadiniLayout.setVerticalGroup(
             centriVaccinaliPnl_HomeCittadiniLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, centriVaccinaliPnl_HomeCittadiniLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(6, 6, 6)
                 .addComponent(pnlSearchName_HomeCittadini, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(pnlSearchComune_HomeCittadino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -195,6 +198,14 @@ public class HomeCittadini extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        back_HomeCittadini.setBackground(new java.awt.Color(255, 255, 255));
+        back_HomeCittadini.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/back.png"))); // NOI18N
+        back_HomeCittadini.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                back_HomeCittadiniMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout Panel_HomeCittadiniLayout = new javax.swing.GroupLayout(Panel_HomeCittadini);
         Panel_HomeCittadini.setLayout(Panel_HomeCittadiniLayout);
         Panel_HomeCittadiniLayout.setHorizontalGroup(
@@ -211,11 +222,15 @@ public class HomeCittadini extends javax.swing.JFrame {
                             .addComponent(loginBtn_HomeCittadini, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(0, 6, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(Panel_HomeCittadiniLayout.createSequentialGroup()
+                .addComponent(back_HomeCittadini)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         Panel_HomeCittadiniLayout.setVerticalGroup(
             Panel_HomeCittadiniLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Panel_HomeCittadiniLayout.createSequentialGroup()
-                .addContainerGap()
+                .addComponent(back_HomeCittadini)
+                .addGap(0, 0, 0)
                 .addGroup(Panel_HomeCittadiniLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(Panel_HomeCittadiniLayout.createSequentialGroup()
                         .addGap(12, 12, 12)
@@ -252,14 +267,22 @@ public class HomeCittadini extends javax.swing.JFrame {
         // TODO add your handling code here:
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Login().setVisible(true);
+                new LoginCittadino().setVisible(true);
             }
         });
     }//GEN-LAST:event_loginBtn_HomeCittadiniMouseClicked
 
     private void loginBtn_HomeCittadiniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtn_HomeCittadiniActionPerformed
-        // TODO add your handling code here:
+        LoginCittadino login = new LoginCittadino();
+        login.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_loginBtn_HomeCittadiniActionPerformed
+
+    private void back_HomeCittadiniMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_back_HomeCittadiniMouseClicked
+        CentriVaccinali centrivaccinali = new CentriVaccinali();
+        centrivaccinali.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_back_HomeCittadiniMouseClicked
 
     /**
      * @param args the command line arguments
@@ -298,6 +321,7 @@ public class HomeCittadini extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Panel_HomeCittadini;
+    private javax.swing.JButton back_HomeCittadini;
     private javax.swing.JPanel centriVaccinaliPnl_HomeCittadini;
     private javax.swing.JComboBox<String> cmbSearchType_HomeCittadino;
     private javax.swing.JList<String> infocentriList_HomeCittadini;
