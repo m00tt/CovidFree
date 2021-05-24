@@ -346,6 +346,7 @@ public class RegistrazioneCentroVaccinale extends javax.swing.JFrame {
     }//GEN-LAST:event_comune_RegistrazioneCentroVaccinaleFocusGained
 
     private void comune_RegistrazioneCentroVaccinaleFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_comune_RegistrazioneCentroVaccinaleFocusLost
+        //hint per l'inserimento corretto dei dati
         if(comune_RegistrazioneCentroVaccinale.getText().equals("")){
             comune_RegistrazioneCentroVaccinale.setText("Da 3 a 40 caratteri...");
         }

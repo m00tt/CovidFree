@@ -184,6 +184,11 @@ public class HomeCittadiniLogged extends javax.swing.JFrame {
 
         btnEvents_HomeCittadiniLogged.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         btnEvents_HomeCittadiniLogged.setText("Registra Eventi Avversi");
+        btnEvents_HomeCittadiniLogged.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnEvents_HomeCittadiniLoggedMouseClicked(evt);
+            }
+        });
 
         btnLogout_HomeCittadiniLogged.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         btnLogout_HomeCittadiniLogged.setText("Logout");
@@ -263,6 +268,12 @@ public class HomeCittadiniLogged extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnEvents_HomeCittadiniLoggedMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEvents_HomeCittadiniLoggedMouseClicked
+        RegistraEventiAvversi regEvento = new RegistraEventiAvversi();
+        regEvento.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnEvents_HomeCittadiniLoggedMouseClicked
 
     /**
      * @param args the command line arguments

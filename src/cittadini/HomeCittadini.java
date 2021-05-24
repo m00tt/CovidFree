@@ -8,14 +8,22 @@
 package cittadini;
 
 import centrivaccinali.CentriVaccinali;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.util.List;
+import javax.swing.DefaultListModel;
 
 import javax.swing.ImageIcon;
+import javax.swing.JList;
+import javax.swing.ListModel;
+import static utils.GeneralFunctions.getCentriVaccinaliList;
 
 
 public class HomeCittadini extends javax.swing.JFrame {
 
     public HomeCittadini() {
         initComponents();
+        fillCentriVaccinali();
     }
 
     /**
@@ -170,10 +178,10 @@ public class HomeCittadini extends javax.swing.JFrame {
         );
 
         infocentriList_HomeCittadini.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        infocentriList_HomeCittadini.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
+        infocentriList_HomeCittadini.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                infocentriList_HomeCittadiniMouseClicked(evt);
+            }
         });
         scrollPnlInfo_HomeCittadini.setViewportView(infocentriList_HomeCittadini);
 
@@ -220,7 +228,7 @@ public class HomeCittadini extends javax.swing.JFrame {
                         .addGroup(Panel_HomeCittadiniLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(registerBtn_HomeCittadini, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(loginBtn_HomeCittadini, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(0, 6, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(Panel_HomeCittadiniLayout.createSequentialGroup()
                 .addComponent(back_HomeCittadini)
@@ -283,6 +291,15 @@ public class HomeCittadini extends javax.swing.JFrame {
        
     }//GEN-LAST:event_registerBtn_HomeCittadiniMouseClicked
 
+    private void infocentriList_HomeCittadiniMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_infocentriList_HomeCittadiniMouseClicked
+        JList list = (JList)evt.getSource();
+        if (evt.getClickCount() == 2) {
+            VisualizzaCentriVaccinali visualizzacentro = new VisualizzaCentriVaccinali();
+            visualizzacentro.setVisible(true);
+            this.setVisible(false);
+        }
+    }//GEN-LAST:event_infocentriList_HomeCittadiniMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -309,13 +326,30 @@ public class HomeCittadini extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(HomeCittadini.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new HomeCittadini().setVisible(true);
             }
         });
+        
+    }
+    
+    
+    
+    //Recupera la lista di centri vaccinali registrati
+    private void fillCentriVaccinali(){
+        List<String> centriVaccinali = getCentriVaccinaliList();
+        //infocentriList_HomeCittadini.setModel(((ListModel) centriVaccinali));
+        
+        DefaultListModel listModel = new DefaultListModel();
+        for (int i = 0; i < centriVaccinali.size(); i++)
+        {
+            listModel.addElement(centriVaccinali.get(i));
+        }
+        infocentriList_HomeCittadini.setModel(listModel);
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
