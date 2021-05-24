@@ -35,7 +35,7 @@ public class GeneralFunctions {
     static Pattern onlyNumbersPattern = Pattern.compile("[^0-9]"); //Verranno accettati solamente numeri
     static Pattern onlyDataPattern = Pattern.compile("^(3[01]|[12][0-9]|0[1-9])/(1[0-2]|0[1-9])/[0-9]{4}$");  //Formato data dd/mm/aaaa
     static Pattern onlyPasswordPattern = Pattern.compile("((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$!£&=?_%]).{8,20})"); //password che deve contenere un numero, un carattere minuscolo, uno maiuscolo e un carattere speciale tra @#$!£&=?_% e deve avere lunghezza min 8 e max 20
-    
+    static Pattern onlyEmail = Pattern.compile("^[\\\\w!#$%&’*+/=?`{|}~^-]+(?:\\\\.[\\\\w!#$%&’*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\\\.)+[a-zA-Z]{2,6}$"); //Pattern di Verifica indirizzo Email
     
     //Controlla che la gerarchia di file/cartelle per il salvataggio dei dati esista, se non esiste viene creata
     public static boolean checkDirHierarchy(){
@@ -218,6 +218,11 @@ public class GeneralFunctions {
         return p.trim().length()>0 && p.trim().length()<6 && !matcher.find();
     }
     
+    //Verifica Indirizzo Mail
+    public static boolean checkMail(String p){
+        Matcher matcher = onlyEmail.matcher(p);
+        return p.trim().length()>0 && matcher.find();
+    }
     
     
 }

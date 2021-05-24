@@ -5,14 +5,35 @@
  */
 package cittadini;
 
+import centrivaccinali.HomeCentriVaccinali;
+import java.awt.HeadlessException;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.text.ParseException;
+import java.util.List;
+import java.util.regex.Pattern;
+import static javax.swing.JOptionPane.showMessageDialog;
+import static utils.GeneralFunctions.CITTADINIDIR;
+
+import static utils.GeneralFunctions.checkCompiled;
+import static utils.GeneralFunctions.checkDirHierarchy;
+import static utils.GeneralFunctions.checkIdVaccino;
+import static utils.GeneralFunctions.checkMail;
+import static utils.GeneralFunctions.getCentriVaccinaliList;
+import static utils.GeneralFunctions.getUniqueList;
+
+
 /**
  *
  * 
  */
 public class RegistraCittadini extends javax.swing.JFrame {
+    static Pattern onlyPasswordPattern = Pattern.compile("((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$!£&=?_%]).{8,20})"); //password che deve contenere un numero, un carattere minuscolo, uno maiuscolo e un carattere speciale tra @#$!£&=?_% e deve avere lunghezza min 8 e max 20
 
     public RegistraCittadini() {
         initComponents();
+        fillCentriVaccinali();
     }
     
     HomeCittadini homeCittadini = new HomeCittadini();
@@ -44,6 +65,8 @@ public class RegistraCittadini extends javax.swing.JFrame {
         userId_RegistrazioneCittadino = new javax.swing.JTextField();
         email_RegistrazioneCittadino = new javax.swing.JTextField();
         emailLbl_RegistrazioneCittadino = new javax.swing.JLabel();
+        centroVaccinaleLbl_RegistrazioneCittadino = new javax.swing.JLabel();
+        centroVaccinale_RegistrazioneCittadino = new javax.swing.JComboBox<>();
         add_RegistrazioneCittadino = new javax.swing.JButton();
         ann_RegistrazioneCittadino = new javax.swing.JButton();
 
@@ -111,6 +134,11 @@ public class RegistraCittadini extends javax.swing.JFrame {
         emailLbl_RegistrazioneCittadino.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         emailLbl_RegistrazioneCittadino.setText("Indirizzo E-Mail");
 
+        centroVaccinaleLbl_RegistrazioneCittadino.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        centroVaccinaleLbl_RegistrazioneCittadino.setText("Nome Centro Vaccinale");
+
+        centroVaccinale_RegistrazioneCittadino.setFont(new java.awt.Font("Arial", 2, 11)); // NOI18N
+
         javax.swing.GroupLayout datiPnl_RegistrazioneCittadinoLayout = new javax.swing.GroupLayout(datiPnl_RegistrazioneCittadino);
         datiPnl_RegistrazioneCittadino.setLayout(datiPnl_RegistrazioneCittadinoLayout);
         datiPnl_RegistrazioneCittadinoLayout.setHorizontalGroup(
@@ -142,13 +170,21 @@ public class RegistraCittadini extends javax.swing.JFrame {
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(datiPnl_RegistrazioneCittadinoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(idCittadinoLbl_RegistrazioneCittadino)
-                                .addComponent(idVaccino_RegistrazioneCittadino, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(idVaccino_RegistrazioneCittadino, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(datiPnl_RegistrazioneCittadinoLayout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addGroup(datiPnl_RegistrazioneCittadinoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(centroVaccinale_RegistrazioneCittadino, javax.swing.GroupLayout.PREFERRED_SIZE, 405, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(centroVaccinaleLbl_RegistrazioneCittadino))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         datiPnl_RegistrazioneCittadinoLayout.setVerticalGroup(
             datiPnl_RegistrazioneCittadinoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(datiPnl_RegistrazioneCittadinoLayout.createSequentialGroup()
-                .addContainerGap()
+                .addComponent(centroVaccinaleLbl_RegistrazioneCittadino)
+                .addGap(4, 4, 4)
+                .addComponent(centroVaccinale_RegistrazioneCittadino, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(datiPnl_RegistrazioneCittadinoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(datiPnl_RegistrazioneCittadinoLayout.createSequentialGroup()
                         .addGroup(datiPnl_RegistrazioneCittadinoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -176,7 +212,7 @@ public class RegistraCittadini extends javax.swing.JFrame {
                 .addGroup(datiPnl_RegistrazioneCittadinoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(pwdUsr_RegistrazioneCittadino)
                     .addComponent(idVaccino_RegistrazioneCittadino)
-                    .addComponent(userId_RegistrazioneCittadino, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE))
+                    .addComponent(userId_RegistrazioneCittadino))
                 .addContainerGap())
         );
 
@@ -184,6 +220,11 @@ public class RegistraCittadini extends javax.swing.JFrame {
         add_RegistrazioneCittadino.setMaximumSize(new java.awt.Dimension(83, 30));
         add_RegistrazioneCittadino.setMinimumSize(new java.awt.Dimension(83, 30));
         add_RegistrazioneCittadino.setPreferredSize(new java.awt.Dimension(83, 30));
+        add_RegistrazioneCittadino.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                add_RegistrazioneCittadinoMouseClicked(evt);
+            }
+        });
 
         ann_RegistrazioneCittadino.setText("Annulla");
         ann_RegistrazioneCittadino.addActionListener(new java.awt.event.ActionListener() {
@@ -203,7 +244,7 @@ public class RegistraCittadini extends javax.swing.JFrame {
                     .addComponent(datiPnl_RegistrazioneCittadino, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_RegistrazioneCittadinoLayout.createSequentialGroup()
                         .addComponent(ann_RegistrazioneCittadino)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 402, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(add_RegistrazioneCittadino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
@@ -253,6 +294,10 @@ public class RegistraCittadini extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_email_RegistrazioneCittadinoActionPerformed
 
+    private void add_RegistrazioneCittadinoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_add_RegistrazioneCittadinoMouseClicked
+        registraCittadino();
+    }//GEN-LAST:event_add_RegistrazioneCittadinoMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -289,12 +334,91 @@ public class RegistraCittadini extends javax.swing.JFrame {
                 new RegistraCittadini().setVisible(true);
             }
         });
+         
     }
-
+    //Recupera la lista di centri vaccinali registrati
+    private void fillCentriVaccinali(){
+        List<String> centriVaccinali = getCentriVaccinaliList();
+                
+        for(int i=0; i<centriVaccinali.size(); i++){
+            centroVaccinale_RegistrazioneCittadino.addItem(centriVaccinali.get(i));
+        }
+    }
+    
+    private void registraCittadino(){
+    try{    
+            String nomeCentroVaccinale;
+                if(centroVaccinale_RegistrazioneCittadino.getSelectedItem() == null)
+                    nomeCentroVaccinale = "";
+                else
+                    nomeCentroVaccinale = centroVaccinale_RegistrazioneCittadino.getSelectedItem().toString();
+            String nomeCittadino = nome_RegistrazioneCittadino.getText().strip();
+            String codiceFiscale = codiceFiscale_RegistrazioneCittadino.getText().strip();
+            String cognomeCittadino= cognome_RegistrazioneCittadino.getText().strip();
+            String emailCittadino= email_RegistrazioneCittadino.getText().strip();
+            String userID= userId_RegistrazioneCittadino.getText().strip();
+            String passwordCittadino =pwdUsr_RegistrazioneCittadino.toString().strip();
+            String vaccineID = idVaccino_RegistrazioneCittadino.getText().strip();
+            
+            
+            if (nomeCentroVaccinale != "" && checkCompiled(nomeCittadino)&& checkCompiled(userID) && checkCompiled(cognomeCittadino) && checkIdVaccino(vaccineID) && passwordCittadino.matches(onlyPasswordPattern.toString()) && checkMail(emailCittadino))
+            {
+                String insert = nomeCentroVaccinale + "-" + codiceFiscale + "-" + vaccineID + "-" + nomeCittadino + "-" + cognomeCittadino + "-" + emailCittadino + "-" + userID + "-" + passwordCittadino;
+                String path = CITTADINIDIR + File.separator + "Cittadini_registrati.dati";
+                if(!checkDirHierarchy()){
+                    showMessageDialog(null, "I database risultano corrotti.\nI dati sono stati ripristinati.");
+                }
+                File f = new File(path);
+                if(!f.exists()){
+                    f.createNewFile();
+                }
+                try{
+                    boolean ok = true;            
+                    List<String> toCheckUnique = getUniqueList();
+                    for (int i=0; i<toCheckUnique.size(); i++){
+                        if(/*toCheckUnique.get(i).equalsIgnoreCase(codiceFiscaleVaccinato) || */toCheckUnique.get(i).equalsIgnoreCase(vaccineID)){
+                            ok = false;
+                            break;
+                        }                        
+                    }
+                    
+                    if(ok)
+                    {
+                        try (FileWriter fw2 = new FileWriter(path, true)) { 
+                            fw2.append(insert+"\n");
+                            showMessageDialog(null, "Registrazione Cittadino Avvenuta con successo con successo!");
+                        }catch(HeadlessException | IOException e){
+                            showMessageDialog(null, "Errore in fase di scrittura dei dati, riprova.");
+                        }
+                        
+                        HomeCittadini homecittadini = new HomeCittadini();
+                        homecittadini.setVisible(true);
+                        this.setVisible(false);
+                    }
+                    else{
+                        showMessageDialog(null, "Codice fiscale o ID Vaccino già presenti nel database.");
+                    }
+                    
+                }catch(Exception e){
+                    showMessageDialog(null, "Errore in fase di scrittura dei dati, riprova.");
+                }              
+            }
+            else{
+                showMessageDialog(null, "I dati inseriti non sono corretti, prova a ricontrollare.");
+            }
+        } catch (IOException ex) {
+            showMessageDialog(null, "Errore in fase di scrittura dei dati, riprova.");
+        }
+    };
+ 
+   
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Panel_RegistrazioneCittadino;
     private javax.swing.JButton add_RegistrazioneCittadino;
     private javax.swing.JButton ann_RegistrazioneCittadino;
+    private javax.swing.JLabel centroVaccinaleLbl_RegistrazioneCittadino;
+    private javax.swing.JComboBox<String> centroVaccinale_RegistrazioneCittadino;
     private javax.swing.JLabel codiceFiscaleLbl_RegistrazioneCittadino;
     private javax.swing.JTextField codiceFiscale_RegistrazioneCittadino;
     private javax.swing.JLabel cognomeLbl_RegistrazioneCittadino;
