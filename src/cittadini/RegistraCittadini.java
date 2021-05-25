@@ -10,6 +10,7 @@ import java.awt.HeadlessException;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
 import java.util.List;
 import static javax.swing.JOptionPane.showMessageDialog;
 import static utils.GeneralFunctions.CITTADINIDIR;
@@ -19,6 +20,7 @@ import static utils.GeneralFunctions.checkDirHierarchy;
 import static utils.GeneralFunctions.checkIdVaccino;
 import static utils.GeneralFunctions.checkMail;
 import static utils.GeneralFunctions.checkPassword;
+import static utils.GeneralFunctions.cryptPassword;
 import static utils.GeneralFunctions.getCentriVaccinaliList;
 import static utils.GeneralFunctions.getUniqueList;
 
@@ -359,7 +361,14 @@ public class RegistraCittadini extends javax.swing.JFrame {
             
             if (nomeCentroVaccinale != "" && checkCompiled(nomeCittadino)&& checkCompiled(userID) && checkCompiled(cognomeCittadino) && checkIdVaccino(vaccineID) && checkPassword(passwordCittadino) && checkMail(emailCittadino))
             {
-                String insert = nomeCentroVaccinale + "-" + codiceFiscale + "-" + vaccineID + "-" + nomeCittadino + "-" + cognomeCittadino + "-" + emailCittadino + "-" + userID + "-" + passwordCittadino;
+                String x="";
+                try{
+                    x = cryptPassword(passwordCittadino);
+                }
+                catch(NoSuchAlgorithmException e){
+                    //dio
+                }
+                String insert = nomeCentroVaccinale + "-" + codiceFiscale + "-" + vaccineID + "-" + nomeCittadino + "-" + cognomeCittadino + "-" + emailCittadino + "-" + userID + "-" + x;
                 String path = CITTADINIDIR + File.separator + "Cittadini_registrati.dati";
                 if(!checkDirHierarchy()){
                     showMessageDialog(null, "I database risultano corrotti.\nI dati sono stati ripristinati.");

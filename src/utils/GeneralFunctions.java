@@ -10,6 +10,8 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -230,6 +232,20 @@ public class GeneralFunctions {
         return matcher.find();
     }
     
+    public static String cryptPassword(String p) throws NoSuchAlgorithmException{
+        try{
+            MessageDigest messageDigest = MessageDigest.getInstance("SHA-256");
+            String stringHash = new String(messageDigest.digest());
+            return stringHash;
+        }
+        catch(NoSuchAlgorithmException e){
+            showMessageDialog(null, "Errore crypt password");
+            return "Err";
+        }
+        
+        //messageDigest.update(stringToHash.getBytes());
+          
+    }
     
 }
 
