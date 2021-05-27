@@ -212,15 +212,17 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial" size="11" style="2"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Cognome"/>
+                <Property name="text" type="java.lang.String" value="Da 3 a 40 caratteri..."/>
               </Properties>
+              <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="cognome_RegistrazioneCittadinoFocusLost"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="codiceFiscale_RegistrazioneCittadino">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial" size="11" style="2"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Codice fiscale"/>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[32, 30]"/>
                 </Property>
@@ -258,8 +260,12 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial" size="11" style="2"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Nome"/>
+                <Property name="text" type="java.lang.String" value="Da 3 a 40 caratteri..."/>
               </Properties>
+              <Events>
+                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="nome_RegistrazioneCittadinoFocusGained"/>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="nome_RegistrazioneCittadinoFocusLost"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="idVaccino_RegistrazioneCittadino">
               <Properties>
@@ -306,13 +312,14 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial" size="11" style="2"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Indirizzo Email"/>
+                <Property name="text" type="java.lang.String" value="Da 3 a 40 caratteri..."/>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[32, 30]"/>
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="email_RegistrazioneCittadinoActionPerformed"/>
+                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="email_RegistrazioneCittadinoFocusGained"/>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="email_RegistrazioneCittadinoFocusLost"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="emailLbl_RegistrazioneCittadino">

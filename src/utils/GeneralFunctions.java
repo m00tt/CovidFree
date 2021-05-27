@@ -10,6 +10,8 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.math.BigInteger;
+import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.text.ParseException;
@@ -232,19 +234,24 @@ public class GeneralFunctions {
         return matcher.find();
     }
     
-    public static String cryptPassword(String p) throws NoSuchAlgorithmException{
-        try{
-            MessageDigest messageDigest = MessageDigest.getInstance("SHA-256");
-            String stringHash = new String(messageDigest.digest());
-            return stringHash;
-        }
-        catch(NoSuchAlgorithmException e){
-            showMessageDialog(null, "Errore crypt password");
-            return "Err";
-        }
-        
-        //messageDigest.update(stringToHash.getBytes());
-          
+    public static byte[] getSHA(String input) throws NoSuchAlgorithmException
+    { 
+        MessageDigest md = MessageDigest.getInstance("SHA-256"); 
+        return md.digest(input.getBytes(StandardCharsets.UTF_8)); 
+    }
+    
+    public static String toHexString(byte[] hash)
+    {
+        BigInteger number = new BigInteger(1, hash); 
+  
+        StringBuilder hexString = new StringBuilder(number.toString(16)); 
+
+        while (hexString.length() < 32) 
+        { 
+            hexString.insert(0, '0'); 
+        } 
+  
+        return hexString.toString(); 
     }
     
 }

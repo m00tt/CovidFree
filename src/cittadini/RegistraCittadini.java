@@ -12,6 +12,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import static javax.swing.JOptionPane.showMessageDialog;
 import static utils.GeneralFunctions.CITTADINIDIR;
 
@@ -20,9 +22,10 @@ import static utils.GeneralFunctions.checkDirHierarchy;
 import static utils.GeneralFunctions.checkIdVaccino;
 import static utils.GeneralFunctions.checkMail;
 import static utils.GeneralFunctions.checkPassword;
-import static utils.GeneralFunctions.cryptPassword;
+import static utils.GeneralFunctions.getSHA;
 import static utils.GeneralFunctions.getCentriVaccinaliList;
 import static utils.GeneralFunctions.getUniqueList;
+import static utils.GeneralFunctions.toHexString;
 
 
 /**
@@ -85,10 +88,14 @@ public class RegistraCittadini extends javax.swing.JFrame {
         datiPnl_RegistrazioneCittadino.setToolTipText("");
 
         cognome_RegistrazioneCittadino.setFont(new java.awt.Font("Arial", 2, 11)); // NOI18N
-        cognome_RegistrazioneCittadino.setText("Cognome");
+        cognome_RegistrazioneCittadino.setText("Da 3 a 40 caratteri...");
+        cognome_RegistrazioneCittadino.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                cognome_RegistrazioneCittadinoFocusLost(evt);
+            }
+        });
 
         codiceFiscale_RegistrazioneCittadino.setFont(new java.awt.Font("Arial", 2, 11)); // NOI18N
-        codiceFiscale_RegistrazioneCittadino.setText("Codice fiscale");
         codiceFiscale_RegistrazioneCittadino.setPreferredSize(new java.awt.Dimension(32, 30));
         codiceFiscale_RegistrazioneCittadino.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -106,7 +113,15 @@ public class RegistraCittadini extends javax.swing.JFrame {
         codiceFiscaleLbl_RegistrazioneCittadino.setText("Codice fiscale");
 
         nome_RegistrazioneCittadino.setFont(new java.awt.Font("Arial", 2, 11)); // NOI18N
-        nome_RegistrazioneCittadino.setText("Nome");
+        nome_RegistrazioneCittadino.setText("Da 3 a 40 caratteri...");
+        nome_RegistrazioneCittadino.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                nome_RegistrazioneCittadinoFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                nome_RegistrazioneCittadinoFocusLost(evt);
+            }
+        });
 
         idVaccino_RegistrazioneCittadino.setFont(new java.awt.Font("Arial", 2, 11)); // NOI18N
         idVaccino_RegistrazioneCittadino.setText("ID vaccino");
@@ -124,11 +139,14 @@ public class RegistraCittadini extends javax.swing.JFrame {
         pwdUsr_RegistrazioneCittadino.setText("jPasswordField1");
 
         email_RegistrazioneCittadino.setFont(new java.awt.Font("Arial", 2, 11)); // NOI18N
-        email_RegistrazioneCittadino.setText("Indirizzo Email");
+        email_RegistrazioneCittadino.setText("Da 3 a 40 caratteri...");
         email_RegistrazioneCittadino.setPreferredSize(new java.awt.Dimension(32, 30));
-        email_RegistrazioneCittadino.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                email_RegistrazioneCittadinoActionPerformed(evt);
+        email_RegistrazioneCittadino.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                email_RegistrazioneCittadinoFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                email_RegistrazioneCittadinoFocusLost(evt);
             }
         });
 
@@ -291,14 +309,55 @@ public class RegistraCittadini extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_ann_RegistrazioneCittadinoActionPerformed
 
-    private void email_RegistrazioneCittadinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_email_RegistrazioneCittadinoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_email_RegistrazioneCittadinoActionPerformed
-
     private void add_RegistrazioneCittadinoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_add_RegistrazioneCittadinoMouseClicked
-        registraCittadino();
+        try {
+            registraCittadino();
+        } catch (NoSuchAlgorithmException ex) {
+            Logger.getLogger(RegistraCittadini.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_add_RegistrazioneCittadinoMouseClicked
 
+    private void nome_RegistrazioneCittadinoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_nome_RegistrazioneCittadinoFocusGained
+        if(nome_RegistrazioneCittadino.getText().equals("Da 3 a 40 caratteri...")){
+            nome_RegistrazioneCittadino.setText("");
+        }
+    }//GEN-LAST:event_nome_RegistrazioneCittadinoFocusGained
+
+    private void cognome_RegistrazioneCittadinoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cognome_RegistrazioneCittadinoFocusLost
+       if(cognome_RegistrazioneCittadino.getText().equals("")){
+            cognome_RegistrazioneCittadino.setText("Da 3 a 40 caratteri...");
+        }
+    }//GEN-LAST:event_cognome_RegistrazioneCittadinoFocusLost
+
+    
+    
+    private void email_RegistrazioneCittadinoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_email_RegistrazioneCittadinoFocusGained
+        if(email_RegistrazioneCittadino.getText().equals("Inserisci una mail valida...")){
+            email_RegistrazioneCittadino.setText("");
+        }
+    }//GEN-LAST:event_email_RegistrazioneCittadinoFocusGained
+
+    private void email_RegistrazioneCittadinoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_email_RegistrazioneCittadinoFocusLost
+        if(email_RegistrazioneCittadino.getText().equals("")){
+            email_RegistrazioneCittadino.setText("Inserisci una mail valida...");
+        }
+    }//GEN-LAST:event_email_RegistrazioneCittadinoFocusLost
+
+    private void nome_RegistrazioneCittadinoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_nome_RegistrazioneCittadinoFocusLost
+        if(nome_RegistrazioneCittadino.getText().equals("")){
+            nome_RegistrazioneCittadino.setText("Da 3 a 40 caratteri...");
+        }
+    }//GEN-LAST:event_nome_RegistrazioneCittadinoFocusLost
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -343,7 +402,7 @@ public class RegistraCittadini extends javax.swing.JFrame {
         }
     }
     
-    private void registraCittadino(){
+    private void registraCittadino() throws NoSuchAlgorithmException{
     try{    
             String nomeCentroVaccinale;
                 if(centroVaccinale_RegistrazioneCittadino.getSelectedItem() == null)
@@ -355,20 +414,13 @@ public class RegistraCittadini extends javax.swing.JFrame {
             String cognomeCittadino= cognome_RegistrazioneCittadino.getText().strip();
             String emailCittadino= email_RegistrazioneCittadino.getText().strip();
             String userID= userId_RegistrazioneCittadino.getText().strip();
-            String passwordCittadino = new String(pwdUsr_RegistrazioneCittadino.getPassword()).strip();
+            String passwordCittadino = new String(pwdUsr_RegistrazioneCittadino.getPassword());
             String vaccineID = idVaccino_RegistrazioneCittadino.getText().strip();
             
             
             if (nomeCentroVaccinale != "" && checkCompiled(nomeCittadino)&& checkCompiled(userID) && checkCompiled(cognomeCittadino) && checkIdVaccino(vaccineID) && checkPassword(passwordCittadino) && checkMail(emailCittadino))
             {
-                String x="";
-                try{
-                    x = cryptPassword(passwordCittadino);
-                }
-                catch(NoSuchAlgorithmException e){
-                    //dio
-                }
-                String insert = nomeCentroVaccinale + "-" + codiceFiscale + "-" + vaccineID + "-" + nomeCittadino + "-" + cognomeCittadino + "-" + emailCittadino + "-" + userID + "-" + x;
+                String insert = nomeCentroVaccinale + "-" + codiceFiscale + "-" + vaccineID + "-" + nomeCittadino + "-" + cognomeCittadino + "-" + emailCittadino + "-" + userID + "-" + toHexString(getSHA(passwordCittadino));
                 String path = CITTADINIDIR + File.separator + "Cittadini_registrati.dati";
                 if(!checkDirHierarchy()){
                     showMessageDialog(null, "I database risultano corrotti.\nI dati sono stati ripristinati.");
