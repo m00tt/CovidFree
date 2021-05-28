@@ -90,13 +90,25 @@ public class RegistraCittadini extends javax.swing.JFrame {
         cognome_RegistrazioneCittadino.setFont(new java.awt.Font("Arial", 2, 11)); // NOI18N
         cognome_RegistrazioneCittadino.setText("Da 3 a 40 caratteri...");
         cognome_RegistrazioneCittadino.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                cognome_RegistrazioneCittadinoFocusGained(evt);
+            }
             public void focusLost(java.awt.event.FocusEvent evt) {
                 cognome_RegistrazioneCittadinoFocusLost(evt);
             }
         });
 
         codiceFiscale_RegistrazioneCittadino.setFont(new java.awt.Font("Arial", 2, 11)); // NOI18N
+        codiceFiscale_RegistrazioneCittadino.setText("Inserisci Codice Fiscale...");
         codiceFiscale_RegistrazioneCittadino.setPreferredSize(new java.awt.Dimension(32, 30));
+        codiceFiscale_RegistrazioneCittadino.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                codiceFiscale_RegistrazioneCittadinoFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                codiceFiscale_RegistrazioneCittadinoFocusLost(evt);
+            }
+        });
         codiceFiscale_RegistrazioneCittadino.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 codiceFiscale_RegistrazioneCittadinoActionPerformed(evt);
@@ -124,7 +136,15 @@ public class RegistraCittadini extends javax.swing.JFrame {
         });
 
         idVaccino_RegistrazioneCittadino.setFont(new java.awt.Font("Arial", 2, 11)); // NOI18N
-        idVaccino_RegistrazioneCittadino.setText("ID vaccino");
+        idVaccino_RegistrazioneCittadino.setText("ID Vaccino...");
+        idVaccino_RegistrazioneCittadino.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                idVaccino_RegistrazioneCittadinoFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                idVaccino_RegistrazioneCittadinoFocusLost(evt);
+            }
+        });
 
         usrnameLbl_RegistrazioneCittadino.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         usrnameLbl_RegistrazioneCittadino.setText("User ID");
@@ -137,9 +157,25 @@ public class RegistraCittadini extends javax.swing.JFrame {
         idCittadinoLbl_RegistrazioneCittadino.setToolTipText("");
 
         pwdUsr_RegistrazioneCittadino.setText("jPasswordField1");
+        pwdUsr_RegistrazioneCittadino.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                pwdUsr_RegistrazioneCittadinoFocusGained(evt);
+            }
+        });
+
+        userId_RegistrazioneCittadino.setFont(new java.awt.Font("Arial", 2, 11)); // NOI18N
+        userId_RegistrazioneCittadino.setText("Nome Utente...");
+        userId_RegistrazioneCittadino.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                userId_RegistrazioneCittadinoFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                userId_RegistrazioneCittadinoFocusLost(evt);
+            }
+        });
 
         email_RegistrazioneCittadino.setFont(new java.awt.Font("Arial", 2, 11)); // NOI18N
-        email_RegistrazioneCittadino.setText("Da 3 a 40 caratteri...");
+        email_RegistrazioneCittadino.setText("Inserisci una mail valida...");
         email_RegistrazioneCittadino.setPreferredSize(new java.awt.Dimension(32, 30));
         email_RegistrazioneCittadino.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -317,6 +353,7 @@ public class RegistraCittadini extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_add_RegistrazioneCittadinoMouseClicked
 
+    
     private void nome_RegistrazioneCittadinoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_nome_RegistrazioneCittadinoFocusGained
         if(nome_RegistrazioneCittadino.getText().equals("Da 3 a 40 caratteri...")){
             nome_RegistrazioneCittadino.setText("");
@@ -329,8 +366,7 @@ public class RegistraCittadini extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_cognome_RegistrazioneCittadinoFocusLost
 
-    
-    
+   
     private void email_RegistrazioneCittadinoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_email_RegistrazioneCittadinoFocusGained
         if(email_RegistrazioneCittadino.getText().equals("Inserisci una mail valida...")){
             email_RegistrazioneCittadino.setText("");
@@ -343,12 +379,61 @@ public class RegistraCittadini extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_email_RegistrazioneCittadinoFocusLost
 
+    
     private void nome_RegistrazioneCittadinoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_nome_RegistrazioneCittadinoFocusLost
         if(nome_RegistrazioneCittadino.getText().equals("")){
             nome_RegistrazioneCittadino.setText("Da 3 a 40 caratteri...");
         }
     }//GEN-LAST:event_nome_RegistrazioneCittadinoFocusLost
 
+    private void codiceFiscale_RegistrazioneCittadinoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_codiceFiscale_RegistrazioneCittadinoFocusGained
+       if (codiceFiscale_RegistrazioneCittadino.getText().equals("Inserisci Codice Fiscale...")){
+           codiceFiscale_RegistrazioneCittadino.setText("");
+       }
+    }//GEN-LAST:event_codiceFiscale_RegistrazioneCittadinoFocusGained
+
+    private void codiceFiscale_RegistrazioneCittadinoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_codiceFiscale_RegistrazioneCittadinoFocusLost
+        if (codiceFiscale_RegistrazioneCittadino.getText().equals("")){
+           codiceFiscale_RegistrazioneCittadino.setText("Inserisci Codice Fiscale...");
+        }
+    }//GEN-LAST:event_codiceFiscale_RegistrazioneCittadinoFocusLost
+
+    private void userId_RegistrazioneCittadinoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_userId_RegistrazioneCittadinoFocusGained
+     if (userId_RegistrazioneCittadino.getText().equals("Nome Utente...")){
+         userId_RegistrazioneCittadino.setText("");
+     }
+    }//GEN-LAST:event_userId_RegistrazioneCittadinoFocusGained
+
+    private void userId_RegistrazioneCittadinoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_userId_RegistrazioneCittadinoFocusLost
+        if (userId_RegistrazioneCittadino.getText().equals("")){
+         userId_RegistrazioneCittadino.setText("Nome Utente...");
+     }
+    }//GEN-LAST:event_userId_RegistrazioneCittadinoFocusLost
+
+    private void idVaccino_RegistrazioneCittadinoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_idVaccino_RegistrazioneCittadinoFocusGained
+        if (idVaccino_RegistrazioneCittadino.getText().equals("ID Vaccino...")){
+         idVaccino_RegistrazioneCittadino.setText("");
+     }
+    }//GEN-LAST:event_idVaccino_RegistrazioneCittadinoFocusGained
+
+    private void idVaccino_RegistrazioneCittadinoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_idVaccino_RegistrazioneCittadinoFocusLost
+        if (idVaccino_RegistrazioneCittadino.getText().equals("")){
+         idVaccino_RegistrazioneCittadino.setText("ID Vaccino...");
+     }
+    }//GEN-LAST:event_idVaccino_RegistrazioneCittadinoFocusLost
+
+    private void cognome_RegistrazioneCittadinoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cognome_RegistrazioneCittadinoFocusGained
+        if(cognome_RegistrazioneCittadino.getText().equals("Da 3 a 40 caratteri...")){
+            cognome_RegistrazioneCittadino.setText("");
+        }
+    }//GEN-LAST:event_cognome_RegistrazioneCittadinoFocusGained
+
+    private void pwdUsr_RegistrazioneCittadinoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_pwdUsr_RegistrazioneCittadinoFocusGained
+        pwdUsr_RegistrazioneCittadino.setText("");
+       
+    }//GEN-LAST:event_pwdUsr_RegistrazioneCittadinoFocusGained
+
+    
     
     
     
@@ -443,7 +528,7 @@ public class RegistraCittadini extends javax.swing.JFrame {
                     {
                         try (FileWriter fw2 = new FileWriter(path, true)) { 
                             fw2.append(insert+"\n");
-                            showMessageDialog(null, "Registrazione Cittadino Avvenuta con successo con successo!");
+                            showMessageDialog(null, "Registrazione Cittadino Avvenuta con successo!");
                         }catch(HeadlessException | IOException e){
                             showMessageDialog(null, "Errore in fase di scrittura dei dati, riprova.");
                         }

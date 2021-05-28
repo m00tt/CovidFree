@@ -27,9 +27,9 @@ public class LoginCittadino extends javax.swing.JFrame {
         Panel_Login = new javax.swing.JPanel();
         title_Login = new javax.swing.JLabel();
         datiPnl_AccessoCittadino = new javax.swing.JPanel();
-        emailLabel_Login = new javax.swing.JLabel();
+        usrIDLabel_Login = new javax.swing.JLabel();
         passwordLabel_Login = new javax.swing.JLabel();
-        emailField_Login = new javax.swing.JTextField();
+        usrIDField_Login = new javax.swing.JTextField();
         pwdField_Login = new javax.swing.JPasswordField();
         accediBtn_Login = new javax.swing.JButton();
         indietroBtn_Login = new javax.swing.JButton();
@@ -52,21 +52,20 @@ public class LoginCittadino extends javax.swing.JFrame {
         datiPnl_AccessoCittadino.setBorder(javax.swing.BorderFactory.createTitledBorder(null, " Inserisci i dati ", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 12))); // NOI18N
         datiPnl_AccessoCittadino.setToolTipText("");
 
-        emailLabel_Login.setText("User ID");
+        usrIDLabel_Login.setText("User ID");
 
         passwordLabel_Login.setText("Password");
 
-        emailField_Login.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        emailField_Login.setText("Inserisci il tuo User ID");
-        emailField_Login.setDisabledTextColor(new java.awt.Color(255, 255, 255));
-        emailField_Login.addFocusListener(new java.awt.event.FocusAdapter() {
+        usrIDField_Login.setFont(new java.awt.Font("Arial", 2, 11)); // NOI18N
+        usrIDField_Login.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        usrIDField_Login.setText("Inserisci il tuo User ID...");
+        usrIDField_Login.setDisabledTextColor(new java.awt.Color(255, 255, 255));
+        usrIDField_Login.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                emailField_LoginFocusGained(evt);
+                usrIDField_LoginFocusGained(evt);
             }
-        });
-        emailField_Login.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                emailField_LoginActionPerformed(evt);
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                usrIDField_LoginFocusLost(evt);
             }
         });
 
@@ -87,38 +86,40 @@ public class LoginCittadino extends javax.swing.JFrame {
         datiPnl_AccessoCittadinoLayout.setHorizontalGroup(
             datiPnl_AccessoCittadinoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, datiPnl_AccessoCittadinoLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(datiPnl_AccessoCittadinoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(emailField_Login, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pwdField_Login, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(53, 53, 53)
+                .addGroup(datiPnl_AccessoCittadinoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(datiPnl_AccessoCittadinoLayout.createSequentialGroup()
+                        .addComponent(passwordLabel_Login)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(pwdField_Login, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(datiPnl_AccessoCittadinoLayout.createSequentialGroup()
+                        .addComponent(usrIDLabel_Login)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(usrIDField_Login, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(56, 56, 56))
             .addGroup(datiPnl_AccessoCittadinoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(datiPnl_AccessoCittadinoLayout.createSequentialGroup()
                     .addGap(51, 51, 51)
-                    .addGroup(datiPnl_AccessoCittadinoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(datiPnl_AccessoCittadinoLayout.createSequentialGroup()
-                            .addComponent(indietroBtn_Login)
-                            .addGap(199, 199, 199)
-                            .addComponent(accediBtn_Login))
-                        .addComponent(emailLabel_Login)
-                        .addComponent(passwordLabel_Login))
+                    .addComponent(indietroBtn_Login)
+                    .addGap(199, 199, 199)
+                    .addComponent(accediBtn_Login)
                     .addContainerGap(62, Short.MAX_VALUE)))
         );
         datiPnl_AccessoCittadinoLayout.setVerticalGroup(
             datiPnl_AccessoCittadinoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(datiPnl_AccessoCittadinoLayout.createSequentialGroup()
-                .addGap(48, 48, 48)
-                .addComponent(emailField_Login, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addGroup(datiPnl_AccessoCittadinoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(usrIDLabel_Login)
+                    .addComponent(usrIDField_Login, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(pwdField_Login, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(127, Short.MAX_VALUE))
+                .addGroup(datiPnl_AccessoCittadinoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(passwordLabel_Login)
+                    .addComponent(pwdField_Login, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(155, Short.MAX_VALUE))
             .addGroup(datiPnl_AccessoCittadinoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(datiPnl_AccessoCittadinoLayout.createSequentialGroup()
-                    .addGap(52, 52, 52)
-                    .addComponent(emailLabel_Login)
-                    .addGap(18, 18, 18)
-                    .addComponent(passwordLabel_Login)
-                    .addGap(55, 55, 55)
+                    .addGap(157, 157, 157)
                     .addGroup(datiPnl_AccessoCittadinoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(indietroBtn_Login)
                         .addComponent(accediBtn_Login))
@@ -169,14 +170,17 @@ public class LoginCittadino extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_indietroBtn_LoginActionPerformed
 
-    private void emailField_LoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailField_LoginActionPerformed
-          
-    }//GEN-LAST:event_emailField_LoginActionPerformed
+    private void usrIDField_LoginFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_usrIDField_LoginFocusGained
+        if (usrIDField_Login.getText().equals("Inserisci il tuo User ID...")){
+            usrIDField_Login.setText("");
+        }
+    }//GEN-LAST:event_usrIDField_LoginFocusGained
 
-    private void emailField_LoginFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_emailField_LoginFocusGained
-        // TODO add your handling code here:
-        emailField_Login.setText("");
-    }//GEN-LAST:event_emailField_LoginFocusGained
+    private void usrIDField_LoginFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_usrIDField_LoginFocusLost
+        if (usrIDField_Login.getText().equals("")){
+            usrIDField_Login.setText("Inserisci il tuo User ID...");
+        }
+    }//GEN-LAST:event_usrIDField_LoginFocusLost
 
     /**
      * @param args the command line arguments
@@ -218,11 +222,11 @@ public class LoginCittadino extends javax.swing.JFrame {
     private javax.swing.JPanel Panel_Login;
     private javax.swing.JButton accediBtn_Login;
     private javax.swing.JPanel datiPnl_AccessoCittadino;
-    private javax.swing.JTextField emailField_Login;
-    private javax.swing.JLabel emailLabel_Login;
     private javax.swing.JButton indietroBtn_Login;
     private javax.swing.JLabel passwordLabel_Login;
     private javax.swing.JPasswordField pwdField_Login;
     private javax.swing.JLabel title_Login;
+    private javax.swing.JTextField usrIDField_Login;
+    private javax.swing.JLabel usrIDLabel_Login;
     // End of variables declaration//GEN-END:variables
 }
