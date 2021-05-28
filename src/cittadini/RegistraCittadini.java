@@ -518,7 +518,7 @@ public class RegistraCittadini extends javax.swing.JFrame {
                     boolean ok = true;            
                     List<String> toCheckUnique = getUniqueList();
                     for (int i=0; i<toCheckUnique.size(); i++){
-                        if(/*toCheckUnique.get(i).equalsIgnoreCase(codiceFiscaleVaccinato) || */toCheckUnique.get(i).equalsIgnoreCase(vaccineID)){
+                        if(toCheckUnique.get(i).equalsIgnoreCase(userID) || toCheckUnique.get(i).equalsIgnoreCase(vaccineID)){
                             ok = false;
                             break;
                         }                        
@@ -538,7 +538,7 @@ public class RegistraCittadini extends javax.swing.JFrame {
                         this.setVisible(false);
                     }
                     else{
-                        showMessageDialog(null, "Codice fiscale o ID Vaccino già presenti nel database.");
+                        showMessageDialog(null, "UserID o ID Vaccino già presenti nel database.");
                     }
                     
                 }catch(Exception e){

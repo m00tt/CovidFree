@@ -123,6 +123,37 @@ public class GeneralFunctions {
         return retList;
     }
     
+   //Recupera dal DB la Lista degli ID dei Cittadini Registrati
+    public static boolean checkLogin(String x,String psw){
+       
+        String thisLine;
+        boolean present = false;
+        
+        if(!checkDirHierarchy()){
+            showMessageDialog(null, "I database risultano corrotti.\nI dati sono stati ripristinati.");
+        }
+        
+        try {
+            BufferedReader br = new BufferedReader (new FileReader(CITTADINIDIR + File.separator + "Cittadini_Registrati.dati"));
+            while((thisLine = br.readLine()) != null) {
+                String [] tmp =thisLine.split("-");
+                if(x == tmp[6] && psw == tmp[7])
+                {
+                    present = true;
+            
+                }
+            }
+        }catch(IOException e) {
+            showMessageDialog(null, "Errore di lettura del database, riprova.");
+        }
+        return present;
+    }
+    
+    
+    
+    
+    
+    
     //Recupera tutti gli ID Vaccino registrati
     public static List<String> getUniqueList(){
         List<String> nomeCentriVaccinali = getCentriVaccinaliList();
@@ -152,8 +183,8 @@ public class GeneralFunctions {
                     BufferedReader br = new BufferedReader(new FileReader(CITTADINIDIR + File.separator +"Cittadini_Registrati.dati"));
                     while ((thisLine = br.readLine()) != null) {
                         String[] tmp = thisLine.split("-");
-                        retList.add(tmp[1]);
-                        retList.add(tmp[2]);
+                        //retList.add(tmp[1]);
+                        retList.add(tmp[6]);
                     }       
                 } catch(IOException e) {
                     showMessageDialog(null, "Errore di lettura del database, riprova.");

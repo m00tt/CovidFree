@@ -204,6 +204,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Accedi"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="accediBtn_LoginMouseClicked"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="indietroBtn_Login">
               <Properties>

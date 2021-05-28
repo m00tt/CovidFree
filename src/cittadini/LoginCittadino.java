@@ -7,7 +7,14 @@
 
 package cittadini;
 
+import java.security.NoSuchAlgorithmException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import static javax.swing.JOptionPane.showMessageDialog;
+import static utils.GeneralFunctions.checkLogin;
+import static utils.GeneralFunctions.getSHA;
+import static utils.GeneralFunctions.toHexString;
 
 public class LoginCittadino extends javax.swing.JFrame {
 
@@ -16,6 +23,7 @@ public class LoginCittadino extends javax.swing.JFrame {
     }
     
     HomeCittadini homeCittadini = new HomeCittadini();
+    HomeCittadiniLogged hcl = new HomeCittadiniLogged();
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -73,6 +81,11 @@ public class LoginCittadino extends javax.swing.JFrame {
         pwdField_Login.setCaretColor(new java.awt.Color(255, 255, 255));
 
         accediBtn_Login.setText("Accedi");
+        accediBtn_Login.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                accediBtn_LoginMouseClicked(evt);
+            }
+        });
 
         indietroBtn_Login.setText("Indietro");
         indietroBtn_Login.addActionListener(new java.awt.event.ActionListener() {
@@ -182,6 +195,20 @@ public class LoginCittadino extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_usrIDField_LoginFocusLost
 
+    private void accediBtn_LoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_accediBtn_LoginMouseClicked
+        try {
+            if(auth()){
+                hcl.setVisible(true);
+                this.setVisible(false);
+            }else{
+                showMessageDialog(null, "Credenziali Errate");
+            }
+        } catch (NoSuchAlgorithmException ex) {
+            Logger.getLogger(LoginCittadino.class.getName()).log(Level.SEVERE, null, ex);
+        }
+           
+    }//GEN-LAST:event_accediBtn_LoginMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -217,7 +244,22 @@ public class LoginCittadino extends javax.swing.JFrame {
             }
         });
     }
-
+    
+    private boolean auth () throws NoSuchAlgorithmException{
+        String username = usrIDField_Login.getText().strip();
+        String password = new String(pwdField_Login.getPassword());
+        boolean checked =false;
+        
+        if(checkLogin(username, toHexString(getSHA(password))))
+        {
+            checked= true;
+        }
+        return checked;
+              
+    }
+    
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Panel_Login;
     private javax.swing.JButton accediBtn_Login;
