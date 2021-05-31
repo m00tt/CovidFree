@@ -6,14 +6,20 @@
  */
 package cittadini;
 
+import java.util.List;
+import static utils.GeneralFunctions.getCentriVaccinaliList;
+
 
 public class RegistraEventiAvversi extends javax.swing.JFrame {
+
+    private String username;
 
     /**
      * Creates new form RegistraEventiAvversi
      */
     public RegistraEventiAvversi() {
         initComponents();
+        fillCentriVaccinali();
     }
 
     /**
@@ -75,11 +81,29 @@ public class RegistraEventiAvversi extends javax.swing.JFrame {
         scrlPanel_RegistraEventiAversi.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Descrizione", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 11))); // NOI18N
 
         txtDesc_RegistraEventiAvversi.setColumns(20);
+        txtDesc_RegistraEventiAvversi.setFont(new java.awt.Font("Arial", 2, 11)); // NOI18N
         txtDesc_RegistraEventiAvversi.setRows(5);
-        txtDesc_RegistraEventiAvversi.setText("Inserisci una descizione per l'evento risontrontato (max. 256 caratteri)");
+        txtDesc_RegistraEventiAvversi.setText("Inserisci una descizione per l'evento risontrontato (max. 256 caratteri)...");
+        txtDesc_RegistraEventiAvversi.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtDesc_RegistraEventiAvversiFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtDesc_RegistraEventiAvversiFocusLost(evt);
+            }
+        });
         scrlPanel_RegistraEventiAversi.setViewportView(txtDesc_RegistraEventiAvversi);
 
-        txtName_RegistraEventoAversi.setText("Inserisci Nome Evento");
+        txtName_RegistraEventoAversi.setFont(new java.awt.Font("Arial", 2, 11)); // NOI18N
+        txtName_RegistraEventoAversi.setText("Inserisci Nome Evento...");
+        txtName_RegistraEventoAversi.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtName_RegistraEventoAversiFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtName_RegistraEventoAversiFocusLost(evt);
+            }
+        });
 
         btnAnnulla_RegistraeventiAvversi.setText("Annulla");
         btnAnnulla_RegistraeventiAvversi.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -203,12 +227,37 @@ public class RegistraEventiAvversi extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAnnulla_RegistraeventiAvversiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAnnulla_RegistraeventiAvversiMouseClicked
-        HomeCittadiniLogged hcl = new HomeCittadiniLogged();
+        HomeCittadiniLogged hcl = new HomeCittadiniLogged(username);
         hcl.setVisible(true);
         this.setVisible(false);
         
     }//GEN-LAST:event_btnAnnulla_RegistraeventiAvversiMouseClicked
 
+    private void txtDesc_RegistraEventiAvversiFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtDesc_RegistraEventiAvversiFocusLost
+         if (txtDesc_RegistraEventiAvversi.getText().equals("")){
+            txtDesc_RegistraEventiAvversi.setText("Inserisci una descizione per l'evento risontrontato (max. 256 caratteri)...");
+        }
+    }//GEN-LAST:event_txtDesc_RegistraEventiAvversiFocusLost
+
+    private void txtName_RegistraEventoAversiFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtName_RegistraEventoAversiFocusGained
+        if (txtName_RegistraEventoAversi.getText().equals("Inserisci Nome Evento...")){
+            txtName_RegistraEventoAversi.setText("");
+        }
+    }//GEN-LAST:event_txtName_RegistraEventoAversiFocusGained
+
+    private void txtDesc_RegistraEventiAvversiFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtDesc_RegistraEventiAvversiFocusGained
+         if (txtDesc_RegistraEventiAvversi.getText().equals("Inserisci una descizione per l'evento risontrontato (max. 256 caratteri)...")){
+            txtDesc_RegistraEventiAvversi.setText("");
+        }
+    }//GEN-LAST:event_txtDesc_RegistraEventiAvversiFocusGained
+
+    private void txtName_RegistraEventoAversiFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtName_RegistraEventoAversiFocusLost
+        if (txtName_RegistraEventoAversi.getText().equals("")){
+            txtName_RegistraEventoAversi.setText("Inserisci Nome Evento...");
+        }
+    }//GEN-LAST:event_txtName_RegistraEventoAversiFocusLost
+
+    
     /**
      * @param args the command line arguments
      */
@@ -242,6 +291,15 @@ public class RegistraEventiAvversi extends javax.swing.JFrame {
                 new RegistraEventiAvversi().setVisible(true);
             }
         });
+       
+    }
+    
+     private void fillCentriVaccinali(){
+        List<String> centriVaccinali = getCentriVaccinaliList();
+                
+        for(int i=0; i<centriVaccinali.size(); i++){
+            centroVaccinale_RegistraEventiAvversi.addItem(centriVaccinali.get(i));
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

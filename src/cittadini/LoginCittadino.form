@@ -199,6 +199,9 @@
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="pwdField_LoginFocusGained"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="accediBtn_Login">
               <Properties>

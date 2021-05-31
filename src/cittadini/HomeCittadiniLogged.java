@@ -5,17 +5,31 @@
  */
 package cittadini;
 
+import java.util.List;
+import javax.swing.DefaultListModel;
+import static utils.GeneralFunctions.getCentriVaccinaliList;
+
 /**
  *
  * @author riccardo
  */
 public class HomeCittadiniLogged extends javax.swing.JFrame {
 
+     String username;
+
     /**
      * Creates new form HomeCittadiniLogged
      */
     public HomeCittadiniLogged() {
         initComponents();
+        fillCentriVaccinali();
+    }
+    
+    public HomeCittadiniLogged (String username){
+        initComponents();
+        this.username = username;
+        lblWelcome_HomeCittadino.setText("Benvenuto" + " " +  String.valueOf(username));
+        fillCentriVaccinali();
     }
 
     /**
@@ -39,7 +53,7 @@ public class HomeCittadiniLogged extends javax.swing.JFrame {
         lblSearchComune_HomeCittadiniLogged = new javax.swing.JLabel();
         lblSearchType_HomeCittadiniLogged = new javax.swing.JLabel();
         scrollPnlInfo_HomeCittadiniLogged = new javax.swing.JScrollPane();
-        infocentriList_HomeCittadini = new javax.swing.JList<>();
+        infocentriList_HomeCittadiniLogged = new javax.swing.JList<>();
         pnlWelcome_HomeCittadiniLogged = new javax.swing.JPanel();
         btnEvents_HomeCittadiniLogged = new javax.swing.JButton();
         btnLogout_HomeCittadiniLogged = new javax.swing.JButton();
@@ -151,13 +165,13 @@ public class HomeCittadiniLogged extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        infocentriList_HomeCittadini.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        infocentriList_HomeCittadini.setModel(new javax.swing.AbstractListModel<String>() {
+        infocentriList_HomeCittadiniLogged.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        infocentriList_HomeCittadiniLogged.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        scrollPnlInfo_HomeCittadiniLogged.setViewportView(infocentriList_HomeCittadini);
+        scrollPnlInfo_HomeCittadiniLogged.setViewportView(infocentriList_HomeCittadiniLogged);
 
         javax.swing.GroupLayout pnl_HomeCittadiniLoggedLayout = new javax.swing.GroupLayout(pnl_HomeCittadiniLogged);
         pnl_HomeCittadiniLogged.setLayout(pnl_HomeCittadiniLoggedLayout);
@@ -309,13 +323,25 @@ public class HomeCittadiniLogged extends javax.swing.JFrame {
             }
         });
     }
+        private void fillCentriVaccinali(){
+        List<String> centriVaccinali = getCentriVaccinaliList();
+        //infocentriList_HomeCittadini.setModel(((ListModel) centriVaccinali));
+        
+        DefaultListModel listModel = new DefaultListModel();
+        for (int i = 0; i < centriVaccinali.size(); i++)
+        {
+            listModel.addElement(centriVaccinali.get(i));
+        }
+        infocentriList_HomeCittadiniLogged.setModel(listModel);
+        
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEvents_HomeCittadiniLogged;
     private javax.swing.JButton btnLogout_HomeCittadiniLogged;
     private javax.swing.JPanel centriVaccinaliPnl_HomeCittadiniLogged;
     private javax.swing.JComboBox<String> cmbSearchType_HomeCittadiniLogged;
-    private javax.swing.JList<String> infocentriList_HomeCittadini;
+    private javax.swing.JList<String> infocentriList_HomeCittadiniLogged;
     private javax.swing.JLabel lblSearchComune_HomeCittadiniLogged;
     private javax.swing.JLabel lblSearchName_HomeCittadiniLogged;
     private javax.swing.JLabel lblSearchType_HomeCittadiniLogged;

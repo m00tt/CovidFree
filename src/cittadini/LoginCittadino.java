@@ -11,6 +11,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import static javax.swing.JOptionPane.showMessageDialog;
 import static utils.GeneralFunctions.checkLogin;
 import static utils.GeneralFunctions.getSHA;
@@ -18,12 +19,15 @@ import static utils.GeneralFunctions.toHexString;
 
 public class LoginCittadino extends javax.swing.JFrame {
 
+    private String username;
+
     public LoginCittadino() {
         initComponents();
+
     }
     
     HomeCittadini homeCittadini = new HomeCittadini();
-    HomeCittadiniLogged hcl = new HomeCittadiniLogged();
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -79,6 +83,11 @@ public class LoginCittadino extends javax.swing.JFrame {
 
         pwdField_Login.setText("jPasswordField1");
         pwdField_Login.setCaretColor(new java.awt.Color(255, 255, 255));
+        pwdField_Login.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                pwdField_LoginFocusGained(evt);
+            }
+        });
 
         accediBtn_Login.setText("Accedi");
         accediBtn_Login.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -208,6 +217,7 @@ public class LoginCittadino extends javax.swing.JFrame {
         
         if(checkLogin(username, password))
         {
+            HomeCittadiniLogged hcl = new HomeCittadiniLogged(username);
             hcl.setVisible(true);
             hcl.setLocationRelativeTo(null);
             this.setVisible(false);
@@ -218,6 +228,10 @@ public class LoginCittadino extends javax.swing.JFrame {
         }
            
     }//GEN-LAST:event_accediBtn_LoginMouseClicked
+
+    private void pwdField_LoginFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_pwdField_LoginFocusGained
+        pwdField_Login.setText("");
+    }//GEN-LAST:event_pwdField_LoginFocusGained
 
     /**
      * @param args the command line arguments
@@ -255,11 +269,7 @@ public class LoginCittadino extends javax.swing.JFrame {
         });
     }
     
-    private void auth () throws NoSuchAlgorithmException{
-       
-       
-              
-    }
+
     
     
     

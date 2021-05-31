@@ -15,16 +15,15 @@ public class Cittadini {
     private String nome;
     private String cognome;
     private String email;
-    private String password;
     private String cod_fiscale;
     Scanner scn = new Scanner (System.in);
     public Cittadini(){};
+    
     public Cittadini(String uid,String n,String pwd,String c,String e,String cf){
         this.userID = uid;
         this.nome = n;
         this.cognome =c;
         this.email = e;
-        this.password = pwd;
         this.cod_fiscale =cf;
     }
     
@@ -44,9 +43,7 @@ public class Cittadini {
     public void setCod_fiscale(String cod_fiscale) {
         this.cod_fiscale = cod_fiscale;
     }
-    public void setPassword(String password) {
-        this.password = password;
-    }
+   
     
     //Get Campi Classe Cittadino
     public String getUserID() {
@@ -64,9 +61,7 @@ public class Cittadini {
     public String getCod_fiscale() {
         return cod_fiscale;
     }
-    public String getPassword() {
-        return password;
-    }
+
     //Metodi
     //Check Information
     private boolean checkNome (String nome) {
