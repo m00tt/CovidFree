@@ -94,7 +94,7 @@ public class HomeCittadini extends javax.swing.JFrame {
         pnlSearchName_HomeCittadini.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Ricerca per nome", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 12))); // NOI18N
 
         searchName_HomeCittadini.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
                 searchName_HomeCittadiniKeyPressed(evt);
             }
         });
@@ -130,10 +130,20 @@ public class HomeCittadini extends javax.swing.JFrame {
         pnlSearchComune_HomeCittadino.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Ricerca Comune e Tipologia", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 12))); // NOI18N
 
         searchComune_HomeCittadini.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        searchComune_HomeCittadini.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                searchComune_HomeCittadiniKeyPressed(evt);
+            }
+        });
 
         cmbSearchType_HomeCittadino.setBackground(new java.awt.Color(255, 255, 255));
         cmbSearchType_HomeCittadino.setFont(new java.awt.Font("Arial", 2, 11)); // NOI18N
         cmbSearchType_HomeCittadino.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Qualsiasi", "Ospedaliero", "Aziendale", "Hub" }));
+        cmbSearchType_HomeCittadino.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cmbSearchType_HomeCittadinoItemStateChanged(evt);
+            }
+        });
 
         lblSearchComune_HomeCittadino.setBackground(new java.awt.Color(255, 255, 255));
         lblSearchComune_HomeCittadino.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -315,10 +325,19 @@ public class HomeCittadini extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_infocentriList_HomeCittadiniMouseClicked
 
+    private void cmbSearchType_HomeCittadinoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbSearchType_HomeCittadinoItemStateChanged
+        cercaCentroVaccinale();
+    }//GEN-LAST:event_cmbSearchType_HomeCittadinoItemStateChanged
+
     private void searchName_HomeCittadiniKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchName_HomeCittadiniKeyPressed
         cercaCentroVaccinale();
     }//GEN-LAST:event_searchName_HomeCittadiniKeyPressed
 
+    private void searchComune_HomeCittadiniKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchComune_HomeCittadiniKeyPressed
+        cercaCentroVaccinale();
+    }//GEN-LAST:event_searchComune_HomeCittadiniKeyPressed
+
+    
     
     public void cercaCentroVaccinale()
     {
@@ -326,6 +345,7 @@ public class HomeCittadini extends javax.swing.JFrame {
       String nome = searchName_HomeCittadini.getText();
       String comune = searchComune_HomeCittadini.getText();
       String type = cmbSearchType_HomeCittadino.getSelectedItem().toString();
+      boolean check = false;
       List <String> list = new ArrayList();
       if(!checkDirHierarchy()){
             showMessageDialog(null, "I database risultano corrotti.\nI dati sono stati ripristinati.");
@@ -334,17 +354,50 @@ public class HomeCittadini extends javax.swing.JFrame {
                 BufferedReader br = new BufferedReader(new FileReader(CENTRIVACCINALIDIR + File.separator + "CentriVaccinali.dati"));
                 while ((thisLine = br.readLine()) != null) {
                     String[] tmp = thisLine.split("-");
-                    if(nome.length()>0 && comune.length()>0 && !type.equalsIgnoreCase("Qualsiasi")){
-                        if(tmp[0].contains(nome) && tmp[6].contains(comune) && tmp[1].contains(type)){
+                   
+                    if(tmp[0].contains(nome) && nome.length()>0){
+                        list.add(tmp[0]);
+                    }
+                    
+                    if(tmp[6].contains(comune) && comune.length()>0){
+                        for (int i=0; i < list.size();i++)
+                        {
+                            if (list.get(i) == tmp[0])
+                            {
+                                check = true;
+                                break;
+                            }
+                           
+                        }
+                        if(!check)
+                        {
                             list.add(tmp[0]);
                         }
                     }
-                    else{
-                        fillCentriVaccinali(getCentriVaccinaliList());
+                    check=false;
+                    if(tmp[1].contains(type) && !type.equals("Qualsiasi")){
+                        for (int i=0; i < list.size();i++)
+                        {
+                            if (list.get(i) == tmp[0])
+                            {
+                                check = true;
+                                break;
+                            }
+                           
+                        }                       
+                        if(!check)
+                        {
+                            list.add(tmp[0]);
+                        }
                     }
-  
                 }
-                fillCentriVaccinali(list);
+                if (nome.equals("") && comune.equals("") && type.equals("Qualsiasi")){
+                    fillCentriVaccinali(getCentriVaccinaliList());
+                }else{
+                    fillCentriVaccinali(list);
+                }
+  
+                
             } catch(IOException e) {
                 showMessageDialog(null, "Errore di lettura del database, riprova.");
             }  

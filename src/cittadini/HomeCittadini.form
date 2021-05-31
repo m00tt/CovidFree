@@ -252,7 +252,7 @@
                   <SubComponents>
                     <Component class="javax.swing.JTextField" name="searchName_HomeCittadini">
                       <Events>
-                        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="searchName_HomeCittadiniKeyPressed"/>
+                        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="searchName_HomeCittadiniKeyPressed"/>
                       </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblSearchName_HomeCittadini">
@@ -322,6 +322,9 @@
                       <Properties>
                         <Property name="horizontalAlignment" type="int" value="2"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="searchComune_HomeCittadiniKeyPressed"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JComboBox" name="cmbSearchType_HomeCittadino">
                       <Properties>
@@ -340,6 +343,9 @@
                           </StringArray>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="cmbSearchType_HomeCittadinoItemStateChanged"/>
+                      </Events>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                       </AuxValues>
