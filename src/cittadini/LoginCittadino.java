@@ -26,7 +26,7 @@ public class LoginCittadino extends javax.swing.JFrame {
 
     }
     
-    HomeCittadini homeCittadini = new HomeCittadini();
+    RegistraEventiAvversi rea= new RegistraEventiAvversi();
     
 
     /**
@@ -188,7 +188,7 @@ public class LoginCittadino extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void indietroBtn_LoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_indietroBtn_LoginActionPerformed
-        homeCittadini.setVisible(true);
+        rea.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_indietroBtn_LoginActionPerformed
 
@@ -217,9 +217,9 @@ public class LoginCittadino extends javax.swing.JFrame {
         
         if(checkLogin(username, password))
         {
-            HomeCittadiniLogged hcl = new HomeCittadiniLogged(username);
-            hcl.setVisible(true);
-            hcl.setLocationRelativeTo(null);
+            RegistraEventiAvversi rea = new RegistraEventiAvversi(username);
+            rea.setVisible(true);
+            rea.setLocationRelativeTo(null);
             this.setVisible(false);
             
         }

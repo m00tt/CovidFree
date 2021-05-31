@@ -22,6 +22,12 @@ public class RegistraEventiAvversi extends javax.swing.JFrame {
         fillCentriVaccinali();
     }
 
+    public RegistraEventiAvversi(String username){
+        initComponents();
+        fillCentriVaccinali();
+        this.username=username;
+        lblWelcomeEventi_RegistraEventiAvversi.setText(username  + " - Registra Evento");
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -44,7 +50,7 @@ public class RegistraEventiAvversi extends javax.swing.JFrame {
         btnAnnulla_RegistraeventiAvversi = new javax.swing.JButton();
         jSlider1 = new javax.swing.JSlider();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        lblWelcomeEventi_RegistraEventiAvversi = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(600, 450));
@@ -57,7 +63,7 @@ public class RegistraEventiAvversi extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 266, Short.MAX_VALUE)
+            .addGap(0, 502, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -176,9 +182,8 @@ public class RegistraEventiAvversi extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jLabel3.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/symptoms.png"))); // NOI18N
-        jLabel3.setText("Eventi Avversi");
+        lblWelcomeEventi_RegistraEventiAvversi.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        lblWelcomeEventi_RegistraEventiAvversi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/symptoms.png"))); // NOI18N
 
         javax.swing.GroupLayout pnlMain_RegistraEventiAvversiLayout = new javax.swing.GroupLayout(pnlMain_RegistraEventiAvversi);
         pnlMain_RegistraEventiAvversi.setLayout(pnlMain_RegistraEventiAvversiLayout);
@@ -188,7 +193,7 @@ public class RegistraEventiAvversi extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(pnlMain_RegistraEventiAvversiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMain_RegistraEventiAvversiLayout.createSequentialGroup()
-                        .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblWelcomeEventi_RegistraEventiAvversi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(pnlEventi_RegistraEventiAvversi, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -200,7 +205,7 @@ public class RegistraEventiAvversi extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(pnlMain_RegistraEventiAvversiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lblWelcomeEventi_RegistraEventiAvversi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pnlEventi_RegistraEventiAvversi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
@@ -227,7 +232,7 @@ public class RegistraEventiAvversi extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAnnulla_RegistraeventiAvversiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAnnulla_RegistraeventiAvversiMouseClicked
-        HomeCittadiniLogged hcl = new HomeCittadiniLogged(username);
+        HomeCittadini hcl = new HomeCittadini();
         hcl.setVisible(true);
         this.setVisible(false);
         
@@ -309,9 +314,9 @@ public class RegistraEventiAvversi extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> centroVaccinale_RegistraEventiAvversi;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSlider jSlider1;
+    private javax.swing.JLabel lblWelcomeEventi_RegistraEventiAvversi;
     private javax.swing.JPanel pnlEventi_RegistraEventiAvversi;
     private javax.swing.JPanel pnlMain_RegistraEventiAvversi;
     private javax.swing.JScrollPane scrlPanel_RegistraEventiAversi;
