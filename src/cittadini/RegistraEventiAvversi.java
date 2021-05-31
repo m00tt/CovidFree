@@ -1,14 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * 
+ * @author Andrea Mottini 742605 VA
+ * @author Riccardo Bianchi 736701 VA
+ * 
  */
 package cittadini;
 
-/**
- *
- * @author riccardo
- */
+
 public class RegistraEventiAvversi extends javax.swing.JFrame {
 
     /**

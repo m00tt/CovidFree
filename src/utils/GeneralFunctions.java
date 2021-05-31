@@ -138,22 +138,21 @@ public class GeneralFunctions {
         try {
             BufferedReader br = new BufferedReader (new FileReader(CITTADINIDIR + File.separator + "Cittadini_Registrati.dati"));
             while((thisLine = br.readLine()) != null) {
-                String [] tmp =thisLine.split("-");
-                username = tmp[6].toLowerCase();
-                password = tmp[7].toLowerCase();
-                if(username.equals(x) && password.equals(psw))
+                String [] tmp = thisLine.split("-");
+                username = tmp[6];
+                password = tmp[7];
+                if(username.equalsIgnoreCase(x) && password.equals(psw))
                 {
                     present = true;
                     break;
             
                 }
-                if(!present){
-                    JOptionPane.showMessageDialog(null, "USERNAME/PASSWORD WRONG", "WARNING!!", JOptionPane.WARNING_MESSAGE);
-                }
             }
         }catch(IOException e) {
             showMessageDialog(null, "Errore di lettura del database, riprova.");
         }
+        
+        
         return present;
     }
     
