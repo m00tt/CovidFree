@@ -51,15 +51,16 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="1" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="1" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jPanel1" max="32767" attributes="0"/>
-                      <Component id="jLabel1" max="32767" attributes="0"/>
+                      <Component id="jPanel2" alignment="1" max="32767" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="btnIndietro_VisualizzaCentriVaccinali" min="-2" pref="75" max="-2" attributes="0"/>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
+                      <Component id="jLabel1" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -69,12 +70,14 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jLabel1" pref="87" max="32767" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                  <EmptySpace pref="12" max="32767" attributes="0"/>
+                  <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="btnIndietro_VisualizzaCentriVaccinali" min="-2" pref="19" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -98,40 +101,25 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="indirizzoLbl_VisualizzacentriVaccinali" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="indlbl_VisualizzaCentriVaccinali" max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Component id="provLbl_VisualizzaCentriVaccinali" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="provlbl_VisualizzaCentriVaccinali" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-                                      <Component id="comuneLbl_VisualizzaCentriVaccinali" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="comlbl_VisualizzaCentriVaccinali" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="centroVaccinaleLbl_VisualizzaCentriVaccinali" min="-2" max="-2" attributes="0"/>
-                                  <Component id="namelbl_VisualizzaCentriVaccinali" alignment="0" min="-2" pref="228" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="tipelbl_VisualizzaCentriVaccinali" min="-2" max="-2" attributes="0"/>
-                                  <Component id="tipologiaLbl_VisualizzaCentriVaccinali" min="-2" max="-2" attributes="0"/>
-                                  <Group type="102" attributes="0">
-                                      <Component id="capLbl_VisualizzaCentriVaccinali" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="caplb_VisualizzaCentriVaccinali" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                          </Group>
+                      <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="provLbl_VisualizzaCentriVaccinali" min="-2" max="-2" attributes="0"/>
+                          <Component id="centroVaccinaleLbl_VisualizzaCentriVaccinali" min="-2" max="-2" attributes="0"/>
+                          <Component id="namelbl_VisualizzaCentriVaccinali" alignment="0" min="-2" pref="228" max="-2" attributes="0"/>
+                          <Component id="indirizzoLbl_VisualizzacentriVaccinali" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="indlbl_VisualizzaCentriVaccinali" alignment="0" min="-2" pref="280" max="-2" attributes="0"/>
+                          <Component id="provlbl_VisualizzaCentriVaccinali" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="133" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="caplb_VisualizzaCentriVaccinali" min="-2" max="-2" attributes="0"/>
+                          <Component id="comlbl_VisualizzaCentriVaccinali" min="-2" max="-2" attributes="0"/>
+                          <Component id="tipelbl_VisualizzaCentriVaccinali" min="-2" max="-2" attributes="0"/>
+                          <Component id="tipologiaLbl_VisualizzaCentriVaccinali" min="-2" max="-2" attributes="0"/>
+                          <Component id="capLbl_VisualizzaCentriVaccinali" min="-2" max="-2" attributes="0"/>
+                          <Component id="comuneLbl_VisualizzaCentriVaccinali" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -148,23 +136,27 @@
                           <Component id="namelbl_VisualizzaCentriVaccinali" alignment="3" min="-2" pref="15" max="-2" attributes="0"/>
                           <Component id="tipelbl_VisualizzaCentriVaccinali" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="indirizzoLbl_VisualizzacentriVaccinali" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="indirizzoLbl_VisualizzacentriVaccinali" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="comuneLbl_VisualizzaCentriVaccinali" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="indlbl_VisualizzaCentriVaccinali" min="-2" pref="15" max="-2" attributes="0"/>
+                          <Component id="comlbl_VisualizzaCentriVaccinali" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="25" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Group type="103" alignment="1" groupAlignment="3" attributes="0">
-                              <Component id="provLbl_VisualizzaCentriVaccinali" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="comuneLbl_VisualizzaCentriVaccinali" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="capLbl_VisualizzaCentriVaccinali" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="comlbl_VisualizzaCentriVaccinali" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="caplb_VisualizzaCentriVaccinali" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="provlbl_VisualizzaCentriVaccinali" min="-2" pref="15" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="capLbl_VisualizzaCentriVaccinali" min="-2" max="-2" attributes="0"/>
+                          <Component id="provLbl_VisualizzaCentriVaccinali" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="caplb_VisualizzaCentriVaccinali" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="provlbl_VisualizzaCentriVaccinali" alignment="3" min="-2" pref="15" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -175,7 +167,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial" size="11" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Nome Centro Vaccinale:"/>
+                <Property name="text" type="java.lang.String" value="Nome Centro Vaccinale"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="indirizzoLbl_VisualizzacentriVaccinali">
@@ -183,7 +175,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial" size="11" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Indirizzo:"/>
+                <Property name="text" type="java.lang.String" value="Indirizzo"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="comuneLbl_VisualizzaCentriVaccinali">
@@ -191,7 +183,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial" size="11" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Comune:"/>
+                <Property name="text" type="java.lang.String" value="Comune"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="provLbl_VisualizzaCentriVaccinali">
@@ -199,7 +191,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial" size="11" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Prov:"/>
+                <Property name="text" type="java.lang.String" value="Provincia"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="capLbl_VisualizzaCentriVaccinali">
@@ -207,7 +199,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial" size="11" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="CAP:"/>
+                <Property name="text" type="java.lang.String" value="CAP"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="tipologiaLbl_VisualizzaCentriVaccinali">
@@ -223,7 +215,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial" size="11" style="2"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="jLabel2"/>
+                <Property name="text" type="java.lang.String" value="Centro vaccinale"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="tipelbl_VisualizzaCentriVaccinali">
@@ -231,7 +223,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial" size="11" style="2"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="jLabel3"/>
+                <Property name="text" type="java.lang.String" value="Tipologia"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="indlbl_VisualizzaCentriVaccinali">
@@ -239,7 +231,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial" size="11" style="2"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="jLabel4"/>
+                <Property name="text" type="java.lang.String" value="Indirizzo"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="provlbl_VisualizzaCentriVaccinali">
@@ -247,7 +239,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial" size="11" style="2"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="jLabel5"/>
+                <Property name="text" type="java.lang.String" value="VA"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="comlbl_VisualizzaCentriVaccinali">
@@ -255,7 +247,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial" size="11" style="2"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="jLabel6"/>
+                <Property name="text" type="java.lang.String" value="Comune"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="caplb_VisualizzaCentriVaccinali">
@@ -263,7 +255,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial" size="11" style="2"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="jLabel7"/>
+                <Property name="text" type="java.lang.String" value="21100"/>
               </Properties>
             </Component>
           </SubComponents>
@@ -286,6 +278,114 @@
             </Property>
           </Properties>
         </Component>
+        <Container class="javax.swing.JPanel" name="jPanel2">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                <TitledBorder title="Prospetto">
+                  <Font PropertyName="font" name="Arial" size="11" style="1"/>
+                </TitledBorder>
+              </Border>
+            </Property>
+          </Properties>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="114" max="-2" attributes="0"/>
+                      <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="110" max="-2" attributes="0"/>
+                      <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+                      <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="194" max="-2" attributes="0"/>
+                      <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="10" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="jLabel2">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Arial" size="11" style="1"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Numero vaccinati"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel3">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Arial" size="11" style="1"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Numero segnalazioni"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel4">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Arial" size="11" style="1"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Severit&#xe0; media"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel5">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Arial" size="13" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="100"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel6">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Arial" size="13" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="100"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel7">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Arial" size="13" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="2"/>
+              </Properties>
+            </Component>
+          </SubComponents>
+        </Container>
       </SubComponents>
     </Container>
   </SubComponents>

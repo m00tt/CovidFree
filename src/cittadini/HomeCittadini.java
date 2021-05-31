@@ -15,6 +15,7 @@ import javax.swing.DefaultListModel;
 
 import javax.swing.ImageIcon;
 import javax.swing.JList;
+import static javax.swing.JOptionPane.showMessageDialog;
 import javax.swing.ListModel;
 import static utils.GeneralFunctions.getCentriVaccinaliList;
 
@@ -294,7 +295,8 @@ public class HomeCittadini extends javax.swing.JFrame {
     private void infocentriList_HomeCittadiniMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_infocentriList_HomeCittadiniMouseClicked
         JList list = (JList)evt.getSource();
         if (evt.getClickCount() == 2) {
-            VisualizzaCentriVaccinali visualizzacentro = new VisualizzaCentriVaccinali();
+            String s = (String) list.getSelectedValue();
+            VisualizzaCentriVaccinali visualizzacentro = new VisualizzaCentriVaccinali(s);
             visualizzacentro.setVisible(true);
             this.setVisible(false);
         }

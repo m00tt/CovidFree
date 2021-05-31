@@ -15,6 +15,7 @@ import java.util.List;
 import static javax.swing.JOptionPane.showMessageDialog;
 import static utils.GeneralFunctions.CENTRIVACCINALIDIR;
 import static utils.GeneralFunctions.checkDirHierarchy;
+import static utils.GeneralFunctions.getCentroVaccinaleInfo;
 
 
 public class VisualizzaCentriVaccinali extends javax.swing.JFrame {
@@ -22,6 +23,18 @@ public class VisualizzaCentriVaccinali extends javax.swing.JFrame {
 
     public VisualizzaCentriVaccinali() {
         initComponents();
+    }
+    
+    public VisualizzaCentriVaccinali(String centroVaccinale) {
+        initComponents();
+        List<String> infoCentro = getCentroVaccinaleInfo(centroVaccinale);
+        namelbl_VisualizzaCentriVaccinali.setText(infoCentro.get(0));
+        tipelbl_VisualizzaCentriVaccinali.setText(infoCentro.get(1));
+        indlbl_VisualizzaCentriVaccinali.setText(infoCentro.get(2) + " " + infoCentro.get(3) + " " + infoCentro.get(4));
+        provlbl_VisualizzaCentriVaccinali.setText(infoCentro.get(5));
+        comlbl_VisualizzaCentriVaccinali.setText(infoCentro.get(6));
+        caplb_VisualizzaCentriVaccinali.setText(infoCentro.get(7));
+        
     }
 
 
@@ -45,6 +58,13 @@ public class VisualizzaCentriVaccinali extends javax.swing.JFrame {
         caplb_VisualizzaCentriVaccinali = new javax.swing.JLabel();
         btnIndietro_VisualizzaCentriVaccinali = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -54,73 +74,63 @@ public class VisualizzaCentriVaccinali extends javax.swing.JFrame {
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Informazioni Centro", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 11))); // NOI18N
 
         centroVaccinaleLbl_VisualizzaCentriVaccinali.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
-        centroVaccinaleLbl_VisualizzaCentriVaccinali.setText("Nome Centro Vaccinale:");
+        centroVaccinaleLbl_VisualizzaCentriVaccinali.setText("Nome Centro Vaccinale");
 
         indirizzoLbl_VisualizzacentriVaccinali.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
-        indirizzoLbl_VisualizzacentriVaccinali.setText("Indirizzo:");
+        indirizzoLbl_VisualizzacentriVaccinali.setText("Indirizzo");
 
         comuneLbl_VisualizzaCentriVaccinali.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
-        comuneLbl_VisualizzaCentriVaccinali.setText("Comune:");
+        comuneLbl_VisualizzaCentriVaccinali.setText("Comune");
 
         provLbl_VisualizzaCentriVaccinali.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
-        provLbl_VisualizzaCentriVaccinali.setText("Prov:");
+        provLbl_VisualizzaCentriVaccinali.setText("Provincia");
 
         capLbl_VisualizzaCentriVaccinali.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
-        capLbl_VisualizzaCentriVaccinali.setText("CAP:");
+        capLbl_VisualizzaCentriVaccinali.setText("CAP");
 
         tipologiaLbl_VisualizzaCentriVaccinali.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         tipologiaLbl_VisualizzaCentriVaccinali.setText("Tipologia");
 
         namelbl_VisualizzaCentriVaccinali.setFont(new java.awt.Font("Arial", 2, 11)); // NOI18N
-        namelbl_VisualizzaCentriVaccinali.setText("jLabel2");
+        namelbl_VisualizzaCentriVaccinali.setText("Centro vaccinale");
 
         tipelbl_VisualizzaCentriVaccinali.setFont(new java.awt.Font("Arial", 2, 11)); // NOI18N
-        tipelbl_VisualizzaCentriVaccinali.setText("jLabel3");
+        tipelbl_VisualizzaCentriVaccinali.setText("Tipologia");
 
         indlbl_VisualizzaCentriVaccinali.setFont(new java.awt.Font("Arial", 2, 11)); // NOI18N
-        indlbl_VisualizzaCentriVaccinali.setText("jLabel4");
+        indlbl_VisualizzaCentriVaccinali.setText("Indirizzo");
 
         provlbl_VisualizzaCentriVaccinali.setFont(new java.awt.Font("Arial", 2, 11)); // NOI18N
-        provlbl_VisualizzaCentriVaccinali.setText("jLabel5");
+        provlbl_VisualizzaCentriVaccinali.setText("VA");
 
         comlbl_VisualizzaCentriVaccinali.setFont(new java.awt.Font("Arial", 2, 11)); // NOI18N
-        comlbl_VisualizzaCentriVaccinali.setText("jLabel6");
+        comlbl_VisualizzaCentriVaccinali.setText("Comune");
 
         caplb_VisualizzaCentriVaccinali.setFont(new java.awt.Font("Arial", 2, 11)); // NOI18N
-        caplb_VisualizzaCentriVaccinali.setText("jLabel7");
+        caplb_VisualizzaCentriVaccinali.setText("21100");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(indirizzoLbl_VisualizzacentriVaccinali)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(indlbl_VisualizzaCentriVaccinali, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(provLbl_VisualizzaCentriVaccinali)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(provlbl_VisualizzaCentriVaccinali)
-                                .addGap(38, 38, 38)
-                                .addComponent(comuneLbl_VisualizzaCentriVaccinali)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(comlbl_VisualizzaCentriVaccinali))
-                            .addComponent(centroVaccinaleLbl_VisualizzaCentriVaccinali)
-                            .addComponent(namelbl_VisualizzaCentriVaccinali, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(47, 47, 47)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tipelbl_VisualizzaCentriVaccinali)
-                            .addComponent(tipologiaLbl_VisualizzaCentriVaccinali)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(capLbl_VisualizzaCentriVaccinali)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(caplb_VisualizzaCentriVaccinali)))))
-                .addContainerGap(133, Short.MAX_VALUE))
+                .addGap(56, 56, 56)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(provLbl_VisualizzaCentriVaccinali)
+                    .addComponent(centroVaccinaleLbl_VisualizzaCentriVaccinali)
+                    .addComponent(namelbl_VisualizzaCentriVaccinali, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(indirizzoLbl_VisualizzacentriVaccinali)
+                    .addComponent(indlbl_VisualizzaCentriVaccinali, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(provlbl_VisualizzaCentriVaccinali))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(caplb_VisualizzaCentriVaccinali)
+                    .addComponent(comlbl_VisualizzaCentriVaccinali)
+                    .addComponent(tipelbl_VisualizzaCentriVaccinali)
+                    .addComponent(tipologiaLbl_VisualizzaCentriVaccinali)
+                    .addComponent(capLbl_VisualizzaCentriVaccinali)
+                    .addComponent(comuneLbl_VisualizzaCentriVaccinali))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -133,20 +143,23 @@ public class VisualizzaCentriVaccinali extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(namelbl_VisualizzaCentriVaccinali, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tipelbl_VisualizzaCentriVaccinali))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(indirizzoLbl_VisualizzacentriVaccinali)
-                    .addComponent(indlbl_VisualizzaCentriVaccinali, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(provLbl_VisualizzaCentriVaccinali)
-                        .addComponent(comuneLbl_VisualizzaCentriVaccinali)
-                        .addComponent(capLbl_VisualizzaCentriVaccinali)
-                        .addComponent(comlbl_VisualizzaCentriVaccinali)
-                        .addComponent(caplb_VisualizzaCentriVaccinali))
+                    .addComponent(comuneLbl_VisualizzaCentriVaccinali))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(indlbl_VisualizzaCentriVaccinali, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(comlbl_VisualizzaCentriVaccinali))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(capLbl_VisualizzaCentriVaccinali)
+                    .addComponent(provLbl_VisualizzaCentriVaccinali))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(caplb_VisualizzaCentriVaccinali)
                     .addComponent(provlbl_VisualizzaCentriVaccinali, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21))
+                .addGap(8, 8, 8))
         );
 
         btnIndietro_VisualizzaCentriVaccinali.setText("Indietro");
@@ -159,30 +172,91 @@ public class VisualizzaCentriVaccinali extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/new_centrovaccinale.png"))); // NOI18N
 
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Prospetto", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 11))); // NOI18N
+
+        jLabel2.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        jLabel2.setText("Numero vaccinati");
+
+        jLabel3.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        jLabel3.setText("Numero segnalazioni");
+
+        jLabel4.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        jLabel4.setText("Severità media");
+
+        jLabel5.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        jLabel5.setText("100");
+
+        jLabel6.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        jLabel6.setText("100");
+
+        jLabel7.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        jLabel7.setText("2");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2)
+                .addGap(114, 114, 114)
+                .addComponent(jLabel3)
+                .addGap(110, 110, 110)
+                .addComponent(jLabel4)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(44, 44, 44)
+                .addComponent(jLabel5)
+                .addGap(194, 194, 194)
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel7)
+                .addGap(37, 37, 37))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel7))
+                .addContainerGap(10, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+            .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
+                    .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(btnIndietro_VisualizzaCentriVaccinali, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 87, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnIndietro_VisualizzaCentriVaccinali, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25))
+                .addGap(13, 13, 13))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -262,7 +336,14 @@ public class VisualizzaCentriVaccinali extends javax.swing.JFrame {
     private javax.swing.JLabel indirizzoLbl_VisualizzacentriVaccinali;
     private javax.swing.JLabel indlbl_VisualizzaCentriVaccinali;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel namelbl_VisualizzaCentriVaccinali;
     private javax.swing.JLabel provLbl_VisualizzaCentriVaccinali;

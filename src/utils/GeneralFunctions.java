@@ -157,7 +157,6 @@ public class GeneralFunctions {
     }
     
     
-    
     //Recupera tutti gli ID Vaccino registrati
     public static List<String> getUniqueList(){
         List<String> nomeCentriVaccinali = getCentriVaccinaliList();
@@ -197,6 +196,33 @@ public class GeneralFunctions {
         
         return retList;
     }
+    
+    //Recupera le info di un singolo Centro Vaccinale
+    public static List<String> getCentroVaccinaleInfo(String nomeCentroVaccinale){
+        List<String> retList = new ArrayList();
+        String thisLine;
+    
+        if(!checkDirHierarchy()){
+            showMessageDialog(null, "I database risultano corrotti.\nI dati sono stati ripristinati.");
+        }
+        try {
+                BufferedReader br = new BufferedReader(new FileReader(CENTRIVACCINALIDIR + File.separator + "CentriVaccinali.dati"));
+                while ((thisLine = br.readLine()) != null) {
+                    String[] tmp = thisLine.split("-");
+                    if(tmp[0].equalsIgnoreCase(nomeCentroVaccinale)){
+                        for(int i = 0; i<tmp.length; i++){
+                            retList.add(tmp[i]);
+                        }
+                        break;
+                    }
+                }       
+            } catch(IOException e) {
+                showMessageDialog(null, "Errore di lettura del database, riprova.");
+            }
+        
+        return retList;
+    }
+    
     
     
     
