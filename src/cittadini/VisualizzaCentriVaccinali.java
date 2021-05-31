@@ -5,6 +5,16 @@
  */
 package cittadini;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import static javax.swing.JOptionPane.showMessageDialog;
+import static utils.GeneralFunctions.CENTRIVACCINALIDIR;
+import static utils.GeneralFunctions.checkDirHierarchy;
+
 /**
  *
  * @author riccardo
@@ -243,7 +253,13 @@ public class VisualizzaCentriVaccinali extends javax.swing.JFrame {
             }
         });
     }
-
+    
+    
+    //Retrieve e Display  Informazioni Centri Vaccinali
+  
+    
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnIndietro_VisualizzaCentriVaccinali;
     private javax.swing.JLabel capLbl_VisualizzaCentriVaccinali;

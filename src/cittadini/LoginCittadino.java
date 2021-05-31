@@ -197,12 +197,7 @@ public class LoginCittadino extends javax.swing.JFrame {
 
     private void accediBtn_LoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_accediBtn_LoginMouseClicked
         try {
-            if(auth()){
-                hcl.setVisible(true);
-                this.setVisible(false);
-            }else{
-                showMessageDialog(null, "Credenziali Errate");
-            }
+            auth();
         } catch (NoSuchAlgorithmException ex) {
             Logger.getLogger(LoginCittadino.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -245,16 +240,18 @@ public class LoginCittadino extends javax.swing.JFrame {
         });
     }
     
-    private boolean auth () throws NoSuchAlgorithmException{
+    public void auth () throws NoSuchAlgorithmException{
         String username = usrIDField_Login.getText().strip();
         String password = new String(pwdField_Login.getPassword());
-        boolean checked =false;
+       
         
-        if(checkLogin(username, toHexString(getSHA(password))))
+        if(checkLogin(username, password))
         {
-            checked= true;
+            hcl.setVisible(true);
+            hcl.setLocationRelativeTo(null);
+            
         }
-        return checked;
+       
               
     }
     

@@ -22,6 +22,7 @@ import java.util.List;
 import static javax.swing.JOptionPane.showMessageDialog;
 import java.util.regex.Matcher; 
 import java.util.regex.Pattern;
+import javax.swing.JOptionPane;
 
 
 
@@ -123,11 +124,12 @@ public class GeneralFunctions {
         return retList;
     }
     
-   //Recupera dal DB la Lista degli ID dei Cittadini Registrati
+   //Recupera dal DB la Lista degli ID dei Cittadini Registrati e verifica esistenza
     public static boolean checkLogin(String x,String psw){
        
         String thisLine;
         boolean present = false;
+        String username, password;
         
         if(!checkDirHierarchy()){
             showMessageDialog(null, "I database risultano corrotti.\nI dati sono stati ripristinati.");
@@ -137,10 +139,16 @@ public class GeneralFunctions {
             BufferedReader br = new BufferedReader (new FileReader(CITTADINIDIR + File.separator + "Cittadini_Registrati.dati"));
             while((thisLine = br.readLine()) != null) {
                 String [] tmp =thisLine.split("-");
-                if(x == tmp[6] && psw == tmp[7])
+                username = tmp[6].toLowerCase();
+                password = tmp[7].toLowerCase();
+                if(username.equals(x) && password.equals(psw))
                 {
                     present = true;
+                    break;
             
+                }
+                if(!present){
+                    JOptionPane.showMessageDialog(null, "USERNAME/PASSWORD WRONG", "WARNING!!", JOptionPane.WARNING_MESSAGE);
                 }
             }
         }catch(IOException e) {
@@ -148,9 +156,6 @@ public class GeneralFunctions {
         }
         return present;
     }
-    
-    
-    
     
     
     
