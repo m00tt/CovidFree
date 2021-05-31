@@ -63,14 +63,14 @@ public class HomeCittadini extends javax.swing.JFrame {
         title_HomeCittadini.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/new_vaccinato.png"))); // NOI18N
         title_HomeCittadini.setText("Home Cittadini");
 
-        loginBtn_HomeCittadini.setText("Accedi");
+        loginBtn_HomeCittadini.setText("Registra Evento");
         loginBtn_HomeCittadini.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 loginBtn_HomeCittadiniMouseClicked(evt);
             }
         });
 
-        registerBtn_HomeCittadini.setText("Registrati");
+        registerBtn_HomeCittadini.setText("Iscriviti");
         registerBtn_HomeCittadini.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 registerBtn_HomeCittadiniMouseClicked(evt);

@@ -113,7 +113,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="loginBtn_HomeCittadini">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Accedi"/>
+            <Property name="text" type="java.lang.String" value="Registra Evento"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="loginBtn_HomeCittadiniMouseClicked"/>
@@ -121,7 +121,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="registerBtn_HomeCittadini">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Registrati"/>
+            <Property name="text" type="java.lang.String" value="Iscriviti"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="registerBtn_HomeCittadiniMouseClicked"/>
