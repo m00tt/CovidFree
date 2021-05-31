@@ -10,6 +10,11 @@ package cittadini;
 import centrivaccinali.CentriVaccinali;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.DefaultListModel;
 
@@ -17,6 +22,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JList;
 import static javax.swing.JOptionPane.showMessageDialog;
 import javax.swing.ListModel;
+import static utils.GeneralFunctions.CENTRIVACCINALIDIR;
+import static utils.GeneralFunctions.checkDirHierarchy;
 import static utils.GeneralFunctions.getCentriVaccinaliList;
 
 
@@ -24,7 +31,7 @@ public class HomeCittadini extends javax.swing.JFrame {
 
     public HomeCittadini() {
         initComponents();
-        fillCentriVaccinali();
+        fillCentriVaccinali(getCentriVaccinaliList());
     }
 
     /**
@@ -86,6 +93,12 @@ public class HomeCittadini extends javax.swing.JFrame {
         pnlSearchName_HomeCittadini.setBackground(new java.awt.Color(255, 255, 255));
         pnlSearchName_HomeCittadini.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Ricerca per nome", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 12))); // NOI18N
 
+        searchName_HomeCittadini.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                searchName_HomeCittadiniKeyPressed(evt);
+            }
+        });
+
         lblSearchName_HomeCittadini.setBackground(new java.awt.Color(255, 255, 255));
         lblSearchName_HomeCittadini.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         lblSearchName_HomeCittadini.setText("Nome Centro");
@@ -120,7 +133,7 @@ public class HomeCittadini extends javax.swing.JFrame {
 
         cmbSearchType_HomeCittadino.setBackground(new java.awt.Color(255, 255, 255));
         cmbSearchType_HomeCittadino.setFont(new java.awt.Font("Arial", 2, 11)); // NOI18N
-        cmbSearchType_HomeCittadino.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ospedaliero", "Aziendale", "Hub" }));
+        cmbSearchType_HomeCittadino.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Qualsiasi", "Ospedaliero", "Aziendale", "Hub" }));
 
         lblSearchComune_HomeCittadino.setBackground(new java.awt.Color(255, 255, 255));
         lblSearchComune_HomeCittadino.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -302,6 +315,41 @@ public class HomeCittadini extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_infocentriList_HomeCittadiniMouseClicked
 
+    private void searchName_HomeCittadiniKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchName_HomeCittadiniKeyPressed
+        cercaCentroVaccinale();
+    }//GEN-LAST:event_searchName_HomeCittadiniKeyPressed
+
+    
+    public void cercaCentroVaccinale()
+    {
+      String thisLine;
+      String nome = searchName_HomeCittadini.getText();
+      String comune = searchComune_HomeCittadini.getText();
+      String type = cmbSearchType_HomeCittadino.getSelectedItem().toString();
+      List <String> list = new ArrayList();
+      if(!checkDirHierarchy()){
+            showMessageDialog(null, "I database risultano corrotti.\nI dati sono stati ripristinati.");
+        }
+        try {
+                BufferedReader br = new BufferedReader(new FileReader(CENTRIVACCINALIDIR + File.separator + "CentriVaccinali.dati"));
+                while ((thisLine = br.readLine()) != null) {
+                    String[] tmp = thisLine.split("-");
+                    if(nome.length()>0 && comune.length()>0 && !type.equalsIgnoreCase("Qualsiasi")){
+                        if(tmp[0].contains(nome) && tmp[6].contains(comune) && tmp[1].contains(type)){
+                            list.add(tmp[0]);
+                        }
+                    }
+                    else{
+                        fillCentriVaccinali(getCentriVaccinaliList());
+                    }
+  
+                }
+                fillCentriVaccinali(list);
+            } catch(IOException e) {
+                showMessageDialog(null, "Errore di lettura del database, riprova.");
+            }  
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -341,8 +389,7 @@ public class HomeCittadini extends javax.swing.JFrame {
     
     
     //Recupera la lista di centri vaccinali registrati
-    private void fillCentriVaccinali(){
-        List<String> centriVaccinali = getCentriVaccinaliList();
+    private void fillCentriVaccinali(List<String> centriVaccinali){
         //infocentriList_HomeCittadini.setModel(((ListModel) centriVaccinali));
         
         DefaultListModel listModel = new DefaultListModel();
