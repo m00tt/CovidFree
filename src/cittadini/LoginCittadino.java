@@ -26,7 +26,7 @@ public class LoginCittadino extends javax.swing.JFrame {
 
     }
     
-    RegistraEventiAvversi rea= new RegistraEventiAvversi();
+    HomeCittadini hc= new HomeCittadini();
     
 
     /**
@@ -188,7 +188,7 @@ public class LoginCittadino extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void indietroBtn_LoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_indietroBtn_LoginActionPerformed
-        rea.setVisible(true);
+        hc.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_indietroBtn_LoginActionPerformed
 
