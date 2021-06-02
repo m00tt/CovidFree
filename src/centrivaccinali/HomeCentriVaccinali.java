@@ -6,11 +6,7 @@
  */
 
 package centrivaccinali;
-
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import javax.swing.ImageIcon;
-import static javax.swing.JOptionPane.showMessageDialog;
 
 /**
  * This class is used to open the multiple choice main menu of CentriVaccinali sub-application
