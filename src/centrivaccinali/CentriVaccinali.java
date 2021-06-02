@@ -24,8 +24,8 @@ import static utils.GeneralFunctions.checkDirHierarchy;
 
 public class CentriVaccinali extends javax.swing.JFrame {
 
-    /**CentriVaccinali() class constructor
-     *
+    /**
+     * CentriVaccinali() class constructor
      */
     public CentriVaccinali() {
         initComponents();
@@ -35,8 +35,8 @@ public class CentriVaccinali extends javax.swing.JFrame {
     
     //ShowDate
 
-    /**This method is used to retrieve current date and display it with "dd/MM/yyyy" format.
-     *
+    /**
+     * This method is used to retrieve current date and display it with "dd/MM/yyyy" format.
      */
     public void date (){
         String txtDate = new SimpleDateFormat ("dd/MM/yyyy",Locale.ITALY).format(new Date());
@@ -44,8 +44,8 @@ public class CentriVaccinali extends javax.swing.JFrame {
     }
     //ShowTime
 
-    /**This method is used to retrieve current time and display it with "HH:mm:ss" format.
-     *
+    /**
+     * This method is used to retrieve current time and display it with "HH:mm:ss" format.
      */
     public void time() {
         new Timer (0, new ActionListener() {
@@ -212,8 +212,9 @@ public class CentriVaccinali extends javax.swing.JFrame {
         this.setVisible(Boolean.FALSE);
     }//GEN-LAST:event_cittadiniBtn_covidfreeActionPerformed
 
-    /**This Main method is used in order to launch the main graphic JavaForm of the application.
-     * Is also used to inizialize the current class and graphic elements.
+    /**
+     * This Main method is used in order to launch the main graphic JavaForm of the application.
+     * Is also used to initialize the current class and graphic elements.
      * @param args the command line arguments
      */
     public static void main(String args[]) {

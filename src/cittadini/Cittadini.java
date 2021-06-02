@@ -10,6 +10,11 @@ package cittadini;
 import java.util.*;
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
+
+/**
+ *
+ * @author Riccardo
+ */
 public class Cittadini {
     private String userID;
     private String nome;
@@ -17,8 +22,21 @@ public class Cittadini {
     private String email;
     private String cod_fiscale;
     Scanner scn = new Scanner (System.in);
+
+    /**
+     *
+     */
     public Cittadini(){};
     
+    /**
+     *
+     * @param uid
+     * @param n
+     * @param pwd
+     * @param c
+     * @param e
+     * @param cf
+     */
     public Cittadini(String uid,String n,String pwd,String c,String e,String cf){
         this.userID = uid;
         this.nome = n;
@@ -28,36 +46,86 @@ public class Cittadini {
     }
     
     //Set Campi Classe Cittadino
+
+    /**
+     *
+     * @param userID
+     */
     public void setUserID(String userID) {
         this.userID = userID;
     }
+
+    /**
+     *
+     * @param nome
+     */
     public void setNome(String nome) {
         this.nome = nome;
     }
+
+    /**
+     *
+     * @param cognome
+     */
     public void setCognome(String cognome) {
         this.cognome = cognome;
     }
+
+    /**
+     *
+     * @param email
+     */
     public void setEmail(String email) {
         this.email = email;
     }
+
+    /**
+     *
+     * @param cod_fiscale
+     */
     public void setCod_fiscale(String cod_fiscale) {
         this.cod_fiscale = cod_fiscale;
     }
    
     
     //Get Campi Classe Cittadino
+
+    /**
+     *
+     * @return
+     */
     public String getUserID() {
         return userID;
     }
+
+    /**
+     *
+     * @return
+     */
     public String getNome() {
         return nome;
     }
+
+    /**
+     *
+     * @return
+     */
     public String getCognome() {
         return cognome;
     }
+
+    /**
+     *
+     * @return
+     */
     public String getEmail() {
         return email;
     }
+
+    /**
+     *
+     * @return
+     */
     public String getCod_fiscale() {
         return cod_fiscale;
     }

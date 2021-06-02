@@ -12,9 +12,16 @@ import java.nio.file.Paths;
 import javax.swing.ImageIcon;
 import static javax.swing.JOptionPane.showMessageDialog;
 
+/**
+ * This class is used to open the multiple choice main menu of CentriVaccinali sub-application
+ * Using this form user can choose to add a new vaccination centre or to add a new vaccined citizen
+ * 
+ */
 public class HomeCentriVaccinali extends javax.swing.JFrame {
 
-
+    /**
+     * HomeCentriVaccinali() constructor
+     */
     public HomeCentriVaccinali() {
         initComponents();
     }
@@ -197,6 +204,8 @@ public class HomeCentriVaccinali extends javax.swing.JFrame {
     }//GEN-LAST:event_registraVaccinatoBtn_HomeCentriVaccinaliActionPerformed
 
     /**
+     * This Main method is used in order to launch the current class JavaForm.
+     * Is also used to initialize the current class and graphic elements.
      * @param args the command line arguments
      */
     public static void main(String args[]) {

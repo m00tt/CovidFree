@@ -25,16 +25,20 @@ import static utils.GeneralFunctions.checkPassword;
 import static utils.GeneralFunctions.getSHA;
 import static utils.GeneralFunctions.getCentriVaccinaliList;
 import static utils.GeneralFunctions.getUniqueList;
+import static utils.GeneralFunctions.newCittadinoAlreadyVaccinato;
 import static utils.GeneralFunctions.toHexString;
 
 
 /**
  *
  * 
+ * @author Riccardo
  */
 public class RegistraCittadini extends javax.swing.JFrame {
     
-
+    /**
+     *
+     */
     public RegistraCittadini() {
         initComponents();
         fillCentriVaccinali();
@@ -433,16 +437,10 @@ public class RegistraCittadini extends javax.swing.JFrame {
        
     }//GEN-LAST:event_pwdUsr_RegistrazioneCittadinoFocusGained
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    /**
+     *
+     * @param args
+     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -518,7 +516,7 @@ public class RegistraCittadini extends javax.swing.JFrame {
                     boolean ok = true;            
                     List<String> toCheckUnique = getUniqueList();
                     for (int i=0; i<toCheckUnique.size(); i++){
-                        if(toCheckUnique.get(i).equalsIgnoreCase(userID) || toCheckUnique.get(i).equalsIgnoreCase(vaccineID)){
+                        if(toCheckUnique.get(i).equalsIgnoreCase(userID) || toCheckUnique.get(i).equalsIgnoreCase(vaccineID) || toCheckUnique.get(i).equalsIgnoreCase(codiceFiscale)){
                             ok = false;
                             break;
                         }                        
@@ -526,19 +524,43 @@ public class RegistraCittadini extends javax.swing.JFrame {
                     
                     if(ok)
                     {
-                        try (FileWriter fw2 = new FileWriter(path, true)) { 
-                            fw2.append(insert+"\n");
-                            showMessageDialog(null, "Registrazione Cittadino Avvenuta con successo!");
-                        }catch(HeadlessException | IOException e){
-                            showMessageDialog(null, "Errore in fase di scrittura dei dati, riprova.");
-                        }
+                        String cmpCentroVaccinale = newCittadinoAlreadyVaccinato(codiceFiscale);
                         
-                        HomeCittadini homecittadini = new HomeCittadini();
-                        homecittadini.setVisible(true);
-                        this.setVisible(false);
+                        if(cmpCentroVaccinale == null){
+                            try (FileWriter fw2 = new FileWriter(path, true)) { 
+                                fw2.append(insert+"\n");
+                                showMessageDialog(null, "Registrazione Cittadino Avvenuta con successo!");
+                            }catch(HeadlessException | IOException e){
+                                showMessageDialog(null, "Errore in fase di scrittura dei dati, riprova.");
+                            }
+                        
+                            HomeCittadini homecittadini = new HomeCittadini();
+                            homecittadini.setVisible(true);
+                            this.setVisible(false);
+                        }
+                        else{
+                            String[] cmpSplit = cmpCentroVaccinale.split("-");
+                            if(cmpSplit[0].equalsIgnoreCase(nomeCentroVaccinale) && cmpSplit[1].equalsIgnoreCase(vaccineID)){
+                                try (FileWriter fw2 = new FileWriter(path, true)) { 
+                                    fw2.append(insert+"\n");
+                                    showMessageDialog(null, "Registrazione Cittadino Avvenuta con successo!");
+                                }catch(HeadlessException | IOException e){
+                                    showMessageDialog(null, "Errore in fase di scrittura dei dati, riprova.");
+                                }
+
+                                HomeCittadini homecittadini = new HomeCittadini();
+                                homecittadini.setVisible(true);
+                                this.setVisible(false);
+                            }
+                            else{
+                                //String[] cmpSplit = cmpCentroVaccinale.split("-");
+                                showMessageDialog(null, "Risulta già una vaccinazione avvenuta al centro vaccinale '"+cmpSplit[0]+" con l'ID Vaccino: "+cmpSplit[1]);
+                            }
+                        
+                        }
                     }
                     else{
-                        showMessageDialog(null, "UserID o ID Vaccino già presenti nel database.");
+                        showMessageDialog(null, "Codice Fiscale, UserID o ID Vaccino Vaccino già presenti nel database.");
                     }
                     
                 }catch(Exception e){

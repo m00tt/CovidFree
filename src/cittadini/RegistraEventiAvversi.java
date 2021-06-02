@@ -16,7 +16,10 @@ import static javax.swing.JOptionPane.showMessageDialog;
 import static utils.GeneralFunctions.CENTRIVACCINALIDIR;
 import static utils.GeneralFunctions.getCentriVaccinaliList;
 
-
+/**
+ *
+ * @author Riccardo
+ */
 public class RegistraEventiAvversi extends javax.swing.JFrame {
 
     private String codiceFiscaleLogged;
@@ -29,6 +32,10 @@ public class RegistraEventiAvversi extends javax.swing.JFrame {
         //fillCentriVaccinali();
     }
 
+    /**
+     *
+     * @param username
+     */
     public RegistraEventiAvversi(String username, String codFisc){
         initComponents();
         lblWelcomeEventi_RegistraEventiAvversi.setText(username  + " - Registra Evento");

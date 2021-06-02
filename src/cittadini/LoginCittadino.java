@@ -18,10 +18,17 @@ import static utils.GeneralFunctions.getCodiceFiscale;
 import static utils.GeneralFunctions.getSHA;
 import static utils.GeneralFunctions.toHexString;
 
+/**
+ *
+ * @author Riccardo
+ */
 public class LoginCittadino extends javax.swing.JFrame {
 
     private String username;
 
+    /**
+     *
+     */
     public LoginCittadino() {
         initComponents();
 

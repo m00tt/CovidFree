@@ -24,13 +24,27 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 
-
-
+/**
+ *
+ * @author Riccardo
+ */
 public class GeneralFunctions {
     
     //Dichiarazione dei path utili
+
+    /**
+     *
+     */
     public static String WORKINGDIR = System.getProperty("user.dir") + File.separator + "data"; //cartella data
+
+    /**
+     *
+     */
     public static String CENTRIVACCINALIDIR = WORKINGDIR + File.separator + "centri_vaccinali"; //cartella centri_vaccinali
+
+    /**
+     *
+     */
     public static String CITTADINIDIR = WORKINGDIR + File.separator + "cittadini";              //cartella cittadini
     
     //Dichiarazione pattern per i controlli di inserimento
@@ -43,6 +57,11 @@ public class GeneralFunctions {
     static Pattern onlyEmail = Pattern.compile("[a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}"); //Pattern di Verifica indirizzo Email
     
     //Controlla che la gerarchia di file/cartelle per il salvataggio dei dati esista, se non esiste viene creata
+
+    /**
+     *
+     * @return
+     */
     public static boolean checkDirHierarchy(){
         boolean check = true;
         File f = new File(WORKINGDIR);      
@@ -104,6 +123,11 @@ public class GeneralFunctions {
     }
     
     //Recupera dal DB la lista dei centri vaccinali registrati
+
+    /**
+     *
+     * @return
+     */
     public static List<String> getCentriVaccinaliList(){
         List<String> retList = new ArrayList();
         String thisLine;
@@ -125,6 +149,13 @@ public class GeneralFunctions {
     }
     
    //Recupera dal DB la Lista degli ID dei Cittadini Registrati e verifica esistenza
+
+    /**
+     *
+     * @param x
+     * @param psw
+     * @return
+     */
     public static boolean checkLogin(String x,String psw){
        
         String thisLine;
@@ -158,11 +189,16 @@ public class GeneralFunctions {
     
     
     //Recupera tutti gli ID Vaccino registrati
+
+    /**
+     *
+     * @return
+     */
     public static List<String> getUniqueList(){
-        List<String> nomeCentriVaccinali = getCentriVaccinaliList();
+        //List<String> nomeCentriVaccinali = getCentriVaccinaliList();
         List<String> retList = new ArrayList<>();
         
-        for(int i=0; i<nomeCentriVaccinali.size(); i++){
+        /*for(int i=0; i<nomeCentriVaccinali.size(); i++){
             String path = CENTRIVACCINALIDIR + File.separator + "Vaccinati_"+nomeCentriVaccinali.get(i)+".dati";
             if(new File(path).exists()){
                 try {
@@ -176,7 +212,7 @@ public class GeneralFunctions {
                     showMessageDialog(null, "Errore di lettura del database, riprova.");
                 }
             }
-        }
+        }*/
         
         if(new File(CITTADINIDIR + File.separator +"Cittadini_Registrati.dati").exists()){
             
@@ -198,6 +234,12 @@ public class GeneralFunctions {
     }
     
     //Recupera le info di un singolo Centro Vaccinale
+
+    /**
+     *
+     * @param nomeCentroVaccinale
+     * @return
+     */
     public static List<String> getCentroVaccinaleInfo(String nomeCentroVaccinale){
         List<String> retList = new ArrayList();
         String thisLine;
@@ -245,6 +287,32 @@ public class GeneralFunctions {
         return null;
     }
     
+    public static String newCittadinoAlreadyVaccinato(String codFisc){
+        List<String> nomeCentriVaccinali = getCentriVaccinaliList();
+        List<String> retList = new ArrayList<>();
+        
+        for(int i=0; i<nomeCentriVaccinali.size(); i++){
+            String path = CENTRIVACCINALIDIR + File.separator + "Vaccinati_"+nomeCentriVaccinali.get(i)+".dati";
+            if(new File(path).exists()){
+                try {
+                    String thisLine;
+                    BufferedReader br = new BufferedReader(new FileReader(path));
+                    while ((thisLine = br.readLine()) != null) {
+                        String[] tmp = thisLine.split("-");
+                        if(codFisc.equalsIgnoreCase(tmp[1])){
+                            return nomeCentriVaccinali.get(i)+"-"+tmp[2];
+                        }
+                        
+                    }       
+                } catch(IOException e) {
+                    showMessageDialog(null, "Errore di lettura del database, riprova.");
+                }
+            }
+        }
+        
+        return null;
+    }
+    
     
     
     
@@ -255,6 +323,13 @@ public class GeneralFunctions {
     */
     
     //Verifica che la data inserita non sia futura
+
+    /**
+     *
+     * @param p
+     * @return
+     * @throws ParseException
+     */
     public static boolean checkData(String p) throws ParseException{
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");  
         Date date = new Date();  
@@ -269,59 +344,118 @@ public class GeneralFunctions {
     }
     
     //Verifica che l'ID vaccino sia numerico e di lunghezza 16
+
+    /**
+     *
+     * @param p
+     * @return
+     */
     public static boolean checkIdVaccino(String p){
         Matcher matcher = onlyNumbersPattern.matcher(p);
         return !matcher.find() && p.length() == 16;
     }
     
     //Verifica il formato del codice fiscale inserito
+
+    /**
+     *
+     * @param p
+     * @return
+     */
     public static boolean checkCodiceFiscale(String p){
         Matcher matcher = onlyCodiceFiscale.matcher(p);
         return matcher.find();
     }
  
     //Verifica che la provincia sia composta solamente da 2 lettere
+
+    /**
+     *
+     * @param p
+     * @return
+     */
     public static boolean checkProvincia(String p){
         Matcher matcher = onlyLettersPattern.matcher(p);
         return p.trim().length() == 2 && !matcher.find();
     }
     
     //Verifica che il CAP sia di 5 cifre
+
+    /**
+     *
+     * @param p
+     * @return
+     */
     public static boolean checkCAP(String p){
         Matcher matcher = onlyNumbersPattern.matcher(p);
         return p.trim().length() == 5 && !matcher.find();
     }
     
     //Verifica che un dato sia compilato con lunghezza da 3 a 40 caratteri
+
+    /**
+     *
+     * @param p
+     * @return
+     */
     public static boolean checkCompiled(String p){
         Matcher matcher = onlyLettersPattern.matcher(p);
         return p.trim().length()>3 && !matcher.find() && p.trim().length() < 41;
     }
     
     //Verifica che il civico sia compreso tra 1 e 5 caratteri
+
+    /**
+     *
+     * @param p
+     * @return
+     */
     public static boolean checkCivico(String p){
         Matcher matcher = onlyCivicoPattern.matcher(p);
         return p.trim().length()>0 && p.trim().length()<6 && !matcher.find();
     }
     
     //Verifica Indirizzo Mail
+
+    /**
+     *
+     * @param p
+     * @return
+     */
     public static boolean checkMail(String p){
         Matcher matcher = onlyEmail.matcher(p);
         return p.trim().length()>0 && matcher.find();
     }
     
     //Verifica il pattern della password
+
+    /**
+     *
+     * @param p
+     * @return
+     */
     public static boolean checkPassword(String p){
         Matcher matcher = onlyPasswordPattern.matcher(p);
         return matcher.find();
     }
     
+    /**
+     *
+     * @param input
+     * @return
+     * @throws NoSuchAlgorithmException
+     */
     public static byte[] getSHA(String input) throws NoSuchAlgorithmException
     { 
         MessageDigest md = MessageDigest.getInstance("SHA-256"); 
         return md.digest(input.getBytes(StandardCharsets.UTF_8)); 
     }
     
+    /**
+     *
+     * @param hash
+     * @return
+     */
     public static String toHexString(byte[] hash)
     {
         BigInteger number = new BigInteger(1, hash); 
