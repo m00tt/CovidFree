@@ -170,7 +170,6 @@ public class GeneralFunctions {
                     BufferedReader br = new BufferedReader(new FileReader(path));
                     while ((thisLine = br.readLine()) != null) {
                         String[] tmp = thisLine.split("-");
-                        /*retList.add(tmp[1]); prende tutti i codici fiscali*/
                         retList.add(tmp[2]); //prende tutti gli ID Vaccini
                     }       
                 } catch(IOException e) {
@@ -186,7 +185,8 @@ public class GeneralFunctions {
                     BufferedReader br = new BufferedReader(new FileReader(CITTADINIDIR + File.separator +"Cittadini_Registrati.dati"));
                     while ((thisLine = br.readLine()) != null) {
                         String[] tmp = thisLine.split("-");
-                        //retList.add(tmp[1]);
+                        retList.add(tmp[1]);
+                        retList.add(tmp[2]);
                         retList.add(tmp[6]);
                     }       
                 } catch(IOException e) {
@@ -223,6 +223,27 @@ public class GeneralFunctions {
         return retList;
     }
     
+    public static String getCodiceFiscale(String id){
+        
+        if(new File(CITTADINIDIR + File.separator +"Cittadini_Registrati.dati").exists()){
+            
+                try {
+                    String thisLine;
+                    BufferedReader br = new BufferedReader(new FileReader(CITTADINIDIR + File.separator +"Cittadini_Registrati.dati"));
+                    while ((thisLine = br.readLine()) != null) {
+                        String[] tmp = thisLine.split("-");
+                        if(id.equalsIgnoreCase(tmp[6])){
+                            return tmp[1];
+                        }
+                        
+                    }       
+                } catch(IOException e) {
+                    showMessageDialog(null, "Errore di lettura del database, riprova.");
+                }
+        }
+        
+        return null;
+    }
     
     
     

@@ -6,27 +6,34 @@
  */
 package cittadini;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
+import static javax.swing.JOptionPane.showMessageDialog;
+import static utils.GeneralFunctions.CENTRIVACCINALIDIR;
 import static utils.GeneralFunctions.getCentriVaccinaliList;
 
 
 public class RegistraEventiAvversi extends javax.swing.JFrame {
 
-    private String username;
+    private String codiceFiscaleLogged;
 
     /**
      * Creates new form RegistraEventiAvversi
      */
     public RegistraEventiAvversi() {
         initComponents();
-        fillCentriVaccinali();
+        //fillCentriVaccinali();
     }
 
-    public RegistraEventiAvversi(String username){
+    public RegistraEventiAvversi(String username, String codFisc){
         initComponents();
-        fillCentriVaccinali();
-        this.username=username;
         lblWelcomeEventi_RegistraEventiAvversi.setText(username  + " - Registra Evento");
+        this.codiceFiscaleLogged = codFisc;
+        fillCentriVaccinali(this.codiceFiscaleLogged);
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -83,7 +90,6 @@ public class RegistraEventiAvversi extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         jLabel1.setText("Evento Riscontrato");
 
-        scrlPanel_RegistraEventiAversi.setBackground(new java.awt.Color(255, 255, 255));
         scrlPanel_RegistraEventiAversi.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Descrizione", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 11))); // NOI18N
 
         txtDesc_RegistraEventiAvversi.setColumns(20);
@@ -299,13 +305,36 @@ public class RegistraEventiAvversi extends javax.swing.JFrame {
        
     }
     
-     private void fillCentriVaccinali(){
-        List<String> centriVaccinali = getCentriVaccinaliList();
+     private void fillCentriVaccinali(String codFisc){
                 
-        for(int i=0; i<centriVaccinali.size(); i++){
-            centroVaccinale_RegistraEventiAvversi.addItem(centriVaccinali.get(i));
+        List<String> nomeCentriVaccinali = getCentriVaccinaliList();
+        List<String> retList = new ArrayList<>();
+        
+        for(int i=0; i<nomeCentriVaccinali.size(); i++){
+            String path = CENTRIVACCINALIDIR + File.separator + "Vaccinati_"+nomeCentriVaccinali.get(i)+".dati";
+            if(new File(path).exists()){
+                try {
+                    String thisLine;
+                    BufferedReader br = new BufferedReader(new FileReader(path));
+                    while ((thisLine = br.readLine()) != null) {
+                        String[] tmp = thisLine.split("-");
+                        if(codFisc.equalsIgnoreCase(tmp[1])){
+                            retList.add(nomeCentriVaccinali.get(i));
+                            break;
+                        }
+                        
+                    }       
+                } catch(IOException e) {
+                    showMessageDialog(null, "Errore di lettura del database, riprova.");
+                }
+            }
+        }
+        
+        for(int i=0; i<retList.size(); i++){
+            centroVaccinale_RegistraEventiAvversi.addItem(retList.get(i));
         }
     }
+     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAnnulla_RegistraeventiAvversi;

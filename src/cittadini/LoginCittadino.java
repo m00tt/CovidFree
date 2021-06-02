@@ -14,6 +14,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import static javax.swing.JOptionPane.showMessageDialog;
 import static utils.GeneralFunctions.checkLogin;
+import static utils.GeneralFunctions.getCodiceFiscale;
 import static utils.GeneralFunctions.getSHA;
 import static utils.GeneralFunctions.toHexString;
 
@@ -217,7 +218,7 @@ public class LoginCittadino extends javax.swing.JFrame {
         
         if(checkLogin(username, password))
         {
-            RegistraEventiAvversi rea = new RegistraEventiAvversi(username);
+            RegistraEventiAvversi rea = new RegistraEventiAvversi(username, getCodiceFiscale(username));
             rea.setVisible(true);
             rea.setLocationRelativeTo(null);
             this.setVisible(false);
