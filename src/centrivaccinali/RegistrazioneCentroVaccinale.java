@@ -314,6 +314,7 @@ public class RegistrazioneCentroVaccinale extends javax.swing.JFrame {
         //Annulla l'operazione e ritorna alla home
         HomeCentriVaccinali homeCentriVaccinali = new HomeCentriVaccinali();
         homeCentriVaccinali.setVisible(true);
+        homeCentriVaccinali.setLocationRelativeTo(null);
         this.setVisible(false);
     }//GEN-LAST:event_ann_RegistrazioneCentroVaccinaleActionPerformed
 
@@ -459,6 +460,7 @@ public class RegistrazioneCentroVaccinale extends javax.swing.JFrame {
 
                     HomeCentriVaccinali homeCentriVaccinali = new HomeCentriVaccinali();
                     homeCentriVaccinali.setVisible(true);
+                    homeCentriVaccinali.setLocationRelativeTo(null);
                     this.setVisible(false); 
                 }
                 else{

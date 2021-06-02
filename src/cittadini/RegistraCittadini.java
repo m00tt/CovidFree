@@ -219,10 +219,10 @@ public class RegistraCittadini extends javax.swing.JFrame {
                             .addGroup(datiPnl_RegistrazioneCittadinoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(usrnameLbl_RegistrazioneCittadino)
                                 .addComponent(userId_RegistrazioneCittadino, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(37, 37, 37)
+                            .addGap(18, 18, 18)
                             .addGroup(datiPnl_RegistrazioneCittadinoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(pwdLbl_RegistrazioneCittadino)
-                                .addComponent(pwdUsr_RegistrazioneCittadino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(pwdUsr_RegistrazioneCittadino, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(pwdLbl_RegistrazioneCittadino))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(datiPnl_RegistrazioneCittadinoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(idCittadinoLbl_RegistrazioneCittadino)
@@ -259,17 +259,16 @@ public class RegistraCittadini extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(codiceFiscale_RegistrazioneCittadino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(datiPnl_RegistrazioneCittadinoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pwdLbl_RegistrazioneCittadino, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(datiPnl_RegistrazioneCittadinoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(usrnameLbl_RegistrazioneCittadino)
-                        .addComponent(idCittadinoLbl_RegistrazioneCittadino)))
+                .addGroup(datiPnl_RegistrazioneCittadinoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(usrnameLbl_RegistrazioneCittadino)
+                    .addComponent(idCittadinoLbl_RegistrazioneCittadino)
+                    .addComponent(pwdLbl_RegistrazioneCittadino, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(datiPnl_RegistrazioneCittadinoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pwdUsr_RegistrazioneCittadino)
-                    .addComponent(idVaccino_RegistrazioneCittadino)
+                .addGroup(datiPnl_RegistrazioneCittadinoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(pwdUsr_RegistrazioneCittadino, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
+                    .addComponent(idVaccino_RegistrazioneCittadino, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(userId_RegistrazioneCittadino))
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         add_RegistrazioneCittadino.setText("Aggiungi");
@@ -309,12 +308,12 @@ public class RegistraCittadini extends javax.swing.JFrame {
             .addGroup(Panel_RegistrazioneCittadinoLayout.createSequentialGroup()
                 .addComponent(titleLbl_RegistrazioneCittadino, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(5, 5, 5)
-                .addComponent(datiPnl_RegistrazioneCittadino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(datiPnl_RegistrazioneCittadino, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(Panel_RegistrazioneCittadinoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(add_RegistrazioneCittadino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ann_RegistrazioneCittadino, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -535,6 +534,7 @@ public class RegistraCittadini extends javax.swing.JFrame {
                         
                             HomeCittadini homecittadini = new HomeCittadini();
                             homecittadini.setVisible(true);
+                            homecittadini.setLocationRelativeTo(null);
                             this.setVisible(false);
                         }
                         else{
@@ -549,6 +549,7 @@ public class RegistraCittadini extends javax.swing.JFrame {
 
                                 HomeCittadini homecittadini = new HomeCittadini();
                                 homecittadini.setVisible(true);
+                                homecittadini.setLocationRelativeTo(null);
                                 this.setVisible(false);
                             }
                             else{

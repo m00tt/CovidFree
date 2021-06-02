@@ -344,6 +344,7 @@ public class RegistraEventiAvversi extends javax.swing.JFrame {
 
             HomeCittadini homeCittadini = new HomeCittadini();
             homeCittadini.setVisible(true);
+            homeCittadini.setLocationRelativeTo(null);
             this.setVisible(false);
 }
     }

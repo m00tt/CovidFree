@@ -432,6 +432,7 @@ public class RegistrazioneVaccinato extends javax.swing.JFrame {
 
                             HomeCentriVaccinali homeCentriVaccinali = new HomeCentriVaccinali();
                             homeCentriVaccinali.setVisible(true);
+                            homeCentriVaccinali.setLocationRelativeTo(null);
                             this.setVisible(false);
                         }
                         else{
