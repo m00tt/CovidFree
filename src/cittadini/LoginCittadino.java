@@ -11,17 +11,13 @@ import java.security.NoSuchAlgorithmException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
-import javax.swing.JFrame;
 import static javax.swing.JOptionPane.showMessageDialog;
 import static utils.GeneralFunctions.checkLogin;
 import static utils.GeneralFunctions.getCodiceFiscale;
 import static utils.GeneralFunctions.getSHA;
 import static utils.GeneralFunctions.toHexString;
 
-/**
- *
- * @author Riccardo
- */
+
 public class LoginCittadino extends javax.swing.JFrame {
 
     private String username;

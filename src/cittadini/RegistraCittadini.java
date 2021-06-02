@@ -16,7 +16,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import static javax.swing.JOptionPane.showMessageDialog;
 import static utils.GeneralFunctions.CITTADINIDIR;
-
 import static utils.GeneralFunctions.checkCompiled;
 import static utils.GeneralFunctions.checkDirHierarchy;
 import static utils.GeneralFunctions.checkIdVaccino;
@@ -29,11 +28,7 @@ import static utils.GeneralFunctions.newCittadinoAlreadyVaccinato;
 import static utils.GeneralFunctions.toHexString;
 
 
-/**
- *
- * 
- * @author Riccardo
- */
+
 public class RegistraCittadini extends javax.swing.JFrame {
     
     /**

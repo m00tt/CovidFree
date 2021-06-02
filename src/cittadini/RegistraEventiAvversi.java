@@ -6,15 +6,12 @@
  */
 package cittadini;
 
-import centrivaccinali.HomeCentriVaccinali;
 import java.awt.HeadlessException;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import static javax.swing.JOptionPane.showMessageDialog;
@@ -22,7 +19,6 @@ import static utils.GeneralFunctions.CENTRIVACCINALIDIR;
 import static utils.GeneralFunctions.CITTADINIDIR;
 import static utils.GeneralFunctions.checkCompiled;
 import static utils.GeneralFunctions.checkEvtDescription;
-import static utils.GeneralFunctions.getCentriVaccinaliList;
 
 
 public class RegistraEventiAvversi extends javax.swing.JFrame {

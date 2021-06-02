@@ -10,17 +10,12 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import static javax.swing.JOptionPane.showMessageDialog;
 import static utils.GeneralFunctions.CENTRIVACCINALIDIR;
-import static utils.GeneralFunctions.checkDirHierarchy;
 import static utils.GeneralFunctions.getCentroVaccinaleInfo;
 
-/**
- *
- * @author Riccardo
- */
+
 public class VisualizzaCentriVaccinali extends javax.swing.JFrame {
 
     /**

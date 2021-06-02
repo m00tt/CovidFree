@@ -8,8 +8,6 @@
 package cittadini;
 
 import centrivaccinali.CentriVaccinali;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -17,19 +15,14 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.DefaultListModel;
-
 import javax.swing.ImageIcon;
 import javax.swing.JList;
 import static javax.swing.JOptionPane.showMessageDialog;
-import javax.swing.ListModel;
 import static utils.GeneralFunctions.CENTRIVACCINALIDIR;
 import static utils.GeneralFunctions.checkDirHierarchy;
 import static utils.GeneralFunctions.getCentriVaccinaliList;
 
-/**
- *
- * @author Riccardo
- */
+
 public class HomeCittadini extends javax.swing.JFrame {
 
     /**
