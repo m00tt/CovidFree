@@ -273,9 +273,12 @@ public class GeneralFunctions {
                     String thisLine;
                     BufferedReader br = new BufferedReader(new FileReader(CITTADINIDIR + File.separator +"Cittadini_Registrati.dati"));
                     while ((thisLine = br.readLine()) != null) {
+                        
                         String[] tmp = thisLine.split("-");
-                        if(id.equalsIgnoreCase(tmp[6])){
-                            return tmp[1];
+                        if(tmp.length==7){
+                            if(id.equalsIgnoreCase(tmp[6])){
+                                return tmp[1];
+                            }
                         }
                         
                     }       
@@ -299,8 +302,10 @@ public class GeneralFunctions {
                     BufferedReader br = new BufferedReader(new FileReader(path));
                     while ((thisLine = br.readLine()) != null) {
                         String[] tmp = thisLine.split("-");
-                        if(codFisc.equalsIgnoreCase(tmp[1])){
-                            return nomeCentriVaccinali.get(i)+"-"+tmp[2];
+                        if(tmp.length == 7){
+                            if(codFisc.equalsIgnoreCase(tmp[1])){
+                                return nomeCentriVaccinali.get(i)+"-"+tmp[2];
+                            }
                         }
                         
                     }       
@@ -405,6 +410,16 @@ public class GeneralFunctions {
     
     //Verifica che il civico sia compreso tra 1 e 5 caratteri
 
+    /**
+     *
+     * @param p
+     * @return
+     */
+    public static boolean checkEvtDescription(String p){
+        Matcher matcher = onlyLettersPattern.matcher(p);
+        return p.trim().length()>7 && !matcher.find() && p.trim().length() < 257;
+    }
+    
     /**
      *
      * @param p

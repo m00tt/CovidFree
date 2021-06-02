@@ -144,7 +144,7 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="txtName_RegistraEventoAversi" min="-2" pref="257" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
-                                      <Component id="jSlider1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="severitySld_RegistraEventiAvversi" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -168,8 +168,8 @@
                       </Group>
                       <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="txtName_RegistraEventoAversi" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jSlider1" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="severitySld_RegistraEventiAvversi" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtName_RegistraEventoAversi" min="-2" pref="31" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="scrlPanel_RegistraEventiAversi" min="-2" pref="83" max="-2" attributes="0"/>
@@ -209,6 +209,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Registra"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnConfirm_registraEventiAvversiActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel1">
               <Properties>
@@ -241,7 +244,7 @@
                       <Font name="Arial" size="11" style="2"/>
                     </Property>
                     <Property name="rows" type="int" value="5"/>
-                    <Property name="text" type="java.lang.String" value="Inserisci una descizione per l&apos;evento risontrontato (max. 256 caratteri)..."/>
+                    <Property name="text" type="java.lang.String" value="Inserisci una descizione per l&apos;evento risontrontato (da 8 a 256 caratteri)..."/>
                   </Properties>
                   <Events>
                     <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtDesc_RegistraEventiAvversiFocusGained"/>
@@ -255,7 +258,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial" size="11" style="2"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Inserisci Nome Evento..."/>
+                <Property name="text" type="java.lang.String" value="Inserisci Nome Evento (da 4 a 40 caratteri)..."/>
               </Properties>
               <Events>
                 <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtName_RegistraEventoAversiFocusGained"/>
@@ -270,7 +273,7 @@
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnAnnulla_RegistraeventiAvversiMouseClicked"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JSlider" name="jSlider1">
+            <Component class="javax.swing.JSlider" name="severitySld_RegistraEventiAvversi">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>

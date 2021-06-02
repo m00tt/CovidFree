@@ -362,11 +362,11 @@ public class HomeCittadini extends javax.swing.JFrame {
                 while ((thisLine = br.readLine()) != null) {
                     String[] tmp = thisLine.split("-");
                    
-                    if(tmp[0].contains(nome) && nome.length()>0){
+                    if(tmp[0].toLowerCase().contains(nome.toLowerCase()) && nome.length()>0){
                         list.add(tmp[0]);
                     }
                     
-                    if(tmp[6].contains(comune) && comune.length()>0){
+                    if(tmp[6].toLowerCase().contains(comune.toLowerCase()) && comune.length()>0){
                         for (int i=0; i < list.size();i++)
                         {
                             if (list.get(i) == tmp[0])
