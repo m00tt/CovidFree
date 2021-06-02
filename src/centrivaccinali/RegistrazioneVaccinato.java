@@ -23,6 +23,7 @@ import static utils.GeneralFunctions.checkDirHierarchy;
 import static utils.GeneralFunctions.checkIdVaccino;
 import static utils.GeneralFunctions.getCentriVaccinaliList;
 import static utils.GeneralFunctions.getUniqueList;
+import static utils.GeneralFunctions.newCittadinoAlreadyVaccinato;
 
 /**
  * This class provide to the user the possibility to register and store a new Vaccinated citizen
@@ -372,6 +373,7 @@ public class RegistrazioneVaccinato extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new RegistrazioneVaccinato().setVisible(true);
             }
@@ -397,7 +399,7 @@ public class RegistrazioneVaccinato extends javax.swing.JFrame {
             String dataVaccino = dataVaccino_RegistrazioneVaccinato.getText().strip();
             String idVaccino = idVaccino_RegistrazioneVaccinato.getText().strip();
             
-            if(nomeCentroVaccinale != "" && checkCompiled(nomeVaccinato) && checkCompiled(cognomeVaccinato) && checkCodiceFiscale(codiceFiscaleVaccinato) && checkData(dataVaccino) && checkIdVaccino(idVaccino)){
+            if(!"".equals(nomeCentroVaccinale) && checkCompiled(nomeVaccinato) && checkCompiled(cognomeVaccinato) && checkCodiceFiscale(codiceFiscaleVaccinato) && checkData(dataVaccino) && checkIdVaccino(idVaccino)){
                 String insert = nomeCentroVaccinale + "-" + codiceFiscaleVaccinato + "-" + idVaccino + "-" + nomeVaccinato + "-" + cognomeVaccinato + "-" + nomeVaccino + "-" + dataVaccino;
                 String path = CENTRIVACCINALIDIR + File.separator + "Vaccinati_"+nomeCentroVaccinale+".dati";
                 if(!checkDirHierarchy()){
@@ -419,22 +421,29 @@ public class RegistrazioneVaccinato extends javax.swing.JFrame {
                     
                     if(ok)
                     {
-                        try (FileWriter fw2 = new FileWriter(path, true)) { 
-                            fw2.append(insert+"\n");
-                            showMessageDialog(null, "Vaccinato registrato con successo!");
-                        }catch(HeadlessException | IOException e){
-                            showMessageDialog(null, "Errore in fase di scrittura dei dati, riprova.");
+                        String cmp = newCittadinoAlreadyVaccinato(codiceFiscaleVaccinato);
+                        if(cmp == null){
+                            try (FileWriter fw2 = new FileWriter(path, true)) { 
+                                fw2.append(insert+"\n");
+                                showMessageDialog(null, "Vaccinato registrato con successo!");
+                            }catch(HeadlessException | IOException e){
+                                showMessageDialog(null, "Errore in fase di scrittura dei dati, riprova.");
+                            }
+
+                            HomeCentriVaccinali homeCentriVaccinali = new HomeCentriVaccinali();
+                            homeCentriVaccinali.setVisible(true);
+                            this.setVisible(false);
                         }
-                        
-                        HomeCentriVaccinali homeCentriVaccinali = new HomeCentriVaccinali();
-                        homeCentriVaccinali.setVisible(true);
-                        this.setVisible(false);
+                        else{
+                            String[] getS = cmp.split("-");
+                            showMessageDialog(null, "Il cittadino risulta già vaccinato presso il Centro Vaccinale '" + getS[0] + "' con l'ID Vaccino: " + getS[1]);
+                        }
                     }
                     else{
                         showMessageDialog(null, "Codice fiscale o ID Vaccino già presenti nel database.");
                     }
                     
-                }catch(Exception e){
+                }catch(HeadlessException e){
                     showMessageDialog(null, "Errore in fase di scrittura dei dati, riprova.");
                 }
                 

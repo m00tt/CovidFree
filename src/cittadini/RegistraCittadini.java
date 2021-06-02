@@ -17,6 +17,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import static javax.swing.JOptionPane.showMessageDialog;
 import static utils.GeneralFunctions.CITTADINIDIR;
+import static utils.GeneralFunctions.checkCodiceFiscale;
 import static utils.GeneralFunctions.checkCompiled;
 import static utils.GeneralFunctions.checkDirHierarchy;
 import static utils.GeneralFunctions.checkIdVaccino;
@@ -499,7 +500,7 @@ public class RegistraCittadini extends javax.swing.JFrame {
             String vaccineID = idVaccino_RegistrazioneCittadino.getText().strip();
             
             
-            if (nomeCentroVaccinale != "" && checkCompiled(nomeCittadino)&& checkCompiled(userID) && checkCompiled(cognomeCittadino) && checkIdVaccino(vaccineID) && checkPassword(passwordCittadino) && checkMail(emailCittadino))
+            if (!"".equals(nomeCentroVaccinale) && checkCompiled(nomeCittadino) && checkCodiceFiscale(codiceFiscale) && checkCompiled(userID) && checkCompiled(cognomeCittadino) && checkIdVaccino(vaccineID) && checkPassword(passwordCittadino) && checkMail(emailCittadino))
             {
                 String insert = nomeCentroVaccinale + "-" + codiceFiscale + "-" + vaccineID + "-" + nomeCittadino + "-" + cognomeCittadino + "-" + emailCittadino + "-" + userID + "-" + toHexString(getSHA(passwordCittadino));
                 String path = CITTADINIDIR + File.separator + "Cittadini_registrati.dati";
@@ -552,7 +553,7 @@ public class RegistraCittadini extends javax.swing.JFrame {
                             }
                             else{
                                 //String[] cmpSplit = cmpCentroVaccinale.split("-");
-                                showMessageDialog(null, "Risulta già una vaccinazione avvenuta al centro vaccinale '"+cmpSplit[0]+" con l'ID Vaccino: "+cmpSplit[1]);
+                                showMessageDialog(null, "Risulta già una vaccinazione avvenuta al centro vaccinale '"+cmpSplit[0]+"' con l'ID Vaccino: "+cmpSplit[1]);
                             }
                         
                         }

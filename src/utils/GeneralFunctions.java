@@ -152,25 +152,7 @@ public class GeneralFunctions {
      * @return
      */
     public static List<String> getUniqueList(){
-        //List<String> nomeCentriVaccinali = getCentriVaccinaliList();
         List<String> retList = new ArrayList<>();
-        
-        /*for(int i=0; i<nomeCentriVaccinali.size(); i++){
-            String path = CENTRIVACCINALIDIR + File.separator + "Vaccinati_"+nomeCentriVaccinali.get(i)+".dati";
-            if(new File(path).exists()){
-                try {
-                    String thisLine;
-                    BufferedReader br = new BufferedReader(new FileReader(path));
-                    while ((thisLine = br.readLine()) != null) {
-                        String[] tmp = thisLine.split("-");
-                        retList.add(tmp[2]); //prende tutti gli ID Vaccini
-                    }       
-                } catch(IOException e) {
-                    showMessageDialog(null, "Errore di lettura del database, riprova.");
-                }
-            }
-        }*/
-        
         if(new File(CITTADINIDIR + File.separator +"Cittadini_Registrati.dati").exists()){
             
                 try {

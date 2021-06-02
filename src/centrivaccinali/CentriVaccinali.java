@@ -5,8 +5,8 @@
  * 
  */
 package centrivaccinali;
-import cittadini.HomeCittadini;
 
+import cittadini.HomeCittadini;
 import java.text.SimpleDateFormat;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -47,6 +47,7 @@ public final class CentriVaccinali extends javax.swing.JFrame {
      */
     public void time() {
         new Timer (0, new ActionListener() {
+            @Override
             public void actionPerformed (ActionEvent e) {
                 java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("HH:mm:ss");
                 String texte_date = sdf.format (new Date());
