@@ -323,6 +323,7 @@ public class HomeCittadini extends javax.swing.JFrame {
             String s = (String) list.getSelectedValue();
             VisualizzaCentriVaccinali visualizzacentro = new VisualizzaCentriVaccinali(s);
             visualizzacentro.setVisible(true);
+            visualizzacentro.setLocationRelativeTo(null);
             this.setVisible(false);
         }
     }//GEN-LAST:event_infocentriList_HomeCittadiniMouseClicked
@@ -456,6 +457,7 @@ public class HomeCittadini extends javax.swing.JFrame {
         infocentriList_HomeCittadini.setModel(listModel);
         
     }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Panel_HomeCittadini;

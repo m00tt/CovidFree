@@ -32,17 +32,7 @@ public class VisualizzaCentriVaccinali extends javax.swing.JFrame {
      */
     public VisualizzaCentriVaccinali(String centroVaccinale) {
         initComponents();
-        List<String> infoCentro = getCentroVaccinaleInfo(centroVaccinale);
-        namelbl_VisualizzaCentriVaccinali.setText(infoCentro.get(0));
-        tipelbl_VisualizzaCentriVaccinali.setText(infoCentro.get(1));
-        indlbl_VisualizzaCentriVaccinali.setText(infoCentro.get(2) + " " + infoCentro.get(3) + " " + infoCentro.get(4));
-        provlbl_VisualizzaCentriVaccinali.setText(infoCentro.get(5));
-        comlbl_VisualizzaCentriVaccinali.setText(infoCentro.get(6));
-        caplb_VisualizzaCentriVaccinali.setText(infoCentro.get(7));
-        title_VisualizzaCentriVaccinali.setText(infoCentro.get(0));
-        
-        getReportCentroVaccinale(infoCentro.get(0));
-        
+        visualizzaInfoCentroVaccinale(centroVaccinale);
     }
 
 
@@ -350,6 +340,20 @@ public class VisualizzaCentriVaccinali extends javax.swing.JFrame {
         }
         
         
+    }
+    
+    
+    private void visualizzaInfoCentroVaccinale(String centroVaccinale){
+        List<String> infoCentro = getCentroVaccinaleInfo(centroVaccinale);
+        namelbl_VisualizzaCentriVaccinali.setText(infoCentro.get(0));
+        tipelbl_VisualizzaCentriVaccinali.setText(infoCentro.get(1));
+        indlbl_VisualizzaCentriVaccinali.setText(infoCentro.get(2) + " " + infoCentro.get(3) + " " + infoCentro.get(4));
+        provlbl_VisualizzaCentriVaccinali.setText(infoCentro.get(5));
+        comlbl_VisualizzaCentriVaccinali.setText(infoCentro.get(6));
+        caplb_VisualizzaCentriVaccinali.setText(infoCentro.get(7));
+        title_VisualizzaCentriVaccinali.setText(infoCentro.get(0));
+        
+        getReportCentroVaccinale(infoCentro.get(0));
     }
   
     
