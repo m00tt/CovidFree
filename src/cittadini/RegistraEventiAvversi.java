@@ -7,16 +7,14 @@
 package cittadini;
 
 import java.awt.HeadlessException;
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import javax.swing.ImageIcon;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import static javax.swing.JOptionPane.showMessageDialog;
 import static utils.GeneralFunctions.CENTRIVACCINALIDIR;
-import static utils.GeneralFunctions.CITTADINIDIR;
 import static utils.GeneralFunctions.checkCompiled;
 import static utils.GeneralFunctions.checkEvtDescription;
 
