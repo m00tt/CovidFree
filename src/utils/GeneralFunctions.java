@@ -22,12 +22,8 @@ import java.util.List;
 import static javax.swing.JOptionPane.showMessageDialog;
 import java.util.regex.Matcher; 
 import java.util.regex.Pattern;
-import javax.swing.JOptionPane;
 
-/**
- *
- * @author Riccardo
- */
+
 public class GeneralFunctions {
     
     //Dichiarazione dei path utili
