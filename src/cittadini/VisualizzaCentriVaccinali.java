@@ -17,14 +17,23 @@ import static utils.GeneralFunctions.CENTRIVACCINALIDIR;
 import static utils.GeneralFunctions.checkDirHierarchy;
 import static utils.GeneralFunctions.getCentroVaccinaleInfo;
 
-
+/**
+ *
+ * @author Riccardo
+ */
 public class VisualizzaCentriVaccinali extends javax.swing.JFrame {
 
-
+    /**
+     *
+     */
     public VisualizzaCentriVaccinali() {
         initComponents();
     }
     
+    /**
+     *
+     * @param centroVaccinale
+     */
     public VisualizzaCentriVaccinali(String centroVaccinale) {
         initComponents();
         List<String> infoCentro = getCentroVaccinaleInfo(centroVaccinale);

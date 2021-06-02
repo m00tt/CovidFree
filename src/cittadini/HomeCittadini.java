@@ -26,9 +26,15 @@ import static utils.GeneralFunctions.CENTRIVACCINALIDIR;
 import static utils.GeneralFunctions.checkDirHierarchy;
 import static utils.GeneralFunctions.getCentriVaccinaliList;
 
-
+/**
+ *
+ * @author Riccardo
+ */
 public class HomeCittadini extends javax.swing.JFrame {
 
+    /**
+     *
+     */
     public HomeCittadini() {
         initComponents();
         fillCentriVaccinali(getCentriVaccinaliList());
@@ -337,8 +343,9 @@ public class HomeCittadini extends javax.swing.JFrame {
         cercaCentroVaccinale();
     }//GEN-LAST:event_searchComune_HomeCittadiniKeyPressed
 
-    
-    
+    /**
+     *
+     */
     public void cercaCentroVaccinale()
     {
       String thisLine;

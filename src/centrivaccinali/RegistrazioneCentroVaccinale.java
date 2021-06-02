@@ -22,8 +22,15 @@ import static utils.GeneralFunctions.checkCompiled;
 import static utils.GeneralFunctions.checkProvincia;
 import static utils.GeneralFunctions.checkDirHierarchy;
 
+/**
+ *  This class is used to provide the possibility to add a new vaccination centre into the Database file
+ * 
+ */
 public class RegistrazioneCentroVaccinale extends javax.swing.JFrame {
 
+    /**
+     * RegistrazioneCentroVaccinale() constructor
+     */
     public RegistrazioneCentroVaccinale() {
         initComponents();
     }
@@ -366,8 +373,11 @@ public class RegistrazioneCentroVaccinale extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_prov_RegistrazioneCentroVaccinaleFocusLost
 
-    
-    
+    /**
+     * This Main method is used in order to launch the current class JavaForm.
+     * Is also used to initialize the current class and graphic elements
+     * @param args
+     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -402,6 +412,11 @@ public class RegistrazioneCentroVaccinale extends javax.swing.JFrame {
     }
     
     //Funzione di registrazione di un nuovo centro vaccinale
+    
+   /**
+    * This method is used to retrive all the information typed as input from the user and create a new vaccination centre into the "CentriVaccinali.dati" file.
+    * It also check if there are duplicates element and if the file exhist and is stored in the correct path
+    */
     private void registraCentroVaccinale(){        
         String nomeCentroVaccinale = name_RegistrazioneCentroVaccinale.getText().strip();
         String tipologiaCentroVaccinale = tipologia_RegistrazioneCentroVaccinale.getSelectedItem().toString();

@@ -31,10 +31,13 @@ import static utils.GeneralFunctions.toHexString;
 /**
  *
  * 
+ * @author Riccardo
  */
 public class RegistraCittadini extends javax.swing.JFrame {
     
-
+    /**
+     *
+     */
     public RegistraCittadini() {
         initComponents();
         fillCentriVaccinali();
@@ -433,16 +436,10 @@ public class RegistraCittadini extends javax.swing.JFrame {
        
     }//GEN-LAST:event_pwdUsr_RegistrazioneCittadinoFocusGained
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    /**
+     *
+     * @param args
+     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

@@ -9,7 +9,10 @@ package cittadini;
 import java.util.List;
 import static utils.GeneralFunctions.getCentriVaccinaliList;
 
-
+/**
+ *
+ * @author Riccardo
+ */
 public class RegistraEventiAvversi extends javax.swing.JFrame {
 
     private String username;
@@ -22,6 +25,10 @@ public class RegistraEventiAvversi extends javax.swing.JFrame {
         fillCentriVaccinali();
     }
 
+    /**
+     *
+     * @param username
+     */
     public RegistraEventiAvversi(String username){
         initComponents();
         fillCentriVaccinali();

@@ -25,9 +25,15 @@ import static utils.GeneralFunctions.checkIdVaccino;
 import static utils.GeneralFunctions.getCentriVaccinaliList;
 import static utils.GeneralFunctions.getUniqueList;
 
+/**
+ * This class provide to the user the possibility to register and store a new Vaccinated citizen
+ * 
+ */
 public class RegistrazioneVaccinato extends javax.swing.JFrame {
 
-    
+    /**
+     * RegistrazioneVaccinato() constructor
+     */
     public RegistrazioneVaccinato() {
         initComponents();
         //Aggiunge i centri vaccinali registrati alla combobox
@@ -336,7 +342,11 @@ public class RegistrazioneVaccinato extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_idVaccino_RegistrazioneVaccinatoFocusLost
 
-
+    /**
+     * This Main method is used in order to launch the current class JavaForm.
+     * Is also used to initialize the current class and graphic elements
+     * @param args
+     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -370,6 +380,10 @@ public class RegistrazioneVaccinato extends javax.swing.JFrame {
     }
     
     //Registra un nuovo vaccinato
+    /**
+     * This method is used to retrive all the information typed as input from the user and create a new Vaccinated citizen into the "CentriVaccinali.dati" file.
+    *  It also check if there are duplicates element and if the file exhist and is stored in the correct path
+    */
     private void registraVaccinato(){
         try {
             String nomeCentroVaccinale;
