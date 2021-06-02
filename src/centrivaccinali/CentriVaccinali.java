@@ -19,7 +19,7 @@ import static utils.GeneralFunctions.checkDirHierarchy;
 
 
 
-public class CentriVaccinali extends javax.swing.JFrame {
+public final class CentriVaccinali extends javax.swing.JFrame {
 
     /**
      * CentriVaccinali() class constructor
@@ -28,6 +28,7 @@ public class CentriVaccinali extends javax.swing.JFrame {
         initComponents();
         date();
         time();
+        this.setLocationRelativeTo(null);
     }
     
     //ShowDate
@@ -200,12 +201,14 @@ public class CentriVaccinali extends javax.swing.JFrame {
     private void centrovacciniBtn_covidfreeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_centrovacciniBtn_covidfreeActionPerformed
         HomeCentriVaccinali homeCentriVaccinali = new HomeCentriVaccinali();
         homeCentriVaccinali.setVisible(true);
+        homeCentriVaccinali.setLocationRelativeTo(null);
         this.setVisible(Boolean.FALSE);
     }//GEN-LAST:event_centrovacciniBtn_covidfreeActionPerformed
 
     private void cittadiniBtn_covidfreeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cittadiniBtn_covidfreeActionPerformed
         HomeCittadini homeCittadini = new HomeCittadini();
         homeCittadini.setVisible(true);
+        homeCittadini.setLocationRelativeTo(null);
         this.setVisible(Boolean.FALSE);
     }//GEN-LAST:event_cittadiniBtn_covidfreeActionPerformed
 
@@ -218,10 +221,12 @@ public class CentriVaccinali extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new CentriVaccinali().setVisible(true);
             }
         });
+        
         
         if(!checkDirHierarchy()){
             showMessageDialog(null, "Database non trovati.\nI dati sono stati re-inizializzati.");

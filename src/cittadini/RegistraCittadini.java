@@ -39,7 +39,6 @@ public class RegistraCittadini extends javax.swing.JFrame {
         fillCentriVaccinali();
     }
     
-    HomeCittadini homeCittadini = new HomeCittadini();
     
     
     /**
@@ -74,6 +73,7 @@ public class RegistraCittadini extends javax.swing.JFrame {
         ann_RegistrazioneCittadino = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setIconImage(new ImageIcon("icon.png").getImage());
 
         Panel_RegistrazioneCittadino.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -340,7 +340,9 @@ public class RegistraCittadini extends javax.swing.JFrame {
     }//GEN-LAST:event_codiceFiscale_RegistrazioneCittadinoActionPerformed
 
     private void ann_RegistrazioneCittadinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ann_RegistrazioneCittadinoActionPerformed
+        HomeCittadini homeCittadini = new HomeCittadini();
         homeCittadini.setVisible(true);
+        homeCittadini.setLocationRelativeTo(null);
         this.setVisible(false);
     }//GEN-LAST:event_ann_RegistrazioneCittadinoActionPerformed
 

@@ -23,7 +23,6 @@ import static utils.GeneralFunctions.checkEvtDescription;
 
 public class RegistraEventiAvversi extends javax.swing.JFrame {
 
-    private String codiceFiscaleLogged;
 
     /**
      * Creates new form RegistraEventiAvversi
@@ -37,11 +36,10 @@ public class RegistraEventiAvversi extends javax.swing.JFrame {
      *
      * @param username
      */
-    public RegistraEventiAvversi(String username, String codFisc){
+    public RegistraEventiAvversi(String username, String centroVaccinale){
         initComponents();
         lblWelcomeEventi_RegistraEventiAvversi.setText(username  + " - Registra Evento");
-        this.codiceFiscaleLogged = codFisc;
-        fillCentriVaccinali(this.codiceFiscaleLogged);
+        nomeCentroLbl_RegistraEventiAvversi.setText(centroVaccinale);
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -55,7 +53,6 @@ public class RegistraEventiAvversi extends javax.swing.JFrame {
         pnlMain_RegistraEventiAvversi = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         pnlEventi_RegistraEventiAvversi = new javax.swing.JPanel();
-        centroVaccinale_RegistraEventiAvversi = new javax.swing.JComboBox<>();
         centroVaccinaleLbl_RegistraEventiAvversi = new javax.swing.JLabel();
         btnConfirm_registraEventiAvversi = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -65,9 +62,11 @@ public class RegistraEventiAvversi extends javax.swing.JFrame {
         btnAnnulla_RegistraeventiAvversi = new javax.swing.JButton();
         severitySld_RegistraEventiAvversi = new javax.swing.JSlider();
         jLabel2 = new javax.swing.JLabel();
+        nomeCentroLbl_RegistraEventiAvversi = new javax.swing.JLabel();
         lblWelcomeEventi_RegistraEventiAvversi = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setIconImage(new ImageIcon("icon.png").getImage());
         setPreferredSize(new java.awt.Dimension(600, 450));
 
         pnlMain_RegistraEventiAvversi.setBackground(new java.awt.Color(255, 255, 255));
@@ -88,10 +87,8 @@ public class RegistraEventiAvversi extends javax.swing.JFrame {
         pnlEventi_RegistraEventiAvversi.setBackground(new java.awt.Color(255, 255, 255));
         pnlEventi_RegistraEventiAvversi.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Registra Eventi Avversi", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 11))); // NOI18N
 
-        centroVaccinale_RegistraEventiAvversi.setFont(new java.awt.Font("Arial", 2, 11)); // NOI18N
-
         centroVaccinaleLbl_RegistraEventiAvversi.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
-        centroVaccinaleLbl_RegistraEventiAvversi.setText("Nome Centro Vaccinale");
+        centroVaccinaleLbl_RegistraEventiAvversi.setText("Centro Vaccinale registrato");
 
         btnConfirm_registraEventiAvversi.setText("Registra");
         btnConfirm_registraEventiAvversi.addActionListener(new java.awt.event.ActionListener() {
@@ -149,6 +146,8 @@ public class RegistraEventiAvversi extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         jLabel2.setText("Severità Evento");
 
+        nomeCentroLbl_RegistraEventiAvversi.setFont(new java.awt.Font("Arial", 2, 12)); // NOI18N
+
         javax.swing.GroupLayout pnlEventi_RegistraEventiAvversiLayout = new javax.swing.GroupLayout(pnlEventi_RegistraEventiAvversi);
         pnlEventi_RegistraEventiAvversi.setLayout(pnlEventi_RegistraEventiAvversiLayout);
         pnlEventi_RegistraEventiAvversiLayout.setHorizontalGroup(
@@ -163,17 +162,16 @@ public class RegistraEventiAvversi extends javax.swing.JFrame {
                     .addGroup(pnlEventi_RegistraEventiAvversiLayout.createSequentialGroup()
                         .addGroup(pnlEventi_RegistraEventiAvversiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(scrlPanel_RegistraEventiAversi, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(pnlEventi_RegistraEventiAvversiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(centroVaccinale_RegistraEventiAvversi, javax.swing.GroupLayout.PREFERRED_SIZE, 405, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(centroVaccinaleLbl_RegistraEventiAvversi)
-                                .addGroup(pnlEventi_RegistraEventiAvversiLayout.createSequentialGroup()
-                                    .addComponent(jLabel1)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel2)))
+                            .addComponent(centroVaccinaleLbl_RegistraEventiAvversi)
+                            .addGroup(pnlEventi_RegistraEventiAvversiLayout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(217, 217, 217)
+                                .addComponent(jLabel2))
                             .addGroup(pnlEventi_RegistraEventiAvversiLayout.createSequentialGroup()
                                 .addComponent(txtName_RegistraEventoAversi, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(63, 63, 63)
-                                .addComponent(severitySld_RegistraEventiAvversi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(severitySld_RegistraEventiAvversi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(nomeCentroLbl_RegistraEventiAvversi, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -183,8 +181,8 @@ public class RegistraEventiAvversi extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(centroVaccinaleLbl_RegistraEventiAvversi)
                 .addGap(4, 4, 4)
-                .addComponent(centroVaccinale_RegistraEventiAvversi, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(19, 19, 19)
+                .addComponent(nomeCentroLbl_RegistraEventiAvversi, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(pnlEventi_RegistraEventiAvversiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jLabel2))
@@ -253,6 +251,7 @@ public class RegistraEventiAvversi extends javax.swing.JFrame {
     private void btnAnnulla_RegistraeventiAvversiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAnnulla_RegistraeventiAvversiMouseClicked
         HomeCittadini hcl = new HomeCittadini();
         hcl.setVisible(true);
+        hcl.setLocationRelativeTo(null);
         this.setVisible(false);
         
     }//GEN-LAST:event_btnAnnulla_RegistraeventiAvversiMouseClicked
@@ -325,30 +324,9 @@ public class RegistraEventiAvversi extends javax.swing.JFrame {
         });
        
     }
-    
-    private void fillCentriVaccinali(String codFisc){
-  
-        String path = CITTADINIDIR + File.separator + "Cittadini_Registrati.dati";
-        if(new File(path).exists()){
-            try {
-                String thisLine;
-                BufferedReader br = new BufferedReader(new FileReader(path));
-                while ((thisLine = br.readLine()) != null) {
-                    String[] tmp = thisLine.split("-");
-                    if(codFisc.equalsIgnoreCase(tmp[1])){
-                        centroVaccinale_RegistraEventiAvversi.addItem(tmp[0]);
-                    }
-
-                }       
-            } catch(IOException e) {
-                showMessageDialog(null, "Errore di lettura del database, riprova.");
-            }
-        }
-
-    }
      
     private void inserisciEventiAvversi() throws IOException{
-        String nomeCentroVaccinale = centroVaccinale_RegistraEventiAvversi.getSelectedItem().toString();
+        String nomeCentroVaccinale = nomeCentroLbl_RegistraEventiAvversi.getText();
         String nomeEvento = txtName_RegistraEventoAversi.getText();
         int severitaEvento = severitySld_RegistraEventiAvversi.getValue();
         String descrizioneEvento = txtDesc_RegistraEventiAvversi.getText();
@@ -377,11 +355,11 @@ public class RegistraEventiAvversi extends javax.swing.JFrame {
     private javax.swing.JButton btnAnnulla_RegistraeventiAvversi;
     private javax.swing.JButton btnConfirm_registraEventiAvversi;
     private javax.swing.JLabel centroVaccinaleLbl_RegistraEventiAvversi;
-    private javax.swing.JComboBox<String> centroVaccinale_RegistraEventiAvversi;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblWelcomeEventi_RegistraEventiAvversi;
+    private javax.swing.JLabel nomeCentroLbl_RegistraEventiAvversi;
     private javax.swing.JPanel pnlEventi_RegistraEventiAvversi;
     private javax.swing.JPanel pnlMain_RegistraEventiAvversi;
     private javax.swing.JScrollPane scrlPanel_RegistraEventiAversi;

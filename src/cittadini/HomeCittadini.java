@@ -62,6 +62,7 @@ public class HomeCittadini extends javax.swing.JFrame {
         setTitle("Home Cittadini");
         setIconImage(new ImageIcon("icon.png").getImage());
         setName("frame_HomeCittadini"); // NOI18N
+        setResizable(false);
 
         Panel_HomeCittadini.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -135,7 +136,6 @@ public class HomeCittadini extends javax.swing.JFrame {
             }
         });
 
-        cmbSearchType_HomeCittadino.setBackground(new java.awt.Color(255, 255, 255));
         cmbSearchType_HomeCittadino.setFont(new java.awt.Font("Arial", 2, 11)); // NOI18N
         cmbSearchType_HomeCittadino.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Qualsiasi", "Ospedaliero", "Aziendale", "Hub" }));
         cmbSearchType_HomeCittadino.addItemListener(new java.awt.event.ItemListener() {
@@ -297,6 +297,7 @@ public class HomeCittadini extends javax.swing.JFrame {
     private void loginBtn_HomeCittadiniMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginBtn_HomeCittadiniMouseClicked
        LoginCittadino login = new LoginCittadino();
        login.setVisible(true);
+       login.setLocationRelativeTo(null);
        this.setVisible(false);
         
     }//GEN-LAST:event_loginBtn_HomeCittadiniMouseClicked
@@ -304,12 +305,14 @@ public class HomeCittadini extends javax.swing.JFrame {
     private void back_HomeCittadiniMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_back_HomeCittadiniMouseClicked
         CentriVaccinali centrivaccinali = new CentriVaccinali();
         centrivaccinali.setVisible(true);
+        centrivaccinali.setLocationRelativeTo(null);
         this.setVisible(false);
     }//GEN-LAST:event_back_HomeCittadiniMouseClicked
 
     private void registerBtn_HomeCittadiniMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registerBtn_HomeCittadiniMouseClicked
         RegistraCittadini reg = new RegistraCittadini();
         reg.setVisible(true);
+        reg.setLocationRelativeTo(null);
         this.setVisible(false);
        
     }//GEN-LAST:event_registerBtn_HomeCittadiniMouseClicked

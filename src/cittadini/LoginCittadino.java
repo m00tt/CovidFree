@@ -7,13 +7,18 @@
 
 package cittadini;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import static javax.swing.JOptionPane.showMessageDialog;
-import static utils.GeneralFunctions.checkLogin;
-import static utils.GeneralFunctions.getCodiceFiscale;
+import static utils.GeneralFunctions.CITTADINIDIR;
+import static utils.GeneralFunctions.checkDirHierarchy;
+import static utils.GeneralFunctions.getCentroVaccinalebyID;
 import static utils.GeneralFunctions.getSHA;
 import static utils.GeneralFunctions.toHexString;
 
@@ -30,7 +35,6 @@ public class LoginCittadino extends javax.swing.JFrame {
 
     }
     
-    HomeCittadini hc= new HomeCittadini();
     
 
     /**
@@ -192,7 +196,9 @@ public class LoginCittadino extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void indietroBtn_LoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_indietroBtn_LoginActionPerformed
+        HomeCittadini hc= new HomeCittadini();
         hc.setVisible(true);
+        hc.setLocationRelativeTo(null);
         this.setVisible(false);
     }//GEN-LAST:event_indietroBtn_LoginActionPerformed
 
@@ -221,7 +227,7 @@ public class LoginCittadino extends javax.swing.JFrame {
         
         if(checkLogin(username, password))
         {
-            RegistraEventiAvversi rea = new RegistraEventiAvversi(username, getCodiceFiscale(username));
+            RegistraEventiAvversi rea = new RegistraEventiAvversi(username, getCentroVaccinalebyID(username));
             rea.setVisible(true);
             rea.setLocationRelativeTo(null);
             this.setVisible(false);
@@ -271,6 +277,39 @@ public class LoginCittadino extends javax.swing.JFrame {
                 new LoginCittadino().setVisible(true);
             }
         });
+    }
+    
+    
+    
+        /**
+     *
+     * @param x
+     * @param psw
+     * @return
+     */
+    private static boolean checkLogin(String x,String psw){
+       
+        String thisLine;
+        
+        if(!checkDirHierarchy()){
+            showMessageDialog(null, "I database risultano corrotti.\nI dati sono stati ripristinati.");
+        }
+        
+        try {
+            BufferedReader br = new BufferedReader (new FileReader(CITTADINIDIR + File.separator + "Cittadini_Registrati.dati"));
+            while((thisLine = br.readLine()) != null) {
+                String [] tmp = thisLine.split("-");
+                if(tmp[6].equalsIgnoreCase(x) && tmp[7].equals(psw))
+                {
+                    return true;            
+                }
+            }
+        }catch(IOException e) {
+            showMessageDialog(null, "Errore di lettura del database, riprova.");
+        }
+        
+        
+        return false;
     }
     
 

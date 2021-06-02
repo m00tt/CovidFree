@@ -184,18 +184,21 @@ public class HomeCentriVaccinali extends javax.swing.JFrame {
     private void back_HomeCentriVaccinaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_back_HomeCentriVaccinaliActionPerformed
         CentriVaccinali centriVaccinali = new CentriVaccinali();
         centriVaccinali.setVisible(true);
+        centriVaccinali.setLocationRelativeTo(null);
         this.setVisible(false);
     }//GEN-LAST:event_back_HomeCentriVaccinaliActionPerformed
 
     private void registraCentroVaccinaleBtn_HomeCentriVaccinaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registraCentroVaccinaleBtn_HomeCentriVaccinaliActionPerformed
         RegistrazioneCentroVaccinale registrazioneCentroVaccinale = new RegistrazioneCentroVaccinale();
         registrazioneCentroVaccinale.setVisible(true);
+        registrazioneCentroVaccinale.setLocationRelativeTo(null);
         this.setVisible(false);
     }//GEN-LAST:event_registraCentroVaccinaleBtn_HomeCentriVaccinaliActionPerformed
 
     private void registraVaccinatoBtn_HomeCentriVaccinaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registraVaccinatoBtn_HomeCentriVaccinaliActionPerformed
         RegistrazioneVaccinato registrazioneVaccinato = new RegistrazioneVaccinato();
         registrazioneVaccinato.setVisible(true);
+        registrazioneVaccinato.setLocationRelativeTo(null);
         this.setVisible(false);
     }//GEN-LAST:event_registraVaccinatoBtn_HomeCentriVaccinaliActionPerformed
 

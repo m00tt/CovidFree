@@ -143,46 +143,7 @@ public class GeneralFunctions {
         
         return retList;
     }
-    
-   //Recupera dal DB la Lista degli ID dei Cittadini Registrati e verifica esistenza
-
-    /**
-     *
-     * @param x
-     * @param psw
-     * @return
-     */
-    public static boolean checkLogin(String x,String psw){
        
-        String thisLine;
-        boolean present = false;
-        String username, password;
-        
-        if(!checkDirHierarchy()){
-            showMessageDialog(null, "I database risultano corrotti.\nI dati sono stati ripristinati.");
-        }
-        
-        try {
-            BufferedReader br = new BufferedReader (new FileReader(CITTADINIDIR + File.separator + "Cittadini_Registrati.dati"));
-            while((thisLine = br.readLine()) != null) {
-                String [] tmp = thisLine.split("-");
-                username = tmp[6];
-                password = tmp[7];
-                if(username.equalsIgnoreCase(x) && password.equals(psw))
-                {
-                    present = true;
-                    break;
-            
-                }
-            }
-        }catch(IOException e) {
-            showMessageDialog(null, "Errore di lettura del database, riprova.");
-        }
-        
-        
-        return present;
-    }
-    
     
     //Recupera tutti gli ID Vaccino registrati
 
@@ -261,7 +222,7 @@ public class GeneralFunctions {
         return retList;
     }
     
-    public static String getCodiceFiscale(String id){
+    public static String getCentroVaccinalebyID(String id){
         
         if(new File(CITTADINIDIR + File.separator +"Cittadini_Registrati.dati").exists()){
             
@@ -271,11 +232,10 @@ public class GeneralFunctions {
                     while ((thisLine = br.readLine()) != null) {
                         
                         String[] tmp = thisLine.split("-");
-                        if(tmp.length==7){
-                            if(id.equalsIgnoreCase(tmp[6])){
-                                return tmp[1];
-                            }
+                        if(id.equalsIgnoreCase(tmp[6])){
+                            return tmp[0];
                         }
+                        
                         
                     }       
                 } catch(IOException e) {
