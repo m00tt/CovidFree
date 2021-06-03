@@ -10,6 +10,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.text.DecimalFormat;
 import javax.swing.ImageIcon;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -162,9 +163,9 @@ public class VisualizzaCentriVaccinali extends javax.swing.JFrame {
         );
 
         btnIndietro_VisualizzaCentriVaccinali.setText("Indietro");
-        btnIndietro_VisualizzaCentriVaccinali.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnIndietro_VisualizzaCentriVaccinaliMouseClicked(evt);
+        btnIndietro_VisualizzaCentriVaccinali.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIndietro_VisualizzaCentriVaccinaliActionPerformed(evt);
             }
         });
 
@@ -200,11 +201,12 @@ public class VisualizzaCentriVaccinali extends javax.swing.JFrame {
                         .addComponent(nEvents_VisualizzaCentriVaccinali)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addGap(96, 96, 96))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addComponent(avgEvents_VisualizzaCentriVaccinali)
-                        .addGap(34, 34, 34)))
-                .addGap(96, 96, 96))
+                        .addGap(123, 123, 123))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -269,11 +271,11 @@ public class VisualizzaCentriVaccinali extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnIndietro_VisualizzaCentriVaccinaliMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnIndietro_VisualizzaCentriVaccinaliMouseClicked
+    private void btnIndietro_VisualizzaCentriVaccinaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIndietro_VisualizzaCentriVaccinaliActionPerformed
         HomeCittadini hc = new HomeCittadini();
         hc.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_btnIndietro_VisualizzaCentriVaccinaliMouseClicked
+    }//GEN-LAST:event_btnIndietro_VisualizzaCentriVaccinaliActionPerformed
 
     /**
      * @param args the command line arguments
@@ -315,7 +317,7 @@ public class VisualizzaCentriVaccinali extends javax.swing.JFrame {
     
     private void getReportCentroVaccinale(String nomeCentroVaccinale){
         
-        int avgEvents = 0;
+        float avgEvents = 0;
         int countEvents = 0;
         
         String path = CENTRIVACCINALIDIR + File.separator + "Vaccinati_"+nomeCentroVaccinale+".dati";
@@ -333,7 +335,10 @@ public class VisualizzaCentriVaccinali extends javax.swing.JFrame {
                 }
                 if(countEvents>0){
                     nEvents_VisualizzaCentriVaccinali.setText(""+countEvents);
-                    avgEvents_VisualizzaCentriVaccinali.setText(""+(avgEvents/countEvents));
+                    float avg = avgEvents/countEvents;
+                    DecimalFormat df = new DecimalFormat();
+                    df.setMaximumFractionDigits(1);
+                    avgEvents_VisualizzaCentriVaccinali.setText(""+df.format(avg)+"/5");
                 }
             } catch(IOException e) {
                 showMessageDialog(null, "Errore di lettura del database, riprova.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));

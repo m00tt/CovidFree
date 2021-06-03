@@ -102,9 +102,9 @@ public class LoginCittadino extends javax.swing.JFrame {
         });
 
         accediBtn_Login.setText("Accedi");
-        accediBtn_Login.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                accediBtn_LoginMouseClicked(evt);
+        accediBtn_Login.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                accediBtn_LoginActionPerformed(evt);
             }
         });
 
@@ -123,9 +123,9 @@ public class LoginCittadino extends javax.swing.JFrame {
                 .addGap(53, 53, 53)
                 .addGroup(datiPnl_AccessoCittadinoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(datiPnl_AccessoCittadinoLayout.createSequentialGroup()
-                        .addComponent(indietroBtn_Login)
+                        .addComponent(indietroBtn_Login, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(accediBtn_Login))
+                        .addComponent(accediBtn_Login, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(datiPnl_AccessoCittadinoLayout.createSequentialGroup()
                         .addComponent(passwordLabel_Login)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
@@ -211,7 +211,11 @@ public class LoginCittadino extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_usrIDField_LoginFocusLost
 
-    private void accediBtn_LoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_accediBtn_LoginMouseClicked
+    private void pwdField_LoginFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_pwdField_LoginFocusGained
+        pwdField_Login.setText("");
+    }//GEN-LAST:event_pwdField_LoginFocusGained
+
+    private void accediBtn_LoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accediBtn_LoginActionPerformed
         String username = usrIDField_Login.getText().strip();
         String tmppsw = new String(pwdField_Login.getPassword());
         String password="";
@@ -232,12 +236,7 @@ public class LoginCittadino extends javax.swing.JFrame {
         else{
             showMessageDialog(null, "Login fallito.\nUsername o password errati.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
         }
-           
-    }//GEN-LAST:event_accediBtn_LoginMouseClicked
-
-    private void pwdField_LoginFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_pwdField_LoginFocusGained
-        pwdField_Login.setText("");
-    }//GEN-LAST:event_pwdField_LoginFocusGained
+    }//GEN-LAST:event_accediBtn_LoginActionPerformed
 
     /**
      * @param args the command line arguments

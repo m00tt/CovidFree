@@ -58,11 +58,6 @@ public class HomeCentriVaccinali extends javax.swing.JFrame {
         registraCentroVaccinaleBtn_HomeCentriVaccinali.setBackground(new java.awt.Color(255, 255, 255));
         registraCentroVaccinaleBtn_HomeCentriVaccinali.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/new_centrovaccinale.png"))); // NOI18N
         registraCentroVaccinaleBtn_HomeCentriVaccinali.setBorderPainted(false);
-        registraCentroVaccinaleBtn_HomeCentriVaccinali.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                registraCentroVaccinaleBtn_HomeCentriVaccinaliFocusGained(evt);
-            }
-        });
         registraCentroVaccinaleBtn_HomeCentriVaccinali.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 registraCentroVaccinaleBtn_HomeCentriVaccinaliActionPerformed(evt);
@@ -177,10 +172,6 @@ public class HomeCentriVaccinali extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void registraCentroVaccinaleBtn_HomeCentriVaccinaliFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_registraCentroVaccinaleBtn_HomeCentriVaccinaliFocusGained
-        // TODO add your handling code here:
-    }//GEN-LAST:event_registraCentroVaccinaleBtn_HomeCentriVaccinaliFocusGained
 
     private void back_HomeCentriVaccinaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_back_HomeCentriVaccinaliActionPerformed
         CentriVaccinali centriVaccinali = new CentriVaccinali();

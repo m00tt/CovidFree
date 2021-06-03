@@ -72,16 +72,16 @@ public class HomeCittadini extends javax.swing.JFrame {
         title_HomeCittadini.setText("Home Cittadini");
 
         loginBtn_HomeCittadini.setText("Registra Evento");
-        loginBtn_HomeCittadini.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                loginBtn_HomeCittadiniMouseClicked(evt);
+        loginBtn_HomeCittadini.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loginBtn_HomeCittadiniActionPerformed(evt);
             }
         });
 
         registerBtn_HomeCittadini.setText("Iscriviti");
-        registerBtn_HomeCittadini.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                registerBtn_HomeCittadiniMouseClicked(evt);
+        registerBtn_HomeCittadini.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                registerBtn_HomeCittadiniActionPerformed(evt);
             }
         });
 
@@ -206,9 +206,9 @@ public class HomeCittadini extends javax.swing.JFrame {
 
         back_HomeCittadini.setBackground(new java.awt.Color(255, 255, 255));
         back_HomeCittadini.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/back.png"))); // NOI18N
-        back_HomeCittadini.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                back_HomeCittadiniMouseClicked(evt);
+        back_HomeCittadini.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                back_HomeCittadiniActionPerformed(evt);
             }
         });
 
@@ -220,7 +220,8 @@ public class HomeCittadini extends javax.swing.JFrame {
                 .addGroup(Panel_HomeCittadiniLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(Panel_HomeCittadiniLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(pnl_HomeCittadini, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(pnl_HomeCittadini, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(10, 10, 10))
                     .addGroup(Panel_HomeCittadiniLayout.createSequentialGroup()
                         .addComponent(back_HomeCittadini)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -270,26 +271,6 @@ public class HomeCittadini extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void loginBtn_HomeCittadiniMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginBtn_HomeCittadiniMouseClicked
-       LoginCittadino login = new LoginCittadino();
-       login.setVisible(true);
-       this.setVisible(false);
-        
-    }//GEN-LAST:event_loginBtn_HomeCittadiniMouseClicked
-
-    private void back_HomeCittadiniMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_back_HomeCittadiniMouseClicked
-        CentriVaccinali centrivaccinali = new CentriVaccinali();
-        centrivaccinali.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_back_HomeCittadiniMouseClicked
-
-    private void registerBtn_HomeCittadiniMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registerBtn_HomeCittadiniMouseClicked
-        RegistraCittadini reg = new RegistraCittadini();
-        reg.setVisible(true);
-        this.setVisible(false);
-       
-    }//GEN-LAST:event_registerBtn_HomeCittadiniMouseClicked
-
     private void infocentriList_HomeCittadiniMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_infocentriList_HomeCittadiniMouseClicked
         JList list = (JList)evt.getSource();
         if (evt.getClickCount() == 2) {
@@ -311,6 +292,24 @@ public class HomeCittadini extends javax.swing.JFrame {
     private void targetSearch_HomeCittadiniItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_targetSearch_HomeCittadiniItemStateChanged
         checkTargetSearch();
     }//GEN-LAST:event_targetSearch_HomeCittadiniItemStateChanged
+
+    private void loginBtn_HomeCittadiniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtn_HomeCittadiniActionPerformed
+        LoginCittadino login = new LoginCittadino();
+        login.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_loginBtn_HomeCittadiniActionPerformed
+
+    private void registerBtn_HomeCittadiniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerBtn_HomeCittadiniActionPerformed
+        RegistraCittadini reg = new RegistraCittadini();
+        reg.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_registerBtn_HomeCittadiniActionPerformed
+
+    private void back_HomeCittadiniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_back_HomeCittadiniActionPerformed
+        CentriVaccinali centrivaccinali = new CentriVaccinali();
+        centrivaccinali.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_back_HomeCittadiniActionPerformed
 
     /**
      *

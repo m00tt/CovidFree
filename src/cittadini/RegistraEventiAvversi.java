@@ -76,7 +76,7 @@ public class RegistraEventiAvversi extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 502, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -117,6 +117,7 @@ public class RegistraEventiAvversi extends javax.swing.JFrame {
 
         txtName_RegistraEventoAversi.setFont(new java.awt.Font("Arial", 2, 11)); // NOI18N
         txtName_RegistraEventoAversi.setText("Inserisci Nome Evento (da 4 a 40 caratteri)...");
+        txtName_RegistraEventoAversi.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         txtName_RegistraEventoAversi.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txtName_RegistraEventoAversiFocusGained(evt);
@@ -140,7 +141,9 @@ public class RegistraEventiAvversi extends javax.swing.JFrame {
         severitySld_RegistraEventiAvversi.setMinimum(1);
         severitySld_RegistraEventiAvversi.setPaintLabels(true);
         severitySld_RegistraEventiAvversi.setPaintTicks(true);
+        severitySld_RegistraEventiAvversi.setSnapToTicks(true);
         severitySld_RegistraEventiAvversi.setToolTipText("1\n2\n3\n4\n5");
+        severitySld_RegistraEventiAvversi.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jLabel2.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         jLabel2.setText("Severità Evento");
@@ -154,24 +157,21 @@ public class RegistraEventiAvversi extends javax.swing.JFrame {
             .addGroup(pnlEventi_RegistraEventiAvversiLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnlEventi_RegistraEventiAvversiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(scrlPanel_RegistraEventiAversi)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlEventi_RegistraEventiAvversiLayout.createSequentialGroup()
                         .addComponent(btnAnnulla_RegistraeventiAvversi)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnConfirm_registraEventiAvversi))
-                    .addGroup(pnlEventi_RegistraEventiAvversiLayout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlEventi_RegistraEventiAvversiLayout.createSequentialGroup()
                         .addGroup(pnlEventi_RegistraEventiAvversiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(scrlPanel_RegistraEventiAversi, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(centroVaccinaleLbl_RegistraEventiAvversi)
-                            .addGroup(pnlEventi_RegistraEventiAvversiLayout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(217, 217, 217)
-                                .addComponent(jLabel2))
-                            .addGroup(pnlEventi_RegistraEventiAvversiLayout.createSequentialGroup()
-                                .addComponent(txtName_RegistraEventoAversi, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(63, 63, 63)
-                                .addComponent(severitySld_RegistraEventiAvversi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(nomeCentroLbl_RegistraEventiAvversi, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                            .addComponent(jLabel1)
+                            .addComponent(nomeCentroLbl_RegistraEventiAvversi, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtName_RegistraEventoAversi, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(pnlEventi_RegistraEventiAvversiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(severitySld_RegistraEventiAvversi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap())
         );
         pnlEventi_RegistraEventiAvversiLayout.setVerticalGroup(
@@ -180,8 +180,8 @@ public class RegistraEventiAvversi extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(centroVaccinaleLbl_RegistraEventiAvversi)
                 .addGap(4, 4, 4)
-                .addComponent(nomeCentroLbl_RegistraEventiAvversi, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addComponent(nomeCentroLbl_RegistraEventiAvversi, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnlEventi_RegistraEventiAvversiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jLabel2))
@@ -189,8 +189,8 @@ public class RegistraEventiAvversi extends javax.swing.JFrame {
                 .addGroup(pnlEventi_RegistraEventiAvversiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(severitySld_RegistraEventiAvversi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtName_RegistraEventoAversi, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(scrlPanel_RegistraEventiAversi, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(scrlPanel_RegistraEventiAversi, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlEventi_RegistraEventiAvversiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnConfirm_registraEventiAvversi)
@@ -208,11 +208,13 @@ public class RegistraEventiAvversi extends javax.swing.JFrame {
             .addGroup(pnlMain_RegistraEventiAvversiLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnlMain_RegistraEventiAvversiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMain_RegistraEventiAvversiLayout.createSequentialGroup()
+                    .addGroup(pnlMain_RegistraEventiAvversiLayout.createSequentialGroup()
+                        .addComponent(pnlEventi_RegistraEventiAvversi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(pnlMain_RegistraEventiAvversiLayout.createSequentialGroup()
                         .addComponent(lblWelcomeEventi_RegistraEventiAvversi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(pnlEventi_RegistraEventiAvversi, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         pnlMain_RegistraEventiAvversiLayout.setVerticalGroup(
@@ -247,13 +249,6 @@ public class RegistraEventiAvversi extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnAnnulla_RegistraeventiAvversiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAnnulla_RegistraeventiAvversiMouseClicked
-        HomeCittadini hcl = new HomeCittadini();
-        hcl.setVisible(true);
-        this.setVisible(false);
-        
-    }//GEN-LAST:event_btnAnnulla_RegistraeventiAvversiMouseClicked
-
     private void txtDesc_RegistraEventiAvversiFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtDesc_RegistraEventiAvversiFocusLost
          if (txtDesc_RegistraEventiAvversi.getText().equals("")){
             txtDesc_RegistraEventiAvversi.setText("Inserisci una descizione per l'evento risontrontato (da 8 a 256 caratteri)...");
@@ -278,11 +273,18 @@ public class RegistraEventiAvversi extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtName_RegistraEventoAversiFocusLost
 
+    private void btnAnnulla_RegistraeventiAvversiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAnnulla_RegistraeventiAvversiMouseClicked
+        HomeCittadini hcl = new HomeCittadini();
+        hcl.setVisible(true);
+        this.setVisible(false);
+
+    }//GEN-LAST:event_btnAnnulla_RegistraeventiAvversiMouseClicked
+
     private void btnConfirm_registraEventiAvversiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirm_registraEventiAvversiActionPerformed
         try {
             inserisciEventiAvversi();
         } catch (IOException ex) {
-            Logger.getLogger(RegistraEventiAvversi.class.getName()).log(Level.SEVERE, null, ex);
+             showMessageDialog(null, ex.toString(), "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
         }
     }//GEN-LAST:event_btnConfirm_registraEventiAvversiActionPerformed
 

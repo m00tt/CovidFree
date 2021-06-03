@@ -285,9 +285,9 @@ public class RegistraCittadini extends javax.swing.JFrame {
         add_RegistrazioneCittadino.setMaximumSize(new java.awt.Dimension(83, 30));
         add_RegistrazioneCittadino.setMinimumSize(new java.awt.Dimension(83, 30));
         add_RegistrazioneCittadino.setPreferredSize(new java.awt.Dimension(83, 30));
-        add_RegistrazioneCittadino.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                add_RegistrazioneCittadinoMouseClicked(evt);
+        add_RegistrazioneCittadino.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                add_RegistrazioneCittadinoActionPerformed(evt);
             }
         });
 
@@ -355,14 +355,6 @@ public class RegistraCittadini extends javax.swing.JFrame {
         homeCittadini.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_ann_RegistrazioneCittadinoActionPerformed
-
-    private void add_RegistrazioneCittadinoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_add_RegistrazioneCittadinoMouseClicked
-        try {
-            registraCittadino();
-        } catch (NoSuchAlgorithmException ex) {
-            Logger.getLogger(RegistraCittadini.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_add_RegistrazioneCittadinoMouseClicked
 
     
     private void nome_RegistrazioneCittadinoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_nome_RegistrazioneCittadinoFocusGained
@@ -443,6 +435,14 @@ public class RegistraCittadini extends javax.swing.JFrame {
         pwdUsr_RegistrazioneCittadino.setText("");
        
     }//GEN-LAST:event_pwdUsr_RegistrazioneCittadinoFocusGained
+
+    private void add_RegistrazioneCittadinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_RegistrazioneCittadinoActionPerformed
+        try {
+            registraCittadino();
+        } catch (NoSuchAlgorithmException ex) {
+            Logger.getLogger(RegistraCittadini.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_add_RegistrazioneCittadinoActionPerformed
 
     /**
      *

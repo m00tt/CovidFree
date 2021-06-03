@@ -60,8 +60,9 @@
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
+                          <EmptySpace min="-2" max="-2" attributes="0"/>
                           <Component id="pnl_HomeCittadini" max="32767" attributes="0"/>
+                          <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="back_HomeCittadini" min="-2" max="-2" attributes="0"/>
@@ -75,7 +76,7 @@
                           <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace min="-2" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -119,7 +120,7 @@
             <Property name="text" type="java.lang.String" value="Registra Evento"/>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="loginBtn_HomeCittadiniMouseClicked"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="loginBtn_HomeCittadiniActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="registerBtn_HomeCittadini">
@@ -127,7 +128,7 @@
             <Property name="text" type="java.lang.String" value="Iscriviti"/>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="registerBtn_HomeCittadiniMouseClicked"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="registerBtn_HomeCittadiniActionPerformed"/>
           </Events>
         </Component>
         <Container class="javax.swing.JPanel" name="pnl_HomeCittadini">
@@ -370,7 +371,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="back_HomeCittadiniMouseClicked"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="back_HomeCittadiniActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

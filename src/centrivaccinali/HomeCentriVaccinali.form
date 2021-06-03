@@ -157,7 +157,6 @@
                 <Property name="borderPainted" type="boolean" value="false"/>
               </Properties>
               <Events>
-                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="registraCentroVaccinaleBtn_HomeCentriVaccinaliFocusGained"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="registraCentroVaccinaleBtn_HomeCentriVaccinaliActionPerformed"/>
               </Events>
             </Component>
