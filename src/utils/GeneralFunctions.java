@@ -22,6 +22,8 @@ import java.util.List;
 import static javax.swing.JOptionPane.showMessageDialog;
 import java.util.regex.Matcher; 
 import java.util.regex.Pattern;
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 
 public class GeneralFunctions {
@@ -70,7 +72,7 @@ public class GeneralFunctions {
                         f.createNewFile();
                         check = false;
                     }catch(IOException e){
-                        showMessageDialog(null, "Impossibile creare il database, provare a riavviare il programma.");
+                        showMessageDialog(null, "Impossibile creare il database, provare a riavviare il programma.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
                     }
                 }
             }
@@ -82,7 +84,7 @@ public class GeneralFunctions {
                     f.createNewFile();
                     check = false;
                 }catch(IOException e){
-                    showMessageDialog(null, "Impossibile creare il database, provare a riavviare il programma.");
+                    showMessageDialog(null, "Impossibile creare il database, provare a riavviare il programma.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
                 }    
             }
             
@@ -94,7 +96,7 @@ public class GeneralFunctions {
                         f.createNewFile();
                         check = false;
                     }catch(IOException e){
-                        showMessageDialog(null, "Impossibile creare il database, provare a riavviare il programma.");
+                        showMessageDialog(null, "Impossibile creare il database, provare a riavviare il programma.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
                     }
                 }
             }
@@ -106,7 +108,7 @@ public class GeneralFunctions {
                     f.createNewFile();
                     check = false;
                 }catch(IOException e){
-                    showMessageDialog(null, "Impossibile creare il database, provare a riavviare il programma.");
+                    showMessageDialog(null, "Impossibile creare il database, provare a riavviare il programma.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
                 }    
             }
             
@@ -129,7 +131,7 @@ public class GeneralFunctions {
         String thisLine;
     
         if(!checkDirHierarchy()){
-            showMessageDialog(null, "I database risultano corrotti.\nI dati sono stati ripristinati.");
+            showMessageDialog(null, "I database risultano corrotti.\nI dati sono stati ripristinati.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
         }
         try {
                 BufferedReader br = new BufferedReader(new FileReader(CENTRIVACCINALIDIR + File.separator + "CentriVaccinali.dati"));
@@ -138,7 +140,7 @@ public class GeneralFunctions {
                     retList.add(tmp[0]);
                 }       
             } catch(IOException e) {
-                showMessageDialog(null, "Errore di lettura del database, riprova.");
+                showMessageDialog(null, "Errore di lettura del database, riprova.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
             }
         
         return retList;
@@ -165,7 +167,7 @@ public class GeneralFunctions {
                         retList.add(tmp[6]);
                     }       
                 } catch(IOException e) {
-                    showMessageDialog(null, "Errore di lettura del database, riprova.");
+                    showMessageDialog(null, "Errore di lettura del database, riprova.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
                 }
         }
         
@@ -184,7 +186,7 @@ public class GeneralFunctions {
         String thisLine;
     
         if(!checkDirHierarchy()){
-            showMessageDialog(null, "I database risultano corrotti.\nI dati sono stati ripristinati.");
+            showMessageDialog(null, "I database risultano corrotti.\nI dati sono stati ripristinati.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
         }
         try {
                 BufferedReader br = new BufferedReader(new FileReader(CENTRIVACCINALIDIR + File.separator + "CentriVaccinali.dati"));
@@ -198,7 +200,7 @@ public class GeneralFunctions {
                     }
                 }       
             } catch(IOException e) {
-                showMessageDialog(null, "Errore di lettura del database, riprova.");
+                showMessageDialog(null, "Errore di lettura del database, riprova.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
             }
         
         return retList;
@@ -221,7 +223,7 @@ public class GeneralFunctions {
                         
                     }       
                 } catch(IOException e) {
-                    showMessageDialog(null, "Errore di lettura del database, riprova.");
+                    showMessageDialog(null, "Errore di lettura del database, riprova.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
                 }
         }
         
@@ -248,7 +250,7 @@ public class GeneralFunctions {
                         
                     }       
                 } catch(IOException e) {
-                    showMessageDialog(null, "Errore di lettura del database, riprova.");
+                    showMessageDialog(null, "Errore di lettura del database, riprova.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
                 }
             }
         }
@@ -343,7 +345,7 @@ public class GeneralFunctions {
      */
     public static boolean checkCompiled(String p){
         Matcher matcher = onlyLettersPattern.matcher(p);
-        return p.trim().length()>3 && !matcher.find() && p.trim().length() < 41;
+        return p.trim().length()>2 && !matcher.find() && p.trim().length() < 41;
     }
     
     //Verifica che il civico sia compreso tra 1 e 5 caratteri

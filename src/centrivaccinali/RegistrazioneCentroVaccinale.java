@@ -14,6 +14,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.showMessageDialog;
 import static utils.GeneralFunctions.CENTRIVACCINALIDIR;
 import static utils.GeneralFunctions.checkCAP;
@@ -433,7 +434,7 @@ public class RegistrazioneCentroVaccinale extends javax.swing.JFrame {
             String insert = nomeCentroVaccinale + "-" + tipologiaCentroVaccinale + "-" + qualificatoreCentroVaccinale + "-" + indirizzoCentroVaccinale +"-" + civicoCentroVaccinale + "-" + provinciaCentroVaccinale + "-" + comuneCentroVaccinale + "-" + capCentroVaccinale;
             String path = CENTRIVACCINALIDIR + File.separator + "CentriVaccinali.dati";
             if(!checkDirHierarchy()){
-                showMessageDialog(null, "I database risultano corrotti.\nI dati sono stati ripristinati.");
+                showMessageDialog(null, "I database risultano corrotti.\nI dati sono stati ripristinati.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
             }
             
             try{
@@ -453,9 +454,9 @@ public class RegistrazioneCentroVaccinale extends javax.swing.JFrame {
                 {
                     try (FileWriter fw2 = new FileWriter(path, true)) {
                         fw2.append(insert+"\n");
-                        showMessageDialog(null, "Centro vaccinale aggiunto con successo!");
+                        showMessageDialog(null, "Centro vaccinale aggiunto con successo!", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
                     }catch(HeadlessException | IOException e){
-                        showMessageDialog(null, "Errore in fase di scrittura dei dati, riprova.");
+                        showMessageDialog(null, "Errore in fase di scrittura dei dati, riprova.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
                     }
 
                     HomeCentriVaccinali homeCentriVaccinali = new HomeCentriVaccinali();
@@ -464,16 +465,16 @@ public class RegistrazioneCentroVaccinale extends javax.swing.JFrame {
                     this.setVisible(false); 
                 }
                 else{
-                    showMessageDialog(null, "Il centro vaccinale con nome "+nomeCentroVaccinale+" è già registrato nel database.");
+                    showMessageDialog(null, "Il centro vaccinale con nome "+nomeCentroVaccinale+" è già registrato nel database.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
                 }
                 
             }catch(Exception e){
-                showMessageDialog(null, "Errore in fase di scrittura dei dati, riprova.");
+                showMessageDialog(null, "Errore in fase di scrittura dei dati, riprova.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
             }
                      
         }
         else{
-            showMessageDialog(null, "Errore in fase di scrittura dei dati, riprova.");
+            showMessageDialog(null, "Errore in fase di scrittura dei dati, riprova.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
         }
     }
 

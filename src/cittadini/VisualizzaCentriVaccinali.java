@@ -12,6 +12,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import javax.swing.ImageIcon;
 import java.util.List;
+import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.showMessageDialog;
 import static utils.GeneralFunctions.CENTRIVACCINALIDIR;
 import static utils.GeneralFunctions.getCentroVaccinaleInfo;
@@ -335,7 +336,7 @@ public class VisualizzaCentriVaccinali extends javax.swing.JFrame {
                     avgEvents_VisualizzaCentriVaccinali.setText(""+(avgEvents/countEvents));
                 }
             } catch(IOException e) {
-                showMessageDialog(null, "Errore di lettura del database, riprova.");
+                showMessageDialog(null, "Errore di lettura del database, riprova.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
             }
         }
         

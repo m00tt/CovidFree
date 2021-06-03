@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.util.List;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.showMessageDialog;
 import static utils.GeneralFunctions.CENTRIVACCINALIDIR;
 import static utils.GeneralFunctions.checkCodiceFiscale;
@@ -403,7 +404,7 @@ public class RegistrazioneVaccinato extends javax.swing.JFrame {
                 String insert = nomeCentroVaccinale + "-" + codiceFiscaleVaccinato + "-" + idVaccino + "-" + nomeVaccinato + "-" + cognomeVaccinato + "-" + nomeVaccino + "-" + dataVaccino;
                 String path = CENTRIVACCINALIDIR + File.separator + "Vaccinati_"+nomeCentroVaccinale+".dati";
                 if(!checkDirHierarchy()){
-                    showMessageDialog(null, "I database risultano corrotti.\nI dati sono stati ripristinati.");
+                    showMessageDialog(null, "I database risultano corrotti.\nI dati sono stati ripristinati.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
                 }
                 File f = new File(path);
                 if(!f.exists()){
@@ -425,9 +426,9 @@ public class RegistrazioneVaccinato extends javax.swing.JFrame {
                         if(cmp == null){
                             try (FileWriter fw2 = new FileWriter(path, true)) { 
                                 fw2.append(insert+"\n");
-                                showMessageDialog(null, "Vaccinato registrato con successo!");
+                                showMessageDialog(null, "Vaccinato registrato con successo!", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
                             }catch(HeadlessException | IOException e){
-                                showMessageDialog(null, "Errore in fase di scrittura dei dati, riprova.");
+                                showMessageDialog(null, "Errore in fase di scrittura dei dati, riprova.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
                             }
 
                             HomeCentriVaccinali homeCentriVaccinali = new HomeCentriVaccinali();
@@ -437,25 +438,25 @@ public class RegistrazioneVaccinato extends javax.swing.JFrame {
                         }
                         else{
                             String[] getS = cmp.split("-");
-                            showMessageDialog(null, "Il cittadino risulta già vaccinato presso il Centro Vaccinale '" + getS[0] + "' con l'ID Vaccino: " + getS[1]);
+                            showMessageDialog(null, "Il cittadino risulta già vaccinato presso il Centro Vaccinale '" + getS[0] + "' con l'ID Vaccino: " + getS[1], "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
                         }
                     }
                     else{
-                        showMessageDialog(null, "Codice fiscale o ID Vaccino già presenti nel database.");
+                        showMessageDialog(null, "Codice fiscale o ID Vaccino già presenti nel database.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
                     }
                     
                 }catch(HeadlessException e){
-                    showMessageDialog(null, "Errore in fase di scrittura dei dati, riprova.");
+                    showMessageDialog(null, "Errore in fase di scrittura dei dati, riprova.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
                 }
                 
             }
             else{
-                showMessageDialog(null, "I dati inseriti non sono corretti, prova a ricontrollare.");
+                showMessageDialog(null, "I dati inseriti non sono corretti, prova a ricontrollare.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
             }
         } catch (ParseException ex) {
-            showMessageDialog(null, "I dati inseriti non sono corretti, prova a ricontrollare.");
+            showMessageDialog(null, "I dati inseriti non sono corretti, prova a ricontrollare.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
         } catch (IOException ex) {
-            showMessageDialog(null, "Errore in fase di scrittura dei dati, riprova.");
+            showMessageDialog(null, "Errore in fase di scrittura dei dati, riprova.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
         }
     }
     

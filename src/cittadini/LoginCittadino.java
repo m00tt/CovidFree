@@ -15,6 +15,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.showMessageDialog;
 import static utils.GeneralFunctions.CITTADINIDIR;
 import static utils.GeneralFunctions.checkDirHierarchy;
@@ -139,14 +140,16 @@ public class LoginCittadino extends javax.swing.JFrame {
             datiPnl_AccessoCittadinoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(datiPnl_AccessoCittadinoLayout.createSequentialGroup()
                 .addGap(26, 26, 26)
-                .addGroup(datiPnl_AccessoCittadinoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(usrIDLabel_Login)
-                    .addComponent(usrIDField_Login, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(datiPnl_AccessoCittadinoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(datiPnl_AccessoCittadinoLayout.createSequentialGroup()
+                        .addComponent(usrIDLabel_Login)
+                        .addGap(0, 14, Short.MAX_VALUE))
+                    .addComponent(usrIDField_Login))
                 .addGap(18, 18, 18)
                 .addGroup(datiPnl_AccessoCittadinoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(passwordLabel_Login)
-                    .addComponent(pwdField_Login, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(155, Short.MAX_VALUE))
+                    .addComponent(pwdField_Login, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(143, 143, 143))
             .addGroup(datiPnl_AccessoCittadinoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(datiPnl_AccessoCittadinoLayout.createSequentialGroup()
                     .addGap(157, 157, 157)
@@ -234,7 +237,7 @@ public class LoginCittadino extends javax.swing.JFrame {
             
         }
         else{
-            showMessageDialog(null, "Login fallito.");
+            showMessageDialog(null, "Login fallito.\nUsername o password errati.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
         }
            
     }//GEN-LAST:event_accediBtn_LoginMouseClicked
@@ -292,7 +295,7 @@ public class LoginCittadino extends javax.swing.JFrame {
         String thisLine;
         
         if(!checkDirHierarchy()){
-            showMessageDialog(null, "I database risultano corrotti.\nI dati sono stati ripristinati.");
+            showMessageDialog(null, "I database risultano corrotti.\nI dati sono stati ripristinati.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
         }
         
         try {
@@ -305,7 +308,7 @@ public class LoginCittadino extends javax.swing.JFrame {
                 }
             }
         }catch(IOException e) {
-            showMessageDialog(null, "Errore di lettura del database, riprova.");
+            showMessageDialog(null, "Errore di lettura del database, riprova.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
         }
         
         

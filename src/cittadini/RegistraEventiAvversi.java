@@ -13,6 +13,7 @@ import java.io.IOException;
 import javax.swing.ImageIcon;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.showMessageDialog;
 import static utils.GeneralFunctions.CENTRIVACCINALIDIR;
 import static utils.GeneralFunctions.checkCompiled;
@@ -337,9 +338,9 @@ public class RegistraEventiAvversi extends javax.swing.JFrame {
             }
             try (FileWriter fw2 = new FileWriter(pathFile, true)) { 
                 fw2.append(insert+"\n");
-                showMessageDialog(null, "Evento avverso registrato con successo!");
+                showMessageDialog(null, "Evento avverso registrato con successo!", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
             }catch(HeadlessException | IOException e){
-                showMessageDialog(null, "Errore in fase di scrittura dei dati, riprova.");
+                showMessageDialog(null, "Errore in fase di scrittura dei dati, riprova.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
             }
 
             HomeCittadini homeCittadini = new HomeCittadini();

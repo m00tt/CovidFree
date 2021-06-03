@@ -14,6 +14,7 @@ import java.util.Date;
 import java.util.Locale;
 import javax.swing.Timer;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.showMessageDialog;
 import static utils.GeneralFunctions.checkDirHierarchy;
 
@@ -232,7 +233,7 @@ public final class CentriVaccinali extends javax.swing.JFrame {
         
         
         if(!checkDirHierarchy()){
-            showMessageDialog(null, "Database non trovati.\nI dati sono stati re-inizializzati.");
+            showMessageDialog(null, "Database non trovati.\nI dati sono stati re-inizializzati.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
         }
     }
     
