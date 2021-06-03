@@ -33,6 +33,7 @@ public class LoginCittadino extends javax.swing.JFrame {
      */
     public LoginCittadino() {
         initComponents();
+        this.setLocationRelativeTo(null);
 
     }
     
@@ -80,6 +81,7 @@ public class LoginCittadino extends javax.swing.JFrame {
         usrIDField_Login.setFont(new java.awt.Font("Arial", 2, 11)); // NOI18N
         usrIDField_Login.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         usrIDField_Login.setText("Inserisci il tuo User ID...");
+        usrIDField_Login.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         usrIDField_Login.setDisabledTextColor(new java.awt.Color(255, 255, 255));
         usrIDField_Login.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -91,6 +93,7 @@ public class LoginCittadino extends javax.swing.JFrame {
         });
 
         pwdField_Login.setText("jPasswordField1");
+        pwdField_Login.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         pwdField_Login.setCaretColor(new java.awt.Color(255, 255, 255));
         pwdField_Login.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -116,47 +119,39 @@ public class LoginCittadino extends javax.swing.JFrame {
         datiPnl_AccessoCittadino.setLayout(datiPnl_AccessoCittadinoLayout);
         datiPnl_AccessoCittadinoLayout.setHorizontalGroup(
             datiPnl_AccessoCittadinoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, datiPnl_AccessoCittadinoLayout.createSequentialGroup()
+            .addGroup(datiPnl_AccessoCittadinoLayout.createSequentialGroup()
                 .addGap(53, 53, 53)
                 .addGroup(datiPnl_AccessoCittadinoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(datiPnl_AccessoCittadinoLayout.createSequentialGroup()
-                        .addComponent(passwordLabel_Login)
+                        .addComponent(indietroBtn_Login)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(accediBtn_Login))
+                    .addGroup(datiPnl_AccessoCittadinoLayout.createSequentialGroup()
+                        .addComponent(passwordLabel_Login)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
                         .addComponent(pwdField_Login, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(datiPnl_AccessoCittadinoLayout.createSequentialGroup()
                         .addComponent(usrIDLabel_Login)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(usrIDField_Login, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(56, 56, 56))
-            .addGroup(datiPnl_AccessoCittadinoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(datiPnl_AccessoCittadinoLayout.createSequentialGroup()
-                    .addGap(51, 51, 51)
-                    .addComponent(indietroBtn_Login)
-                    .addGap(199, 199, 199)
-                    .addComponent(accediBtn_Login)
-                    .addContainerGap(62, Short.MAX_VALUE)))
         );
         datiPnl_AccessoCittadinoLayout.setVerticalGroup(
             datiPnl_AccessoCittadinoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(datiPnl_AccessoCittadinoLayout.createSequentialGroup()
                 .addGap(26, 26, 26)
-                .addGroup(datiPnl_AccessoCittadinoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(datiPnl_AccessoCittadinoLayout.createSequentialGroup()
-                        .addComponent(usrIDLabel_Login)
-                        .addGap(0, 14, Short.MAX_VALUE))
-                    .addComponent(usrIDField_Login))
-                .addGap(18, 18, 18)
+                .addGroup(datiPnl_AccessoCittadinoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(usrIDField_Login, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(usrIDLabel_Login))
+                .addGap(27, 27, 27)
                 .addGroup(datiPnl_AccessoCittadinoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(passwordLabel_Login)
-                    .addComponent(pwdField_Login, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(143, 143, 143))
-            .addGroup(datiPnl_AccessoCittadinoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(datiPnl_AccessoCittadinoLayout.createSequentialGroup()
-                    .addGap(157, 157, 157)
-                    .addGroup(datiPnl_AccessoCittadinoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(indietroBtn_Login)
-                        .addComponent(accediBtn_Login))
-                    .addContainerGap(49, Short.MAX_VALUE)))
+                    .addComponent(pwdField_Login, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                .addGroup(datiPnl_AccessoCittadinoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(indietroBtn_Login, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(accediBtn_Login, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(35, 35, 35))
         );
 
         javax.swing.GroupLayout Panel_LoginLayout = new javax.swing.GroupLayout(Panel_Login);
@@ -201,7 +196,6 @@ public class LoginCittadino extends javax.swing.JFrame {
     private void indietroBtn_LoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_indietroBtn_LoginActionPerformed
         HomeCittadini hc= new HomeCittadini();
         hc.setVisible(true);
-        hc.setLocationRelativeTo(null);
         this.setVisible(false);
     }//GEN-LAST:event_indietroBtn_LoginActionPerformed
 
@@ -232,7 +226,6 @@ public class LoginCittadino extends javax.swing.JFrame {
         {
             RegistraEventiAvversi rea = new RegistraEventiAvversi(username, getCentroVaccinalebyID(username));
             rea.setVisible(true);
-            rea.setLocationRelativeTo(null);
             this.setVisible(false);
             
         }

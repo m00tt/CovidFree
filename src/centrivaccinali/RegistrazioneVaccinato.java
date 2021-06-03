@@ -37,8 +37,8 @@ public class RegistrazioneVaccinato extends javax.swing.JFrame {
      */
     public RegistrazioneVaccinato() {
         initComponents();
-        //Aggiunge i centri vaccinali registrati alla combobox
         fillCentriVaccinali();
+        this.setLocationRelativeTo(null);
         
     }
 
@@ -86,6 +86,7 @@ public class RegistrazioneVaccinato extends javax.swing.JFrame {
 
         cognome_RegistrazioneVaccinato.setFont(new java.awt.Font("Arial", 2, 11)); // NOI18N
         cognome_RegistrazioneVaccinato.setText("Da 3 a 40 caratteri...");
+        cognome_RegistrazioneVaccinato.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         cognome_RegistrazioneVaccinato.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 cognome_RegistrazioneVaccinatoFocusGained(evt);
@@ -96,6 +97,7 @@ public class RegistrazioneVaccinato extends javax.swing.JFrame {
         });
 
         codiceFiscale_RegistrazioneVaccinato.setFont(new java.awt.Font("Arial", 2, 11)); // NOI18N
+        codiceFiscale_RegistrazioneVaccinato.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         codiceFiscale_RegistrazioneVaccinato.setPreferredSize(new java.awt.Dimension(32, 30));
 
         centroVaccinaleLbl_RegistrazioneVaccinato.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
@@ -114,6 +116,7 @@ public class RegistrazioneVaccinato extends javax.swing.JFrame {
 
         nome_RegistrazioneVaccinato.setFont(new java.awt.Font("Arial", 2, 11)); // NOI18N
         nome_RegistrazioneVaccinato.setText("Da 3 a 40 caratteri...");
+        nome_RegistrazioneVaccinato.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         nome_RegistrazioneVaccinato.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 nome_RegistrazioneVaccinatoFocusGained(evt);
@@ -127,6 +130,7 @@ public class RegistrazioneVaccinato extends javax.swing.JFrame {
         vaccino_RegistrazioneVaccinato.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pfizer", "AstraZeneca", "Moderna", "J&J" }));
         vaccino_RegistrazioneVaccinato.setPreferredSize(new java.awt.Dimension(82, 30));
 
+        dataVaccino_RegistrazioneVaccinato.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         dataVaccino_RegistrazioneVaccinato.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("dd/MM/yyyy"))));
         dataVaccino_RegistrazioneVaccinato.setText("gg/mm/aaaa");
         dataVaccino_RegistrazioneVaccinato.setToolTipText("");
@@ -136,6 +140,7 @@ public class RegistrazioneVaccinato extends javax.swing.JFrame {
         idVaccino_RegistrazioneVaccinato.setFont(new java.awt.Font("Arial", 2, 11)); // NOI18N
         idVaccino_RegistrazioneVaccinato.setText("16 cifre");
         idVaccino_RegistrazioneVaccinato.setToolTipText("");
+        idVaccino_RegistrazioneVaccinato.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         idVaccino_RegistrazioneVaccinato.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 idVaccino_RegistrazioneVaccinatoFocusGained(evt);
@@ -433,7 +438,6 @@ public class RegistrazioneVaccinato extends javax.swing.JFrame {
 
                             HomeCentriVaccinali homeCentriVaccinali = new HomeCentriVaccinali();
                             homeCentriVaccinali.setVisible(true);
-                            homeCentriVaccinali.setLocationRelativeTo(null);
                             this.setVisible(false);
                         }
                         else{

@@ -34,6 +34,7 @@ public class VisualizzaCentriVaccinali extends javax.swing.JFrame {
     public VisualizzaCentriVaccinali(String centroVaccinale) {
         initComponents();
         visualizzaInfoCentroVaccinale(centroVaccinale);
+        this.setLocationRelativeTo(null);
     }
 
 
@@ -271,7 +272,6 @@ public class VisualizzaCentriVaccinali extends javax.swing.JFrame {
     private void btnIndietro_VisualizzaCentriVaccinaliMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnIndietro_VisualizzaCentriVaccinaliMouseClicked
         HomeCittadini hc = new HomeCittadini();
         hc.setVisible(true);
-        hc.setLocationRelativeTo(null);
         this.setVisible(false);
     }//GEN-LAST:event_btnIndietro_VisualizzaCentriVaccinaliMouseClicked
 

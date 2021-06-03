@@ -28,7 +28,6 @@ public class RegistraEventiAvversi extends javax.swing.JFrame {
      */
     public RegistraEventiAvversi() {
         initComponents();
-        //fillCentriVaccinali();
     }
 
     /**
@@ -39,6 +38,7 @@ public class RegistraEventiAvversi extends javax.swing.JFrame {
         initComponents();
         lblWelcomeEventi_RegistraEventiAvversi.setText(username  + " - Registra Evento");
         nomeCentroLbl_RegistraEventiAvversi.setText(centroVaccinale);
+        this.setLocationRelativeTo(null);
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -250,7 +250,6 @@ public class RegistraEventiAvversi extends javax.swing.JFrame {
     private void btnAnnulla_RegistraeventiAvversiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAnnulla_RegistraeventiAvversiMouseClicked
         HomeCittadini hcl = new HomeCittadini();
         hcl.setVisible(true);
-        hcl.setLocationRelativeTo(null);
         this.setVisible(false);
         
     }//GEN-LAST:event_btnAnnulla_RegistraeventiAvversiMouseClicked
@@ -345,7 +344,6 @@ public class RegistraEventiAvversi extends javax.swing.JFrame {
 
             HomeCittadini homeCittadini = new HomeCittadini();
             homeCittadini.setVisible(true);
-            homeCittadini.setLocationRelativeTo(null);
             this.setVisible(false);
 }
     }

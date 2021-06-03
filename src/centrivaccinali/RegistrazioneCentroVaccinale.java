@@ -34,6 +34,7 @@ public class RegistrazioneCentroVaccinale extends javax.swing.JFrame {
      */
     public RegistrazioneCentroVaccinale() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     @SuppressWarnings("unchecked")
@@ -83,6 +84,7 @@ public class RegistrazioneCentroVaccinale extends javax.swing.JFrame {
         name_RegistrazioneCentroVaccinale.setFont(new java.awt.Font("Arial", 2, 11)); // NOI18N
         name_RegistrazioneCentroVaccinale.setText("Da 3 a 40 caratteri...");
         name_RegistrazioneCentroVaccinale.setToolTipText("");
+        name_RegistrazioneCentroVaccinale.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         name_RegistrazioneCentroVaccinale.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 name_RegistrazioneCentroVaccinaleFocusGained(evt);
@@ -97,6 +99,7 @@ public class RegistrazioneCentroVaccinale extends javax.swing.JFrame {
 
         via_RegistrazioneCentroVaccinale.setFont(new java.awt.Font("Arial", 2, 11)); // NOI18N
         via_RegistrazioneCentroVaccinale.setText("Da 3 a 40 caratteri...");
+        via_RegistrazioneCentroVaccinale.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         via_RegistrazioneCentroVaccinale.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 via_RegistrazioneCentroVaccinaleFocusGained(evt);
@@ -107,12 +110,14 @@ public class RegistrazioneCentroVaccinale extends javax.swing.JFrame {
         });
 
         n_RegistrazioneCentroVaccinale.setFont(new java.awt.Font("Arial", 2, 11)); // NOI18N
+        n_RegistrazioneCentroVaccinale.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         tipologia_RegistrazioneCentroVaccinale.setFont(new java.awt.Font("Arial", 2, 11)); // NOI18N
         tipologia_RegistrazioneCentroVaccinale.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ospedaliero", "Aziendale", "Hub" }));
 
         comune_RegistrazioneCentroVaccinale.setFont(new java.awt.Font("Arial", 2, 11)); // NOI18N
         comune_RegistrazioneCentroVaccinale.setText("Da 3 a 40 caratteri...");
+        comune_RegistrazioneCentroVaccinale.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         comune_RegistrazioneCentroVaccinale.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 comune_RegistrazioneCentroVaccinaleFocusGained(evt);
@@ -125,6 +130,7 @@ public class RegistrazioneCentroVaccinale extends javax.swing.JFrame {
         prov_RegistrazioneCentroVaccinale.setFont(new java.awt.Font("Arial", 2, 11)); // NOI18N
         prov_RegistrazioneCentroVaccinale.setText("Sigla");
         prov_RegistrazioneCentroVaccinale.setToolTipText("");
+        prov_RegistrazioneCentroVaccinale.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         prov_RegistrazioneCentroVaccinale.setPreferredSize(new java.awt.Dimension(32, 30));
         prov_RegistrazioneCentroVaccinale.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -136,6 +142,7 @@ public class RegistrazioneCentroVaccinale extends javax.swing.JFrame {
         });
 
         cap_RegistrazioneCentroVaccinale.setFont(new java.awt.Font("Arial", 2, 11)); // NOI18N
+        cap_RegistrazioneCentroVaccinale.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         centroVaccinaleLbl_RegistrazioneCentroVaccinale.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         centroVaccinaleLbl_RegistrazioneCentroVaccinale.setText("Nome Centro Vaccinale");
@@ -207,7 +214,7 @@ public class RegistrazioneCentroVaccinale extends javax.swing.JFrame {
         datiPnl_RegistrazioneCentroVaccinaleLayout.setVerticalGroup(
             datiPnl_RegistrazioneCentroVaccinaleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(datiPnl_RegistrazioneCentroVaccinaleLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(14, 14, 14)
                 .addGroup(datiPnl_RegistrazioneCentroVaccinaleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(centroVaccinaleLbl_RegistrazioneCentroVaccinale)
                     .addComponent(tipologiaLbl_RegistrazioneCentroVaccinale))
@@ -239,7 +246,7 @@ public class RegistrazioneCentroVaccinale extends javax.swing.JFrame {
                     .addComponent(cap_RegistrazioneCentroVaccinale, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(comune_RegistrazioneCentroVaccinale, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(prov_RegistrazioneCentroVaccinale, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addGap(15, 15, 15))
         );
 
         ann_RegistrazioneCentroVaccinale.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
@@ -280,11 +287,13 @@ public class RegistrazioneCentroVaccinale extends javax.swing.JFrame {
                 .addComponent(title_RegistrazioneCentroVaccinale)
                 .addGap(10, 10, 10)
                 .addComponent(datiPnl_RegistrazioneCentroVaccinale, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(Panel_RegistrazioneCentroVaccinaleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(ann_RegistrazioneCentroVaccinale, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
-                    .addComponent(add_RegistrazioneCentroVaccinale, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(Panel_RegistrazioneCentroVaccinaleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(Panel_RegistrazioneCentroVaccinaleLayout.createSequentialGroup()
+                        .addComponent(add_RegistrazioneCentroVaccinale, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(ann_RegistrazioneCentroVaccinale, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -315,7 +324,6 @@ public class RegistrazioneCentroVaccinale extends javax.swing.JFrame {
         //Annulla l'operazione e ritorna alla home
         HomeCentriVaccinali homeCentriVaccinali = new HomeCentriVaccinali();
         homeCentriVaccinali.setVisible(true);
-        homeCentriVaccinali.setLocationRelativeTo(null);
         this.setVisible(false);
     }//GEN-LAST:event_ann_RegistrazioneCentroVaccinaleActionPerformed
 
@@ -461,7 +469,6 @@ public class RegistrazioneCentroVaccinale extends javax.swing.JFrame {
 
                     HomeCentriVaccinali homeCentriVaccinali = new HomeCentriVaccinali();
                     homeCentriVaccinali.setVisible(true);
-                    homeCentriVaccinali.setLocationRelativeTo(null);
                     this.setVisible(false); 
                 }
                 else{
