@@ -17,6 +17,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.showMessageDialog;
 import static utils.GeneralFunctions.CENTRIVACCINALIDIR;
+import static utils.GeneralFunctions.DATASEPARATOR;
 import static utils.GeneralFunctions.checkCAP;
 import static utils.GeneralFunctions.checkCivico;
 import static utils.GeneralFunctions.checkCompiled;
@@ -62,7 +63,6 @@ public class RegistrazioneCentroVaccinale extends javax.swing.JFrame {
         capLbl_RegistrazioneCentroVaccinale = new javax.swing.JLabel();
         ann_RegistrazioneCentroVaccinale = new javax.swing.JButton();
         add_RegistrazioneCentroVaccinale = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Registra Centro Vaccinale");
@@ -174,7 +174,7 @@ public class RegistrazioneCentroVaccinale extends javax.swing.JFrame {
         datiPnl_RegistrazioneCentroVaccinaleLayout.setHorizontalGroup(
             datiPnl_RegistrazioneCentroVaccinaleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(datiPnl_RegistrazioneCentroVaccinaleLayout.createSequentialGroup()
-                .addContainerGap(28, Short.MAX_VALUE)
+                .addContainerGap(18, Short.MAX_VALUE)
                 .addGroup(datiPnl_RegistrazioneCentroVaccinaleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(datiPnl_RegistrazioneCentroVaccinaleLayout.createSequentialGroup()
                         .addGroup(datiPnl_RegistrazioneCentroVaccinaleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -210,7 +210,7 @@ public class RegistrazioneCentroVaccinale extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, datiPnl_RegistrazioneCentroVaccinaleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(civicoLbl_RegistrazioneCentroVaccinale)
                                 .addComponent(n_RegistrazioneCentroVaccinale, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
         datiPnl_RegistrazioneCentroVaccinaleLayout.setVerticalGroup(
             datiPnl_RegistrazioneCentroVaccinaleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -266,8 +266,6 @@ public class RegistrazioneCentroVaccinale extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/info.png"))); // NOI18N
-
         javax.swing.GroupLayout Panel_RegistrazioneCentroVaccinaleLayout = new javax.swing.GroupLayout(Panel_RegistrazioneCentroVaccinale);
         Panel_RegistrazioneCentroVaccinale.setLayout(Panel_RegistrazioneCentroVaccinaleLayout);
         Panel_RegistrazioneCentroVaccinaleLayout.setHorizontalGroup(
@@ -280,10 +278,7 @@ public class RegistrazioneCentroVaccinale extends javax.swing.JFrame {
                     .addGroup(Panel_RegistrazioneCentroVaccinaleLayout.createSequentialGroup()
                         .addComponent(ann_RegistrazioneCentroVaccinale)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(add_RegistrazioneCentroVaccinale))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_RegistrazioneCentroVaccinaleLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton1)))
+                        .addComponent(add_RegistrazioneCentroVaccinale)))
                 .addContainerGap())
         );
         Panel_RegistrazioneCentroVaccinaleLayout.setVerticalGroup(
@@ -291,15 +286,13 @@ public class RegistrazioneCentroVaccinale extends javax.swing.JFrame {
             .addGroup(Panel_RegistrazioneCentroVaccinaleLayout.createSequentialGroup()
                 .addGap(5, 5, 5)
                 .addComponent(title_RegistrazioneCentroVaccinale)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
-                .addComponent(jButton1)
                 .addGap(18, 18, 18)
                 .addComponent(datiPnl_RegistrazioneCentroVaccinale, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(Panel_RegistrazioneCentroVaccinaleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(ann_RegistrazioneCentroVaccinale, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(Panel_RegistrazioneCentroVaccinaleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(ann_RegistrazioneCentroVaccinale, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(add_RegistrazioneCentroVaccinale, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -315,8 +308,8 @@ public class RegistrazioneCentroVaccinale extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(Panel_RegistrazioneCentroVaccinale, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(Panel_RegistrazioneCentroVaccinale, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -445,7 +438,7 @@ public class RegistrazioneCentroVaccinale extends javax.swing.JFrame {
       
         
         if(checkProvincia(provinciaCentroVaccinale) && checkCAP(capCentroVaccinale) && checkCivico(civicoCentroVaccinale) && checkCompiled(nomeCentroVaccinale) && checkCompiled(indirizzoCentroVaccinale) && checkCompiled(comuneCentroVaccinale)){
-            String insert = nomeCentroVaccinale + "-" + tipologiaCentroVaccinale + "-" + qualificatoreCentroVaccinale + "-" + indirizzoCentroVaccinale +"-" + civicoCentroVaccinale + "-" + provinciaCentroVaccinale + "-" + comuneCentroVaccinale + "-" + capCentroVaccinale;
+            String insert = nomeCentroVaccinale + DATASEPARATOR + tipologiaCentroVaccinale + DATASEPARATOR + qualificatoreCentroVaccinale + DATASEPARATOR + indirizzoCentroVaccinale + DATASEPARATOR + civicoCentroVaccinale + DATASEPARATOR + provinciaCentroVaccinale + DATASEPARATOR + comuneCentroVaccinale + DATASEPARATOR + capCentroVaccinale;
             String path = CENTRIVACCINALIDIR + File.separator + "CentriVaccinali.dati";
             if(!checkDirHierarchy()){
                 showMessageDialog(null, "I database risultano corrotti.\nI dati sono stati ripristinati.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
@@ -456,7 +449,7 @@ public class RegistrazioneCentroVaccinale extends javax.swing.JFrame {
                 String thisLine;
                 boolean ok = true;
                 while ((thisLine = br.readLine()) != null) {
-                    String[] spThisLine = thisLine.split("-");
+                    String[] spThisLine = thisLine.split(DATASEPARATOR);
                     String toTest = spThisLine[0].toLowerCase();
                     String lcNomeCentro = nomeCentroVaccinale.toLowerCase();
                     if(toTest.equals(lcNomeCentro)){
@@ -486,9 +479,6 @@ public class RegistrazioneCentroVaccinale extends javax.swing.JFrame {
             }
                      
         }
-        else{
-            showMessageDialog(null, "Errore in fase di scrittura dei dati, riprova.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
-        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -503,7 +493,6 @@ public class RegistrazioneCentroVaccinale extends javax.swing.JFrame {
     private javax.swing.JTextField comune_RegistrazioneCentroVaccinale;
     private javax.swing.JPanel datiPnl_RegistrazioneCentroVaccinale;
     private javax.swing.JLabel indirizzoLbl_RegistrazioneCentroVaccinale;
-    private javax.swing.JButton jButton1;
     private javax.swing.JTextField n_RegistrazioneCentroVaccinale;
     private javax.swing.JTextField name_RegistrazioneCentroVaccinale;
     private javax.swing.JLabel provLbl_RegistrazioneCentroVaccinale;

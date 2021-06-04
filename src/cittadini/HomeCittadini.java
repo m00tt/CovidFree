@@ -20,6 +20,7 @@ import javax.swing.JList;
 import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.showMessageDialog;
 import static utils.GeneralFunctions.CENTRIVACCINALIDIR;
+import static utils.GeneralFunctions.DATASEPARATOR;
 import static utils.GeneralFunctions.checkDirHierarchy;
 import static utils.GeneralFunctions.getCentriVaccinaliList;
 
@@ -327,7 +328,7 @@ public class HomeCittadini extends javax.swing.JFrame {
         try {
                 BufferedReader br = new BufferedReader(new FileReader(CENTRIVACCINALIDIR + File.separator + "CentriVaccinali.dati"));
                 while ((thisLine = br.readLine()) != null) {
-                    String[] tmp = thisLine.split("-");
+                    String[] tmp = thisLine.split(DATASEPARATOR);
                     if(targetSearch_HomeCittadini.getSelectedIndex() == 0){
                         if(tmp[0].toLowerCase().contains(search.toLowerCase()) && search.length()>0){
                             list.add(tmp[0]);

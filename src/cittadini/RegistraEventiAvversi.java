@@ -16,6 +16,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.showMessageDialog;
 import static utils.GeneralFunctions.CENTRIVACCINALIDIR;
+import static utils.GeneralFunctions.DATASEPARATOR;
 import static utils.GeneralFunctions.checkCompiled;
 import static utils.GeneralFunctions.checkEvtDescription;
 
@@ -51,7 +52,6 @@ public class RegistraEventiAvversi extends javax.swing.JFrame {
 
         pnlMain_RegistraEventiAvversi = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
         pnlEventi_RegistraEventiAvversi = new javax.swing.JPanel();
         centroVaccinaleLbl_RegistraEventiAvversi = new javax.swing.JLabel();
         btnConfirm_registraEventiAvversi = new javax.swing.JButton();
@@ -73,23 +73,15 @@ public class RegistraEventiAvversi extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jButton1.setBackground(new java.awt.Color(255, 255, 255));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/info.png"))); // NOI18N
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addContainerGap())
+            .addGap(0, 86, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 28, Short.MAX_VALUE)
-                .addComponent(jButton1))
+            .addGap(0, 61, Short.MAX_VALUE)
         );
 
         pnlEventi_RegistraEventiAvversi.setBackground(new java.awt.Color(255, 255, 255));
@@ -218,7 +210,7 @@ public class RegistraEventiAvversi extends javax.swing.JFrame {
                 .addGroup(pnlMain_RegistraEventiAvversiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(pnlEventi_RegistraEventiAvversi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(pnlMain_RegistraEventiAvversiLayout.createSequentialGroup()
-                        .addComponent(lblWelcomeEventi_RegistraEventiAvversi, javax.swing.GroupLayout.DEFAULT_SIZE, 463, Short.MAX_VALUE)
+                        .addComponent(lblWelcomeEventi_RegistraEventiAvversi, javax.swing.GroupLayout.DEFAULT_SIZE, 466, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
@@ -338,7 +330,7 @@ public class RegistraEventiAvversi extends javax.swing.JFrame {
         String descrizioneEvento = txtDesc_RegistraEventiAvversi.getText();
         
         if(checkEvtDescription(descrizioneEvento) && checkCompiled(nomeEvento)){
-            String insert = nomeCentroVaccinale + "-" + nomeEvento + "-" + severitaEvento + "-" + descrizioneEvento;
+            String insert = nomeCentroVaccinale + DATASEPARATOR + nomeEvento + DATASEPARATOR + severitaEvento + DATASEPARATOR + descrizioneEvento;
             File pathFile = new File(CENTRIVACCINALIDIR + File.separator + "Vaccinati_"+nomeCentroVaccinale+".dati");
             if(pathFile.exists()){
                 pathFile.createNewFile();
@@ -354,9 +346,6 @@ public class RegistraEventiAvversi extends javax.swing.JFrame {
             homeCittadini.setVisible(true);
             this.setVisible(false);
         }
-        else{
-            showMessageDialog(null, "Il form non è compilato correttamente, ricontrolla.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
-        }
     }
      
 
@@ -364,7 +353,6 @@ public class RegistraEventiAvversi extends javax.swing.JFrame {
     private javax.swing.JButton btnAnnulla_RegistraeventiAvversi;
     private javax.swing.JButton btnConfirm_registraEventiAvversi;
     private javax.swing.JLabel centroVaccinaleLbl_RegistraEventiAvversi;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;

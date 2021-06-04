@@ -16,6 +16,7 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.showMessageDialog;
 import static utils.GeneralFunctions.CENTRIVACCINALIDIR;
+import static utils.GeneralFunctions.DATASEPARATOR;
 import static utils.GeneralFunctions.getCentroVaccinaleInfo;
 
 
@@ -66,6 +67,7 @@ public class VisualizzaCentriVaccinali extends javax.swing.JFrame {
         avgEvents_VisualizzaCentriVaccinali = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Dettaglio Centro Vaccinale");
         setIconImage(new ImageIcon("icon.png").getImage());
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
@@ -326,7 +328,7 @@ public class VisualizzaCentriVaccinali extends javax.swing.JFrame {
                 String thisLine;
                 BufferedReader br = new BufferedReader(new FileReader(path));
                 while ((thisLine = br.readLine()) != null) {
-                    String[] tmp = thisLine.split("-");
+                    String[] tmp = thisLine.split(DATASEPARATOR);
                     if(tmp.length == 4){
                         countEvents++;
                         avgEvents += Integer.parseInt(tmp[2]);

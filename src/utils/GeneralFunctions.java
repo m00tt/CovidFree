@@ -30,6 +30,8 @@ public class GeneralFunctions {
     
     //Dichiarazione dei path utili
 
+    public static String DATASEPARATOR = "#";
+    
     /**
      *
      */
@@ -136,7 +138,7 @@ public class GeneralFunctions {
         try {
                 BufferedReader br = new BufferedReader(new FileReader(CENTRIVACCINALIDIR + File.separator + "CentriVaccinali.dati"));
                 while ((thisLine = br.readLine()) != null) {
-                    String[] tmp = thisLine.split("-");
+                    String[] tmp = thisLine.split(DATASEPARATOR);
                     retList.add(tmp[0]);
                 }       
             } catch(IOException e) {
@@ -161,7 +163,7 @@ public class GeneralFunctions {
                     String thisLine;
                     BufferedReader br = new BufferedReader(new FileReader(CITTADINIDIR + File.separator +"Cittadini_Registrati.dati"));
                     while ((thisLine = br.readLine()) != null) {
-                        String[] tmp = thisLine.split("-");
+                        String[] tmp = thisLine.split(DATASEPARATOR);
                         retList.add(tmp[1]);
                         retList.add(tmp[2]);
                         retList.add(tmp[6]);
@@ -191,7 +193,7 @@ public class GeneralFunctions {
         try {
                 BufferedReader br = new BufferedReader(new FileReader(CENTRIVACCINALIDIR + File.separator + "CentriVaccinali.dati"));
                 while ((thisLine = br.readLine()) != null) {
-                    String[] tmp = thisLine.split("-");
+                    String[] tmp = thisLine.split(DATASEPARATOR);
                     if(tmp[0].equalsIgnoreCase(nomeCentroVaccinale)){
                         for(int i = 0; i<tmp.length; i++){
                             retList.add(tmp[i]);
@@ -215,7 +217,7 @@ public class GeneralFunctions {
                     BufferedReader br = new BufferedReader(new FileReader(CITTADINIDIR + File.separator +"Cittadini_Registrati.dati"));
                     while ((thisLine = br.readLine()) != null) {
                         
-                        String[] tmp = thisLine.split("-");
+                        String[] tmp = thisLine.split(DATASEPARATOR);
                         if(id.equalsIgnoreCase(tmp[6])){
                             return tmp[0];
                         }
@@ -232,7 +234,6 @@ public class GeneralFunctions {
     
     public static String newCittadinoAlreadyVaccinato(String codFisc){
         List<String> nomeCentriVaccinali = getCentriVaccinaliList();
-        List<String> retList = new ArrayList<>();
         
         for(int i=0; i<nomeCentriVaccinali.size(); i++){
             String path = CENTRIVACCINALIDIR + File.separator + "Vaccinati_"+nomeCentriVaccinali.get(i)+".dati";
@@ -241,10 +242,10 @@ public class GeneralFunctions {
                     String thisLine;
                     BufferedReader br = new BufferedReader(new FileReader(path));
                     while ((thisLine = br.readLine()) != null) {
-                        String[] tmp = thisLine.split("-");
+                        String[] tmp = thisLine.split(DATASEPARATOR);
                         if(tmp.length == 7){
                             if(codFisc.equalsIgnoreCase(tmp[1])){
-                                return nomeCentriVaccinali.get(i)+"-"+tmp[2];
+                                return nomeCentriVaccinali.get(i)+DATASEPARATOR+tmp[2];
                             }
                         }
                         
@@ -284,6 +285,7 @@ public class GeneralFunctions {
             Date insertDate = formatter.parse(p);
             return !insertDate.after(dateNow);
         }catch(ParseException e){
+            showMessageDialog(null, "La data non può essere futura.\nRispettare il formato gg/mm/aaaa", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
             return false;
         }
     }
@@ -297,6 +299,9 @@ public class GeneralFunctions {
      */
     public static boolean checkIdVaccino(String p){
         Matcher matcher = onlyNumbersPattern.matcher(p);
+        if((!matcher.find() && p.length() == 16) == false){
+            showMessageDialog(null, "L'ID Vaccino deve contenere esattamente 16 cifre.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
+        }
         return !matcher.find() && p.length() == 16;
     }
     
@@ -309,6 +314,9 @@ public class GeneralFunctions {
      */
     public static boolean checkCodiceFiscale(String p){
         Matcher matcher = onlyCodiceFiscale.matcher(p);
+        if(matcher.find() == false){
+            showMessageDialog(null, "Il codice fiscale inserito non è valido.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
+        }
         return matcher.find();
     }
  
@@ -321,6 +329,9 @@ public class GeneralFunctions {
      */
     public static boolean checkProvincia(String p){
         Matcher matcher = onlyLettersPattern.matcher(p);
+        if((p.trim().length() == 2 && !matcher.find()) == false){
+            showMessageDialog(null, "La provincia inserita risulta errato\nInserire la sigla della provincia.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
+        }
         return p.trim().length() == 2 && !matcher.find();
     }
     
@@ -333,6 +344,9 @@ public class GeneralFunctions {
      */
     public static boolean checkCAP(String p){
         Matcher matcher = onlyNumbersPattern.matcher(p);
+        if((p.trim().length() == 5 && !matcher.find()) == false){
+            showMessageDialog(null, "Il CAP inserito risulta errato.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
+        }
         return p.trim().length() == 5 && !matcher.find();
     }
     
@@ -345,6 +359,9 @@ public class GeneralFunctions {
      */
     public static boolean checkCompiled(String p){
         Matcher matcher = onlyLettersPattern.matcher(p);
+        if((p.trim().length()>2 && !matcher.find() && p.trim().length() < 41) == false){
+           showMessageDialog(null, "Il campo compilato con "+p+" risulta errato.\n\nTale campo:\n- Deve avere lunghezza compresa tra 3 e 40 caratteri\n- Può contenere solamente i seguenti caratteri speciali: àèòìù'", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png")); 
+        }
         return p.trim().length()>2 && !matcher.find() && p.trim().length() < 41;
     }
     
@@ -357,6 +374,9 @@ public class GeneralFunctions {
      */
     public static boolean checkEvtDescription(String p){
         Matcher matcher = onlyLettersPattern.matcher(p);
+        if((p.trim().length()>7 && !matcher.find() && p.trim().length() < 257) == false){
+            showMessageDialog(null, "La descrizione dell'evento risulta errata.\nLa descrizione deve essere compresa tra 8 e 256 caratteri e può contenere\nsolamente i seguenti caratteri speciali àèòìù'", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png")); 
+        }
         return p.trim().length()>7 && !matcher.find() && p.trim().length() < 257;
     }
     
@@ -367,6 +387,9 @@ public class GeneralFunctions {
      */
     public static boolean checkCivico(String p){
         Matcher matcher = onlyCivicoPattern.matcher(p);
+        if(!(p.trim().length()>0 && p.trim().length()<6 && !matcher.find())){
+            showMessageDialog(null, "Il civico inserito risulta errato.\nIl campo:\n- Può contenere da 1 a 6 caratteri\n- Può contenere lettere, numeri o il carattere '/'", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
+        }
         return p.trim().length()>0 && p.trim().length()<6 && !matcher.find();
     }
     
@@ -379,7 +402,11 @@ public class GeneralFunctions {
      */
     public static boolean checkMail(String p){
         Matcher matcher = onlyEmail.matcher(p);
-        return p.trim().length()>0 && matcher.find();
+        if((p.trim().length()>0 && matcher.find()) == false){
+            showMessageDialog(null, "L'indirizzo e-mail inserito risulta errato.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
+            return false;
+        }
+        return true;
     }
     
     //Verifica il pattern della password
@@ -391,7 +418,11 @@ public class GeneralFunctions {
      */
     public static boolean checkPassword(String p){
         Matcher matcher = onlyPasswordPattern.matcher(p);
-        return matcher.find();
+        if(matcher.find() == false){
+             showMessageDialog(null, "La password inserita non è valida.\n\nLa password deve:\n- Avere lunghezza tra 8 e 20 caratteri\n- Avere almeno un numero\n- Avere almeno una lettera minuscola\n- Avere almeno una lettera maiuscola\n- Avere almeno un carattere speciale tra i seguenti:  @#$!£&=?_%", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
+             return false;
+        }
+        return true;
     }
     
     /**

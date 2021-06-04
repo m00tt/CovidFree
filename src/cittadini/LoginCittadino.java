@@ -18,6 +18,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.showMessageDialog;
 import static utils.GeneralFunctions.CITTADINIDIR;
+import static utils.GeneralFunctions.DATASEPARATOR;
 import static utils.GeneralFunctions.checkDirHierarchy;
 import static utils.GeneralFunctions.getCentroVaccinalebyID;
 import static utils.GeneralFunctions.getSHA;
@@ -57,7 +58,7 @@ public class LoginCittadino extends javax.swing.JFrame {
         indietroBtn_Login = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Login Cittadini");
+        setTitle("Login");
         setIconImage(new ImageIcon("icon.png").getImage());
         setName("frame_Login"); // NOI18N
         setResizable(false);
@@ -293,7 +294,7 @@ public class LoginCittadino extends javax.swing.JFrame {
         try {
             BufferedReader br = new BufferedReader (new FileReader(CITTADINIDIR + File.separator + "Cittadini_Registrati.dati"));
             while((thisLine = br.readLine()) != null) {
-                String [] tmp = thisLine.split("-");
+                String [] tmp = thisLine.split(DATASEPARATOR);
                 if(tmp[6].equalsIgnoreCase(x) && tmp[7].equals(psw))
                 {
                     return true;            

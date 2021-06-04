@@ -17,6 +17,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.showMessageDialog;
 import static utils.GeneralFunctions.CENTRIVACCINALIDIR;
+import static utils.GeneralFunctions.DATASEPARATOR;
 import static utils.GeneralFunctions.checkCodiceFiscale;
 import static utils.GeneralFunctions.checkCompiled;
 import static utils.GeneralFunctions.checkData;
@@ -65,7 +66,6 @@ public class RegistrazioneVaccinato extends javax.swing.JFrame {
         idVaccinoLbl_RegistrazioneVaccinato = new javax.swing.JLabel();
         add_RegistrazioneVaccinato = new javax.swing.JButton();
         ann_RegistrazioneVaccinato = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Registrazione Vaccinato");
@@ -248,9 +248,6 @@ public class RegistrazioneVaccinato extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setBackground(new java.awt.Color(255, 255, 255));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/info.png"))); // NOI18N
-
         javax.swing.GroupLayout Panel_RegistrazioneVaccinatoLayout = new javax.swing.GroupLayout(Panel_RegistrazioneVaccinato);
         Panel_RegistrazioneVaccinato.setLayout(Panel_RegistrazioneVaccinatoLayout);
         Panel_RegistrazioneVaccinatoLayout.setHorizontalGroup(
@@ -265,24 +262,18 @@ public class RegistrazioneVaccinato extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(add_RegistrazioneVaccinato, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_RegistrazioneVaccinatoLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(27, 27, 27))
         );
         Panel_RegistrazioneVaccinatoLayout.setVerticalGroup(
             Panel_RegistrazioneVaccinatoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Panel_RegistrazioneVaccinatoLayout.createSequentialGroup()
-                .addComponent(titleLbl_RegistrazioneVaccinato, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(titleLbl_RegistrazioneVaccinato, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(datiPnl_RegistrazioneVaccinato, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(Panel_RegistrazioneVaccinatoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(ann_RegistrazioneVaccinato, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(add_RegistrazioneVaccinato, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(Panel_RegistrazioneVaccinatoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ann_RegistrazioneVaccinato, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(add_RegistrazioneVaccinato, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -298,8 +289,8 @@ public class RegistrazioneVaccinato extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(Panel_RegistrazioneVaccinato, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(Panel_RegistrazioneVaccinato, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -416,7 +407,7 @@ public class RegistrazioneVaccinato extends javax.swing.JFrame {
             String idVaccino = idVaccino_RegistrazioneVaccinato.getText().strip();
             
             if(!"".equals(nomeCentroVaccinale) && checkCompiled(nomeVaccinato) && checkCompiled(cognomeVaccinato) && checkCodiceFiscale(codiceFiscaleVaccinato) && checkData(dataVaccino) && checkIdVaccino(idVaccino)){
-                String insert = nomeCentroVaccinale + "-" + codiceFiscaleVaccinato + "-" + idVaccino + "-" + nomeVaccinato + "-" + cognomeVaccinato + "-" + nomeVaccino + "-" + dataVaccino;
+                String insert = nomeCentroVaccinale + DATASEPARATOR + codiceFiscaleVaccinato + DATASEPARATOR + idVaccino + DATASEPARATOR + nomeVaccinato + DATASEPARATOR + cognomeVaccinato + DATASEPARATOR + nomeVaccino + DATASEPARATOR + dataVaccino;
                 String path = CENTRIVACCINALIDIR + File.separator + "Vaccinati_"+nomeCentroVaccinale+".dati";
                 if(!checkDirHierarchy()){
                     showMessageDialog(null, "I database risultano corrotti.\nI dati sono stati ripristinati.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
@@ -451,7 +442,7 @@ public class RegistrazioneVaccinato extends javax.swing.JFrame {
                             this.setVisible(false);
                         }
                         else{
-                            String[] getS = cmp.split("-");
+                            String[] getS = cmp.split(DATASEPARATOR);
                             showMessageDialog(null, "Il cittadino risulta già vaccinato presso il Centro Vaccinale '" + getS[0] + "' con l'ID Vaccino: " + getS[1], "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
                         }
                     }
@@ -465,7 +456,8 @@ public class RegistrazioneVaccinato extends javax.swing.JFrame {
                 
             }
             else{
-                showMessageDialog(null, "I dati inseriti non sono corretti, prova a ricontrollare.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
+                if("".equals(nomeCentroVaccinale))
+                    showMessageDialog(null, "Nessun centro vaccinale disponibile.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
             }
         } catch (ParseException ex) {
             showMessageDialog(null, "I dati inseriti non sono corretti, prova a ricontrollare.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
@@ -498,7 +490,6 @@ public class RegistrazioneVaccinato extends javax.swing.JFrame {
     private javax.swing.JPanel datiPnl_RegistrazioneVaccinato;
     private javax.swing.JLabel idVaccinoLbl_RegistrazioneVaccinato;
     private javax.swing.JTextField idVaccino_RegistrazioneVaccinato;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel nomeLbl_RegistrazioneVaccinato;
     private javax.swing.JTextField nome_RegistrazioneVaccinato;
     private javax.swing.JLabel titleLbl_RegistrazioneVaccinato;

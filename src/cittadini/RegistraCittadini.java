@@ -18,6 +18,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.showMessageDialog;
 import static utils.GeneralFunctions.CITTADINIDIR;
+import static utils.GeneralFunctions.DATASEPARATOR;
 import static utils.GeneralFunctions.checkCodiceFiscale;
 import static utils.GeneralFunctions.checkCompiled;
 import static utils.GeneralFunctions.checkDirHierarchy;
@@ -73,12 +74,13 @@ public class RegistraCittadini extends javax.swing.JFrame {
         emailLbl_RegistrazioneCittadino = new javax.swing.JLabel();
         centroVaccinaleLbl_RegistrazioneCittadino = new javax.swing.JLabel();
         centroVaccinale_RegistrazioneCittadino = new javax.swing.JComboBox<>();
-        add_RegistrazioneCittadino = new javax.swing.JButton();
         ann_RegistrazioneCittadino = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Registrati");
         setIconImage(new ImageIcon("icon.png").getImage());
+        setResizable(false);
 
         Panel_RegistrazioneCittadino.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -281,18 +283,8 @@ public class RegistraCittadini extends javax.swing.JFrame {
                     .addComponent(userId_RegistrazioneCittadino)
                     .addComponent(pwdUsr_RegistrazioneCittadino, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
                     .addComponent(idVaccino_RegistrazioneCittadino))
-                .addContainerGap(13, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-
-        add_RegistrazioneCittadino.setText("Aggiungi");
-        add_RegistrazioneCittadino.setMaximumSize(new java.awt.Dimension(83, 30));
-        add_RegistrazioneCittadino.setMinimumSize(new java.awt.Dimension(83, 30));
-        add_RegistrazioneCittadino.setPreferredSize(new java.awt.Dimension(83, 30));
-        add_RegistrazioneCittadino.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                add_RegistrazioneCittadinoActionPerformed(evt);
-            }
-        });
 
         ann_RegistrazioneCittadino.setText("Annulla");
         ann_RegistrazioneCittadino.addActionListener(new java.awt.event.ActionListener() {
@@ -301,24 +293,25 @@ public class RegistraCittadini extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setBackground(new java.awt.Color(255, 255, 255));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/info.png"))); // NOI18N
+        jButton1.setText("Registrati");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout Panel_RegistrazioneCittadinoLayout = new javax.swing.GroupLayout(Panel_RegistrazioneCittadino);
         Panel_RegistrazioneCittadino.setLayout(Panel_RegistrazioneCittadinoLayout);
         Panel_RegistrazioneCittadinoLayout.setHorizontalGroup(
             Panel_RegistrazioneCittadinoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_RegistrazioneCittadinoLayout.createSequentialGroup()
+            .addGroup(Panel_RegistrazioneCittadinoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(Panel_RegistrazioneCittadinoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(titleLbl_RegistrazioneCittadino, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(datiPnl_RegistrazioneCittadino, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(Panel_RegistrazioneCittadinoLayout.createSequentialGroup()
-                        .addComponent(ann_RegistrazioneCittadino)
+                .addGroup(Panel_RegistrazioneCittadinoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(titleLbl_RegistrazioneCittadino, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(datiPnl_RegistrazioneCittadino, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_RegistrazioneCittadinoLayout.createSequentialGroup()
+                        .addComponent(ann_RegistrazioneCittadino, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(add_RegistrazioneCittadino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(Panel_RegistrazioneCittadinoLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jButton1)))
                 .addContainerGap())
         );
@@ -326,14 +319,12 @@ public class RegistraCittadini extends javax.swing.JFrame {
             Panel_RegistrazioneCittadinoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Panel_RegistrazioneCittadinoLayout.createSequentialGroup()
                 .addComponent(titleLbl_RegistrazioneCittadino, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(datiPnl_RegistrazioneCittadino, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(36, 36, 36)
-                .addGroup(Panel_RegistrazioneCittadinoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ann_RegistrazioneCittadino, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(add_RegistrazioneCittadino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(Panel_RegistrazioneCittadinoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(ann_RegistrazioneCittadino, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -447,13 +438,13 @@ public class RegistraCittadini extends javax.swing.JFrame {
        
     }//GEN-LAST:event_pwdUsr_RegistrazioneCittadinoFocusGained
 
-    private void add_RegistrazioneCittadinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_RegistrazioneCittadinoActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try {
             registraCittadino();
         } catch (NoSuchAlgorithmException ex) {
             Logger.getLogger(RegistraCittadini.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_add_RegistrazioneCittadinoActionPerformed
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      *
@@ -519,9 +510,9 @@ public class RegistraCittadini extends javax.swing.JFrame {
             String vaccineID = idVaccino_RegistrazioneCittadino.getText().strip();
             
             
-            if (!"".equals(nomeCentroVaccinale) && checkCompiled(nomeCittadino) && checkCodiceFiscale(codiceFiscale) && checkCompiled(userID) && checkCompiled(cognomeCittadino) && checkIdVaccino(vaccineID) && checkPassword(passwordCittadino) && checkMail(emailCittadino))
+            if (!"".equals(nomeCentroVaccinale) && checkCompiled(nomeCittadino) /*&& checkCodiceFiscale(codiceFiscale) */&& checkCompiled(userID) && checkCompiled(cognomeCittadino) && checkIdVaccino(vaccineID) && checkPassword(passwordCittadino) && checkMail(emailCittadino))
             {
-                String insert = nomeCentroVaccinale + "-" + codiceFiscale + "-" + vaccineID + "-" + nomeCittadino + "-" + cognomeCittadino + "-" + emailCittadino + "-" + userID + "-" + toHexString(getSHA(passwordCittadino));
+                String insert = nomeCentroVaccinale + DATASEPARATOR + codiceFiscale + DATASEPARATOR + vaccineID + DATASEPARATOR + nomeCittadino + DATASEPARATOR + cognomeCittadino + DATASEPARATOR + emailCittadino + DATASEPARATOR + userID + DATASEPARATOR + toHexString(getSHA(passwordCittadino));
                 String path = CITTADINIDIR + File.separator + "Cittadini_registrati.dati";
                 if(!checkDirHierarchy()){
                     showMessageDialog(null, "I database risultano corrotti.\nI dati sono stati ripristinati.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
@@ -557,7 +548,7 @@ public class RegistraCittadini extends javax.swing.JFrame {
                             this.setVisible(false);
                         }
                         else{
-                            String[] cmpSplit = cmpCentroVaccinale.split("-");
+                            String[] cmpSplit = cmpCentroVaccinale.split(DATASEPARATOR);
                             if(cmpSplit[0].equalsIgnoreCase(nomeCentroVaccinale) && cmpSplit[1].equalsIgnoreCase(vaccineID)){
                                 try (FileWriter fw2 = new FileWriter(path, true)) { 
                                     fw2.append(insert+"\n");
@@ -586,7 +577,8 @@ public class RegistraCittadini extends javax.swing.JFrame {
                 }              
             }
             else{
-                showMessageDialog(null, "I dati inseriti non sono corretti, prova a ricontrollare.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
+                if("".equals(nomeCentroVaccinale))
+                    showMessageDialog(null, "I dati inseriti non sono corretti, prova a ricontrollare.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
             }
         } catch (IOException ex) {
             showMessageDialog(null, "Errore in fase di scrittura dei dati, riprova.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
@@ -597,7 +589,6 @@ public class RegistraCittadini extends javax.swing.JFrame {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Panel_RegistrazioneCittadino;
-    private javax.swing.JButton add_RegistrazioneCittadino;
     private javax.swing.JButton ann_RegistrazioneCittadino;
     private javax.swing.JLabel centroVaccinaleLbl_RegistrazioneCittadino;
     private javax.swing.JComboBox<String> centroVaccinale_RegistrazioneCittadino;
