@@ -65,6 +65,7 @@ public class RegistrazioneVaccinato extends javax.swing.JFrame {
         idVaccinoLbl_RegistrazioneVaccinato = new javax.swing.JLabel();
         add_RegistrazioneVaccinato = new javax.swing.JButton();
         ann_RegistrazioneVaccinato = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Registrazione Vaccinato");
@@ -165,7 +166,7 @@ public class RegistrazioneVaccinato extends javax.swing.JFrame {
         datiPnl_RegistrazioneVaccinatoLayout.setHorizontalGroup(
             datiPnl_RegistrazioneVaccinatoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(datiPnl_RegistrazioneVaccinatoLayout.createSequentialGroup()
-                .addContainerGap(72, Short.MAX_VALUE)
+                .addContainerGap(79, Short.MAX_VALUE)
                 .addGroup(datiPnl_RegistrazioneVaccinatoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(codiceFiscaleLbl_RegistrazioneVaccinato)
                     .addComponent(nome_RegistrazioneVaccinato, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -191,7 +192,7 @@ public class RegistrazioneVaccinato extends javax.swing.JFrame {
                         .addGroup(datiPnl_RegistrazioneVaccinatoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(idVaccinoLbl_RegistrazioneVaccinato)
                             .addComponent(idVaccino_RegistrazioneVaccinato, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(73, Short.MAX_VALUE))
+                .addContainerGap(80, Short.MAX_VALUE))
         );
         datiPnl_RegistrazioneVaccinatoLayout.setVerticalGroup(
             datiPnl_RegistrazioneVaccinatoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -247,6 +248,9 @@ public class RegistrazioneVaccinato extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setBackground(new java.awt.Color(255, 255, 255));
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/info.png"))); // NOI18N
+
         javax.swing.GroupLayout Panel_RegistrazioneVaccinatoLayout = new javax.swing.GroupLayout(Panel_RegistrazioneVaccinato);
         Panel_RegistrazioneVaccinato.setLayout(Panel_RegistrazioneVaccinatoLayout);
         Panel_RegistrazioneVaccinatoLayout.setHorizontalGroup(
@@ -261,14 +265,20 @@ public class RegistrazioneVaccinato extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(add_RegistrazioneVaccinato, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_RegistrazioneVaccinatoLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(27, 27, 27))
         );
         Panel_RegistrazioneVaccinatoLayout.setVerticalGroup(
             Panel_RegistrazioneVaccinatoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Panel_RegistrazioneVaccinatoLayout.createSequentialGroup()
                 .addComponent(titleLbl_RegistrazioneVaccinato, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(5, 5, 5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(datiPnl_RegistrazioneVaccinato, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(Panel_RegistrazioneVaccinatoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(ann_RegistrazioneVaccinato, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(add_RegistrazioneVaccinato, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
@@ -488,6 +498,7 @@ public class RegistrazioneVaccinato extends javax.swing.JFrame {
     private javax.swing.JPanel datiPnl_RegistrazioneVaccinato;
     private javax.swing.JLabel idVaccinoLbl_RegistrazioneVaccinato;
     private javax.swing.JTextField idVaccino_RegistrazioneVaccinato;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel nomeLbl_RegistrazioneVaccinato;
     private javax.swing.JTextField nome_RegistrazioneVaccinato;
     private javax.swing.JLabel titleLbl_RegistrazioneVaccinato;

@@ -75,6 +75,7 @@ public class RegistraCittadini extends javax.swing.JFrame {
         centroVaccinale_RegistrazioneCittadino = new javax.swing.JComboBox<>();
         add_RegistrazioneCittadino = new javax.swing.JButton();
         ann_RegistrazioneCittadino = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setIconImage(new ImageIcon("icon.png").getImage());
@@ -142,7 +143,7 @@ public class RegistraCittadini extends javax.swing.JFrame {
         });
 
         idVaccino_RegistrazioneCittadino.setFont(new java.awt.Font("Arial", 2, 11)); // NOI18N
-        idVaccino_RegistrazioneCittadino.setText("ID Vaccino...");
+        idVaccino_RegistrazioneCittadino.setText("16 cifre...");
         idVaccino_RegistrazioneCittadino.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         idVaccino_RegistrazioneCittadino.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -172,7 +173,7 @@ public class RegistraCittadini extends javax.swing.JFrame {
         });
 
         userId_RegistrazioneCittadino.setFont(new java.awt.Font("Arial", 2, 11)); // NOI18N
-        userId_RegistrazioneCittadino.setText("Nome Utente...");
+        userId_RegistrazioneCittadino.setText("Da 3 a 40 caratteri...");
         userId_RegistrazioneCittadino.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         userId_RegistrazioneCittadino.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -226,13 +227,15 @@ public class RegistraCittadini extends javax.swing.JFrame {
                                 .addComponent(cognome_RegistrazioneCittadino, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, datiPnl_RegistrazioneCittadinoLayout.createSequentialGroup()
                             .addGroup(datiPnl_RegistrazioneCittadinoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(usrnameLbl_RegistrazioneCittadino)
-                                .addComponent(userId_RegistrazioneCittadino, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(18, 18, 18)
+                                .addGroup(datiPnl_RegistrazioneCittadinoLayout.createSequentialGroup()
+                                    .addComponent(usrnameLbl_RegistrazioneCittadino)
+                                    .addGap(0, 0, Short.MAX_VALUE))
+                                .addComponent(userId_RegistrazioneCittadino))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addGroup(datiPnl_RegistrazioneCittadinoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(pwdUsr_RegistrazioneCittadino, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(pwdLbl_RegistrazioneCittadino))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGap(18, 18, 18)
                             .addGroup(datiPnl_RegistrazioneCittadinoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(idCittadinoLbl_RegistrazioneCittadino)
                                 .addComponent(idVaccino_RegistrazioneCittadino, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -276,8 +279,8 @@ public class RegistraCittadini extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(datiPnl_RegistrazioneCittadinoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(userId_RegistrazioneCittadino)
-                    .addComponent(idVaccino_RegistrazioneCittadino)
-                    .addComponent(pwdUsr_RegistrazioneCittadino, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE))
+                    .addComponent(pwdUsr_RegistrazioneCittadino, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
+                    .addComponent(idVaccino_RegistrazioneCittadino))
                 .addContainerGap(13, Short.MAX_VALUE))
         );
 
@@ -298,28 +301,36 @@ public class RegistraCittadini extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setBackground(new java.awt.Color(255, 255, 255));
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/info.png"))); // NOI18N
+
         javax.swing.GroupLayout Panel_RegistrazioneCittadinoLayout = new javax.swing.GroupLayout(Panel_RegistrazioneCittadino);
         Panel_RegistrazioneCittadino.setLayout(Panel_RegistrazioneCittadinoLayout);
         Panel_RegistrazioneCittadinoLayout.setHorizontalGroup(
             Panel_RegistrazioneCittadinoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Panel_RegistrazioneCittadinoLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_RegistrazioneCittadinoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(Panel_RegistrazioneCittadinoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(titleLbl_RegistrazioneCittadino, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(datiPnl_RegistrazioneCittadino, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_RegistrazioneCittadinoLayout.createSequentialGroup()
+                .addGroup(Panel_RegistrazioneCittadinoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(titleLbl_RegistrazioneCittadino, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(datiPnl_RegistrazioneCittadino, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(Panel_RegistrazioneCittadinoLayout.createSequentialGroup()
                         .addComponent(ann_RegistrazioneCittadino)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(add_RegistrazioneCittadino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(add_RegistrazioneCittadino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(Panel_RegistrazioneCittadinoLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jButton1)))
                 .addContainerGap())
         );
         Panel_RegistrazioneCittadinoLayout.setVerticalGroup(
             Panel_RegistrazioneCittadinoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Panel_RegistrazioneCittadinoLayout.createSequentialGroup()
-                .addComponent(titleLbl_RegistrazioneCittadino, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(titleLbl_RegistrazioneCittadino, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(datiPnl_RegistrazioneCittadino, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(36, 36, 36)
                 .addGroup(Panel_RegistrazioneCittadinoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ann_RegistrazioneCittadino, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(add_RegistrazioneCittadino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -402,26 +413,26 @@ public class RegistraCittadini extends javax.swing.JFrame {
     }//GEN-LAST:event_codiceFiscale_RegistrazioneCittadinoFocusLost
 
     private void userId_RegistrazioneCittadinoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_userId_RegistrazioneCittadinoFocusGained
-     if (userId_RegistrazioneCittadino.getText().equals("Nome Utente...")){
+     if (userId_RegistrazioneCittadino.getText().equals("Da 3 a 40 caratteri...")){
          userId_RegistrazioneCittadino.setText("");
      }
     }//GEN-LAST:event_userId_RegistrazioneCittadinoFocusGained
 
     private void userId_RegistrazioneCittadinoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_userId_RegistrazioneCittadinoFocusLost
         if (userId_RegistrazioneCittadino.getText().equals("")){
-         userId_RegistrazioneCittadino.setText("Nome Utente...");
+         userId_RegistrazioneCittadino.setText("Da 3 a 40 caratteri...");
      }
     }//GEN-LAST:event_userId_RegistrazioneCittadinoFocusLost
 
     private void idVaccino_RegistrazioneCittadinoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_idVaccino_RegistrazioneCittadinoFocusGained
-        if (idVaccino_RegistrazioneCittadino.getText().equals("ID Vaccino...")){
+        if (idVaccino_RegistrazioneCittadino.getText().equals("16 cifre...")){
          idVaccino_RegistrazioneCittadino.setText("");
      }
     }//GEN-LAST:event_idVaccino_RegistrazioneCittadinoFocusGained
 
     private void idVaccino_RegistrazioneCittadinoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_idVaccino_RegistrazioneCittadinoFocusLost
         if (idVaccino_RegistrazioneCittadino.getText().equals("")){
-         idVaccino_RegistrazioneCittadino.setText("ID Vaccino...");
+         idVaccino_RegistrazioneCittadino.setText("16 cifre...");
      }
     }//GEN-LAST:event_idVaccino_RegistrazioneCittadinoFocusLost
 
@@ -599,6 +610,7 @@ public class RegistraCittadini extends javax.swing.JFrame {
     private javax.swing.JTextField email_RegistrazioneCittadino;
     private javax.swing.JLabel idCittadinoLbl_RegistrazioneCittadino;
     private javax.swing.JTextField idVaccino_RegistrazioneCittadino;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel nomeLbl_RegistrazioneCittadino;
     private javax.swing.JTextField nome_RegistrazioneCittadino;
     private javax.swing.JLabel pwdLbl_RegistrazioneCittadino;
