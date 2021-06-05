@@ -28,8 +28,6 @@ import static utils.GeneralFunctions.toHexString;
 
 public class LoginCittadino extends javax.swing.JFrame {
 
-    private String username;
-
     /**
      *
      */
@@ -259,10 +257,8 @@ public class LoginCittadino extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new LoginCittadino().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new LoginCittadino().setVisible(true);
         });
     }
     

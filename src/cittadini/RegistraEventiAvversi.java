@@ -315,10 +315,8 @@ public class RegistraEventiAvversi extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new RegistraEventiAvversi().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new RegistraEventiAvversi().setVisible(true);
         });
        
     }
