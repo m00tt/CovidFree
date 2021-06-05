@@ -16,6 +16,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import static utils.GeneralFunctions.LOGODIR;
 import static javax.swing.JOptionPane.showMessageDialog;
 import static utils.GeneralFunctions.CITTADINIDIR;
 import static utils.GeneralFunctions.DATASEPARATOR;
@@ -59,7 +60,7 @@ public class LoginCittadino extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login");
-        setIconImage(new ImageIcon("icon.png").getImage());
+        setIconImage(new ImageIcon(LOGODIR).getImage());
         setName("frame_Login"); // NOI18N
         setResizable(false);
 

@@ -18,6 +18,7 @@ import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
+import static utils.GeneralFunctions.LOGODIR;
 import static javax.swing.JOptionPane.showMessageDialog;
 import static utils.GeneralFunctions.CENTRIVACCINALIDIR;
 import static utils.GeneralFunctions.DATASEPARATOR;
@@ -62,7 +63,7 @@ public class HomeCittadini extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("CovidFree - Home Cittadini");
-        setIconImage(new ImageIcon("icon.png").getImage());
+        setIconImage(new ImageIcon(LOGODIR).getImage());
         setName("frame_HomeCittadini"); // NOI18N
         setResizable(false);
 
@@ -344,39 +345,7 @@ public class HomeCittadini extends javax.swing.JFrame {
                                 list.add(tmp[0]);
                             }
                         }
-                    }
-
-                    /*if(tmp[6].toLowerCase().contains(search.toLowerCase()) && search.length()>0 && tmp[1].contains(type) && !type.equals("Qualsiasi")){
-                        for (int i=0; i < list.size();i++)
-                        {
-                            if (list.get(i) == tmp[0])
-                            {
-                                check = true;
-                                break;
-                            }
-                           
-                        }
-                        if(!check)
-                        {
-                            list.add(tmp[0]);
-                        }
-                    }
-                    check=false;
-                    if(tmp[1].contains(type) && !type.equals("Qualsiasi")){
-                        for (int i=0; i < list.size();i++)
-                        {
-                            if (list.get(i) == tmp[0])
-                            {
-                                check = true;
-                                break;
-                            }
-                           
-                        }                       
-                        if(!check)
-                        {
-                            list.add(tmp[0]);
-                        }
-                    }*/                    
+                    }                 
                  
                 }
                 if(targetSearch_HomeCittadini.getSelectedIndex() == 0){
@@ -439,7 +408,6 @@ public class HomeCittadini extends javax.swing.JFrame {
     
     //Recupera la lista di centri vaccinali registrati
     private void fillCentriVaccinali(List<String> centriVaccinali){
-        //infocentriList_HomeCittadini.setModel(((ListModel) centriVaccinali));
         
         DefaultListModel listModel = new DefaultListModel();
         for (int i = 0; i < centriVaccinali.size(); i++)

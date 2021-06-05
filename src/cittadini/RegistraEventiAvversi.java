@@ -12,6 +12,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import static utils.GeneralFunctions.LOGODIR;
 import static javax.swing.JOptionPane.showMessageDialog;
 import static utils.GeneralFunctions.CENTRIVACCINALIDIR;
 import static utils.GeneralFunctions.DATASEPARATOR;
@@ -65,7 +66,7 @@ public class RegistraEventiAvversi extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Registra Evento Avverso");
-        setIconImage(new ImageIcon("icon.png").getImage());
+        setIconImage(new ImageIcon(LOGODIR).getImage());
         setPreferredSize(new java.awt.Dimension(600, 450));
 
         pnlMain_RegistraEventiAvversi.setBackground(new java.awt.Color(255, 255, 255));

@@ -7,6 +7,7 @@
 
 package centrivaccinali;
 import javax.swing.ImageIcon;
+import static utils.GeneralFunctions.LOGODIR;
 
 /**
  * This class is used to open the multiple choice main menu of CentriVaccinali sub-application
@@ -40,7 +41,7 @@ public class HomeCentriVaccinali extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("CovidFree - Home");
-        setIconImage(new ImageIcon("icon.png").getImage());
+        setIconImage(new ImageIcon(LOGODIR).getImage());
         setName("frame_HomeCentriVaccinali"); // NOI18N
         setPreferredSize(new java.awt.Dimension(600, 450));
         setResizable(false);

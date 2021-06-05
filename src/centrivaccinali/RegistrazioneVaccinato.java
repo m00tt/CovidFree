@@ -25,6 +25,7 @@ import static utils.GeneralFunctions.checkDirHierarchy;
 import static utils.GeneralFunctions.checkIdVaccino;
 import static utils.GeneralFunctions.getCentriVaccinaliList;
 import static utils.GeneralFunctions.getUniqueList;
+import static utils.GeneralFunctions.LOGODIR;
 import static utils.GeneralFunctions.newCittadinoAlreadyVaccinato;
 
 /**
@@ -69,7 +70,7 @@ public class RegistrazioneVaccinato extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Registrazione Vaccinato");
-        setIconImage(new ImageIcon("icon.png").getImage());
+        setIconImage(new ImageIcon(LOGODIR).getImage());
         setName("frame_RegistrazioneVaccinato"); // NOI18N
         setPreferredSize(new java.awt.Dimension(600, 450));
         setResizable(false);
@@ -420,7 +421,7 @@ public class RegistrazioneVaccinato extends javax.swing.JFrame {
                     boolean ok = true;            
                     List<String> toCheckUnique = getUniqueList();
                     for (int i=0; i<toCheckUnique.size(); i++){
-                        if(/*toCheckUnique.get(i).equalsIgnoreCase(codiceFiscaleVaccinato) || */toCheckUnique.get(i).equalsIgnoreCase(idVaccino)){
+                        if(toCheckUnique.get(i).equalsIgnoreCase(idVaccino)){
                             ok = false;
                             break;
                         }                        

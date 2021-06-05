@@ -32,6 +32,8 @@ public class GeneralFunctions {
 
     public static String DATASEPARATOR = "#";
     
+    public static String LOGODIR = System.getProperty("user.dir") + File.separator + "src" + File.separator + "img" + File.separator + "app-logo.png";
+    
     /**
      *
      */
@@ -294,6 +296,20 @@ public class GeneralFunctions {
         }
     }
     
+    public static boolean checkUserId(String p){
+        Matcher matcher = onlyLettersPattern.matcher(p);
+        if((p.trim().length()>2 && !matcher.find() && p.trim().length() <9) == false){
+            if(p.equalsIgnoreCase("Da 3 a 8 caratteri...")){
+                showMessageDialog(null, "Alcuni campi non sono stati compilati, prova a controllare.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png")); 
+                return false;
+            }else{
+                showMessageDialog(null, "Lo UserID risulta errato.\n\nTale campo:\n- Deve avere lunghezza compresa tra 3 e 8 caratteri\n- Può contenere solamente lettere ed i seguenti caratteri speciali: àèòìù'", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
+                return false;
+            }
+        }
+        return true;
+    }
+    
     //Verifica che l'ID vaccino sia numerico e di lunghezza 16
 
     /**
@@ -367,11 +383,13 @@ public class GeneralFunctions {
         if((p.trim().length()>2 && !matcher.find() && p.trim().length() < 41) == false){
             if(p.equalsIgnoreCase("Da 3 a 40 caratteri...")){
                 showMessageDialog(null, "Alcuni campi non sono stati compilati, prova a controllare.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png")); 
+                return false;
             }else{
                 showMessageDialog(null, "Il campo compilato con '"+p+"' risulta errato.\n\nTale campo:\n- Deve avere lunghezza compresa tra 3 e 40 caratteri\n- Può contenere solamente i seguenti caratteri speciali: àèòìù'", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png")); 
+                return false;
             }
         }
-        return p.trim().length()>2 && !matcher.find() && p.trim().length() < 41;
+        return true;
     }
     
     //Verifica che il civico sia compreso tra 1 e 5 caratteri

@@ -16,6 +16,7 @@ import javax.swing.ImageIcon;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import static utils.GeneralFunctions.LOGODIR;
 import static javax.swing.JOptionPane.showMessageDialog;
 import static utils.GeneralFunctions.CITTADINIDIR;
 import static utils.GeneralFunctions.DATASEPARATOR;
@@ -25,6 +26,7 @@ import static utils.GeneralFunctions.checkDirHierarchy;
 import static utils.GeneralFunctions.checkIdVaccino;
 import static utils.GeneralFunctions.checkMail;
 import static utils.GeneralFunctions.checkPassword;
+import static utils.GeneralFunctions.checkUserId;
 import static utils.GeneralFunctions.getSHA;
 import static utils.GeneralFunctions.getCentriVaccinaliList;
 import static utils.GeneralFunctions.getUniqueList;
@@ -79,7 +81,7 @@ public class RegistraCittadini extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Registrati");
-        setIconImage(new ImageIcon("icon.png").getImage());
+        setIconImage(new ImageIcon(LOGODIR).getImage());
         setResizable(false);
 
         Panel_RegistrazioneCittadino.setBackground(new java.awt.Color(255, 255, 255));
@@ -169,7 +171,7 @@ public class RegistraCittadini extends javax.swing.JFrame {
         pwdUsr_RegistrazioneCittadino.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         userId_RegistrazioneCittadino.setFont(new java.awt.Font("Arial", 2, 11)); // NOI18N
-        userId_RegistrazioneCittadino.setText("Da 3 a 40 caratteri...");
+        userId_RegistrazioneCittadino.setText("Da 3 a 8 caratteri...");
         userId_RegistrazioneCittadino.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         userId_RegistrazioneCittadino.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -398,14 +400,14 @@ public class RegistraCittadini extends javax.swing.JFrame {
     }//GEN-LAST:event_codiceFiscale_RegistrazioneCittadinoFocusLost
 
     private void userId_RegistrazioneCittadinoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_userId_RegistrazioneCittadinoFocusGained
-     if (userId_RegistrazioneCittadino.getText().equals("Da 3 a 40 caratteri...")){
+     if (userId_RegistrazioneCittadino.getText().equals("Da 3 a 8 caratteri...")){
          userId_RegistrazioneCittadino.setText("");
      }
     }//GEN-LAST:event_userId_RegistrazioneCittadinoFocusGained
 
     private void userId_RegistrazioneCittadinoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_userId_RegistrazioneCittadinoFocusLost
         if (userId_RegistrazioneCittadino.getText().equals("")){
-         userId_RegistrazioneCittadino.setText("Da 3 a 40 caratteri...");
+         userId_RegistrazioneCittadino.setText("Da 3 a 8 caratteri...");
      }
     }//GEN-LAST:event_userId_RegistrazioneCittadinoFocusLost
 
@@ -499,7 +501,7 @@ public class RegistraCittadini extends javax.swing.JFrame {
             String vaccineID = idVaccino_RegistrazioneCittadino.getText().strip();
             
             
-            if (!"".equals(nomeCentroVaccinale) && checkCompiled(nomeCittadino) && checkCompiled(cognomeCittadino) && checkMail(emailCittadino) && checkCodiceFiscale(codiceFiscale) && checkCompiled(userID) && checkPassword(passwordCittadino) && checkIdVaccino(vaccineID))
+            if (!"".equals(nomeCentroVaccinale) && checkCompiled(nomeCittadino) && checkCompiled(cognomeCittadino) && checkMail(emailCittadino) && checkCodiceFiscale(codiceFiscale) && checkUserId(userID) && checkPassword(passwordCittadino) && checkIdVaccino(vaccineID))
             {
                 String insert = nomeCentroVaccinale + DATASEPARATOR + codiceFiscale + DATASEPARATOR + vaccineID + DATASEPARATOR + nomeCittadino + DATASEPARATOR + cognomeCittadino + DATASEPARATOR + emailCittadino + DATASEPARATOR + userID + DATASEPARATOR + toHexString(getSHA(passwordCittadino));
                 String path = CITTADINIDIR + File.separator + "Cittadini_registrati.dati";
@@ -551,8 +553,7 @@ public class RegistraCittadini extends javax.swing.JFrame {
                                 this.setVisible(false);
                             }
                             else{
-                                //String[] cmpSplit = cmpCentroVaccinale.split("-");
-                                showMessageDialog(null, "Risulta già una vaccinazione avvenuta al centro vaccinale '"+cmpSplit[0]+"' con l'ID Vaccino: "+cmpSplit[1], "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
+                                showMessageDialog(null, "Risulta già una vaccinazione avvenuta al centro vaccinale '"+cmpSplit[0]+"' con l'ID Vaccino: "+cmpSplit[1]+"\n\nRegistrati con gli stessi dati.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
                             }
                         
                         }

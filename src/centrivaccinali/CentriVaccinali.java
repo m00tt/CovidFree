@@ -14,8 +14,10 @@ import java.util.Date;
 import java.util.Locale;
 import javax.swing.Timer;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.showMessageDialog;
+import static utils.GeneralFunctions.LOGODIR;
 import static utils.GeneralFunctions.checkDirHierarchy;
 
 
@@ -30,6 +32,9 @@ public final class CentriVaccinali extends javax.swing.JFrame {
         date();
         time();
         this.setLocationRelativeTo(null);
+        JFrame j = new JFrame();
+        j.setIconImage(new ImageIcon(LOGODIR).getImage());
+         
     }
     
     //ShowDate
@@ -76,7 +81,7 @@ public final class CentriVaccinali extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Covid Free");
-        setIconImage(new ImageIcon("icon.png").getImage());
+        setIconImage(new ImageIcon(LOGODIR).getImage());
         setName("frame_CentriVaccinali"); // NOI18N
         setResizable(false);
 
@@ -222,7 +227,7 @@ public final class CentriVaccinali extends javax.swing.JFrame {
     }//GEN-LAST:event_cittadiniBtn_covidfreeActionPerformed
 
     private void appTitle_covidfreeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_appTitle_covidfreeMouseClicked
-        showMessageDialog(null, "Autori\n- Andrea Mottini\n- Riccardo Bianchi\n\n<html><b>Versione</b></html>\n<html><b>1.0</b></html\n\n", "CovidFree - Uninsubria", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
+        showMessageDialog(null, "Autori\n- Andrea Mottini\n- Riccardo Bianchi\n\n<html><b>Versione</b></html>\n<html><b>1.1</b></html\n\n", "CovidFree - Uninsubria", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
     }//GEN-LAST:event_appTitle_covidfreeMouseClicked
 
     /**

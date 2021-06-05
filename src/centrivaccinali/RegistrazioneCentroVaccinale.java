@@ -23,6 +23,7 @@ import static utils.GeneralFunctions.checkCivico;
 import static utils.GeneralFunctions.checkCompiled;
 import static utils.GeneralFunctions.checkProvincia;
 import static utils.GeneralFunctions.checkDirHierarchy;
+import static utils.GeneralFunctions.LOGODIR;
 
 /**
  *  This class is used to provide the possibility to add a new vaccination centre into the Database file
@@ -66,7 +67,7 @@ public class RegistrazioneCentroVaccinale extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Registra Centro Vaccinale");
-        setIconImage(new ImageIcon("icon.png").getImage());
+        setIconImage(new ImageIcon(LOGODIR).getImage());
         setName("frame_RegistrazioneCentroVaccinale"); // NOI18N
         setPreferredSize(new java.awt.Dimension(600, 450));
         setResizable(false);

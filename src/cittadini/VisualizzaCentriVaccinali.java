@@ -14,6 +14,7 @@ import java.text.DecimalFormat;
 import javax.swing.ImageIcon;
 import java.util.List;
 import javax.swing.JOptionPane;
+import static utils.GeneralFunctions.LOGODIR;
 import static javax.swing.JOptionPane.showMessageDialog;
 import static utils.GeneralFunctions.CENTRIVACCINALIDIR;
 import static utils.GeneralFunctions.DATASEPARATOR;
@@ -68,7 +69,7 @@ public class VisualizzaCentriVaccinali extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Dettaglio Centro Vaccinale");
-        setIconImage(new ImageIcon("icon.png").getImage());
+        setIconImage(new ImageIcon(LOGODIR).getImage());
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
