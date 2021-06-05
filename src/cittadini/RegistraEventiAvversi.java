@@ -116,7 +116,7 @@ public class RegistraEventiAvversi extends javax.swing.JFrame {
         scrlPanel_RegistraEventiAversi.setViewportView(txtDesc_RegistraEventiAvversi);
 
         txtName_RegistraEventoAversi.setFont(new java.awt.Font("Arial", 2, 11)); // NOI18N
-        txtName_RegistraEventoAversi.setText("Inserisci Nome Evento (da 4 a 40 caratteri)...");
+        txtName_RegistraEventoAversi.setText("Inserisci Nome Evento (da 3 a 40 caratteri)...");
         txtName_RegistraEventoAversi.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         txtName_RegistraEventoAversi.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -253,7 +253,7 @@ public class RegistraEventiAvversi extends javax.swing.JFrame {
     }//GEN-LAST:event_txtDesc_RegistraEventiAvversiFocusLost
 
     private void txtName_RegistraEventoAversiFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtName_RegistraEventoAversiFocusGained
-        if (txtName_RegistraEventoAversi.getText().equals("Inserisci Nome Evento (da 4 a 40 caratteri)...")){
+        if (txtName_RegistraEventoAversi.getText().equals("Inserisci Nome Evento (da 3 a 40 caratteri)...")){
             txtName_RegistraEventoAversi.setText("");
         }
     }//GEN-LAST:event_txtName_RegistraEventoAversiFocusGained
@@ -266,7 +266,7 @@ public class RegistraEventiAvversi extends javax.swing.JFrame {
 
     private void txtName_RegistraEventoAversiFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtName_RegistraEventoAversiFocusLost
         if (txtName_RegistraEventoAversi.getText().equals("")){
-            txtName_RegistraEventoAversi.setText("Inserisci Nome Evento (da 4 a 40 caratteri)...");
+            txtName_RegistraEventoAversi.setText("Inserisci Nome Evento (da 3 a 40 caratteri)...");
         }
     }//GEN-LAST:event_txtName_RegistraEventoAversiFocusLost
 
@@ -281,7 +281,7 @@ public class RegistraEventiAvversi extends javax.swing.JFrame {
         try {
             inserisciEventiAvversi();
         } catch (IOException ex) {
-             showMessageDialog(null, ex.toString(), "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
+             showMessageDialog(null, "Errore nella scrittura dei dati.\n\nDescrizione dettagliata: "+ex.toString(), "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
         }
     }//GEN-LAST:event_btnConfirm_registraEventiAvversiActionPerformed
 

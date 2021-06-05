@@ -50,6 +50,7 @@ public class GeneralFunctions {
     //Dichiarazione pattern per i controlli di inserimento
     static Pattern onlyCodiceFiscale = Pattern.compile("^[a-zA-Z]{6}[0-9]{2}[abcdehlmprstABCDEHLMPRST]{1}[0-9]{2}([a-zA-Z]{1}[0-9]{3})[a-zA-Z]{1}$");
     static Pattern onlyLettersPattern = Pattern.compile("[^a-zA-Zàèòìù'\\s]"); //Verranno accettati solamente lettere maiuscole e minuscole + alcuni caratteri speciali
+    static Pattern onlyEvtDescription = Pattern.compile("[^0-9a-zA-Zàèòìù'().,:;\\s]");
     static Pattern onlyCivicoPattern = Pattern.compile("[^a-zA-Z0-9/\\\\s]"); //Verranno accettati solamente valori numerici, lettere o slash
     static Pattern onlyNumbersPattern = Pattern.compile("[^0-9]"); //Verranno accettati solamente numeri
     static Pattern onlyDataPattern = Pattern.compile("^(3[01]|[12][0-9]|0[1-9])/(1[0-2]|0[1-9])/[0-9]{4}$");  //Formato data dd/mm/aaaa
@@ -381,11 +382,16 @@ public class GeneralFunctions {
      * @return
      */
     public static boolean checkEvtDescription(String p){
-        Matcher matcher = onlyLettersPattern.matcher(p);
+        Matcher matcher = onlyEvtDescription.matcher(p);
         if((p.trim().length()>7 && !matcher.find() && p.trim().length() < 257) == false){
-            showMessageDialog(null, "La descrizione dell'evento risulta errata.\nLa descrizione deve essere compresa tra 8 e 256 caratteri e può contenere\nsolamente i seguenti caratteri speciali àèòìù'", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png")); 
+            showMessageDialog(null, "La descrizione dell'evento risulta errata.\nLa descrizione deve essere compresa tra 8 e 256 caratteri e può contenere\nsolamente i seguenti caratteri speciali èòìù'().,:;", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
+            return false;
         }
-        return p.trim().length()>7 && !matcher.find() && p.trim().length() < 257;
+        if(p.equalsIgnoreCase("Inserisci una descizione per l'evento risontrontato (da 8 a 256 caratteri)...")){
+            showMessageDialog(null, "La descrizione non è stata compilata.\nLa descrizione deve essere compresa tra 8 e 256 caratteri e può contenere\nsolamente i seguenti caratteri speciali èòìù'().,:;", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
+            return false;
+        }
+        return true;
     }
     
     /**

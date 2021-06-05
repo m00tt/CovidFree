@@ -85,6 +85,11 @@ public final class CentriVaccinali extends javax.swing.JFrame {
         appTitle_covidfree.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         appTitle_covidfree.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/app-logo.png"))); // NOI18N
         appTitle_covidfree.setText("Covid Free");
+        appTitle_covidfree.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                appTitle_covidfreeMouseClicked(evt);
+            }
+        });
 
         cittadiniPnl_covidfree.setBackground(new java.awt.Color(255, 255, 255));
         cittadiniPnl_covidfree.setBorder(javax.swing.BorderFactory.createTitledBorder(null, " Cittadini ", javax.swing.border.TitledBorder.RIGHT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14))); // NOI18N
@@ -215,6 +220,10 @@ public final class CentriVaccinali extends javax.swing.JFrame {
         homeCittadini.setLocationRelativeTo(null);
         this.setVisible(Boolean.FALSE);
     }//GEN-LAST:event_cittadiniBtn_covidfreeActionPerformed
+
+    private void appTitle_covidfreeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_appTitle_covidfreeMouseClicked
+        showMessageDialog(null, "Autori\n- Andrea Mottini\n- Riccardo Bianchi\n\n<html><b>Versione</b></html>\n<html><b>1.0</b></html\n\n", "CovidFree - Uninsubria", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
+    }//GEN-LAST:event_appTitle_covidfreeMouseClicked
 
     /**
      * This Main method is used in order to launch the main graphic JavaForm of the application.

@@ -114,6 +114,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Covid Free"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="appTitle_covidfreeMouseClicked"/>
+          </Events>
         </Component>
         <Container class="javax.swing.JPanel" name="cittadiniPnl_covidfree">
           <Properties>
