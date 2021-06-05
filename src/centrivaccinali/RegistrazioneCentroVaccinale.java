@@ -437,7 +437,7 @@ public class RegistrazioneCentroVaccinale extends javax.swing.JFrame {
         String capCentroVaccinale= cap_RegistrazioneCentroVaccinale.getText().strip();
       
         
-        if(checkProvincia(provinciaCentroVaccinale) && checkCAP(capCentroVaccinale) && checkCivico(civicoCentroVaccinale) && checkCompiled(nomeCentroVaccinale) && checkCompiled(indirizzoCentroVaccinale) && checkCompiled(comuneCentroVaccinale)){
+        if(checkCompiled(nomeCentroVaccinale) && checkCompiled(indirizzoCentroVaccinale) && checkCivico(civicoCentroVaccinale) && checkProvincia(provinciaCentroVaccinale) && checkCompiled(comuneCentroVaccinale) && checkCAP(capCentroVaccinale)){
             String insert = nomeCentroVaccinale + DATASEPARATOR + tipologiaCentroVaccinale + DATASEPARATOR + qualificatoreCentroVaccinale + DATASEPARATOR + indirizzoCentroVaccinale + DATASEPARATOR + civicoCentroVaccinale + DATASEPARATOR + provinciaCentroVaccinale + DATASEPARATOR + comuneCentroVaccinale + DATASEPARATOR + capCentroVaccinale;
             String path = CENTRIVACCINALIDIR + File.separator + "CentriVaccinali.dati";
             if(!checkDirHierarchy()){

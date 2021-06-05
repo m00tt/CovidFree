@@ -327,7 +327,7 @@ public class RegistraEventiAvversi extends javax.swing.JFrame {
         int severitaEvento = severitySld_RegistraEventiAvversi.getValue();
         String descrizioneEvento = txtDesc_RegistraEventiAvversi.getText();
         
-        if(checkEvtDescription(descrizioneEvento) && checkCompiled(nomeEvento)){
+        if(checkCompiled(nomeEvento) && checkEvtDescription(descrizioneEvento)){
             String insert = nomeCentroVaccinale + DATASEPARATOR + nomeEvento + DATASEPARATOR + severitaEvento + DATASEPARATOR + descrizioneEvento;
             File pathFile = new File(CENTRIVACCINALIDIR + File.separator + "Vaccinati_"+nomeCentroVaccinale+".dati");
             if(pathFile.exists()){

@@ -53,7 +53,7 @@ public class GeneralFunctions {
     static Pattern onlyCivicoPattern = Pattern.compile("[^a-zA-Z0-9/\\\\s]"); //Verranno accettati solamente valori numerici, lettere o slash
     static Pattern onlyNumbersPattern = Pattern.compile("[^0-9]"); //Verranno accettati solamente numeri
     static Pattern onlyDataPattern = Pattern.compile("^(3[01]|[12][0-9]|0[1-9])/(1[0-2]|0[1-9])/[0-9]{4}$");  //Formato data dd/mm/aaaa
-    static Pattern onlyPasswordPattern = Pattern.compile("((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$!£&=?_%]).{8,20})"); //password che deve contenere un numero, un carattere minuscolo, uno maiuscolo e un carattere speciale tra @#$!£&=?_% e deve avere lunghezza min 8 e max 20
+    static Pattern onlyPasswordPattern = Pattern.compile("((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!£&=?_%]).{8,20})"); //password che deve contenere un numero, un carattere minuscolo, uno maiuscolo e un carattere speciale tra @#$!£&=?_% e deve avere lunghezza min 8 e max 20
     static Pattern onlyEmail = Pattern.compile("[a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}"); //Pattern di Verifica indirizzo Email
     
     //Controlla che la gerarchia di file/cartelle per il salvataggio dei dati esista, se non esiste viene creata
@@ -74,7 +74,7 @@ public class GeneralFunctions {
                         f.createNewFile();
                         check = false;
                     }catch(IOException e){
-                        showMessageDialog(null, "Impossibile creare il database, provare a riavviare il programma.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
+                        showMessageDialog(null, "Impossibile creare il database, provare a riavviare il programma.\n\nDescrizione dettagliata: "+e.toString(), "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
                     }
                 }
             }
@@ -86,7 +86,7 @@ public class GeneralFunctions {
                     f.createNewFile();
                     check = false;
                 }catch(IOException e){
-                    showMessageDialog(null, "Impossibile creare il database, provare a riavviare il programma.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
+                    showMessageDialog(null, "Impossibile creare il database, provare a riavviare il programma.\n\nDescrizione dettagliata: "+e.toString(), "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
                 }    
             }
             
@@ -98,7 +98,7 @@ public class GeneralFunctions {
                         f.createNewFile();
                         check = false;
                     }catch(IOException e){
-                        showMessageDialog(null, "Impossibile creare il database, provare a riavviare il programma.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
+                        showMessageDialog(null, "Impossibile creare il database, provare a riavviare il programma.\n\nDescrizione dettagliata: "+e.toString(), "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
                     }
                 }
             }
@@ -110,7 +110,7 @@ public class GeneralFunctions {
                     f.createNewFile();
                     check = false;
                 }catch(IOException e){
-                    showMessageDialog(null, "Impossibile creare il database, provare a riavviare il programma.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
+                    showMessageDialog(null, "Impossibile creare il database, provare a riavviare il programma.\n\nDescrizione dettagliata: "+e.toString(), "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
                 }    
             }
             
@@ -142,7 +142,7 @@ public class GeneralFunctions {
                     retList.add(tmp[0]);
                 }       
             } catch(IOException e) {
-                showMessageDialog(null, "Errore di lettura del database, riprova.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
+                showMessageDialog(null, "Errore di lettura del database, riprova.\n\nDescrizione dettagliata: "+e.toString(), "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
             }
         
         return retList;
@@ -169,7 +169,7 @@ public class GeneralFunctions {
                         retList.add(tmp[6]);
                     }       
                 } catch(IOException e) {
-                    showMessageDialog(null, "Errore di lettura del database, riprova.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
+                    showMessageDialog(null, "Errore di lettura del database, riprova.\n\nDescrizione dettagliata: "+e.toString(), "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
                 }
         }
         
@@ -202,7 +202,7 @@ public class GeneralFunctions {
                     }
                 }       
             } catch(IOException e) {
-                showMessageDialog(null, "Errore di lettura del database, riprova.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
+                showMessageDialog(null, "Errore di lettura del database, riprova.\n\nDescrizione dettagliata: "+e.toString(), "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
             }
         
         return retList;
@@ -225,7 +225,7 @@ public class GeneralFunctions {
                         
                     }       
                 } catch(IOException e) {
-                    showMessageDialog(null, "Errore di lettura del database, riprova.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
+                    showMessageDialog(null, "Errore di lettura del database, riprova.\n\nDescrizione dettagliata: "+e.toString(), "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
                 }
         }
         
@@ -251,7 +251,7 @@ public class GeneralFunctions {
                         
                     }       
                 } catch(IOException e) {
-                    showMessageDialog(null, "Errore di lettura del database, riprova.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
+                    showMessageDialog(null, "Errore di lettura del database, riprova.\n\nDescrizione dettagliata: "+e.toString(), "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
                 }
             }
         }
@@ -427,7 +427,7 @@ public class GeneralFunctions {
     public static boolean checkPassword(String p){
         Matcher matcher = onlyPasswordPattern.matcher(p);
         if(matcher.find() == false){
-             showMessageDialog(null, "La password inserita non è valida.\n\nLa password deve:\n- Avere lunghezza tra 8 e 20 caratteri\n- Avere almeno un numero\n- Avere almeno una lettera minuscola\n- Avere almeno una lettera maiuscola\n- Avere almeno un carattere speciale tra i seguenti:  @#$!£&=?_%", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
+             showMessageDialog(null, "La password inserita non è valida.\n\nLa password deve:\n- Avere lunghezza tra 8 e 20 caratteri\n- Avere almeno un numero\n- Avere almeno una lettera minuscola\n- Avere almeno una lettera maiuscola\n- Avere almeno un carattere speciale tra i seguenti:  @$!£&=?_%", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
              return false;
         }
         return true;
