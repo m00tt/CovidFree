@@ -337,16 +337,12 @@
             </Component>
             <Component class="javax.swing.JPasswordField" name="pwdUsr_RegistrazioneCittadino">
               <Properties>
-                <Property name="text" type="java.lang.String" value="jPasswordField1"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
                     <EtchetBorder/>
                   </Border>
                 </Property>
               </Properties>
-              <Events>
-                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="pwdUsr_RegistrazioneCittadinoFocusGained"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="userId_RegistrazioneCittadino">
               <Properties>

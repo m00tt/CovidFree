@@ -166,13 +166,7 @@ public class RegistraCittadini extends javax.swing.JFrame {
         idCittadinoLbl_RegistrazioneCittadino.setText("ID vaccino");
         idCittadinoLbl_RegistrazioneCittadino.setToolTipText("");
 
-        pwdUsr_RegistrazioneCittadino.setText("jPasswordField1");
         pwdUsr_RegistrazioneCittadino.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        pwdUsr_RegistrazioneCittadino.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                pwdUsr_RegistrazioneCittadinoFocusGained(evt);
-            }
-        });
 
         userId_RegistrazioneCittadino.setFont(new java.awt.Font("Arial", 2, 11)); // NOI18N
         userId_RegistrazioneCittadino.setText("Da 3 a 40 caratteri...");
@@ -433,11 +427,6 @@ public class RegistraCittadini extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_cognome_RegistrazioneCittadinoFocusGained
 
-    private void pwdUsr_RegistrazioneCittadinoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_pwdUsr_RegistrazioneCittadinoFocusGained
-        pwdUsr_RegistrazioneCittadino.setText("");
-       
-    }//GEN-LAST:event_pwdUsr_RegistrazioneCittadinoFocusGained
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try {
             registraCittadino();
@@ -510,7 +499,7 @@ public class RegistraCittadini extends javax.swing.JFrame {
             String vaccineID = idVaccino_RegistrazioneCittadino.getText().strip();
             
             
-            if (!"".equals(nomeCentroVaccinale) && checkCompiled(nomeCittadino) /*&& checkCodiceFiscale(codiceFiscale) */&& checkCompiled(userID) && checkCompiled(cognomeCittadino) && checkIdVaccino(vaccineID) && checkPassword(passwordCittadino) && checkMail(emailCittadino))
+            if (!"".equals(nomeCentroVaccinale) && checkCompiled(nomeCittadino) && checkCompiled(cognomeCittadino) && checkMail(emailCittadino) && checkCodiceFiscale(codiceFiscale) && checkCompiled(userID) && checkPassword(passwordCittadino) && checkIdVaccino(vaccineID))
             {
                 String insert = nomeCentroVaccinale + DATASEPARATOR + codiceFiscale + DATASEPARATOR + vaccineID + DATASEPARATOR + nomeCittadino + DATASEPARATOR + cognomeCittadino + DATASEPARATOR + emailCittadino + DATASEPARATOR + userID + DATASEPARATOR + toHexString(getSHA(passwordCittadino));
                 String path = CITTADINIDIR + File.separator + "Cittadini_registrati.dati";
@@ -578,7 +567,7 @@ public class RegistraCittadini extends javax.swing.JFrame {
             }
             else{
                 if("".equals(nomeCentroVaccinale))
-                    showMessageDialog(null, "I dati inseriti non sono corretti, prova a ricontrollare.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
+                    showMessageDialog(null, "Nessun centro vaccinale disponibile.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
             }
         } catch (IOException ex) {
             showMessageDialog(null, "Errore in fase di scrittura dei dati, riprova.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));

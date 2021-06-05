@@ -283,9 +283,12 @@ public class GeneralFunctions {
         try{
             Date dateNow = formatter.parse(str1);
             Date insertDate = formatter.parse(p);
+            if((!insertDate.after(dateNow)) == false){
+                showMessageDialog(null, "La data inserita non è corretta.\n\n- La data non può essere futura.\n- Rispettare il formato gg/mm/aaaa", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
+            }
             return !insertDate.after(dateNow);
         }catch(ParseException e){
-            showMessageDialog(null, "La data non può essere futura.\nRispettare il formato gg/mm/aaaa", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
+            showMessageDialog(null, "La data inserita non è corretta.\n\n- La data non può essere futura.\n- Rispettare il formato gg/mm/aaaa", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
             return false;
         }
     }
@@ -316,8 +319,9 @@ public class GeneralFunctions {
         Matcher matcher = onlyCodiceFiscale.matcher(p);
         if(matcher.find() == false){
             showMessageDialog(null, "Il codice fiscale inserito non è valido.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
+            return false;
         }
-        return matcher.find();
+        return true;
     }
  
     //Verifica che la provincia sia composta solamente da 2 lettere
@@ -330,7 +334,7 @@ public class GeneralFunctions {
     public static boolean checkProvincia(String p){
         Matcher matcher = onlyLettersPattern.matcher(p);
         if((p.trim().length() == 2 && !matcher.find()) == false){
-            showMessageDialog(null, "La provincia inserita risulta errato\nInserire la sigla della provincia.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
+            showMessageDialog(null, "La provincia inserita risulta errata\nInserire la sigla della provincia.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
         }
         return p.trim().length() == 2 && !matcher.find();
     }
@@ -360,7 +364,11 @@ public class GeneralFunctions {
     public static boolean checkCompiled(String p){
         Matcher matcher = onlyLettersPattern.matcher(p);
         if((p.trim().length()>2 && !matcher.find() && p.trim().length() < 41) == false){
-           showMessageDialog(null, "Il campo compilato con "+p+" risulta errato.\n\nTale campo:\n- Deve avere lunghezza compresa tra 3 e 40 caratteri\n- Può contenere solamente i seguenti caratteri speciali: àèòìù'", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png")); 
+            if(p.equalsIgnoreCase("Da 3 a 40 caratteri...")){
+                showMessageDialog(null, "Alcuni campi non sono stati compilati, prova a controllare.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png")); 
+            }else{
+                showMessageDialog(null, "Il campo compilato con '"+p+"' risulta errato.\n\nTale campo:\n- Deve avere lunghezza compresa tra 3 e 40 caratteri\n- Può contenere solamente i seguenti caratteri speciali: àèòìù'", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png")); 
+            }
         }
         return p.trim().length()>2 && !matcher.find() && p.trim().length() < 41;
     }

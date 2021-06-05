@@ -93,14 +93,8 @@ public class LoginCittadino extends javax.swing.JFrame {
             }
         });
 
-        pwdField_Login.setText("jPasswordField1");
         pwdField_Login.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         pwdField_Login.setCaretColor(new java.awt.Color(255, 255, 255));
-        pwdField_Login.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                pwdField_LoginFocusGained(evt);
-            }
-        });
 
         accediBtn_Login.setText("Accedi");
         accediBtn_Login.addActionListener(new java.awt.event.ActionListener() {
@@ -211,10 +205,6 @@ public class LoginCittadino extends javax.swing.JFrame {
             usrIDField_Login.setText("Inserisci il tuo User ID...");
         }
     }//GEN-LAST:event_usrIDField_LoginFocusLost
-
-    private void pwdField_LoginFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_pwdField_LoginFocusGained
-        pwdField_Login.setText("");
-    }//GEN-LAST:event_pwdField_LoginFocusGained
 
     private void accediBtn_LoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accediBtn_LoginActionPerformed
         String username = usrIDField_Login.getText().strip();

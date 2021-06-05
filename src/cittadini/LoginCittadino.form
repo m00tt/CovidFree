@@ -190,7 +190,6 @@
             </Component>
             <Component class="javax.swing.JPasswordField" name="pwdField_Login">
               <Properties>
-                <Property name="text" type="java.lang.String" value="jPasswordField1"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
                     <EtchetBorder/>
@@ -200,9 +199,6 @@
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
               </Properties>
-              <Events>
-                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="pwdField_LoginFocusGained"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="accediBtn_Login">
               <Properties>
