@@ -61,7 +61,7 @@ public class HomeCittadini extends javax.swing.JFrame {
         back_HomeCittadini = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Home Cittadini");
+        setTitle("CovidFree - Home Cittadini");
         setIconImage(new ImageIcon("icon.png").getImage());
         setName("frame_HomeCittadini"); // NOI18N
         setResizable(false);

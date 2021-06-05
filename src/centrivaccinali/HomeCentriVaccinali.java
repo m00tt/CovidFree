@@ -39,7 +39,7 @@ public class HomeCentriVaccinali extends javax.swing.JFrame {
         back_HomeCentriVaccinali = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Home Centri Vaccinali");
+        setTitle("CovidFree - Home");
         setIconImage(new ImageIcon("icon.png").getImage());
         setName("frame_HomeCentriVaccinali"); // NOI18N
         setPreferredSize(new java.awt.Dimension(600, 450));

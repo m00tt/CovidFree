@@ -64,6 +64,7 @@ public class RegistraEventiAvversi extends javax.swing.JFrame {
         lblWelcomeEventi_RegistraEventiAvversi = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Registra Evento Avverso");
         setIconImage(new ImageIcon("icon.png").getImage());
         setPreferredSize(new java.awt.Dimension(600, 450));
 
