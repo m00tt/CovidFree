@@ -17,9 +17,10 @@ Riccardo Bianchi | GUI/UE Designer - Developer
 ## 1. Installazione
 ### 1.1. Requisiti di Sistema
 Applicazione multipiattaforma sviluppata in linguaggio Java (Java 8) <br>
-macOS (Lion o superiore)
+
+Windows 10 / macOS (Lion o superiore)
 * Java (versione 8 e successive)
-Windows 10 <br>
+
 * Java (versione 8 e successive)
 <br>
 Per eseguire l’applicazione è necessario installare Java JDK 12 o superiore (Download)<br>
