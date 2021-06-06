@@ -10,8 +10,8 @@ degli eventi avversi post vaccini Covid-19.
 # Autori
 Nome | Ruolo
 ------------ | -------------
-Andrea Mottini | Project Manager/Developer
-Riccardo Bianchi | GUI/UE Designer/Developer
+Andrea Mottini | Project Manager - GUI/UE Designer Developer/Developer
+Riccardo Bianchi | GUI/UE Designer - Developer
 
 # CovidFree - Manuale Utente
 ## 1. Installazione
