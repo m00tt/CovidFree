@@ -342,7 +342,7 @@ public class VisualizzaCentriVaccinali extends javax.swing.JFrame {
                     avgEvents_VisualizzaCentriVaccinali.setText(""+df.format(avg)+"/5");
                 }
             } catch(IOException e) {
-                showMessageDialog(null, "Errore di lettura del database, riprova.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
+                showMessageDialog(null, "Errore di lettura del database, riprova.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(LOGODIR));
             }
         }
         

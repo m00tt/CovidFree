@@ -282,7 +282,7 @@ public class RegistraEventiAvversi extends javax.swing.JFrame {
         try {
             inserisciEventiAvversi();
         } catch (IOException ex) {
-             showMessageDialog(null, "Errore nella scrittura dei dati.\n\nDescrizione dettagliata: "+ex.toString(), "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
+             showMessageDialog(null, "Errore nella scrittura dei dati.\n\nDescrizione dettagliata: "+ex.toString(), "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(LOGODIR));
         }
     }//GEN-LAST:event_btnConfirm_registraEventiAvversiActionPerformed
 
@@ -335,9 +335,9 @@ public class RegistraEventiAvversi extends javax.swing.JFrame {
             }
             try (FileWriter fw2 = new FileWriter(pathFile, true)) { 
                 fw2.append(insert+"\n");
-                showMessageDialog(null, "Evento avverso registrato con successo!", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
+                showMessageDialog(null, "Evento avverso registrato con successo!", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(LOGODIR));
             }catch(HeadlessException | IOException e){
-                showMessageDialog(null, "Errore in fase di scrittura dei dati, riprova.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
+                showMessageDialog(null, "Errore in fase di scrittura dei dati, riprova.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(LOGODIR));
             }
 
             HomeCittadini homeCittadini = new HomeCittadini();

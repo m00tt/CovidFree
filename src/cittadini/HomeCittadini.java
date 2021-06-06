@@ -324,7 +324,7 @@ public class HomeCittadini extends javax.swing.JFrame {
       //boolean check = false;
       List <String> list = new ArrayList();
       if(!checkDirHierarchy()){
-            showMessageDialog(null, "I database risultano corrotti.\nI dati sono stati ripristinati.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
+            showMessageDialog(null, "I database risultano corrotti.\nI dati sono stati ripristinati.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(LOGODIR));
         }
         try {
                 BufferedReader br = new BufferedReader(new FileReader(CENTRIVACCINALIDIR + File.separator + "CentriVaccinali.dati"));
@@ -364,7 +364,7 @@ public class HomeCittadini extends javax.swing.JFrame {
   
                 
             } catch(IOException e) {
-                showMessageDialog(null, "Errore di lettura del database, riprova.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
+                showMessageDialog(null, "Errore di lettura del database, riprova.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(LOGODIR));
             }  
     }
     

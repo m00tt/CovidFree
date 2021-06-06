@@ -224,7 +224,7 @@ public class LoginCittadino extends javax.swing.JFrame {
             
         }
         else{
-            showMessageDialog(null, "Login fallito.\nUsername o password errati.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
+            showMessageDialog(null, "Login fallito.\nUsername o password errati.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(LOGODIR));
         }
     }//GEN-LAST:event_accediBtn_LoginActionPerformed
 
@@ -275,7 +275,7 @@ public class LoginCittadino extends javax.swing.JFrame {
         String thisLine;
         
         if(!checkDirHierarchy()){
-            showMessageDialog(null, "I database risultano corrotti.\nI dati sono stati ripristinati.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
+            showMessageDialog(null, "I database risultano corrotti.\nI dati sono stati ripristinati.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(LOGODIR));
         }
         
         try {
@@ -288,7 +288,7 @@ public class LoginCittadino extends javax.swing.JFrame {
                 }
             }
         }catch(IOException e) {
-            showMessageDialog(null, "Errore di lettura del database, riprova.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
+            showMessageDialog(null, "Errore di lettura del database, riprova.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(LOGODIR));
         }
         
         

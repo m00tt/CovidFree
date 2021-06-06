@@ -504,7 +504,7 @@ public class RegistraCittadini extends javax.swing.JFrame {
                 String insert = nomeCentroVaccinale + DATASEPARATOR + codiceFiscale + DATASEPARATOR + vaccineID + DATASEPARATOR + nomeCittadino + DATASEPARATOR + cognomeCittadino + DATASEPARATOR + emailCittadino + DATASEPARATOR + userID + DATASEPARATOR + toHexString(getSHA(passwordCittadino));
                 String path = CITTADINIDIR + File.separator + "Cittadini_registrati.dati";
                 if(!checkDirHierarchy()){
-                    showMessageDialog(null, "I database risultano corrotti.\nI dati sono stati ripristinati.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
+                    showMessageDialog(null, "I database risultano corrotti.\nI dati sono stati ripristinati.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(LOGODIR));
                 }
                 File f = new File(path);
                 if(!f.exists()){
@@ -527,9 +527,9 @@ public class RegistraCittadini extends javax.swing.JFrame {
                         if(cmpCentroVaccinale == null){
                             try (FileWriter fw2 = new FileWriter(path, true)) { 
                                 fw2.append(insert+"\n");
-                                showMessageDialog(null, "Registrazione Cittadino Avvenuta con successo!", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
+                                showMessageDialog(null, "Registrazione Cittadino Avvenuta con successo!", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(LOGODIR));
                             }catch(HeadlessException | IOException e){
-                                showMessageDialog(null, "Errore in fase di scrittura dei dati, riprova.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
+                                showMessageDialog(null, "Errore in fase di scrittura dei dati, riprova.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(LOGODIR));
                             }
                         
                             HomeCittadini homecittadini = new HomeCittadini();
@@ -541,9 +541,9 @@ public class RegistraCittadini extends javax.swing.JFrame {
                             if(cmpSplit[0].equalsIgnoreCase(nomeCentroVaccinale) && cmpSplit[1].equalsIgnoreCase(vaccineID)){
                                 try (FileWriter fw2 = new FileWriter(path, true)) { 
                                     fw2.append(insert+"\n");
-                                    showMessageDialog(null, "Registrazione Cittadino Avvenuta con successo!", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
+                                    showMessageDialog(null, "Registrazione Cittadino Avvenuta con successo!", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(LOGODIR));
                                 }catch(HeadlessException | IOException e){
-                                    showMessageDialog(null, "Errore in fase di scrittura dei dati, riprova.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
+                                    showMessageDialog(null, "Errore in fase di scrittura dei dati, riprova.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(LOGODIR));
                                 }
 
                                 HomeCittadini homecittadini = new HomeCittadini();
@@ -551,25 +551,25 @@ public class RegistraCittadini extends javax.swing.JFrame {
                                 this.setVisible(false);
                             }
                             else{
-                                showMessageDialog(null, "Risulta già una vaccinazione avvenuta al centro vaccinale '"+cmpSplit[0]+"' con l'ID Vaccino: "+cmpSplit[1]+"\n\nRegistrati con gli stessi dati.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
+                                showMessageDialog(null, "Risulta già una vaccinazione avvenuta al centro vaccinale '"+cmpSplit[0]+"' con l'ID Vaccino: "+cmpSplit[1]+"\n\nRegistrati con gli stessi dati.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(LOGODIR));
                             }
                         
                         }
                     }
                     else{
-                        showMessageDialog(null, "Codice Fiscale, UserID o ID Vaccino Vaccino già presenti nel database.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
+                        showMessageDialog(null, "Codice Fiscale, UserID o ID Vaccino Vaccino già presenti nel database.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(LOGODIR));
                     }
                     
                 }catch(Exception e){
-                    showMessageDialog(null, "Errore in fase di scrittura dei dati, riprova.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
+                    showMessageDialog(null, "Errore in fase di scrittura dei dati, riprova.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(LOGODIR));
                 }              
             }
             else{
                 if("".equals(nomeCentroVaccinale))
-                    showMessageDialog(null, "Nessun centro vaccinale disponibile.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
+                    showMessageDialog(null, "Nessun centro vaccinale disponibile.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(LOGODIR));
             }
         } catch (IOException ex) {
-            showMessageDialog(null, "Errore in fase di scrittura dei dati, riprova.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
+            showMessageDialog(null, "Errore in fase di scrittura dei dati, riprova.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(LOGODIR));
         }
     };
  

@@ -77,7 +77,7 @@ public class GeneralFunctions {
                         f.createNewFile();
                         check = false;
                     }catch(IOException e){
-                        showMessageDialog(null, "Impossibile creare il database, provare a riavviare il programma.\n\nDescrizione dettagliata: "+e.toString(), "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
+                        showMessageDialog(null, "Impossibile creare il database, provare a riavviare il programma.\n\nDescrizione dettagliata: "+e.toString(), "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(LOGODIR));
                     }
                 }
             }
@@ -89,7 +89,7 @@ public class GeneralFunctions {
                     f.createNewFile();
                     check = false;
                 }catch(IOException e){
-                    showMessageDialog(null, "Impossibile creare il database, provare a riavviare il programma.\n\nDescrizione dettagliata: "+e.toString(), "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
+                    showMessageDialog(null, "Impossibile creare il database, provare a riavviare il programma.\n\nDescrizione dettagliata: "+e.toString(), "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(LOGODIR));
                 }    
             }
             
@@ -101,7 +101,7 @@ public class GeneralFunctions {
                         f.createNewFile();
                         check = false;
                     }catch(IOException e){
-                        showMessageDialog(null, "Impossibile creare il database, provare a riavviare il programma.\n\nDescrizione dettagliata: "+e.toString(), "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
+                        showMessageDialog(null, "Impossibile creare il database, provare a riavviare il programma.\n\nDescrizione dettagliata: "+e.toString(), "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(LOGODIR));
                     }
                 }
             }
@@ -113,7 +113,7 @@ public class GeneralFunctions {
                     f.createNewFile();
                     check = false;
                 }catch(IOException e){
-                    showMessageDialog(null, "Impossibile creare il database, provare a riavviare il programma.\n\nDescrizione dettagliata: "+e.toString(), "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
+                    showMessageDialog(null, "Impossibile creare il database, provare a riavviare il programma.\n\nDescrizione dettagliata: "+e.toString(), "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(LOGODIR));
                 }    
             }
             
@@ -136,7 +136,7 @@ public class GeneralFunctions {
         String thisLine;
     
         if(!checkDirHierarchy()){
-            showMessageDialog(null, "I database risultano corrotti.\nI dati sono stati ripristinati.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
+            showMessageDialog(null, "I database risultano corrotti.\nI dati sono stati ripristinati.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(LOGODIR));
         }
         try {
                 BufferedReader br = new BufferedReader(new FileReader(CENTRIVACCINALIDIR + File.separator + "CentriVaccinali.dati"));
@@ -145,7 +145,7 @@ public class GeneralFunctions {
                     retList.add(tmp[0]);
                 }       
             } catch(IOException e) {
-                showMessageDialog(null, "Errore di lettura del database, riprova.\n\nDescrizione dettagliata: "+e.toString(), "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
+                showMessageDialog(null, "Errore di lettura del database, riprova.\n\nDescrizione dettagliata: "+e.toString(), "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(LOGODIR));
             }
         
         return retList;
@@ -172,7 +172,7 @@ public class GeneralFunctions {
                         retList.add(tmp[6]);
                     }       
                 } catch(IOException e) {
-                    showMessageDialog(null, "Errore di lettura del database, riprova.\n\nDescrizione dettagliata: "+e.toString(), "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
+                    showMessageDialog(null, "Errore di lettura del database, riprova.\n\nDescrizione dettagliata: "+e.toString(), "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(LOGODIR));
                 }
         }
         
@@ -191,7 +191,7 @@ public class GeneralFunctions {
         String thisLine;
     
         if(!checkDirHierarchy()){
-            showMessageDialog(null, "I database risultano corrotti.\nI dati sono stati ripristinati.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
+            showMessageDialog(null, "I database risultano corrotti.\nI dati sono stati ripristinati.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(LOGODIR));
         }
         try {
                 BufferedReader br = new BufferedReader(new FileReader(CENTRIVACCINALIDIR + File.separator + "CentriVaccinali.dati"));
@@ -205,7 +205,7 @@ public class GeneralFunctions {
                     }
                 }       
             } catch(IOException e) {
-                showMessageDialog(null, "Errore di lettura del database, riprova.\n\nDescrizione dettagliata: "+e.toString(), "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
+                showMessageDialog(null, "Errore di lettura del database, riprova.\n\nDescrizione dettagliata: "+e.toString(), "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(LOGODIR));
             }
         
         return retList;
@@ -228,7 +228,7 @@ public class GeneralFunctions {
                         
                     }       
                 } catch(IOException e) {
-                    showMessageDialog(null, "Errore di lettura del database, riprova.\n\nDescrizione dettagliata: "+e.toString(), "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
+                    showMessageDialog(null, "Errore di lettura del database, riprova.\n\nDescrizione dettagliata: "+e.toString(), "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(LOGODIR));
                 }
         }
         
@@ -254,7 +254,7 @@ public class GeneralFunctions {
                         
                     }       
                 } catch(IOException e) {
-                    showMessageDialog(null, "Errore di lettura del database, riprova.\n\nDescrizione dettagliata: "+e.toString(), "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
+                    showMessageDialog(null, "Errore di lettura del database, riprova.\n\nDescrizione dettagliata: "+e.toString(), "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(LOGODIR));
                 }
             }
         }
@@ -287,11 +287,11 @@ public class GeneralFunctions {
             Date dateNow = formatter.parse(str1);
             Date insertDate = formatter.parse(p);
             if((!insertDate.after(dateNow)) == false){
-                showMessageDialog(null, "La data inserita non è corretta.\n\n- La data non può essere futura.\n- Rispettare il formato gg/mm/aaaa", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
+                showMessageDialog(null, "La data inserita non è corretta.\n\n- La data non può essere futura.\n- Rispettare il formato gg/mm/aaaa", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(LOGODIR));
             }
             return !insertDate.after(dateNow);
         }catch(ParseException e){
-            showMessageDialog(null, "La data inserita non è corretta.\n\n- La data non può essere futura.\n- Rispettare il formato gg/mm/aaaa", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
+            showMessageDialog(null, "La data inserita non è corretta.\n\n- La data non può essere futura.\n- Rispettare il formato gg/mm/aaaa", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(LOGODIR));
             return false;
         }
     }
@@ -300,10 +300,10 @@ public class GeneralFunctions {
         Matcher matcher = onlyLettersPattern.matcher(p);
         if((p.trim().length()>2 && !matcher.find() && p.trim().length() <9) == false){
             if(p.equalsIgnoreCase("Da 3 a 8 caratteri...")){
-                showMessageDialog(null, "Alcuni campi non sono stati compilati, prova a controllare.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png")); 
+                showMessageDialog(null, "Alcuni campi non sono stati compilati, prova a controllare.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(LOGODIR)); 
                 return false;
             }else{
-                showMessageDialog(null, "Lo UserID risulta errato.\n\nTale campo:\n- Deve avere lunghezza compresa tra 3 e 8 caratteri\n- Può contenere solamente lettere ed i seguenti caratteri speciali: àèòìù'", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
+                showMessageDialog(null, "Lo UserID risulta errato.\n\nTale campo:\n- Deve avere lunghezza compresa tra 3 e 8 caratteri\n- Può contenere solamente lettere ed i seguenti caratteri speciali: àèòìù'", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(LOGODIR));
                 return false;
             }
         }
@@ -320,7 +320,7 @@ public class GeneralFunctions {
     public static boolean checkIdVaccino(String p){
         Matcher matcher = onlyNumbersPattern.matcher(p);
         if((!matcher.find() && p.length() == 16) == false){
-            showMessageDialog(null, "L'ID Vaccino deve contenere esattamente 16 cifre.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
+            showMessageDialog(null, "L'ID Vaccino deve contenere esattamente 16 cifre.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(LOGODIR));
         }
         return !matcher.find() && p.length() == 16;
     }
@@ -335,7 +335,7 @@ public class GeneralFunctions {
     public static boolean checkCodiceFiscale(String p){
         Matcher matcher = onlyCodiceFiscale.matcher(p);
         if(matcher.find() == false){
-            showMessageDialog(null, "Il codice fiscale inserito non è valido.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
+            showMessageDialog(null, "Il codice fiscale inserito non è valido.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(LOGODIR));
             return false;
         }
         return true;
@@ -351,7 +351,7 @@ public class GeneralFunctions {
     public static boolean checkProvincia(String p){
         Matcher matcher = onlyLettersPattern.matcher(p);
         if((p.trim().length() == 2 && !matcher.find()) == false){
-            showMessageDialog(null, "La provincia inserita risulta errata\nInserire la sigla della provincia.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
+            showMessageDialog(null, "La provincia inserita risulta errata\nInserire la sigla della provincia.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(LOGODIR));
         }
         return p.trim().length() == 2 && !matcher.find();
     }
@@ -366,7 +366,7 @@ public class GeneralFunctions {
     public static boolean checkCAP(String p){
         Matcher matcher = onlyNumbersPattern.matcher(p);
         if((p.trim().length() == 5 && !matcher.find()) == false){
-            showMessageDialog(null, "Il CAP inserito risulta errato.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
+            showMessageDialog(null, "Il CAP inserito risulta errato.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(LOGODIR));
         }
         return p.trim().length() == 5 && !matcher.find();
     }
@@ -382,10 +382,10 @@ public class GeneralFunctions {
         Matcher matcher = onlyLettersPattern.matcher(p);
         if((p.trim().length()>2 && !matcher.find() && p.trim().length() < 41) == false){
             if(p.equalsIgnoreCase("Da 3 a 40 caratteri...")){
-                showMessageDialog(null, "Alcuni campi non sono stati compilati, prova a controllare.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png")); 
+                showMessageDialog(null, "Alcuni campi non sono stati compilati, prova a controllare.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(LOGODIR)); 
                 return false;
             }else{
-                showMessageDialog(null, "Il campo compilato con '"+p+"' risulta errato.\n\nTale campo:\n- Deve avere lunghezza compresa tra 3 e 40 caratteri\n- Può contenere solamente i seguenti caratteri speciali: àèòìù'", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png")); 
+                showMessageDialog(null, "Il campo compilato con '"+p+"' risulta errato.\n\nTale campo:\n- Deve avere lunghezza compresa tra 3 e 40 caratteri\n- Può contenere solamente i seguenti caratteri speciali: àèòìù'", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(LOGODIR)); 
                 return false;
             }
         }
@@ -402,11 +402,11 @@ public class GeneralFunctions {
     public static boolean checkEvtDescription(String p){
         Matcher matcher = onlyEvtDescription.matcher(p);
         if((p.trim().length()>7 && !matcher.find() && p.trim().length() < 257) == false){
-            showMessageDialog(null, "La descrizione dell'evento risulta errata.\nLa descrizione deve essere compresa tra 8 e 256 caratteri e può contenere\nsolamente i seguenti caratteri speciali èòìù'().,:;", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
+            showMessageDialog(null, "La descrizione dell'evento risulta errata.\nLa descrizione deve essere compresa tra 8 e 256 caratteri e può contenere\nsolamente i seguenti caratteri speciali èòìù'().,:;", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(LOGODIR));
             return false;
         }
         if(p.equalsIgnoreCase("Inserisci una descizione per l'evento risontrontato (da 8 a 256 caratteri)...")){
-            showMessageDialog(null, "La descrizione non è stata compilata.\nLa descrizione deve essere compresa tra 8 e 256 caratteri e può contenere\nsolamente i seguenti caratteri speciali èòìù'().,:;", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
+            showMessageDialog(null, "La descrizione non è stata compilata.\nLa descrizione deve essere compresa tra 8 e 256 caratteri e può contenere\nsolamente i seguenti caratteri speciali èòìù'().,:;", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(LOGODIR));
             return false;
         }
         return true;
@@ -420,7 +420,7 @@ public class GeneralFunctions {
     public static boolean checkCivico(String p){
         Matcher matcher = onlyCivicoPattern.matcher(p);
         if(!(p.trim().length()>0 && p.trim().length()<6 && !matcher.find())){
-            showMessageDialog(null, "Il civico inserito risulta errato.\nIl campo:\n- Può contenere da 1 a 6 caratteri\n- Può contenere lettere, numeri o il carattere '/'", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
+            showMessageDialog(null, "Il civico inserito risulta errato.\nIl campo:\n- Può contenere da 1 a 6 caratteri\n- Può contenere lettere, numeri o il carattere '/'", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(LOGODIR));
         }
         return p.trim().length()>0 && p.trim().length()<6 && !matcher.find();
     }
@@ -435,7 +435,7 @@ public class GeneralFunctions {
     public static boolean checkMail(String p){
         Matcher matcher = onlyEmail.matcher(p);
         if((p.trim().length()>0 && matcher.find()) == false){
-            showMessageDialog(null, "L'indirizzo e-mail inserito risulta errato.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
+            showMessageDialog(null, "L'indirizzo e-mail inserito risulta errato.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(LOGODIR));
             return false;
         }
         return true;
@@ -451,7 +451,7 @@ public class GeneralFunctions {
     public static boolean checkPassword(String p){
         Matcher matcher = onlyPasswordPattern.matcher(p);
         if(matcher.find() == false){
-             showMessageDialog(null, "La password inserita non è valida.\n\nLa password deve:\n- Avere lunghezza tra 8 e 20 caratteri\n- Avere almeno un numero\n- Avere almeno una lettera minuscola\n- Avere almeno una lettera maiuscola\n- Avere almeno un carattere speciale tra i seguenti:  @$!£&=?_%", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("icon.png"));
+             showMessageDialog(null, "La password inserita non è valida.\n\nLa password deve:\n- Avere lunghezza tra 8 e 20 caratteri\n- Avere almeno un numero\n- Avere almeno una lettera minuscola\n- Avere almeno una lettera maiuscola\n- Avere almeno un carattere speciale tra i seguenti:  @$!£&=?_%", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(LOGODIR));
              return false;
         }
         return true;
