@@ -28,7 +28,7 @@ La procedura di avviamento di CovidFree è la stessa per tutti i sistemi operati
 ## 2.1. Setup e Lancio del programma
 Per avviare l’applicazione è sufficiente fare doppio clic su “CovidFree.jar”, o in alternativa, dopo essersi spostati nella cartella corretta, tramite prompt dei comandi (CMD – Windows / Terminale macOS) digitare il seguente comando:
 
-
+![Avvio](https://github.com/m00tt/CovidFree/blob/main/MD%20Images/avvio.png)
 
 ## 2.2. TroubleShooting
 In caso di malfunzionamenti dell’applicativo è necessario:
@@ -43,7 +43,7 @@ Nel caso ci fossero malfunzionamenti o Bug non risolvibili è possibile segnalar
 ### CovidFree – Main Menù
 All’avvio l’applicazione CovidFree si presenterà con la seguente schermata
 
-
+![Home](https://github.com/m00tt/CovidFree/blob/main/MD%20Images/home.png)
 
 
 A seguito della selezione da parte dell’utente potranno essere avviate due applicazioni distinte:
@@ -59,12 +59,15 @@ La schermata presenterà due scelte:
 1. Registra Centro Vaccinale
 2. Registra Vaccinato
 
+![Centri Vaccinali](https://github.com/m00tt/CovidFree/blob/main/MD%20Images/home_centrivaccinali.png)
 
 Premere sui relativi pulsanti per accedere alla schermata inerente alla funzione richiesta
 
 
 #### Registra Centro Vaccinale
 La funzione Registra Centro Vaccinale permette, agli utenti di competenza, di poter registrare un nuovo Centro Vaccinale ed aggiungerlo alla lista di quelli già presenti, rendendolo accessibile dall’applicazione Cittadini.
+
+![Registra Centro Vaccinale](https://github.com/m00tt/CovidFree/blob/main/MD%20Images/registra_centrovaccinale.png)
 
 
 Come registrare un nuovo Centro vaccinale? <br>
@@ -86,7 +89,7 @@ Per registrare e salvare un nuovo centro vaccinale procedere come segue:
 #### Registra Vaccinato
 La funzione Registra Vaccinato permette di poter registrare un nuovo cittadino vaccinato presso il centro vaccinale di competenza.
 
-
+![Registra Vaccinato](https://github.com/m00tt/CovidFree/blob/main/MD%20Images/registra_vaccinato.png)
 
 
 Come registrare un nuovo Vaccinato?<br>
@@ -115,13 +118,15 @@ La Home Cittadini permette agli utenti di eseguire le funzioni di:
 
 La schermata si presenta come segue:
 
-
+![Home Cittadini](https://github.com/m00tt/CovidFree/blob/main/MD%20Images/home_cittadini.png)
 
 
 #### Ricerca Centro Vaccinale
 Sfruttando i filtri di ricerca sarà possibile effettuare la ricerca di un Centro Vaccinale per: 
 * Nome (figura A)
 * Comune e Tipologia (figura B)
+
+![Ricerca](https://github.com/m00tt/CovidFree/blob/main/MD%20Images/ricerca.png)
 
 
 In base alle informazioni inserite nei filtri la Lista dei centri verrà aggiornata automaticamente.
@@ -130,17 +135,18 @@ In base alle informazioni inserite nei filtri la Lista dei centri verrà aggiorn
 
 Effettuando un doppio click su un qualsiasi centro vaccinale, presente nella lista, potremo visualizzare, in una nuova finestra, tutte le informazioni relative ad esso.
 
-
+![Lista](https://github.com/m00tt/CovidFree/blob/main/MD%20Images/lista.png)
 
 Verranno dunque visualizzate le Generalità del centro selezionato ed il Prospetto contenente il numero di segnalazioni e la severità media degli eventi avversi registrati dai cittadini vaccinati. 
 
+![Dettaglio](https://github.com/m00tt/CovidFree/blob/main/MD%20Images/dettaglio.png)
 
 #### Iscrizione
 
 Per effettuare l’iscrizione al sistema sarà necessario premere sul pulsante “Iscriviti”.
 Verrà successivamente visualizzato il seguente Form di registrazione
 
-
+![Iscrizione](https://github.com/m00tt/CovidFree/blob/main/MD%20Images/registra_nuovocittadino.png)
 
 Come Registrarsi? <br>
 1. Selezionare il centro vaccinale desiderato utilizzando il menu a tendina
@@ -165,8 +171,12 @@ Come Registrarsi? <br>
 La funzionalità Registra Evento permette di inserire e registrare un qualsiasi evento avverso contratto a seguito del vaccino.
 Per poter registrare un evento è necessario essere Iscritti all’applicazione.
 
+
+
 Come registrare un Evento Avverso?
 1. Identificarsi all'interno dell'applicazione <br>
+
+   ![Login](https://github.com/m00tt/CovidFree/blob/main/MD%20Images/login.png)<br>
    ATTENZIONE: utilizzare User ID e password forniti durante la fase di registrazione.<br> 
    Il campo User ID NON è Case Sensitive, è dunque possibile inserire il nome utente senza rispettare caratteri maiuscoli o minuscoli.
    
@@ -174,8 +184,10 @@ Come registrare un Evento Avverso?
    * Evento Riscontrato – Inserire il nome dell’evento (es. Mal di testa, Stanchezza, Labirintite, ...)
    * Severità – In base al grado di severità selezionare un valore
    * Descrizione – Descrizione dettagliata evento riscontrato (da 8 ad un massimo di 256 caratteri) <br>
-   NB: La schermata di registrazione evento, grazie alla funzionalità di Login, mostrerà automaticamente User ID e Centro Vaccinale            dell’utente che ha effettuato l’accesso.
+   NB: La schermata di registrazione evento, grazie alla funzionalità di Login, mostrerà automaticamente User ID e Centro Vaccinale dell’utente che ha effettuato l’accesso.
    
+   
+   ![Registra Evento](https://github.com/m00tt/CovidFree/blob/main/MD%20Images/registra_evento.png)
    
 3. Premere infine su “Registra” per confermare la registrazione dell’evento
 
