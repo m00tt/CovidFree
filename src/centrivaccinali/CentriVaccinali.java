@@ -264,7 +264,7 @@ public final class CentriVaccinali extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         URI uri=null;
         try {
-            uri = new URI("https://github.com/m00tt/CovidFree/blob/main/README.md");
+            uri = new URI("https://github.com/m00tt/CovidFree#versioning");
             java.awt.Desktop.getDesktop().browse(uri);
         } catch (URISyntaxException ex) {
             Logger.getLogger(CentriVaccinali.class.getName()).log(Level.SEVERE, null, ex);
