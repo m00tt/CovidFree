@@ -3,6 +3,16 @@ Il progetto è stato svolto come esame presso l'università degli studi dell'Ins
 degli eventi avversi post vaccini Covid-19.
 <br><br>
 
+
+
+
+
+# Autori
+Nome | Ruolo
+------------ | -------------
+Andrea Mottini | Project Manager/Developer
+Riccardo Bianchi | GUI/UE Designer/Developer
+
 # CovidFree - Manuale Utente
 ## 1. Installazione
 ### 1.1. Requisiti di Sistema
@@ -229,8 +239,4 @@ Per lo sviluppo dell’applicazione sono stati consultati i seguenti siti:
 
 
 
-# Autori
-Nome | Ruolo
------------- | -------------
-Andrea Mottini | Project Manager/Developer
-Riccardo Bianchi | GUI/UE Designer/Developer
+
