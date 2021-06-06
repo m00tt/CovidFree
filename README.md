@@ -6,6 +6,11 @@ degli eventi avversi post vaccini Covid-19.
 ![Logo](https://github.com/m00tt/CovidFree/blob/main/MD%20Images/logo.png)
 
 
+# Versioning
+Data rilascio | Versione
+------------  | -------------
+11/05/2021    | v1.1
+
 
 # Autori
 Nome | Ruolo
