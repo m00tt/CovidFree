@@ -18,7 +18,7 @@ Riccardo Bianchi | GUI/UE Designer - Developer
 ### 1.1. Requisiti di Sistema
 Applicazione multipiattaforma sviluppata in linguaggio Java (Java 8) <br>
 macOS (Lion o superiore)
-* Java (versione 8 e successive) <br>
+* Java (versione 8 e successive)
 Windows 10 <br>
 * Java (versione 8 e successive)
 <br>
