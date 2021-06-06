@@ -21,7 +21,6 @@ Applicazione multipiattaforma sviluppata in linguaggio Java (Java 8) <br>
 Windows 10 / macOS (Lion o superiore)
 * Java (versione 8 e successive)
 
-* Java (versione 8 e successive)
 <br>
 Per eseguire l’applicazione è necessario installare Java JDK 12 o superiore (Download)<br>
 Premere su “JDK Download” e selezionare la versione adatta al proprio sistema operativo.
