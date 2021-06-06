@@ -3,7 +3,7 @@ Il progetto è stato svolto come esame presso l'università degli studi dell'Ins
 degli eventi avversi post vaccini Covid-19.
 <br><br>
 
-
+![Logo](https://github.com/m00tt/CovidFree/blob/main/MD%20Images/logo.png)
 
 
 
