@@ -9,7 +9,7 @@ degli eventi avversi post vaccini Covid-19.
 # Versioning
 Data rilascio | Versione
 ------------  | -------------
-11/05/2021    | <a href="https://github.com/m00tt/CovidFree/tree/main/CovidFree%20versioning">v1.1</a>
+11/06/2021    | <a href="https://github.com/m00tt/CovidFree/tree/main/CovidFree%20versioning">v1.1</a>
 
 
 # Autori
