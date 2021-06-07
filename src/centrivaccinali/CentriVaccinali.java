@@ -37,6 +37,7 @@ public final class CentriVaccinali extends javax.swing.JFrame {
         date();
         time();
         this.setLocationRelativeTo(null);
+        //Panel_covidfree.requestFocusInWindow();
         JFrame j = new JFrame();
         j.setIconImage(new ImageIcon(LOGODIR).getImage());
          
@@ -83,8 +84,9 @@ public final class CentriVaccinali extends javax.swing.JFrame {
         centrovacciniBtn_covidfree = new javax.swing.JButton();
         date = new javax.swing.JLabel();
         hours = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        updatesBtn = new javax.swing.JButton();
+        bugBtn = new javax.swing.JButton();
+        userManualBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Covid Free");
@@ -161,20 +163,28 @@ public final class CentriVaccinali extends javax.swing.JFrame {
 
         hours.setText("Ora:");
 
-        jButton1.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        jButton1.setText("Controlla aggiornamenti");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        updatesBtn.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        updatesBtn.setText("Controlla aggiornamenti");
+        updatesBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                updatesBtnActionPerformed(evt);
             }
         });
 
-        jButton2.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        jButton2.setText("Segnala un bug");
-        jButton2.setToolTipText("");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        bugBtn.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        bugBtn.setText("Segnala un bug");
+        bugBtn.setToolTipText("");
+        bugBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                bugBtnActionPerformed(evt);
+            }
+        });
+
+        userManualBtn.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        userManualBtn.setText("Manuale utente");
+        userManualBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                userManualBtnActionPerformed(evt);
             }
         });
 
@@ -193,13 +203,18 @@ public final class CentriVaccinali extends javax.swing.JFrame {
                             .addComponent(date)))
                     .addGroup(Panel_covidfreeLayout.createSequentialGroup()
                         .addGroup(Panel_covidfreeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton1)
-                            .addComponent(centrovacciniPnl_covidfree, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(Panel_covidfreeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cittadiniPnl_covidfree, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton2))))
-                .addContainerGap(64, Short.MAX_VALUE))
+                            .addGroup(Panel_covidfreeLayout.createSequentialGroup()
+                                .addComponent(centrovacciniPnl_covidfree, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(cittadiniPnl_covidfree, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(Panel_covidfreeLayout.createSequentialGroup()
+                                .addComponent(updatesBtn)
+                                .addGap(18, 18, 18)
+                                .addComponent(bugBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(userManualBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(10, 10, 10)))
+                .addContainerGap(51, Short.MAX_VALUE))
         );
         Panel_covidfreeLayout.setVerticalGroup(
             Panel_covidfreeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -218,8 +233,9 @@ public final class CentriVaccinali extends javax.swing.JFrame {
                     .addComponent(centrovacciniPnl_covidfree, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addGroup(Panel_covidfreeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(bugBtn)
+                    .addComponent(userManualBtn)
+                    .addComponent(updatesBtn))
                 .addContainerGap())
         );
 
@@ -261,7 +277,7 @@ public final class CentriVaccinali extends javax.swing.JFrame {
         showMessageDialog(null, "Autori\n- Andrea Mottini\n- Riccardo Bianchi\n\n<html><b>Versione</b></html>\n<html><b>1.1</b></html\n\n", "CovidFree - Uninsubria", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(LOGODIR));
     }//GEN-LAST:event_appTitle_covidfreeMouseClicked
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void updatesBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updatesBtnActionPerformed
         URI uri=null;
         try {
             uri = new URI("https://github.com/m00tt/CovidFree#versioning");
@@ -271,9 +287,9 @@ public final class CentriVaccinali extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(CentriVaccinali.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_updatesBtnActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void bugBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bugBtnActionPerformed
         URI uri=null;
         try {
             uri = new URI("https://github.com/m00tt/CovidFree/issues");
@@ -283,7 +299,19 @@ public final class CentriVaccinali extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(CentriVaccinali.class.getName()).log(Level.SEVERE, null, ex);
         }        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_bugBtnActionPerformed
+
+    private void userManualBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userManualBtnActionPerformed
+        URI uri=null;
+        try {
+            uri = new URI("https://github.com/m00tt/CovidFree/blob/main/README.md#covidfree---manuale-utente");
+            java.awt.Desktop.getDesktop().browse(uri);
+        } catch (URISyntaxException ex) {
+            Logger.getLogger(CentriVaccinali.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(CentriVaccinali.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_userManualBtnActionPerformed
 
     /**
      * This Main method is used in order to launch the main graphic JavaForm of the application.
@@ -310,13 +338,14 @@ public final class CentriVaccinali extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Panel_covidfree;
     private javax.swing.JLabel appTitle_covidfree;
+    private javax.swing.JButton bugBtn;
     private javax.swing.JButton centrovacciniBtn_covidfree;
     private javax.swing.JPanel centrovacciniPnl_covidfree;
     private javax.swing.JButton cittadiniBtn_covidfree;
     private javax.swing.JPanel cittadiniPnl_covidfree;
     private javax.swing.JLabel date;
     private javax.swing.JLabel hours;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton updatesBtn;
+    private javax.swing.JButton userManualBtn;
     // End of variables declaration//GEN-END:variables
 }
