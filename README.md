@@ -151,11 +151,11 @@ In base alle informazioni inserite nei filtri la Lista dei centri verrà aggiorn
 
 #### Visualizzazione Centro Vaccinale
 
-Effettuando un doppio click su un qualsiasi centro vaccinale, presente nella lista, potremo visualizzare, in una nuova finestra, tutte le informazioni relative ad esso.
+Effettuando un doppio click su un qualsiasi centro vaccinale presente nella lista, verranno visualizzate, in una nuova finestra, tutte le informazioni relative ad esso.
 
 ![Lista](https://github.com/m00tt/CovidFree/blob/main/MD%20Images/lista.png)
 
-Verranno dunque visualizzate le generalità del centro selezionato ed il prospetto contenente il numero di segnalazioni e la severità media degli eventi avversi registrati dai cittadini vaccinati. 
+Verranno dunque mostrate le generalità del centro selezionato ed il prospetto contenente il numero di segnalazioni e la severità media degli eventi avversi registrati dai cittadini vaccinati. 
 
 ![Dettaglio](https://github.com/m00tt/CovidFree/blob/main/MD%20Images/dettaglio.png)
 
