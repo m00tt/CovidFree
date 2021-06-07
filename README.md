@@ -18,9 +18,9 @@ Nome | Ruolo
 Andrea Mottini | Project Manager - GUI/UE Designer - Developer
 Riccardo Bianchi | GUI/UE Designer - Developer
 
-# CovidFree - Manuale Utente
+# CovidFree - Manuale utente
 ## 1. Installazione
-### 1.1. Requisiti di Sistema
+### 1.1. Requisiti di sistema
 Applicazione multipiattaforma sviluppata in linguaggio Java (Java 8) <br>
 
 Windows 10 / macOS (Lion o superiore)
@@ -35,12 +35,12 @@ NOTA:
 L’applicazione è stata sviluppata e testata in ambiente Windows 10 e in ambiente macOS BigSur (11.3.1).
 Non si garantisce il corretto funzionamento dell’applicazione su altri sistemi operativi.
 
-### 1.2. Installazione Programma
+### 1.2. Installazione programma
 Il programma non necessita di particolari attività di installazione.
 La procedura di avviamento di CovidFree è la stessa per tutti i sistemi operativi compatibili e verrà descritta nel paragrafo successivo.
 
-## 2. Esecuzione ed Uso
-## 2.1. Setup e Lancio del programma
+## 2. Esecuzione ed uso
+## 2.1. Setup e lancio del programma
 Per avviare l’applicazione è sufficiente fare doppio clic su “<a href="https://github.com/m00tt/CovidFree/tree/main/CovidFree%20versioning">CovidFree.jar</a>”, o in alternativa, dopo essersi spostati nella cartella corretta, tramite prompt dei comandi (CMD – Windows / Terminale macOS) digitare il seguente comando:
 
 ```batch
@@ -48,7 +48,7 @@ cd <path in cui è contenuto il file>
 java -jar CovidFree.jar
 ```
 
-## 2.2. TroubleShooting
+## 2.2. Troubleshooting
 In caso di malfunzionamenti dell’applicativo è necessario:
 * Assicurarsi di aver installato correttamente Java
 * Assicurarsi di avere una versione di Sistema Operativo compatibile
@@ -57,7 +57,7 @@ In caso di malfunzionamenti dell’applicativo è necessario:
 Nel caso ci fossero malfunzionamenti o Bug non risolvibili è possibile segnalare la problematica al gruppo di sviluppo attraverso la piattaforma GitHub.
 
 
-## 2.3.	Uso delle Funzionalità
+## 2.3.	Uso delle funzionalità
 ### CovidFree – Main Menù
 All’avvio l’applicazione CovidFree si presenterà con la seguente schermata
 
