@@ -27,13 +27,13 @@ Windows 10 / macOS (Lion o superiore)
 * Java (versione 8 e successive)
 
 <br>
-Per eseguire l’applicazione è necessario installare Java JDK 12 o superiore (Download)<br>
+Per eseguire l’applicazione è necessario installare Java JDK 12 o superiore (<a href="https://www.oracle.com/it/java/technologies/javase-downloads.html">Download</a>)<br>
 Premere su “JDK Download” e selezionare la versione adatta al proprio sistema operativo.
 <br><br>
 
 NOTA: 
 L’applicazione è stata sviluppata e testata in ambiente Windows 10 e in ambiente macOS BigSur (11.3.1).
-Non si garantisce il corretto funzionamento dell’applicazione sugli altri sistemi operativi.
+Non si garantisce il corretto funzionamento dell’applicazione su altri sistemi operativi.
 
 ### 1.2. Installazione Programma
 Il programma non necessita di particolari attività di installazione.
@@ -41,15 +41,18 @@ La procedura di avviamento di CovidFree è la stessa per tutti i sistemi operati
 
 ## 2. Esecuzione ed Uso
 ## 2.1. Setup e Lancio del programma
-Per avviare l’applicazione è sufficiente fare doppio clic su “CovidFree.jar”, o in alternativa, dopo essersi spostati nella cartella corretta, tramite prompt dei comandi (CMD – Windows / Terminale macOS) digitare il seguente comando:
+Per avviare l’applicazione è sufficiente fare doppio clic su “<a href="https://github.com/m00tt/CovidFree/tree/main/CovidFree%20versioning">CovidFree.jar</a>”, o in alternativa, dopo essersi spostati nella cartella corretta, tramite prompt dei comandi (CMD – Windows / Terminale macOS) digitare il seguente comando:
 
-![Avvio](https://github.com/m00tt/CovidFree/blob/main/MD%20Images/avvio.png)
+```batch
+cd <path in cui è contenuto il file>
+java -jar CovidFree.jar
+```
 
 ## 2.2. TroubleShooting
 In caso di malfunzionamenti dell’applicativo è necessario:
 * Assicurarsi di aver installato correttamente Java
 * Assicurarsi di avere una versione di Sistema Operativo compatibile
-* Provare ad avviare l’applicativo da Linea di comando
+* Provare ad avviare l’applicativo da linea di comando
 
 Nel caso ci fossero malfunzionamenti o Bug non risolvibili è possibile segnalare la problematica al gruppo di sviluppo attraverso la piattaforma GitHub.
 
@@ -63,11 +66,11 @@ All’avvio l’applicazione CovidFree si presenterà con la seguente schermata
 
 A seguito della selezione da parte dell’utente potranno essere avviate due applicazioni distinte:
 * Centri Vaccinali (target utilizzo: Operatore Sanitario)
-  * Possibilità di Registrare un nuovo Centro Vaccinale.
-  * Possibilità di Registrare un nuovo Vaccinato.
-* Cittadini (target utilizzo: Utente privato)
+  * Possibilità di registrare un nuovo Centro Vaccinale.
+  * Possibilità di registrare un nuovo Vaccinato.
+* Cittadini (target utilizzo: Utente Privato)
   * Possibilità di visualizzare le informazioni dei vari centri vaccinali (filtrandoli per: Nome, Comune e Tipologia).
-  * Possibilità di effettuare un Login (Accesso) e segnalare Eventi Avversi riscontrati a seguito del vaccino.
+  * Possibilità di effettuare un login e segnalare eventuali eventi avversi riscontrati a seguito del vaccino.
 
 ### Centri Vaccinali
 La schermata presenterà due scelte:
@@ -93,8 +96,8 @@ Per registrare e salvare un nuovo centro vaccinale procedere come segue:
    * Indirizzo (da 3 a 40 caratteri)
      1. Qualificatore (Via/Viale/Piazza)
      2. Indirizzo (da 3 a 40 caratteri)
-     3. Civico (compreso tra 1 e 5 cifre)
-   * Provincia (sigla della provincia – massimo 2 caratteri)
+     3. Civico (compreso tra 1 e 5 caratteri)
+   * Provincia (sigla della provincia – 2 caratteri)
    * Comune (da 3 a 40 caratteri)
    * CAP (lunghezza statica 5 cifre) <br>
    NB: L’applicazione segnalerà eventuali errori di compilazioni indicandone il motivo
@@ -109,8 +112,8 @@ La funzione Registra Vaccinato permette di poter registrare un nuovo cittadino v
 
 Come registrare un nuovo Vaccinato?<br>
 Per registrare un nuovo vaccinato procedere come segue:
-1.	Utilizzando il menu a tendina Nome Centro Vaccinale selezionare il centro vaccinale desiderato <br>
-    NB: Verranno visualizzati solamente i centri registrati in precedenza
+1.	Utilizzando il menu a tendina 'Nome Centro Vaccinale' selezionare il centro vaccinale desiderato <br>
+    NB: Verranno visualizzati solamente i centri registrati
 2.	Compilare i dati anagrafici e le informazioni richieste dalla schermata
     * Nome (da 3 a 40 caratteri)
     * Cognome (da 3 a 40 caratteri)
@@ -129,7 +132,7 @@ La Home Cittadini permette agli utenti di eseguire le funzioni di:
 * Registrazione all’applicazione
 * Visualizzazione informazioni Centro Vaccinale
 * Ricerca Centro Vaccinale (per Nome o Comune/Tipologia)
-* Registrazione Evento Avverso (a seguito di Login)
+* Registrazione Evento Avverso (a seguito di login)
 
 La schermata si presenta come segue:
 
@@ -138,8 +141,8 @@ La schermata si presenta come segue:
 
 #### Ricerca Centro Vaccinale
 Sfruttando i filtri di ricerca sarà possibile effettuare la ricerca di un Centro Vaccinale per: 
-* Nome (figura A)
-* Comune e Tipologia (figura B)
+* Nome
+* Comune e Tipologia
 
 ![Ricerca](https://github.com/m00tt/CovidFree/blob/main/MD%20Images/ricerca.png)
 
@@ -152,19 +155,19 @@ Effettuando un doppio click su un qualsiasi centro vaccinale, presente nella lis
 
 ![Lista](https://github.com/m00tt/CovidFree/blob/main/MD%20Images/lista.png)
 
-Verranno dunque visualizzate le Generalità del centro selezionato ed il Prospetto contenente il numero di segnalazioni e la severità media degli eventi avversi registrati dai cittadini vaccinati. 
+Verranno dunque visualizzate le generalità del centro selezionato ed il prospetto contenente il numero di segnalazioni e la severità media degli eventi avversi registrati dai cittadini vaccinati. 
 
 ![Dettaglio](https://github.com/m00tt/CovidFree/blob/main/MD%20Images/dettaglio.png)
 
 #### Iscrizione
 
 Per effettuare l’iscrizione al sistema sarà necessario premere sul pulsante “Iscriviti”.
-Verrà successivamente visualizzato il seguente Form di registrazione
+Verrà successivamente visualizzato il seguente form di registrazione
 
 ![Iscrizione](https://github.com/m00tt/CovidFree/blob/main/MD%20Images/registra_nuovocittadino.png)
 
 Come Registrarsi? <br>
-1. Selezionare il centro vaccinale desiderato utilizzando il menu a tendina
+1. Selezionare il centro vaccinale desiderato utilizzando il menù a tendina
 2. Compilare tutti i campi richiesti dalla schermata
    * Nome (da 3 a 40 caratteri)
    * Cognome (da 3 a 40 caratteri)
@@ -173,9 +176,11 @@ Come Registrarsi? <br>
    * User ID (da 3 a 8 caratteri)
    * Password <br>
      NB: La password, per essere valida dovrà rispettare i seguenti criteri <br>
-     1. Lunghezza minima di 8 caratteri
+     1. Lunghezza da 8 a 20 caratteri
      2. Almeno una lettera maiuscola
-     3. Almeno un numero ed un carattere speciale
+     3. Almeno una lettera minuscola
+     4. Almeno un numero
+     5. Almeno un carattere speciale
 
    * Inserire l’ID Vaccino fornito durante la vaccinazione (ID univoco di 16 cifre) <br>
    NB: L’applicazione segnalerà eventuali errori di compilazioni indicandone il motivo
@@ -184,7 +189,7 @@ Come Registrarsi? <br>
 
 #### Registra Evento
 La funzionalità Registra Evento permette di inserire e registrare un qualsiasi evento avverso contratto a seguito del vaccino.
-Per poter registrare un evento è necessario essere Iscritti all’applicazione.
+Per poter registrare un evento è necessario essere iscritti all’applicazione.
 
 
 
@@ -193,7 +198,7 @@ Come registrare un Evento Avverso?
 
    ![Login](https://github.com/m00tt/CovidFree/blob/main/MD%20Images/login.png)<br>
    ATTENZIONE: utilizzare User ID e password forniti durante la fase di registrazione.<br> 
-   Il campo User ID NON è Case Sensitive, è dunque possibile inserire il nome utente senza rispettare caratteri maiuscoli o minuscoli.
+   Il campo User ID NON è case sensitive, è dunque possibile inserire il nome utente senza rispettare caratteri maiuscoli o minuscoli.
    
 2. Compilare le informazioni richieste come segue:
    * Evento Riscontrato – Inserire il nome dell’evento (es. Mal di testa, Stanchezza, Labirintite, ...)
@@ -211,7 +216,7 @@ Come registrare un Evento Avverso?
 I due limiti principali della soluzione sviluppata sono:
 
 1. Assenza di un Database <br>
-L’applicazione CovidFree non dispone di un Database centralizzato per la condivisione dei dati.
+L’applicazione CovidFree non dispone di un database centralizzato per la condivisione dei dati.
 
 Le informazioni vengono memorizzate tramite l’utilizzo di file locali creando quindi un’inconsistenza dati tra le applicazioni eseguite su diversi dispositivi.
 
@@ -228,11 +233,6 @@ ATTENZIONE: questa funzionalità NON comporta il ripristino dei dati eliminati, 
 Utilizzando file locali per la memorizzazione gli utenti hanno pieno accesso alle informazioni registrate su di essi.
 
 Tali informazioni, ad eccezione della password utente (criptata in SHA-256), possono essere visualizzate in chiaro all’interno del file .dati generato per la gestione degli utenti iscritti all’app.
-
-
-
-
-
 
 
 
