@@ -1,5 +1,8 @@
 /**
- * 
+ * La classe LoginCittadino viene utilizzata per la creazione della GUI che permette ai cittadini di svolgere funzioni di:
+ * <ol>
+ *  <li> Autenticazione all'applicazione </li>
+ * </ol>
  * @author Andrea Mottini 742605 VA
  * @author Riccardo Bianchi 736701 VA
  * 
@@ -29,7 +32,8 @@ import static utils.GeneralFunctions.toHexString;
 public class LoginCittadino extends javax.swing.JFrame {
 
     /**
-     *
+     * Costruttore della classe LoginCittadino()
+     * Viene utilizzata per inizializzare i componenti della classe
      */
     public LoginCittadino() {
         initComponents();
@@ -229,6 +233,8 @@ public class LoginCittadino extends javax.swing.JFrame {
     }//GEN-LAST:event_accediBtn_LoginActionPerformed
 
     /**
+     * Il metodo main viene utilizzato per inizializzare un nuovo elemento della classe <b>LoginCittadino()</b>
+     * Tramite la proprietà <i>setVisible(true)</i> il form viene mostrato a schermo
      * @param args the command line arguments
      */
     public static void main(String args[]) {
@@ -264,11 +270,13 @@ public class LoginCittadino extends javax.swing.JFrame {
     
     
     
-        /**
+     /**
+     * Il metodo <b>checkLogin </b> viene utilizzato per verificare la veridicità delle informazioni inserite in input durante la fase di Login.
+     * Il metodo confronta username e password inserite dall'utente con quelle presenti nel file <i>"Cittadini_Registrati.dati"</i>
      *
      * @param x
      * @param psw
-     * @return
+     * @return true/false a seconda dalla presenza o meno dell'utente
      */
     private static boolean checkLogin(String x,String psw){
        

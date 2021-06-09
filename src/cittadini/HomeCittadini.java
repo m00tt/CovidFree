@@ -1,5 +1,11 @@
 /**
  * 
+ * La classe HomeCittadini viene utilizzata per la creazione della GUI che permette ai cittadini di svolgere funzioni di:
+ * <ol>
+ *  <li> Ricerca Centro Vaccinale</li>
+ *  <li> Registrazione</li>
+ *  <li> Registrazione Evento Avverso</li>
+ * 
  * @author Andrea Mottini 742605 VA
  * @author Riccardo Bianchi 736701 VA
  * 
@@ -29,7 +35,8 @@ import static utils.GeneralFunctions.getCentriVaccinaliList;
 public class HomeCittadini extends javax.swing.JFrame {
 
     /**
-     *
+     * Costruttore della classe HomeCittedini()
+     * Viene utilizzata per inizializzare i componenti della classe
      */
     public HomeCittadini() {
         initComponents();
@@ -314,7 +321,9 @@ public class HomeCittadini extends javax.swing.JFrame {
     }//GEN-LAST:event_back_HomeCittadiniActionPerformed
 
     /**
-     *
+     * Il metodo <b>cercaCentrovaccinale()</b> viene utilizzato per permettere il funzionamento della ricerca di un centro vaccinale già esistente.
+     * Richiama il metodo <b>checkDirHierarchy()</b> @see utils.GeneralFunctions#checkDirHierarchy()
+     * Controlla all'interno del file <i>"CentriVaccinali.dati" </i> l'esistenza del centro ricercato dall'utente ed aggiorna la lista dinamica presente nel form.
      */
     public void cercaCentroVaccinale()
     {
@@ -369,6 +378,9 @@ public class HomeCittadini extends javax.swing.JFrame {
     }
     
     /**
+     * Il metodo main viene utilizzato per inizializzare un nuovo elemento della classe <b>HomeCittadini()</b>
+     * Tramite la proprietà <i>setVisible(true)</i> il form viene mostrato a schermo
+     * 
      * @param args the command line arguments
      */
     public static void main(String args[]) {
@@ -405,6 +417,10 @@ public class HomeCittadini extends javax.swing.JFrame {
     
     
     //Recupera la lista di centri vaccinali registrati
+    /**
+     * La funzione <b>fillCentriVaccinali</b> ha lo scopo di aggiungere alla Jlist presente nella GUI i centri vaccinali registrati e salvati sul file <i>"CentriVaccinali.dati"</i>
+     * @param centriVaccinali 
+     */
     private void fillCentriVaccinali(List<String> centriVaccinali){
         
         DefaultListModel listModel = new DefaultListModel();
@@ -415,7 +431,9 @@ public class HomeCittadini extends javax.swing.JFrame {
         infocentriList_HomeCittadini.setModel(listModel);
         
     }
-    
+    /**
+     * Il metodo <b>checkTargetSearch</b> verifica lo stato della combo box e modifica il contenuto della GUI per poter permettere all'utente l'inserimento dei dati
+     */
     private void checkTargetSearch(){
         if(targetSearch_HomeCittadini.getSelectedIndex() == 0){
             lblSearch_HomeCittadino.setText("Nome Centro Vaccinale");
