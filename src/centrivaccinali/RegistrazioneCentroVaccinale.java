@@ -26,19 +26,24 @@ import static utils.GeneralFunctions.checkDirHierarchy;
 import static utils.GeneralFunctions.LOGODIR;
 
 /**
- *  This class is used to provide the possibility to add a new vaccination centre into the Database file
- * 
+ *  La classe <b>RegistrazioneCentroVaccinale</b> è utilizzata al fine di fornire una GUI con la quale poter effettuare la registrazione a sistema di un nuovo Centro Vaccinale.
+ *  @author Andrea Mottini 742605 VA
+ *  @author Riccardo Bianchi 736701 VA
  */
 public class RegistrazioneCentroVaccinale extends javax.swing.JFrame {
 
     /**
-     * RegistrazioneCentroVaccinale() constructor
+     * Costruttore della classe <b>RegistrazioneCentroVaccinale</b>
+     * Tale costruttore permette di inizializzare i componenti grafici che compongono la classe e impostare la visulizzazione dell'applicazione al centro dello schermo.
      */
     public RegistrazioneCentroVaccinale() {
         initComponents();
         this.setLocationRelativeTo(null);
     }
 
+    /**
+     * Il metodo <b>initComponents</b> è utilizzato per istanziare tutti gli oggetti grafici all'interno del JFrame.
+     */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -384,9 +389,8 @@ public class RegistrazioneCentroVaccinale extends javax.swing.JFrame {
     }//GEN-LAST:event_prov_RegistrazioneCentroVaccinaleFocusLost
 
     /**
-     * This Main method is used in order to launch the current class JavaForm.
-     * Is also used to initialize the current class and graphic elements
-     * @param args
+     * Il metodo <b>main</b> viene richiamato al fine di richiamare il costruttore della classe RegistrazioneCentroVaccinale al fine di rendere visibile la classe.
+     * @param args argomenti iniettabili da linea di comando
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -419,11 +423,16 @@ public class RegistrazioneCentroVaccinale extends javax.swing.JFrame {
         });
     }
     
-    //Funzione di registrazione di un nuovo centro vaccinale
-    
+
    /**
-    * This method is used to retrive all the information typed as input from the user and create a new vaccination centre into the "CentriVaccinali.dati" file.
-    * It also check if there are duplicates element and if the file exhist and is stored in the correct path
+    * La funzione <b>registraCentroVaccinale</b> è utilizzata al fine di recuperare i dati inseriti dall'utente e salvarli in un file esterno.<br>Viene effettuato un controllo che impedisce l'inserimento di centri vaccinali con lo stesso nominativo.<br>La classe usufruisce dei seguenti metodi importati per effettuare dei controlli sulla correttezza dei dati inseriti:
+    * @see utils.GeneralFunctions#checkCompiled
+    * @see utilis.GeneralFunctions#checkCivico
+    * @see utilis.GeneralFunctions#checkProvincia
+    * @see utilis.GeneralFunctions#checkCAP
+    * 
+    * Viene utilizzato anche il seguente metodo per effettuare controlli sulla gerarchia di file presenti, al fine di correggere eventuali assenze di file o directory.
+    * @see utilis.GeneralFunctions#checkDirHierarchy
     */
     private void registraCentroVaccinale(){        
         String nomeCentroVaccinale = name_RegistrazioneCentroVaccinale.getText().strip();

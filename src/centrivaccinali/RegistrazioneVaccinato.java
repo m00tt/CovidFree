@@ -29,13 +29,19 @@ import static utils.GeneralFunctions.LOGODIR;
 import static utils.GeneralFunctions.newCittadinoAlreadyVaccinato;
 
 /**
- * This class provide to the user the possibility to register and store a new Vaccinated citizen
- * 
+ * La classe <b>RegistrazioneVaccinato</b> è utilizzata al fine di creare una GUI e permettere all'utente di effettuare la registrazione di un nuovo cittadino vaccinato.
+ * @author Andrea Mottini 742605 VA
+ * @author Riccardo Bianchi 736701 VA
  */
 public class RegistrazioneVaccinato extends javax.swing.JFrame {
 
     /**
-     * RegistrazioneVaccinato() constructor
+     * Costruttore della classe <b>RegistrazioneVaccinato</b><br>
+     * Tale costruttore si occupa:<br>
+     *  - dell'inizializzazione dei componenti grafici<br>
+     *  - del posizionamento della finestra al centro dello schermo<br>
+     *  - di popolare la combobox per la scelta dei centri vaccinali attraverso la funzione:<br>
+     * @see #fillCentriVaccinali
      */
     public RegistrazioneVaccinato() {
         initComponents();
@@ -44,6 +50,9 @@ public class RegistrazioneVaccinato extends javax.swing.JFrame {
         
     }
 
+    /**
+     * Il metodo <b>initComponents</b> viene utilizzato per la creazione di tutti i componenti grafici contenuti all'interno del JFrame
+     */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -351,9 +360,8 @@ public class RegistrazioneVaccinato extends javax.swing.JFrame {
     }//GEN-LAST:event_idVaccino_RegistrazioneVaccinatoFocusLost
 
     /**
-     * This Main method is used in order to launch the current class JavaForm.
-     * Is also used to initialize the current class and graphic elements
-     * @param args
+     * Il metodo <b>main</b> viene richiamato al fine di richiamare il costruttore della classe RegistrazioneVaccinato al fine di rendere visibile la classe.
+     * @param args argomenti iniettabili da linea di comando
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -385,10 +393,22 @@ public class RegistrazioneVaccinato extends javax.swing.JFrame {
         });
     }
     
-    //Registra un nuovo vaccinato
-    /**
-     * This method is used to retrive all the information typed as input from the user and create a new Vaccinated citizen into the "CentriVaccinali.dati" file.
-    *  It also check if there are duplicates element and if the file exhist and is stored in the correct path
+   /**
+    * Il metodo <b>registraVaccinato</b> è utilizzata al fine di recuperare i dati inseriti dall'utente inerenti alla registrazione di un nuovo cittadino vaccinato di ue salvarli in un file esterno.
+    * La classe usufruisce dei seguenti metodi importati per effettuare dei controlli sulla correttezza dei dati inseriti:
+    * @see utils.GeneralFunctions#checkCompiled
+    * @see utilis.GeneralFunctions#checkCodiceFiscale
+    * @see utilis.GeneralFunctions#checkData
+    * @see utilis.GeneralFunctions#checkIdVaccino
+    * 
+    * Viene utilizzato il seguente metodo per effettuare controlli sulla gerarchia di file presenti, al fine di correggere eventuali assenze di file o directory:
+    * @see utilis.GeneralFunctions#checkDirHierarchy
+    * <br>
+    * Viene utilizzato il seguente metodo per la verifica di cittadini già registrati in precedenza:
+    * @see utilis.GeneralFunctions#newCittadinoAlreadyVaccinato
+    * <br>
+    * Viene utilizzato il seguente metodo per generare una lista necessaria al controllo di eventuali utenti già registrati o vaccinati.
+    * @see utilis.GeneralFunctions#getUniqueList
     */
     private void registraVaccinato(){
         try {
@@ -464,7 +484,9 @@ public class RegistrazioneVaccinato extends javax.swing.JFrame {
         }
     }
     
-    //Recupera la lista di centri vaccinali registrati
+   /**
+    * Il metodo <b>fillCentriVaccinali</b> richiama la funzione @see utils.GeneralFunctions#getCentriVaccinaliList al fine di popolare la combobox per la scelta delone di un nuovo cittadino vaccinato di ue salvarli in un file esterno.
+    */
     private void fillCentriVaccinali(){
         List<String> centriVaccinali = getCentriVaccinaliList();
                 

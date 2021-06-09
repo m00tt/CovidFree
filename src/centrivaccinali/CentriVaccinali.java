@@ -25,14 +25,20 @@ import static javax.swing.JOptionPane.showMessageDialog;
 import static utils.GeneralFunctions.LOGODIR;
 import static utils.GeneralFunctions.checkDirHierarchy;
 
-/**
- *
- * @author riccardo
- */
+
+    /**
+     * La classe <b>CentriVaccinali</b> è utilizzata al fine di fornire una GUI tramite la quale gli utenti possano scegliere di eseguire le operazioni di loro interesse.
+     * @extends javax.swing.JFrame
+     * @author Andrea Mottini 742605 VA
+     * @author Riccardo Bianchi 736701 VA
+     * 
+     */
 public final class CentriVaccinali extends javax.swing.JFrame {
 
     /**
-     * CentriVaccinali() class constructor
+     * Costruttore della classe <b>CentriVaccinali</b><br>
+     * Viene utilizzata per inizializzare i componenti grafici della classe, richiama le funzioni per la gestione di data e ora     
+     * ed imposta la visualizzazione della finestra al centro della pagina.
      */
     public CentriVaccinali() {
         initComponents();
@@ -45,19 +51,18 @@ public final class CentriVaccinali extends javax.swing.JFrame {
          
     }
     
-    //ShowDate
 
     /**
-     * This method is used to retrieve current date and display it with "dd/MM/yyyy" format.
+     * Il metodo <b>date</b> viene utilizzato per recuperare la data in base alla location ITALY e formatta il testo con il formato "gg/MM/aaaa".<br>
+     * Successivamente aggiorna la textbox per renderla visibile all'utente.
      */
     public void date (){
         String txtDate = new SimpleDateFormat ("dd/MM/yyyy",Locale.ITALY).format(new Date());
         date.setText("Data:  " +txtDate);
     }
-    //ShowTime
 
     /**
-     * This method is used to retrieve current time and display it with "HH:mm:ss" format.
+     * Il metodo <b>time</b> crea un nuovo Timer che permette all'utente la visualizzazione dell'ora in formato "HH:mm:ss".
      */
     public void time() {
         new Timer (0, new ActionListener() {
@@ -71,8 +76,9 @@ public final class CentriVaccinali extends javax.swing.JFrame {
     }
 
 
+
     /**
-     * This method is called from within the constructor to initialize the form.
+     * Il metodo <b>initComponents</b> viene utilizzato per creare tutti gli oggetti grafici all'interno del JFrame della classe CentriVaccinali.
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -316,9 +322,9 @@ public final class CentriVaccinali extends javax.swing.JFrame {
     }//GEN-LAST:event_userManualBtnActionPerformed
 
     /**
-     * This Main method is used in order to launch the main graphic JavaForm of the application.
-     * Is also used to initialize the current class and graphic elements.
-     * @param args the command line arguments
+     * Il metodo <b>main</b> viene richiamato al fine di richiamare il costruttore della classe CentriVaccinali al fine di rendere visibile la classe.<br>Viene utilizzato anche per effettuare un controllo della gerarchia delle cartelle necessarie al corretto funzionamento dell'applicazione.<br>Tale funzione, in caso di mancanze di file o directory, ricreerà correttamente la gerarchia:
+     * @see utils.GeneralFunctions#checkDirHierarchy
+     * @param args argomenti iniettabili da linea di comando
      */
     public static void main(String args[]) {
 

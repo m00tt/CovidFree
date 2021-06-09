@@ -10,14 +10,15 @@ import javax.swing.ImageIcon;
 import static utils.GeneralFunctions.LOGODIR;
 
 /**
- * This class is used to open the multiple choice main menu of CentriVaccinali sub-application
- * Using this form user can choose to add a new vaccination centre or to add a new vaccined citizen
- * 
+ * La classe <b>HomeCentriVaccinali</b> è utilizzata al fine di fornire una GUI tramite la quale gli utenti possano scegliere di eseguire le operazioni di loro interesse.
+ * @author Andrea Mottini 742605 VA
+ * @author Riccardo Bianchi 736701 VA
  */
 public class HomeCentriVaccinali extends javax.swing.JFrame {
 
     /**
-     * HomeCentriVaccinali() constructor
+     * Costruttore della classe <b>HomeCentriVaccinali</b><br>
+     * Tale costruttore permette di inizializzare i componenti grafici che compongono la classe e impostare la visulizzazione dell'applicazione al centro dello schermo.
      */
     public HomeCentriVaccinali() {
         initComponents();
@@ -25,7 +26,7 @@ public class HomeCentriVaccinali extends javax.swing.JFrame {
     }
 
     /**
-     * This method is called from within the constructor to initialize the form.
+     * Il metodo <b>initComponents</b> è utilizzato per istanziare tutti gli oggetti grafici all'interno del JFrame.
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -193,9 +194,8 @@ public class HomeCentriVaccinali extends javax.swing.JFrame {
     }//GEN-LAST:event_registraVaccinatoBtn_HomeCentriVaccinaliActionPerformed
 
     /**
-     * This Main method is used in order to launch the current class JavaForm.
-     * Is also used to initialize the current class and graphic elements.
-     * @param args the command line arguments
+     * Il metodo <b>main</b> viene richiamato al fine di richiamare il costruttore della classe HomeCentriVaccinali al fine di rendere visibile la classe.
+     * @param args argomenti iniettabili da linea di comando
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
