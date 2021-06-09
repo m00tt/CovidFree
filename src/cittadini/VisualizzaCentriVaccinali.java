@@ -22,19 +22,27 @@ import static utils.GeneralFunctions.getCentroVaccinaleInfo;
 
 /**
  *
- * @author riccardo
+ * La classe VisualizzaCenntriVaccinali viene utilizzata per generare la GUI che permette di visualzizzare il dettaglio delle informazioni di un singolo centro vaccinale.
+ * 
+ * @author Andrea Mottini 742605 VA
+ * @author Riccardo Bianchi 736701 VA
  */
 public class VisualizzaCentriVaccinali extends javax.swing.JFrame {
 
     /**
-     *
+     * Costruttore della classe <b>VisualizzaCentriVaccinali</b><br>
+     * Tale costruttore permette di inizializzare i componenti grafici che compongono la classe e impostare la visulizzazione dell'applicazione al centro dello schermo.
      */
     public VisualizzaCentriVaccinali() {
         initComponents();
     }
     
     /**
-     *
+     * Costruttore della classe <b>VisualizzaCentriVaccinali</b><br>
+     * Tale costruttore permette di inizializzare i componenti grafici che compongono la classe e impostare la visulizzazione dell'applicazione al centro dello schermo.
+     * Vengono inoltre visualizzate le informazioni del centro vaccinali<br>
+     * La finestra viene visualizzata al centro dello schermo..
+     * @see #visualizzaInfoCentroVaccinale
      * @param centroVaccinale
      */
     public VisualizzaCentriVaccinali(String centroVaccinale) {
@@ -284,7 +292,9 @@ public class VisualizzaCentriVaccinali extends javax.swing.JFrame {
     }//GEN-LAST:event_btnIndietro_VisualizzaCentriVaccinaliActionPerformed
 
     /**
-     * @param args the command line arguments
+     * Il metodo <b>main</b> viene richiamato al fine di richiamare il costruttore della classe VisualizzaCentriVaccinali al fine di rendere visibile la classe.
+     * @param args argomenti iniettabili da linea di comando
+     * 
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -318,7 +328,11 @@ public class VisualizzaCentriVaccinali extends javax.swing.JFrame {
     
     
     
-    
+    /**
+     * Il metodo <b>getReportCentroVaccinale</b> raccoglie e permette di visualizzare le informazioni relative ai report effettuati dagli utenti.<br>
+     * Mostra il numero di eventti avversi registrati ed il grado medio di severità.
+     * @param nomeCentroVaccinale - Stringa che identifica il nome del centro vaccinale richiesto
+     */
     private void getReportCentroVaccinale(String nomeCentroVaccinale){
         
         float avgEvents = 0;
@@ -352,6 +366,10 @@ public class VisualizzaCentriVaccinali extends javax.swing.JFrame {
         
     }
     
+    /**
+     * Il metodo <b>visualizzaInfoCentroVaccinale</b> permette all'applicazione di compilare tutti i campi del form con le informazioni del centro richiesto.
+     * @param centroVaccinale - Stringa che identifica il nome del centro vaccinale richiesto
+     */
     
     private void visualizzaInfoCentroVaccinale(String centroVaccinale){
         List<String> infoCentro = getCentroVaccinaleInfo(centroVaccinale);

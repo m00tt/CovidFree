@@ -25,55 +25,95 @@ import java.util.regex.Pattern;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
+
 /**
- *
- * @author riccardo
+ * La classe GeneralFunction contiene tutte le funzioni utili e condivise con gli altri package
+ * @author Andrea Mottini 742605 VA
  */
 public class GeneralFunctions {
     
-    //Dichiarazione dei path utili
-
     /**
-     *
+     * Costante utilizzata per standardizzare il carattere di separazione dei dati durante il salvataggio ed il recupero dei dati
      */
-
-    public static String DATASEPARATOR = "#";
+    public static final String DATASEPARATOR = "#";
     
     /**
-     *
+     *  Path per il recupero dell'icona di CovidFree
      */
-    public static String LOGODIR = System.getProperty("user.dir") + File.separator + "src" + File.separator + "img" + File.separator + "app-logo.png";
+    public static final String LOGODIR = System.getProperty("user.dir") + File.separator + "src" + File.separator + "img" + File.separator + "app-logo.png";
     
     /**
-     *
+     * Path per il recupero della cartella padre
      */
-    public static String WORKINGDIR = System.getProperty("user.dir") + File.separator + "data"; //cartella data
+    public static final String WORKINGDIR = System.getProperty("user.dir") + File.separator + "data";
 
     /**
-     *
+     * Path per il recupero della cartella centi_vaccinali
      */
-    public static String CENTRIVACCINALIDIR = WORKINGDIR + File.separator + "centri_vaccinali"; //cartella centri_vaccinali
+    public static final String CENTRIVACCINALIDIR = WORKINGDIR + File.separator + "centri_vaccinali";
 
     /**
-     *
+     * Path per il recupero della cartella cittadini
      */
-    public static String CITTADINIDIR = WORKINGDIR + File.separator + "cittadini";              //cartella cittadini
+    public static final String CITTADINIDIR = WORKINGDIR + File.separator + "cittadini";
     
-    //Dichiarazione pattern per i controlli di inserimento
-    static Pattern onlyCodiceFiscale = Pattern.compile("^[a-zA-Z]{6}[0-9]{2}[abcdehlmprstABCDEHLMPRST]{1}[0-9]{2}([a-zA-Z]{1}[0-9]{3})[a-zA-Z]{1}$");
-    static Pattern onlyLettersPattern = Pattern.compile("[^a-zA-Zàèòìù'\\s]"); //Verranno accettati solamente lettere maiuscole e minuscole + alcuni caratteri speciali
-    static Pattern onlyEvtDescription = Pattern.compile("[^0-9a-zA-Zàèòìù'().,:;\\s]");
-    static Pattern onlyCivicoPattern = Pattern.compile("[^a-zA-Z0-9/\\\\s]"); //Verranno accettati solamente valori numerici, lettere o slash
-    static Pattern onlyNumbersPattern = Pattern.compile("[^0-9]"); //Verranno accettati solamente numeri
-    static Pattern onlyDataPattern = Pattern.compile("^(3[01]|[12][0-9]|0[1-9])/(1[0-2]|0[1-9])/[0-9]{4}$");  //Formato data dd/mm/aaaa
-    static Pattern onlyPasswordPattern = Pattern.compile("((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!£&=?_%]).{8,20})"); //password che deve contenere un numero, un carattere minuscolo, uno maiuscolo e un carattere speciale tra @#$!£&=?_% e deve avere lunghezza min 8 e max 20
-    static Pattern onlyEmail = Pattern.compile("[a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}"); //Pattern di Verifica indirizzo Email
+    /**
+     * Pattern utilizzato per il riconoscimento di codici fiscali corretti
+     */
+    private static final Pattern ONLY_CODICE_FISCALE = Pattern.compile("^[a-zA-Z]{6}[0-9]{2}[abcdehlmprstABCDEHLMPRST]{1}[0-9]{2}([a-zA-Z]{1}[0-9]{3})[a-zA-Z]{1}$");
     
-    //Controlla che la gerarchia di file/cartelle per il salvataggio dei dati esista, se non esiste viene creata
+    /**
+     * Pattern utilizzato per il riconoscimento di caratteri non accettati all'interno di stringhe<br>
+     * Il pattern accetta:<br>
+     *  - Lettere maiuscole e minuscole<br>
+     *  - I seguenti caratteri speciali àèòìù'
+     */
+    private static final Pattern ONLY_LETTERS_PATTERN = Pattern.compile("[^a-zA-Zàèòìù'\\s]");
+    
+    /**
+     * Pattern utilizzato per il riconoscimento di caratteri non ammessi durante la compilazione della descrizione dell'evento avverso
+     * Il pattern accetta:<br>
+     *  - Numeri<br>
+     *  - Lettere maiuscole e minuscole<br>
+     *  - I seguenti caratteri speciali àèòìù'().,:;
+     */    
+    private static final Pattern ONLY_EVENT_DESCRIPTION = Pattern.compile("[^0-9a-zA-Zàèòìù'().,:;\\s]");
 
     /**
-     *
-     * @return
+     * Pattern utilizzato per il riconoscimento di caratteri non ammessi durante la compilazione del numero civico<br>
+     * Il pattern accetta:<br>
+     *  - Numeri<br>
+     *  - Lettere maiuscole e minuscole<br>
+     *  - Il seguente carattere speciale /
+     */   
+    private static final Pattern ONLY_CIVICO_PATTERN = Pattern.compile("[^a-zA-Z0-9/\\\\s]");
+    
+    /**
+     * Pattern utilizzato per accettare solamente numeri all'interno dei campi di compilazione
+     */    
+    private static final Pattern ONLY_NUMBERS_PATTERN = Pattern.compile("[^0-9]"); //Verranno accettati solamente numeri
+
+    /**
+     * Pattern utilizzato per il corretto inserimento della password.<br>
+     * Il pattern accetta le stringhe che sono composte da:<br>
+     *  - una lunghezza compresa tra 8 e 20 caratteri<br>
+     *  - almeno un carattere maiuscolo<br>
+     *  - almeno un carattere minuscolo<br>
+     *  - almeno un numero<br>
+     *  - almeno un carattere speciale tra i seguenti @#$!£&=?_%
+     */    
+    private static final Pattern ONLY_PASSWORD_PATTERN = Pattern.compile("((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!£&=?_%]).{8,20})"); //password che deve contenere un numero, un carattere minuscolo, uno maiuscolo e un carattere speciale tra @#$!£&=?_% e deve avere lunghezza min 8 e max 20
+
+    /**
+     * Pattern per la verifica della bontà dell'indirizzo email inserito
+     */    
+    private static final Pattern ONLY_EMAIL_PATTERN = Pattern.compile("[a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}"); //Pattern di Verifica indirizzo Email
+    
+
+    /**
+     * Il metodo <b>checkDirHierarchy</b> è utilizzato per verificare la presenza di tutti i file e directory per permettere un corretto funzionamento all'applicazione.
+     * Il metodo, inoltre, in caso trovasse mancanze, ricostruirà i file o directory mancanti al fine di non generare errori in esecuzione.
+     * @return Viene ritornato un valore booleano in base all'esito del metodo. True: se non sono state trovate mancanze. False: se sono state necessarie ristrutturazioni.
      */
     public static boolean checkDirHierarchy(){
         boolean check = true;
@@ -138,8 +178,8 @@ public class GeneralFunctions {
     //Recupera dal DB la lista dei centri vaccinali registrati
 
     /**
-     *
-     * @return
+     * Il metodo <b>getCentriVaccinaliList</b> è utilizzato per recuperare la lista di tutti i centri vaccinali registrati
+     * @return Viene ritornata una lista di stringhe (List<String>) contenente i nomi dei centri vaccinali registrati
      */
     public static List<String> getCentriVaccinaliList(){
         List<String> retList = new ArrayList();
@@ -161,12 +201,10 @@ public class GeneralFunctions {
         return retList;
     }
        
-    
-    //Recupera tutti gli ID Vaccino registrati
 
     /**
-     *
-     * @return
+     * Il metodo <b>getUniqueList</br> recupera una lista di ID Vaccini, Codici Fiscali e UserID che sono già stati registrati a sistema
+     * @return Viene ritornata una lista di stringhe (List<String>) contenente gli ID Vaccini, Codici Fiscali e UserID che sono già stati registrati a sistema
      */
     public static List<String> getUniqueList(){
         List<String> retList = new ArrayList<>();
@@ -192,9 +230,9 @@ public class GeneralFunctions {
     //Recupera le info di un singolo Centro Vaccinale
 
     /**
-     *
-     * @param nomeCentroVaccinale
-     * @return
+     * Il metodo <b>getCentroVaccinaleInfo</b> è utilizzato per recuperare tutte le informazioni relative ad uno specifico centro vaccinale registrato.
+     * @param nomeCentroVaccinale Nome del centro vaccinale del quale si necessitano le informazioni
+     * @return Viene ritornata una lista di stringhe (List<String>) che riporta le informazioni del centro vaccinale target
      */
     public static List<String> getCentroVaccinaleInfo(String nomeCentroVaccinale){
         List<String> retList = new ArrayList();
@@ -222,9 +260,9 @@ public class GeneralFunctions {
     }
     
     /**
-     *
-     * @param id
-     * @return
+     * Il metodo <b>getCentroVaccinalebyID</b> è utilizzato al fine di recuperare il centro vaccinale al quale un cittadino risulta registrato.
+     * @param id UserID del cittadino
+     * @return Viene ritornata una stringa contenente il nome del centro vaccinale
      */
     public static String getCentroVaccinalebyID(String id){
         
@@ -251,9 +289,10 @@ public class GeneralFunctions {
     }
     
     /**
-     *
-     * @param codFisc
-     * @return
+     * Il metodo <b>newCittadinoAlreadyVaccinato</b> ritorna il centro vaccinale e l'ID Vaccino per il quale un cittadino risulta registrato
+     * @param codFisc Codice Fiscale del cittadino
+     * @return Viene ritornata una stringa che contiene "<NomeCentroVaccinale><DATASEPARATOR><IdVaccino>"
+     * @see #DATASEPARATOR
      */
     public static String newCittadinoAlreadyVaccinato(String codFisc){
         List<String> nomeCentriVaccinali = getCentriVaccinaliList();
@@ -283,20 +322,11 @@ public class GeneralFunctions {
     }
     
     
-    
-    
-    /*
-
-        Controlli per campi di inserimento
-
-    */
-    
-    //Verifica che la data inserita non sia futura
 
     /**
-     *
-     * @param p
-     * @return
+     * Il metodo <b>checkData</b> controlla che la data i passata come parametro non sia futura
+     * @param p Stringa da verificare
+     * @return Ritorna un valore booleano in base all'esito del controllo
      * @throws ParseException
      */
     public static boolean checkData(String p) throws ParseException{
@@ -317,12 +347,13 @@ public class GeneralFunctions {
     }
     
     /**
-     *
-     * @param p
-     * @return
+     * Il metodo <b>checkUserId</b> controlla che la stringa inserita rispetti il pattern ONLY_LETTERS_PATTERN. Inoltre, viene verificato che la lunghezza del parametro inserito sia compresa tra 3 e 8 caratteri, in caso contrario si visualizzerà un errore.
+     * @param p Stringa da verificare
+     * @return Ritorna un valore booleano in base all'esito del controllo
+     * @see #ONLY_LETTERS_PATTERN
      */
     public static boolean checkUserId(String p){
-        Matcher matcher = onlyLettersPattern.matcher(p);
+        Matcher matcher = ONLY_LETTERS_PATTERN.matcher(p);
         if((p.trim().length()>2 && !matcher.find() && p.trim().length() <9) == false){
             if(p.equalsIgnoreCase("Da 3 a 8 caratteri...")){
                 showMessageDialog(null, "Alcuni campi non sono stati compilati, prova a controllare.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(LOGODIR)); 
@@ -338,73 +369,72 @@ public class GeneralFunctions {
     //Verifica che l'ID vaccino sia numerico e di lunghezza 16
 
     /**
-     *
-     * @param p
-     * @return
+     * Il metodo <b>checkIdVaccino</b> controlla che la il parametro rispetti il pattern ONLY_NUMBERS_PATTERN.<br>Inoltre, viene controllata che la lunghezza del parametro sia uguale a 16, in caso contrario si visualizzerà un errore.
+     * @param p Stringa da verificare
+     * @return Ritorna un valore booleano in base all'esito del controllo
+     * @see #ONLY_NUMBERS_PATTERN
      */
     public static boolean checkIdVaccino(String p){
-        Matcher matcher = onlyNumbersPattern.matcher(p);
+        Matcher matcher = ONLY_NUMBERS_PATTERN.matcher(p);
         if((!matcher.find() && p.length() == 16) == false){
             showMessageDialog(null, "L'ID Vaccino deve contenere esattamente 16 cifre.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(LOGODIR));
         }
         return !matcher.find() && p.length() == 16;
     }
-    
-    //Verifica il formato del codice fiscale inserito
+   
 
     /**
-     *
-     * @param p
-     * @return
+     * Il metodo <b>checkCodiceFiscale</b> controlla che la il parametro rispetti il pattern ONLY_CODICE_FISCALE, in caso contrario si visualizzerà un errore.
+     * @param p Stringa da verificare
+     * @return Ritorna un valore booleano in base all'esito del controllo
+     * @see #ONLY_CODICE_FISCALE
      */
     public static boolean checkCodiceFiscale(String p){
-        Matcher matcher = onlyCodiceFiscale.matcher(p);
+        Matcher matcher = ONLY_CODICE_FISCALE.matcher(p);
         if(matcher.find() == false){
             showMessageDialog(null, "Il codice fiscale inserito non è valido.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(LOGODIR));
             return false;
         }
         return true;
     }
- 
-    //Verifica che la provincia sia composta solamente da 2 lettere
 
     /**
-     *
-     * @param p
-     * @return
+     * Il metodo <b>checkProvincia</b> controlla che la il parametro rispetti il pattern ONLY_LETTERS_PATTERN.Inoltre, viene verificata che la lunghezza del parametro sia uguale a 2, in caso contrario si visualizzerà un errore.
+     * @param p Stringa da verificare
+     * @return Ritorna un valore booleano in base all'esito del controllo
+     * @see #ONLY_LETTERS_PATTERN
      */
     public static boolean checkProvincia(String p){
-        Matcher matcher = onlyLettersPattern.matcher(p);
+        Matcher matcher = ONLY_LETTERS_PATTERN.matcher(p);
         if((p.trim().length() == 2 && !matcher.find()) == false){
             showMessageDialog(null, "La provincia inserita risulta errata\nInserire la sigla della provincia.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(LOGODIR));
         }
         return p.trim().length() == 2 && !matcher.find();
     }
-    
-    //Verifica che il CAP sia di 5 cifre
 
     /**
-     *
-     * @param p
-     * @return
+     * Il metodo <b>checkProvincia</b> controlla che la il parametro rispetti il pattern ONLY_LETTERS_PATTERN.Inoltre, viene verificata che la lunghezza del parametro sia uguale a 2, in caso contrario si visualizzerà un errore.
+     * @param p Stringa da verificare
+     * @return Ritorna un valore booleano in base all'esito del controllo
+     * @see #ONLY_LETTERS_PATTERN
      */
     public static boolean checkCAP(String p){
-        Matcher matcher = onlyNumbersPattern.matcher(p);
+        Matcher matcher = ONLY_NUMBERS_PATTERN.matcher(p);
         if((p.trim().length() == 5 && !matcher.find()) == false){
             showMessageDialog(null, "Il CAP inserito risulta errato.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(LOGODIR));
         }
         return p.trim().length() == 5 && !matcher.find();
     }
-    
-    //Verifica che un dato sia compilato con lunghezza da 3 a 40 caratteri
+   
 
     /**
-     *
-     * @param p
-     * @return
+     * Il metodo <b>checkCompiled</b> controlla che la il parametro rispetti il pattern ONLY_LETTERS_PATTERN. Inoltre, viene verificata che la lunghezza del parametro sia compresa tra 3 e 40 caratteri, in caso contrario si visualizzerà un errore.
+     * @param p Stringa da verificare
+     * @return Ritorna un valore booleano in base all'esito del controllo
+     * @see #ONLY_LETTERS_PATTERN
      */
     public static boolean checkCompiled(String p){
-        Matcher matcher = onlyLettersPattern.matcher(p);
+        Matcher matcher = ONLY_LETTERS_PATTERN.matcher(p);
         if((p.trim().length()>2 && !matcher.find() && p.trim().length() < 41) == false){
             if(p.equalsIgnoreCase("Da 3 a 40 caratteri...")){
                 showMessageDialog(null, "Alcuni campi non sono stati compilati, prova a controllare.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(LOGODIR)); 
@@ -416,16 +446,15 @@ public class GeneralFunctions {
         }
         return true;
     }
-    
-    //Verifica che il civico sia compreso tra 1 e 5 caratteri
 
     /**
-     *
-     * @param p
-     * @return
+     * Il metodo <b>checkEvtDescription</b> controlla che la il parametro rispetti il pattern ONLY_EVENT_DESCRIPTION. Inoltre, viene verificata che la lunghezza del parametro sia compresa tra 8 e 256 caratteri, in caso contrario si visualizzerà un errore.
+     * @param p Stringa da verificare
+     * @return Ritorna un valore booleano in base all'esito del controllo
+     * @see #ONLY_EVENT_DESCRIPTION
      */
     public static boolean checkEvtDescription(String p){
-        Matcher matcher = onlyEvtDescription.matcher(p);
+        Matcher matcher = ONLY_EVENT_DESCRIPTION.matcher(p);
         if((p.trim().length()>7 && !matcher.find() && p.trim().length() < 257) == false){
             showMessageDialog(null, "La descrizione dell'evento risulta errata.\nLa descrizione deve essere compresa tra 8 e 256 caratteri e può contenere\nsolamente i seguenti caratteri speciali èòìù'().,:;", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(LOGODIR));
             return false;
@@ -438,43 +467,42 @@ public class GeneralFunctions {
     }
     
     /**
-     *
-     * @param p
-     * @return
+     * Il metodo <b>checkCivico</b> controlla che la il parametro rispetti il pattern ONLY_CIVICO_PATTERN. Inoltre, viene verificata che la lunghezza del parametro sia compresa tra 1 e 5 caratteri, in caso contrario si visualizzerà un errore.
+     * @param p Stringa da verificare
+     * @return Ritorna un valore booleano in base all'esito del controllo
+     * @see #ONLY_CIVICO_PATTERN
      */
     public static boolean checkCivico(String p){
-        Matcher matcher = onlyCivicoPattern.matcher(p);
+        Matcher matcher = ONLY_CIVICO_PATTERN.matcher(p);
         if(!(p.trim().length()>0 && p.trim().length()<6 && !matcher.find())){
             showMessageDialog(null, "Il civico inserito risulta errato.\nIl campo:\n- Può contenere da 1 a 6 caratteri\n- Può contenere lettere, numeri o il carattere '/'", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(LOGODIR));
         }
         return p.trim().length()>0 && p.trim().length()<6 && !matcher.find();
     }
-    
-    //Verifica Indirizzo Mail
 
     /**
-     *
-     * @param p
-     * @return
+     * Il metodo <b>checkMail</b> controlla che la il parametro rispetti il pattern ONLY_EMAIL_PATTERN, in caso contrario si visualizzerà un errore.
+     * @param p Stringa da verificare
+     * @return Ritorna un valore booleano in base all'esito del controllo
+     * @see #ONLY_EMAIL_PATTERN
      */
     public static boolean checkMail(String p){
-        Matcher matcher = onlyEmail.matcher(p);
+        Matcher matcher = ONLY_EMAIL_PATTERN.matcher(p);
         if((p.trim().length()>0 && matcher.find()) == false){
             showMessageDialog(null, "L'indirizzo e-mail inserito risulta errato.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(LOGODIR));
             return false;
         }
         return true;
     }
-    
-    //Verifica il pattern della password
 
     /**
-     *
-     * @param p
-     * @return
+     * Il metodo <b>checkPassword</b> controlla che la il parametro rispetti il pattern ONLY_PASSWORD_PATTERN, in caso contrario si visualizzerà un errore.
+     * @param p Stringa da verificare
+     * @return Ritorna un valore booleano in base all'esito del controllo
+     * @see #ONLY_PASSWORD_PATTERN
      */
     public static boolean checkPassword(String p){
-        Matcher matcher = onlyPasswordPattern.matcher(p);
+        Matcher matcher = ONLY_PASSWORD_PATTERN.matcher(p);
         if(matcher.find() == false){
              showMessageDialog(null, "La password inserita non è valida.\n\nLa password deve:\n- Avere lunghezza tra 8 e 20 caratteri\n- Avere almeno un numero\n- Avere almeno una lettera minuscola\n- Avere almeno una lettera maiuscola\n- Avere almeno un carattere speciale tra i seguenti:  @$!£&=?_%", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(LOGODIR));
              return false;
@@ -483,9 +511,9 @@ public class GeneralFunctions {
     }
     
     /**
-     *
-     * @param input
-     * @return
+     * Il metodo <b>getSHA</b> cripta in SHA-256 il parametro passato
+     * @param input Stringa da criptare
+     * @return Ritorna un array di byte contentente il parametro criptato in SHA-256
      * @throws NoSuchAlgorithmException
      */
     public static byte[] getSHA(String input) throws NoSuchAlgorithmException
@@ -495,9 +523,9 @@ public class GeneralFunctions {
     }
     
     /**
-     *
-     * @param hash
-     * @return
+     * Il metodo <b>toHexString</b> converte un array di byte in una stringa
+     * @param hash Stringa da convertire
+     * @return Ritorna una stringa che rappresenta l'hash
      */
     public static String toHexString(byte[] hash)
     {
