@@ -44,10 +44,10 @@ public class RegistrazioneCentroVaccinale extends javax.swing.JFrame {
     /**
      * La funzione <b>registraCentroVaccinale</b> è utilizzata al fine di recuperare i dati inseriti dall'utente e salvarli in un file esterno.<br>Viene effettuato un controllo che impedisce l'inserimento di centri vaccinali con lo stesso nominativo.<br>La classe usufruisce dei seguenti metodi importati per effettuare dei controlli sulla correttezza dei dati inseriti:
      * @see utils.GeneralFunctions#checkCompiled
-     * @see utilis.GeneralFunctions#checkCivico
-     * @see utilis.GeneralFunctions#checkProvincia
-     * @see utilis.GeneralFunctions#checkCAP
-     * @see utilis.GeneralFunctions#checkDirHierarchy
+     * @see utils.GeneralFunctions#checkCivico
+     * @see utils.GeneralFunctions#checkProvincia
+     * @see utils.GeneralFunctions#checkCAP
+     * @see utils.GeneralFunctions#checkDirHierarchy
      */
     private void registraCentroVaccinale(){        
         String nomeCentroVaccinale = name_RegistrazioneCentroVaccinale.getText().strip();

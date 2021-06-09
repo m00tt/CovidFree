@@ -20,7 +20,7 @@ import static utils.GeneralFunctions.checkCompiled;
 import static utils.GeneralFunctions.checkEvtDescription;
 
 /**
- * La classe <b<RegistraEventiAvversi</b> viene utilizzata per la creazione e la memorizzazione di un nuovo evento avverso segnalato da un cittadino.
+ * La classe <b>RegistraEventiAvversi</b> viene utilizzata per la creazione e la memorizzazione di un nuovo evento avverso segnalato da un cittadino.
  * @author Andrea Mottini 742605 VA
  * @author Riccardo Bianchi 736701 VA
  */

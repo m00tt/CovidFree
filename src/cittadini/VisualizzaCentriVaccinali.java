@@ -51,7 +51,9 @@ public class VisualizzaCentriVaccinali extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
     }
 
-
+    /**
+     * Questo metodo viene chiamato dall'interno del costruttore per inizializzare il form.
+     */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {

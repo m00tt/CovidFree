@@ -482,7 +482,6 @@ public class RegistraCittadini extends javax.swing.JFrame {
     //Recupera la lista di centri vaccinali registrati
     /**
      * La funzione <b>fillCentriVaccinali</b> ha lo scopo di aggiungere alla Jlist presente nella GUI i centri vaccinali registrati e salvati sul file <i>"CentriVaccinali.dati"</i>
-     * @param centriVaccinali
      */
     private void fillCentriVaccinali(){
         List<String> centriVaccinali = getCentriVaccinaliList();
@@ -493,9 +492,9 @@ public class RegistraCittadini extends javax.swing.JFrame {
     }
     
     /**
-     * Il metodo <b>registraCittadino()</b> consente di registrare un nuovo cittadino e memorizzare le informazioni nell'apposita struttura dati. <br></br>
+     * Il metodo <b>registraCittadino()</b> consente di registrare un nuovo cittadino e memorizzare le informazioni nell'apposita struttura dati. <br>
      * Controlla che tutti i campi all'interno del form siano stati correttamente compilati. <br>
-     * Al suo interno richiama tutte le funzioni di verifica veridicità dei dati e, in caso di errori restituisce un messaggio che indica quale campo è sbagliato e come modificare l'input per validare la verifica.<br></br>
+     * Al suo interno richiama tutte le funzioni di verifica veridicità dei dati e, in caso di errori restituisce un messaggio che indica quale campo è sbagliato e come modificare l'input per validare la verifica.<br>
      * Al termine dell'operazione di scrittura dati, se avvenuta con successo, riport automaticamente l'applicazione alla schermata precedente.<br>
      * @throws NoSuchAlgorithmException 
      */

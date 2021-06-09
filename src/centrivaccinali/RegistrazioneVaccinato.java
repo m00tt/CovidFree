@@ -55,18 +55,18 @@ public class RegistrazioneVaccinato extends javax.swing.JFrame {
     * Il metodo <b>registraVaccinato</b> è utilizzata al fine di recuperare i dati inseriti dall'utente inerenti alla registrazione di un nuovo cittadino vaccinato di ue salvarli in un file esterno.
     * La classe usufruisce dei seguenti metodi importati per effettuare dei controlli sulla correttezza dei dati inseriti:
     * @see utils.GeneralFunctions#checkCompiled
-    * @see utilis.GeneralFunctions#checkCodiceFiscale
-    * @see utilis.GeneralFunctions#checkData
-    * @see utilis.GeneralFunctions#checkIdVaccino
+    * @see utils.GeneralFunctions#checkCodiceFiscale
+    * @see utils.GeneralFunctions#checkData
+    * @see utils.GeneralFunctions#checkIdVaccino
     * 
     * Viene utilizzato il seguente metodo per effettuare controlli sulla gerarchia di file presenti, al fine di correggere eventuali assenze di file o directory:
-    * @see utilis.GeneralFunctions#checkDirHierarchy
+    * @see utils.GeneralFunctions#checkDirHierarchy
     * <br>
     * Viene utilizzato il seguente metodo per la verifica di cittadini già registrati in precedenza:
-    * @see utilis.GeneralFunctions#newCittadinoAlreadyVaccinato
+    * @see utils.GeneralFunctions#newCittadinoAlreadyVaccinato
     * <br>
     * Viene utilizzato il seguente metodo per generare una lista necessaria al controllo di eventuali utenti già registrati o vaccinati.
-    * @see utilis.GeneralFunctions#getUniqueList
+    * @see utils.GeneralFunctions#getUniqueList
     */
     private void registraVaccinato(){
         try {

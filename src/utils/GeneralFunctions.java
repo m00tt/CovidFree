@@ -100,7 +100,7 @@ public class GeneralFunctions {
      *  - almeno un carattere maiuscolo<br>
      *  - almeno un carattere minuscolo<br>
      *  - almeno un numero<br>
-     *  - almeno un carattere speciale tra i seguenti @#$!£&=?_%
+     *  - almeno un carattere speciale
      */    
     private static final Pattern ONLY_PASSWORD_PATTERN = Pattern.compile("((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!£&=?_%]).{8,20})"); //password che deve contenere un numero, un carattere minuscolo, uno maiuscolo e un carattere speciale tra @#$!£&=?_% e deve avere lunghezza min 8 e max 20
 
@@ -179,7 +179,7 @@ public class GeneralFunctions {
 
     /**
      * Il metodo <b>getCentriVaccinaliList</b> è utilizzato per recuperare la lista di tutti i centri vaccinali registrati
-     * @return Viene ritornata una lista di stringhe (List<String>) contenente i nomi dei centri vaccinali registrati
+     * @return Viene ritornata una lista di stringhe contenente i nomi dei centri vaccinali registrati
      */
     public static List<String> getCentriVaccinaliList(){
         List<String> retList = new ArrayList();
@@ -203,8 +203,8 @@ public class GeneralFunctions {
        
 
     /**
-     * Il metodo <b>getUniqueList</br> recupera una lista di ID Vaccini, Codici Fiscali e UserID che sono già stati registrati a sistema
-     * @return Viene ritornata una lista di stringhe (List<String>) contenente gli ID Vaccini, Codici Fiscali e UserID che sono già stati registrati a sistema
+     * Il metodo <b>getUniqueList</b> recupera una lista di ID Vaccini, Codici Fiscali e UserID che sono già stati registrati a sistema
+     * @return Viene ritornata una lista di stringhe contenente gli ID Vaccini, Codici Fiscali e UserID che sono già stati registrati a sistema
      */
     public static List<String> getUniqueList(){
         List<String> retList = new ArrayList<>();
@@ -232,7 +232,7 @@ public class GeneralFunctions {
     /**
      * Il metodo <b>getCentroVaccinaleInfo</b> è utilizzato per recuperare tutte le informazioni relative ad uno specifico centro vaccinale registrato.
      * @param nomeCentroVaccinale Nome del centro vaccinale del quale si necessitano le informazioni
-     * @return Viene ritornata una lista di stringhe (List<String>) che riporta le informazioni del centro vaccinale target
+     * @return Viene ritornata una lista di stringhe che riporta le informazioni del centro vaccinale target
      */
     public static List<String> getCentroVaccinaleInfo(String nomeCentroVaccinale){
         List<String> retList = new ArrayList();
@@ -291,7 +291,7 @@ public class GeneralFunctions {
     /**
      * Il metodo <b>newCittadinoAlreadyVaccinato</b> ritorna il centro vaccinale e l'ID Vaccino per il quale un cittadino risulta registrato
      * @param codFisc Codice Fiscale del cittadino
-     * @return Viene ritornata una stringa che contiene "<NomeCentroVaccinale><DATASEPARATOR><IdVaccino>"
+     * @return Viene ritornata una stringa che contiene "NomeCentroVaccinale + DATASEPARATOR + IdVaccino"
      * @see #DATASEPARATOR
      */
     public static String newCittadinoAlreadyVaccinato(String codFisc){
