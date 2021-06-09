@@ -21,6 +21,7 @@ import static utils.GeneralFunctions.checkEvtDescription;
 
 /**
  *
+ * 
  * @author riccardo
  */
 public class RegistraEventiAvversi extends javax.swing.JFrame {

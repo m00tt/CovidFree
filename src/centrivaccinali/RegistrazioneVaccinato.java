@@ -49,6 +49,110 @@ public class RegistrazioneVaccinato extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         
     }
+    
+    
+       /**
+    * Il metodo <b>registraVaccinato</b> è utilizzata al fine di recuperare i dati inseriti dall'utente inerenti alla registrazione di un nuovo cittadino vaccinato di ue salvarli in un file esterno.
+    * La classe usufruisce dei seguenti metodi importati per effettuare dei controlli sulla correttezza dei dati inseriti:
+    * @see utils.GeneralFunctions#checkCompiled
+    * @see utilis.GeneralFunctions#checkCodiceFiscale
+    * @see utilis.GeneralFunctions#checkData
+    * @see utilis.GeneralFunctions#checkIdVaccino
+    * 
+    * Viene utilizzato il seguente metodo per effettuare controlli sulla gerarchia di file presenti, al fine di correggere eventuali assenze di file o directory:
+    * @see utilis.GeneralFunctions#checkDirHierarchy
+    * <br>
+    * Viene utilizzato il seguente metodo per la verifica di cittadini già registrati in precedenza:
+    * @see utilis.GeneralFunctions#newCittadinoAlreadyVaccinato
+    * <br>
+    * Viene utilizzato il seguente metodo per generare una lista necessaria al controllo di eventuali utenti già registrati o vaccinati.
+    * @see utilis.GeneralFunctions#getUniqueList
+    */
+    private void registraVaccinato(){
+        try {
+            String nomeCentroVaccinale;
+            if(centroVaccinale_RegistrazioneVaccinato.getSelectedItem() == null)
+                nomeCentroVaccinale = "";
+            else
+                nomeCentroVaccinale = centroVaccinale_RegistrazioneVaccinato.getSelectedItem().toString();
+            String nomeVaccinato = nome_RegistrazioneVaccinato.getText().strip();
+            String cognomeVaccinato = cognome_RegistrazioneVaccinato.getText().strip();
+            String codiceFiscaleVaccinato = codiceFiscale_RegistrazioneVaccinato.getText().strip();
+            String nomeVaccino = vaccino_RegistrazioneVaccinato.getSelectedItem().toString();
+            String dataVaccino = dataVaccino_RegistrazioneVaccinato.getText().strip();
+            String idVaccino = idVaccino_RegistrazioneVaccinato.getText().strip();
+            
+            if(!"".equals(nomeCentroVaccinale) && checkCompiled(nomeVaccinato) && checkCompiled(cognomeVaccinato) && checkCodiceFiscale(codiceFiscaleVaccinato) && checkData(dataVaccino) && checkIdVaccino(idVaccino)){
+                String insert = nomeCentroVaccinale + DATASEPARATOR + codiceFiscaleVaccinato + DATASEPARATOR + idVaccino + DATASEPARATOR + nomeVaccinato + DATASEPARATOR + cognomeVaccinato + DATASEPARATOR + nomeVaccino + DATASEPARATOR + dataVaccino;
+                String path = CENTRIVACCINALIDIR + File.separator + "Vaccinati_"+nomeCentroVaccinale+".dati";
+                if(!checkDirHierarchy()){
+                    showMessageDialog(null, "I database risultano corrotti.\nI dati sono stati ripristinati.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(LOGODIR));
+                }
+                File f = new File(path);
+                if(!f.exists()){
+                    f.createNewFile();
+                }
+                try{
+                    boolean ok = true;            
+                    List<String> toCheckUnique = getUniqueList();
+                    for (int i=0; i<toCheckUnique.size(); i++){
+                        if(toCheckUnique.get(i).equalsIgnoreCase(idVaccino)){
+                            ok = false;
+                            break;
+                        }                        
+                    }
+                    
+                    if(ok)
+                    {
+                        String cmp = newCittadinoAlreadyVaccinato(codiceFiscaleVaccinato);
+                        if(cmp == null){
+                            try (FileWriter fw2 = new FileWriter(path, true)) { 
+                                fw2.append(insert+"\n");
+                                showMessageDialog(null, "Vaccinato registrato con successo!", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(LOGODIR));
+                            }catch(HeadlessException | IOException e){
+                                showMessageDialog(null, "Errore in fase di scrittura dei dati, riprova.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(LOGODIR));
+                            }
+
+                            HomeCentriVaccinali homeCentriVaccinali = new HomeCentriVaccinali();
+                            homeCentriVaccinali.setVisible(true);
+                            this.setVisible(false);
+                        }
+                        else{
+                            String[] getS = cmp.split(DATASEPARATOR);
+                            showMessageDialog(null, "Il cittadino risulta già vaccinato presso il Centro Vaccinale '" + getS[0] + "' con l'ID Vaccino: " + getS[1], "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(LOGODIR));
+                        }
+                    }
+                    else{
+                        showMessageDialog(null, "Codice fiscale o ID Vaccino già presenti nel database.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(LOGODIR));
+                    }
+                    
+                }catch(HeadlessException e){
+                    showMessageDialog(null, "Errore in fase di scrittura dei dati, riprova.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(LOGODIR));
+                }
+                
+            }
+            else{
+                if("".equals(nomeCentroVaccinale))
+                    showMessageDialog(null, "Nessun centro vaccinale disponibile.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(LOGODIR));
+            }
+        } catch (ParseException ex) {
+            showMessageDialog(null, "I dati inseriti non sono corretti, prova a ricontrollare.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(LOGODIR));
+        } catch (IOException ex) {
+            showMessageDialog(null, "Errore in fase di scrittura dei dati, riprova.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(LOGODIR));
+        }
+    }
+    
+   /**
+    * Il metodo <b>fillCentriVaccinali</b> richiama la funzione @see utils.GeneralFunctions#getCentriVaccinaliList al fine di popolare la combobox per la scelta delone di un nuovo cittadino vaccinato di ue salvarli in un file esterno.
+    */
+    private void fillCentriVaccinali(){
+        List<String> centriVaccinali = getCentriVaccinaliList();
+                
+        for(int i=0; i<centriVaccinali.size(); i++){
+            centroVaccinale_RegistrazioneVaccinato.addItem(centriVaccinali.get(i));
+        }
+    }
+
 
     /**
      * Il metodo <b>initComponents</b> viene utilizzato per la creazione di tutti i componenti grafici contenuti all'interno del JFrame
@@ -283,7 +387,7 @@ public class RegistrazioneVaccinato extends javax.swing.JFrame {
                 .addGroup(Panel_RegistrazioneVaccinatoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ann_RegistrazioneVaccinato, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(add_RegistrazioneVaccinato, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(10, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -393,107 +497,6 @@ public class RegistrazioneVaccinato extends javax.swing.JFrame {
         });
     }
     
-   /**
-    * Il metodo <b>registraVaccinato</b> è utilizzata al fine di recuperare i dati inseriti dall'utente inerenti alla registrazione di un nuovo cittadino vaccinato di ue salvarli in un file esterno.
-    * La classe usufruisce dei seguenti metodi importati per effettuare dei controlli sulla correttezza dei dati inseriti:
-    * @see utils.GeneralFunctions#checkCompiled
-    * @see utilis.GeneralFunctions#checkCodiceFiscale
-    * @see utilis.GeneralFunctions#checkData
-    * @see utilis.GeneralFunctions#checkIdVaccino
-    * 
-    * Viene utilizzato il seguente metodo per effettuare controlli sulla gerarchia di file presenti, al fine di correggere eventuali assenze di file o directory:
-    * @see utilis.GeneralFunctions#checkDirHierarchy
-    * <br>
-    * Viene utilizzato il seguente metodo per la verifica di cittadini già registrati in precedenza:
-    * @see utilis.GeneralFunctions#newCittadinoAlreadyVaccinato
-    * <br>
-    * Viene utilizzato il seguente metodo per generare una lista necessaria al controllo di eventuali utenti già registrati o vaccinati.
-    * @see utilis.GeneralFunctions#getUniqueList
-    */
-    private void registraVaccinato(){
-        try {
-            String nomeCentroVaccinale;
-            if(centroVaccinale_RegistrazioneVaccinato.getSelectedItem() == null)
-                nomeCentroVaccinale = "";
-            else
-                nomeCentroVaccinale = centroVaccinale_RegistrazioneVaccinato.getSelectedItem().toString();
-            String nomeVaccinato = nome_RegistrazioneVaccinato.getText().strip();
-            String cognomeVaccinato = cognome_RegistrazioneVaccinato.getText().strip();
-            String codiceFiscaleVaccinato = codiceFiscale_RegistrazioneVaccinato.getText().strip();
-            String nomeVaccino = vaccino_RegistrazioneVaccinato.getSelectedItem().toString();
-            String dataVaccino = dataVaccino_RegistrazioneVaccinato.getText().strip();
-            String idVaccino = idVaccino_RegistrazioneVaccinato.getText().strip();
-            
-            if(!"".equals(nomeCentroVaccinale) && checkCompiled(nomeVaccinato) && checkCompiled(cognomeVaccinato) && checkCodiceFiscale(codiceFiscaleVaccinato) && checkData(dataVaccino) && checkIdVaccino(idVaccino)){
-                String insert = nomeCentroVaccinale + DATASEPARATOR + codiceFiscaleVaccinato + DATASEPARATOR + idVaccino + DATASEPARATOR + nomeVaccinato + DATASEPARATOR + cognomeVaccinato + DATASEPARATOR + nomeVaccino + DATASEPARATOR + dataVaccino;
-                String path = CENTRIVACCINALIDIR + File.separator + "Vaccinati_"+nomeCentroVaccinale+".dati";
-                if(!checkDirHierarchy()){
-                    showMessageDialog(null, "I database risultano corrotti.\nI dati sono stati ripristinati.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(LOGODIR));
-                }
-                File f = new File(path);
-                if(!f.exists()){
-                    f.createNewFile();
-                }
-                try{
-                    boolean ok = true;            
-                    List<String> toCheckUnique = getUniqueList();
-                    for (int i=0; i<toCheckUnique.size(); i++){
-                        if(toCheckUnique.get(i).equalsIgnoreCase(idVaccino)){
-                            ok = false;
-                            break;
-                        }                        
-                    }
-                    
-                    if(ok)
-                    {
-                        String cmp = newCittadinoAlreadyVaccinato(codiceFiscaleVaccinato);
-                        if(cmp == null){
-                            try (FileWriter fw2 = new FileWriter(path, true)) { 
-                                fw2.append(insert+"\n");
-                                showMessageDialog(null, "Vaccinato registrato con successo!", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(LOGODIR));
-                            }catch(HeadlessException | IOException e){
-                                showMessageDialog(null, "Errore in fase di scrittura dei dati, riprova.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(LOGODIR));
-                            }
-
-                            HomeCentriVaccinali homeCentriVaccinali = new HomeCentriVaccinali();
-                            homeCentriVaccinali.setVisible(true);
-                            this.setVisible(false);
-                        }
-                        else{
-                            String[] getS = cmp.split(DATASEPARATOR);
-                            showMessageDialog(null, "Il cittadino risulta già vaccinato presso il Centro Vaccinale '" + getS[0] + "' con l'ID Vaccino: " + getS[1], "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(LOGODIR));
-                        }
-                    }
-                    else{
-                        showMessageDialog(null, "Codice fiscale o ID Vaccino già presenti nel database.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(LOGODIR));
-                    }
-                    
-                }catch(HeadlessException e){
-                    showMessageDialog(null, "Errore in fase di scrittura dei dati, riprova.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(LOGODIR));
-                }
-                
-            }
-            else{
-                if("".equals(nomeCentroVaccinale))
-                    showMessageDialog(null, "Nessun centro vaccinale disponibile.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(LOGODIR));
-            }
-        } catch (ParseException ex) {
-            showMessageDialog(null, "I dati inseriti non sono corretti, prova a ricontrollare.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(LOGODIR));
-        } catch (IOException ex) {
-            showMessageDialog(null, "Errore in fase di scrittura dei dati, riprova.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(LOGODIR));
-        }
-    }
-    
-   /**
-    * Il metodo <b>fillCentriVaccinali</b> richiama la funzione @see utils.GeneralFunctions#getCentriVaccinaliList al fine di popolare la combobox per la scelta delone di un nuovo cittadino vaccinato di ue salvarli in un file esterno.
-    */
-    private void fillCentriVaccinali(){
-        List<String> centriVaccinali = getCentriVaccinaliList();
-                
-        for(int i=0; i<centriVaccinali.size(); i++){
-            centroVaccinale_RegistrazioneVaccinato.addItem(centriVaccinali.get(i));
-        }
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Panel_RegistrazioneVaccinato;

@@ -28,7 +28,7 @@ import static utils.GeneralFunctions.checkDirHierarchy;
 
     /**
      * La classe <b>CentriVaccinali</b> è utilizzata al fine di fornire una GUI tramite la quale gli utenti possano scegliere di eseguire le operazioni di loro interesse.
-     * @extends javax.swing.JFrame
+     *
      * @author Andrea Mottini 742605 VA
      * @author Riccardo Bianchi 736701 VA
      * 

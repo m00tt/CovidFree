@@ -33,7 +33,7 @@ import static utils.GeneralFunctions.newCittadinoAlreadyVaccinato;
 import static utils.GeneralFunctions.toHexString;
 
 /**
- * La classe RegistraCittadini viene utilizzata per la creazione e la memorizzazione di un nuovo cittadino sulla struttura dati dell'applicazione.
+ * La classe RegistraCittadini viene utilizzata per la creazione e la memorizzazione di un nuovo cittadino all'interno della struttura dati dell'applicazione.
  * @author Andrea Mottini 742605 VA
  * @author Riccardo Bianchi 736701 VA
  */
@@ -41,7 +41,7 @@ public class RegistraCittadini extends javax.swing.JFrame {
     
     /**
      * Costruttore della classe RegistraCittadini()
-     * Viene utilizzata per inizializzare i componenti della classe
+     * Viene utilizzata per inizializzare i componenti della classe <br>
      * richiama inoltre il metodo <b>fillCentriVaccinali()</b> per consentire l'aggiunta dei centri vaccinali già registrati alla combo box presente nel form
      */
     public RegistraCittadini() {
@@ -442,7 +442,7 @@ public class RegistraCittadini extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
-     * Il metodo main viene utilizzato per inizializzare un nuovo elemento della classe <b>RegistraCittadini()</b> <br></br>
+     * Il metodo main viene utilizzato per inizializzare un nuovo elemento della classe <b>RegistraCittadini()</b> <br>
      * Tramite la proprietà <i>setVisible(true)</i> il form viene mostrato a schermo
      * @param args
      */
@@ -494,9 +494,9 @@ public class RegistraCittadini extends javax.swing.JFrame {
     
     /**
      * Il metodo <b>registraCittadino()</b> consente di registrare un nuovo cittadino e memorizzare le informazioni nell'apposita struttura dati. <br></br>
-     * Controlla che tutti i campi all'interno del form siano stati correttamente compilati. <br></br>
+     * Controlla che tutti i campi all'interno del form siano stati correttamente compilati. <br>
      * Al suo interno richiama tutte le funzioni di verifica veridicità dei dati e, in caso di errori restituisce un messaggio che indica quale campo è sbagliato e come modificare l'input per validare la verifica.<br></br>
-     * Al termine dell'operazione di scrittura dati, se avvenuta con successo, riport automaticamente l'applicazione alla schermata precedente.<br></br>
+     * Al termine dell'operazione di scrittura dati, se avvenuta con successo, riport automaticamente l'applicazione alla schermata precedente.<br>
      * @throws NoSuchAlgorithmException 
      */
     private void registraCittadino() throws NoSuchAlgorithmException{
