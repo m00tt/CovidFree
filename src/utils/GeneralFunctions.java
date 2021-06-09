@@ -25,13 +25,23 @@ import java.util.regex.Pattern;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
-
+/**
+ *
+ * @author riccardo
+ */
 public class GeneralFunctions {
     
     //Dichiarazione dei path utili
 
+    /**
+     *
+     */
+
     public static String DATASEPARATOR = "#";
     
+    /**
+     *
+     */
     public static String LOGODIR = System.getProperty("user.dir") + File.separator + "src" + File.separator + "img" + File.separator + "app-logo.png";
     
     /**
@@ -211,6 +221,11 @@ public class GeneralFunctions {
         return retList;
     }
     
+    /**
+     *
+     * @param id
+     * @return
+     */
     public static String getCentroVaccinalebyID(String id){
         
         if(new File(CITTADINIDIR + File.separator +"Cittadini_Registrati.dati").exists()){
@@ -235,6 +250,11 @@ public class GeneralFunctions {
         return null;
     }
     
+    /**
+     *
+     * @param codFisc
+     * @return
+     */
     public static String newCittadinoAlreadyVaccinato(String codFisc){
         List<String> nomeCentriVaccinali = getCentriVaccinaliList();
         
@@ -296,6 +316,11 @@ public class GeneralFunctions {
         }
     }
     
+    /**
+     *
+     * @param p
+     * @return
+     */
     public static boolean checkUserId(String p){
         Matcher matcher = onlyLettersPattern.matcher(p);
         if((p.trim().length()>2 && !matcher.find() && p.trim().length() <9) == false){

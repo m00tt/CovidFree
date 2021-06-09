@@ -19,7 +19,10 @@ import static utils.GeneralFunctions.DATASEPARATOR;
 import static utils.GeneralFunctions.checkCompiled;
 import static utils.GeneralFunctions.checkEvtDescription;
 
-
+/**
+ *
+ * @author riccardo
+ */
 public class RegistraEventiAvversi extends javax.swing.JFrame {
 
 
@@ -33,6 +36,7 @@ public class RegistraEventiAvversi extends javax.swing.JFrame {
     /**
      *
      * @param username
+     * @param centroVaccinale
      */
     public RegistraEventiAvversi(String username, String centroVaccinale){
         initComponents();

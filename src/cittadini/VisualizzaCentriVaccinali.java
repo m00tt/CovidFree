@@ -20,7 +20,10 @@ import static utils.GeneralFunctions.CENTRIVACCINALIDIR;
 import static utils.GeneralFunctions.DATASEPARATOR;
 import static utils.GeneralFunctions.getCentroVaccinaleInfo;
 
-
+/**
+ *
+ * @author riccardo
+ */
 public class VisualizzaCentriVaccinali extends javax.swing.JFrame {
 
     /**

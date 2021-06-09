@@ -1,11 +1,5 @@
 /**
  * 
- * La classe HomeCittadini viene utilizzata per la creazione della GUI che permette ai cittadini di svolgere funzioni di:
- * <ol>
- *  <li> Ricerca Centro Vaccinale</li>
- *  <li> Registrazione</li>
- *  <li> Registrazione Evento Avverso</li>
- * 
  * @author Andrea Mottini 742605 VA
  * @author Riccardo Bianchi 736701 VA
  * 
@@ -31,7 +25,16 @@ import static utils.GeneralFunctions.DATASEPARATOR;
 import static utils.GeneralFunctions.checkDirHierarchy;
 import static utils.GeneralFunctions.getCentriVaccinaliList;
 
-
+/**
+ * La classe HomeCittadini viene utilizzata per la creazione della GUI che permette ai cittadini di svolgere funzioni di:
+ * <br></br>
+ *  Ricerca Centro Vaccinale <br></br>
+ *  Registrazione <br></br>
+ *  Registrazione Evento Avverso <br></br>
+ * 
+ * @author Andrea Mottini 742605 VA
+ * @author Riccardo Bianchi 736701 VA
+ */
 public class HomeCittadini extends javax.swing.JFrame {
 
     /**
@@ -322,7 +325,8 @@ public class HomeCittadini extends javax.swing.JFrame {
 
     /**
      * Il metodo <b>cercaCentrovaccinale()</b> viene utilizzato per permettere il funzionamento della ricerca di un centro vaccinale già esistente.
-     * Richiama il metodo <b>checkDirHierarchy()</b> @see utils.GeneralFunctions#checkDirHierarchy()
+     * Richiama il metodo <b>checkDirHierarchy()</b>
+     * @see utils.GeneralFunctions#checkDirHierarchy() <br></br>
      * Controlla all'interno del file <i>"CentriVaccinali.dati" </i> l'esistenza del centro ricercato dall'utente ed aggiorna la lista dinamica presente nel form.
      */
     public void cercaCentroVaccinale()
@@ -378,7 +382,7 @@ public class HomeCittadini extends javax.swing.JFrame {
     }
     
     /**
-     * Il metodo main viene utilizzato per inizializzare un nuovo elemento della classe <b>HomeCittadini()</b>
+     * Il metodo main viene utilizzato per inizializzare un nuovo elemento della classe <b>HomeCittadini()</b><br></br>
      * Tramite la proprietà <i>setVisible(true)</i> il form viene mostrato a schermo
      * 
      * @param args the command line arguments

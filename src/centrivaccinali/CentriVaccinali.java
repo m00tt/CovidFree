@@ -25,8 +25,10 @@ import static javax.swing.JOptionPane.showMessageDialog;
 import static utils.GeneralFunctions.LOGODIR;
 import static utils.GeneralFunctions.checkDirHierarchy;
 
-
-
+/**
+ *
+ * @author riccardo
+ */
 public final class CentriVaccinali extends javax.swing.JFrame {
 
     /**
