@@ -412,7 +412,7 @@ public class RegistrazioneVaccinato extends javax.swing.JFrame {
 
     /**
      * Annulla l'operazione e ritorna alla home<br>
-     * Richiama il costruttore della classe <b>HomeCentriVaccinali()</b>
+     * Richiama il costruttore della classe <b>HomeCentriVaccinali</b>
      * @see centrivaccinali.HomeCentriVaccinali#HomeCentriVaccinali
      * @param evt - Evento
      */
@@ -424,7 +424,7 @@ public class RegistrazioneVaccinato extends javax.swing.JFrame {
     }//GEN-LAST:event_ann_RegistrazioneVaccinatoActionPerformed
 
     /**
-     * Richiama metodo <b>registraCentroVaccinale()</b><br>
+     * Richiama metodo <b>registraCentroVaccinale</b><br>
      * @see #registraVaccinato
      * @param evt - Evento
      */

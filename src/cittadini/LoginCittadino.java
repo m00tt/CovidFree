@@ -37,7 +37,7 @@ import static utils.GeneralFunctions.toHexString;
 public class LoginCittadino extends javax.swing.JFrame {
 
     /**
-     * Costruttore della classe LoginCittadino()<br>
+     * Costruttore della classe LoginCittadino<br>
      * Viene utilizzata per inizializzare i componenti della classe
      */
     public LoginCittadino() {
@@ -260,7 +260,7 @@ public class LoginCittadino extends javax.swing.JFrame {
     }//GEN-LAST:event_accediBtn_LoginActionPerformed
 
     /**
-     * Il metodo main viene utilizzato per inizializzare un nuovo elemento della classe <b>LoginCittadino()</b>
+     * Il metodo main viene utilizzato per inizializzare un nuovo elemento della classe <b>LoginCittadino</b>
      * Tramite la proprietà <i>setVisible(true)</i> il form viene mostrato a schermo
      * @param args the command line arguments
      */
@@ -298,7 +298,7 @@ public class LoginCittadino extends javax.swing.JFrame {
     
     
      /**
-     * Il metodo <b>checkLogin </b> viene utilizzato per verificare la veridicità delle informazioni inserite in input durante la fase di Login. <br>
+     * Il metodo <b>checkLogin</b> viene utilizzato per verificare la veridicità delle informazioni inserite in input durante la fase di Login. <br>
      * Il metodo confronta username e password inserite dall'utente con quelle presenti nel file <i>"Cittadini_Registrati.dati"</i>
      *
      * @param x

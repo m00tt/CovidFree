@@ -38,7 +38,7 @@ import static utils.GeneralFunctions.getCentriVaccinaliList;
 public class HomeCittadini extends javax.swing.JFrame {
 
     /**
-     * Costruttore della classe HomeCittedini()
+     * Costruttore della classe HomeCittedini
      * Tale costruttore si occupa:<br>
      *  - dell'inizializzazione dei componenti grafici<br>
      *  - del posizionamento della finestra al centro dello schermo<br>
@@ -369,7 +369,7 @@ public class HomeCittadini extends javax.swing.JFrame {
     }//GEN-LAST:event_back_HomeCittadiniActionPerformed
 
 /**
-     * Il metodo <b>cercaCentrovaccinale()</b> viene utilizzato per permettere il funzionamento della ricerca di un centro vaccinale già esistente.<br>Richiama il metodo <b>checkDirHierarchy()</b>
+     * Il metodo <b>cercaCentrovaccinale</b> viene utilizzato per permettere il funzionamento della ricerca di un centro vaccinale già esistente.<br>Richiama il metodo <b>checkDirHierarchy</b>
      * Controlla all'interno del file <i>"CentriVaccinali.dati" </i> l'esistenza del centro ricercato dall'utente ed aggiorna la lista dinamica presente nel form.
      * @see utils.GeneralFunctions#checkDirHierarchy() <br>
  */
@@ -458,7 +458,7 @@ public class HomeCittadini extends javax.swing.JFrame {
     }
     
     /**
-     * Il metodo main viene utilizzato per inizializzare un nuovo elemento della classe <b>HomeCittadini()</b><br>
+     * Il metodo main viene utilizzato per inizializzare un nuovo elemento della classe <b>HomeCittadini</b><br>
      * Tramite la proprietà <i>setVisible(true)</i> il form viene mostrato a schermo
      * 
      * @param args the command line arguments
