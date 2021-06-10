@@ -378,7 +378,6 @@ public class HomeCittadini extends javax.swing.JFrame {
       String thisLine;
       String search = search_HomeCittadini.getText();
       String type = cmbSearchType_HomeCittadino.getSelectedItem().toString();
-      //boolean check = false;
       List <String> list = new ArrayList();
       if(!checkDirHierarchy()){
             showMessageDialog(null, "I database risultano corrotti.\nI dati sono stati ripristinati.", "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(LOGODIR));
@@ -455,6 +454,7 @@ public class HomeCittadini extends javax.swing.JFrame {
             cmbSearchType_HomeCittadino.setVisible(true);         
         }
         search_HomeCittadini.setText("");
+        cercaCentroVaccinale();
     }
     
     /**
