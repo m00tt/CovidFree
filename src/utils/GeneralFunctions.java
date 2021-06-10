@@ -27,7 +27,7 @@ import javax.swing.JOptionPane;
 
 
 /**
- * La classe GeneralFunction contiene tutte le funzioni utili e condivise con gli altri package
+ * La classe <b>GeneralFunction</b> contiene tutte le funzioni utili e condivise con gli altri package
  * @author Andrea Mottini 742605 VA
  */
 public class GeneralFunctions {
