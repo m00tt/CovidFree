@@ -175,18 +175,36 @@ public class HomeCentriVaccinali extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Permette tramite apposito pulsante di tornare alla schermata precedente.<br>
+     * Richiama costruttore della classe <b>CentriVaccinali()</b>
+     * @param evt - Evento
+     * @see centrivaccinali.CentriVaccinali#CentriVaccinali() 
+     */
     private void back_HomeCentriVaccinaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_back_HomeCentriVaccinaliActionPerformed
         CentriVaccinali centriVaccinali = new CentriVaccinali();
         centriVaccinali.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_back_HomeCentriVaccinaliActionPerformed
 
+    /**
+     * Richiama il costruttore della classe <b>RegistrazioneCentroVaccinale</b><br>
+     * Posiziona finestra al centro dello schermo
+     * @param evt - Evento
+     * @see centrivaccinali.RegistrazioneCentroVaccinale#RegistrazioneCentroVaccinale()
+     */
     private void registraCentroVaccinaleBtn_HomeCentriVaccinaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registraCentroVaccinaleBtn_HomeCentriVaccinaliActionPerformed
         RegistrazioneCentroVaccinale registrazioneCentroVaccinale = new RegistrazioneCentroVaccinale();
         registrazioneCentroVaccinale.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_registraCentroVaccinaleBtn_HomeCentriVaccinaliActionPerformed
 
+    /**
+     * Richiama il costruttore della classe <b>RegistrazioneVaccinato</b><br>
+     * Posiziona finestra al centro dello schermo
+     * @param evt - Evento
+     * @see centrivaccinali.RegistrazioneVaccinato#RegistrazioneVaccinato() 
+     */
     private void registraVaccinatoBtn_HomeCentriVaccinaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registraVaccinatoBtn_HomeCentriVaccinaliActionPerformed
         RegistrazioneVaccinato registrazioneVaccinato = new RegistrazioneVaccinato();
         registrazioneVaccinato.setVisible(true);

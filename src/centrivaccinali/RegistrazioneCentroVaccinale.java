@@ -385,10 +385,21 @@ public class RegistrazioneCentroVaccinale extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Richiama metodo <b>registraCentroVaccinale()</b><br>
+     * @see #registraCentroVaccinale
+     * @param evt - Evento
+     */
     private void add_RegistrazioneCentroVaccinaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_RegistrazioneCentroVaccinaleActionPerformed
         registraCentroVaccinale();
     }//GEN-LAST:event_add_RegistrazioneCentroVaccinaleActionPerformed
 
+    /**
+     * Annulla l'operazione e ritorna alla home<br>
+     * Richiama il costruttore della classe <b>HomeCentriVaccinali()</b>
+     * @see centrivaccinali.HomeCentriVaccinali#HomeCentriVaccinali
+     * @param evt - Evento
+     */
     private void ann_RegistrazioneCentroVaccinaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ann_RegistrazioneCentroVaccinaleActionPerformed
         //Annulla l'operazione e ritorna alla home
         HomeCentriVaccinali homeCentriVaccinali = new HomeCentriVaccinali();
@@ -396,6 +407,10 @@ public class RegistrazioneCentroVaccinale extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_ann_RegistrazioneCentroVaccinaleActionPerformed
 
+    /**
+     * Modifica contenuto nella textbox Nome quando selezionata
+     * @param evt - Evento
+     */
     private void name_RegistrazioneCentroVaccinaleFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_name_RegistrazioneCentroVaccinaleFocusGained
         //hint per l'inserimento corretto dei dati
         if(name_RegistrazioneCentroVaccinale.getText().equals("Da 3 a 40 caratteri...")){
@@ -403,6 +418,10 @@ public class RegistrazioneCentroVaccinale extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_name_RegistrazioneCentroVaccinaleFocusGained
 
+    /**
+     * Modifica contenuto nella textbox Nome quando non selezionata
+     * @param evt - Evento
+     */
     private void name_RegistrazioneCentroVaccinaleFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_name_RegistrazioneCentroVaccinaleFocusLost
         //hint per l'inserimento corretto dei dati
         if(name_RegistrazioneCentroVaccinale.getText().equals("")){
@@ -410,6 +429,10 @@ public class RegistrazioneCentroVaccinale extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_name_RegistrazioneCentroVaccinaleFocusLost
 
+    /**
+     * Modifica contenuto nella textbox Via quando selezionata
+     * @param evt - Evento
+     */
     private void via_RegistrazioneCentroVaccinaleFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_via_RegistrazioneCentroVaccinaleFocusGained
         //hint per l'inserimento corretto dei dati
         if(via_RegistrazioneCentroVaccinale.getText().equals("Da 3 a 40 caratteri...")){
@@ -417,6 +440,10 @@ public class RegistrazioneCentroVaccinale extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_via_RegistrazioneCentroVaccinaleFocusGained
 
+    /**
+     * Modifica contenuto nella textbox Via quando non selezionata
+     * @param evt - Evento
+     */
     private void via_RegistrazioneCentroVaccinaleFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_via_RegistrazioneCentroVaccinaleFocusLost
         //hint per l'inserimento corretto dei dati
         if(via_RegistrazioneCentroVaccinale.getText().equals("")){
@@ -424,6 +451,10 @@ public class RegistrazioneCentroVaccinale extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_via_RegistrazioneCentroVaccinaleFocusLost
 
+    /**
+     * Modifica contenuto nella textbox Comune quando selezionata
+     * @param evt - Evento
+     */
     private void comune_RegistrazioneCentroVaccinaleFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_comune_RegistrazioneCentroVaccinaleFocusGained
         //hint per l'inserimento corretto dei dati
         if(comune_RegistrazioneCentroVaccinale.getText().equals("Da 3 a 40 caratteri...")){
@@ -431,6 +462,10 @@ public class RegistrazioneCentroVaccinale extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_comune_RegistrazioneCentroVaccinaleFocusGained
 
+    /**
+     * Modifica contenuto nella textbox Comune quando non selezionata
+     * @param evt - Evento
+     */
     private void comune_RegistrazioneCentroVaccinaleFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_comune_RegistrazioneCentroVaccinaleFocusLost
         //hint per l'inserimento corretto dei dati
         if(comune_RegistrazioneCentroVaccinale.getText().equals("")){
@@ -438,6 +473,10 @@ public class RegistrazioneCentroVaccinale extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_comune_RegistrazioneCentroVaccinaleFocusLost
 
+    /**
+     * Modifica contenuto nella textbox Provincia quando selezionata
+     * @param evt - Evento
+     */
     private void prov_RegistrazioneCentroVaccinaleFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_prov_RegistrazioneCentroVaccinaleFocusGained
         //hint per l'inserimento corretto dei dati
         if(prov_RegistrazioneCentroVaccinale.getText().equals("Sigla")){
@@ -445,6 +484,10 @@ public class RegistrazioneCentroVaccinale extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_prov_RegistrazioneCentroVaccinaleFocusGained
 
+    /**
+     * Modifica contenuto nella textbox Provincia quando non selezionata
+     * @param evt - Evento
+     */
     private void prov_RegistrazioneCentroVaccinaleFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_prov_RegistrazioneCentroVaccinaleFocusLost
         //hint per l'inserimento corretto dei dati
         if(prov_RegistrazioneCentroVaccinale.getText().equals("")){

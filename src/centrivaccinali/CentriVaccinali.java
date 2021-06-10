@@ -267,6 +267,12 @@ public final class CentriVaccinali extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    /**
+     * Inizializza un nuovo oggetto di tipo <b>HomeCentriVaccinali<b> <br>
+     * Posiziona finestra al centro dello schermo
+     * @param evt - Evento 
+     */
     private void centrovacciniBtn_covidfreeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_centrovacciniBtn_covidfreeActionPerformed
         HomeCentriVaccinali homeCentriVaccinali = new HomeCentriVaccinali();
         homeCentriVaccinali.setVisible(true);
@@ -274,6 +280,11 @@ public final class CentriVaccinali extends javax.swing.JFrame {
         this.setVisible(Boolean.FALSE);
     }//GEN-LAST:event_centrovacciniBtn_covidfreeActionPerformed
 
+     /**
+     * Inizializza un nuovo oggetto di tipo <b>HomeCittadini<b> <br>
+     * Posiziona finestra al centro dello schermo
+     * @param evt - Evento 
+     */
     private void cittadiniBtn_covidfreeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cittadiniBtn_covidfreeActionPerformed
         HomeCittadini homeCittadini = new HomeCittadini();
         homeCittadini.setVisible(true);
@@ -281,42 +292,51 @@ public final class CentriVaccinali extends javax.swing.JFrame {
         this.setVisible(Boolean.FALSE);
     }//GEN-LAST:event_cittadiniBtn_covidfreeActionPerformed
 
+    /**
+     * Mostra autori progetto all'interno di una message box
+     * @param evt - Evento 
+     */
     private void appTitle_covidfreeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_appTitle_covidfreeMouseClicked
         showMessageDialog(null, "Autori\n- Andrea Mottini\n- Riccardo Bianchi\n\n<html><b>Versione</b></html>\n<html><b>1.1</b></html\n\n", "CovidFree - Uninsubria", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(LOGODIR));
     }//GEN-LAST:event_appTitle_covidfreeMouseClicked
 
+    /**
+     * Apre collegamento a Repository GitHub per verificare aggiornamenti applicazione
+     * @param evt - Evento
+     */
     private void updatesBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updatesBtnActionPerformed
-        URI uri=null;
         try {
-            uri = new URI("https://github.com/m00tt/CovidFree#versioning");
+            URI uri = new URI("https://github.com/m00tt/CovidFree#versioning");
             java.awt.Desktop.getDesktop().browse(uri);
-        } catch (URISyntaxException ex) {
-            Logger.getLogger(CentriVaccinali.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
+        } catch (URISyntaxException | IOException ex) {
             Logger.getLogger(CentriVaccinali.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_updatesBtnActionPerformed
 
+    /**
+     * Apre collegamento a repository GitHub per segnalare issue/bug applicativi
+     * @param evt - Evento
+     */
     private void bugBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bugBtnActionPerformed
-        URI uri=null;
         try {
-            uri = new URI("https://github.com/m00tt/CovidFree/issues");
+            URI uri = new URI("https://github.com/m00tt/CovidFree/issues");
             java.awt.Desktop.getDesktop().browse(uri);
-        } catch (URISyntaxException ex) {
+        } catch (URISyntaxException | IOException ex) {
             Logger.getLogger(CentriVaccinali.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(CentriVaccinali.class.getName()).log(Level.SEVERE, null, ex);
-        }        // TODO add your handling code here:
+        }
+        // TODO add your handling code here:
+                // TODO add your handling code here:
     }//GEN-LAST:event_bugBtnActionPerformed
 
+    /**
+     * Apre collegamento a repository GitHub per visualizzare Manuale Utente
+     * @param evt - Evento
+     */
     private void userManualBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userManualBtnActionPerformed
-        URI uri=null;
         try {
-            uri = new URI("https://github.com/m00tt/CovidFree/blob/main/README.md#covidfree---manuale-utente");
+            URI uri = new URI("https://github.com/m00tt/CovidFree/blob/main/README.md#covidfree---manuale-utente");
             java.awt.Desktop.getDesktop().browse(uri);
-        } catch (URISyntaxException ex) {
-            Logger.getLogger(CentriVaccinali.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
+        } catch (URISyntaxException | IOException ex) {
             Logger.getLogger(CentriVaccinali.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_userManualBtnActionPerformed

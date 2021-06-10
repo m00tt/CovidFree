@@ -410,6 +410,12 @@ public class RegistrazioneVaccinato extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Annulla l'operazione e ritorna alla home<br>
+     * Richiama il costruttore della classe <b>HomeCentriVaccinali()</b>
+     * @see centrivaccinali.HomeCentriVaccinali#HomeCentriVaccinali
+     * @param evt - Evento
+     */
     private void ann_RegistrazioneVaccinatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ann_RegistrazioneVaccinatoActionPerformed
         //Annulla l'operazione e ritorna in home
         HomeCentriVaccinali homeCentriVaccinali = new HomeCentriVaccinali();
@@ -417,10 +423,19 @@ public class RegistrazioneVaccinato extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_ann_RegistrazioneVaccinatoActionPerformed
 
+    /**
+     * Richiama metodo <b>registraCentroVaccinale()</b><br>
+     * @see #registraVaccinato
+     * @param evt - Evento
+     */
     private void add_RegistrazioneVaccinatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_RegistrazioneVaccinatoActionPerformed
         registraVaccinato();
     }//GEN-LAST:event_add_RegistrazioneVaccinatoActionPerformed
 
+    /**
+     * Modifica contenuto nella textbox Nome quando selezionata
+     * @param evt - Evento
+     */
     private void nome_RegistrazioneVaccinatoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_nome_RegistrazioneVaccinatoFocusGained
         //hint per l'inserimento corretto dei dati
         if(nome_RegistrazioneVaccinato.getText().equals("Da 3 a 40 caratteri...")){
@@ -428,6 +443,10 @@ public class RegistrazioneVaccinato extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_nome_RegistrazioneVaccinatoFocusGained
 
+    /**
+     * Modifica contenuto nella textbox Nome quando non selezionata
+     * @param evt - Evento
+     */
     private void nome_RegistrazioneVaccinatoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_nome_RegistrazioneVaccinatoFocusLost
         //hint per l'inserimento corretto dei dati
         if(nome_RegistrazioneVaccinato.getText().equals("")){
@@ -435,6 +454,10 @@ public class RegistrazioneVaccinato extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_nome_RegistrazioneVaccinatoFocusLost
 
+    /**
+     * Modifica contenuto nella textbox Cognome quando selezionata
+     * @param evt - Evento
+     */
     private void cognome_RegistrazioneVaccinatoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cognome_RegistrazioneVaccinatoFocusGained
         //hint per l'inserimento corretto dei dati
         if(cognome_RegistrazioneVaccinato.getText().equals("Da 3 a 40 caratteri...")){
@@ -442,6 +465,10 @@ public class RegistrazioneVaccinato extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_cognome_RegistrazioneVaccinatoFocusGained
 
+    /**
+     * Modifica contenuto nella textbox Cognome quando non selezionata
+     * @param evt - Evento
+     */
     private void cognome_RegistrazioneVaccinatoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cognome_RegistrazioneVaccinatoFocusLost
         //hint per l'inserimento corretto dei dati
         if(cognome_RegistrazioneVaccinato.getText().equals("")){
@@ -449,6 +476,10 @@ public class RegistrazioneVaccinato extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_cognome_RegistrazioneVaccinatoFocusLost
 
+    /**
+     * Modifica contenuto nella textbox idVaccino quando selezionata
+     * @param evt - Evento
+     */
     private void idVaccino_RegistrazioneVaccinatoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_idVaccino_RegistrazioneVaccinatoFocusGained
         //hint per l'inserimento corretto dei dati
         if(idVaccino_RegistrazioneVaccinato.getText().equals("16 cifre")){
@@ -456,6 +487,10 @@ public class RegistrazioneVaccinato extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_idVaccino_RegistrazioneVaccinatoFocusGained
 
+    /**
+     * Modifica contenuto nella textbox idVaccino quando non selezionata
+     * @param evt - Evento
+     */
     private void idVaccino_RegistrazioneVaccinatoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_idVaccino_RegistrazioneVaccinatoFocusLost
         //hint per l'inserimento corretto dei dati
         if(idVaccino_RegistrazioneVaccinato.getText().equals("")){
