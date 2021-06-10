@@ -26,7 +26,7 @@ import static utils.GeneralFunctions.checkDirHierarchy;
 import static utils.GeneralFunctions.getCentriVaccinaliList;
 
 /**
- * La classe HomeCittadini viene utilizzata per la creazione della GUI che permette ai cittadini di svolgere funzioni di:
+ * La classe <b>HomeCittadini</b> viene utilizzata per la creazione della GUI che permette ai cittadini di svolgere funzioni di:
  * <br>
  *  - Ricerca Centro Vaccinale <br>
  *  - Registrazione <br>

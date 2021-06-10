@@ -26,7 +26,7 @@ import static utils.GeneralFunctions.toHexString;
 
 /**
  *
- * La classe LoginCittadino viene utilizzata per la creazione della GUI che permette ai cittadini di svolgere funzioni di:
+ * La classe <b>LoginCittadino</b> viene utilizzata per la creazione della GUI che permette ai cittadini di svolgere funzioni di:
  * <br>
  * Autenticazione all'applicazione 
  * 

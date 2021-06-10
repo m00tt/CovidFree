@@ -386,7 +386,7 @@ public class RegistrazioneCentroVaccinale extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     /**
-     * Richiama metodo <b>registraCentroVaccinale()</b><br>
+     * Richiama metodo <b>registraCentroVaccinale</b><br>
      * @see #registraCentroVaccinale
      * @param evt - Evento
      */
@@ -396,7 +396,7 @@ public class RegistrazioneCentroVaccinale extends javax.swing.JFrame {
 
     /**
      * Annulla l'operazione e ritorna alla home<br>
-     * Richiama il costruttore della classe <b>HomeCentriVaccinali()</b>
+     * Richiama il costruttore della classe <b>HomeCentriVaccinali</b>
      * @see centrivaccinali.HomeCentriVaccinali#HomeCentriVaccinali
      * @param evt - Evento
      */
@@ -496,7 +496,7 @@ public class RegistrazioneCentroVaccinale extends javax.swing.JFrame {
     }//GEN-LAST:event_prov_RegistrazioneCentroVaccinaleFocusLost
 
     /**
-     * Il metodo <b>main</b> viene richiamato al fine di richiamare il costruttore della classe RegistrazioneCentroVaccinale al fine di rendere visibile la classe.
+     * Il metodo <b>main</b> viene richiamato al fine di richiamare il costruttore della classe <b>RegistrazioneCentroVaccinale</b> al fine di rendere visibile la classe.
      * @param args argomenti iniettabili da linea di comando
      */
     public static void main(String args[]) {

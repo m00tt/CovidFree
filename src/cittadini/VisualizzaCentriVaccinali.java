@@ -22,7 +22,7 @@ import static utils.GeneralFunctions.getCentroVaccinaleInfo;
 
 /**
  *
- * La classe VisualizzaCenntriVaccinali viene utilizzata per generare la GUI che permette di visualzizzare il dettaglio delle informazioni di un singolo centro vaccinale.
+ * La classe <b>VisualizzaCenntriVaccinali</b> viene utilizzata per generare la GUI che permette di visualzizzare il dettaglio delle informazioni di un singolo centro vaccinale.
  * 
  * @author Andrea Mottini 742605 VA
  * @author Riccardo Bianchi 736701 VA

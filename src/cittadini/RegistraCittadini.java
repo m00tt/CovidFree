@@ -33,7 +33,7 @@ import static utils.GeneralFunctions.newCittadinoAlreadyVaccinato;
 import static utils.GeneralFunctions.toHexString;
 
 /**
- * La classe RegistraCittadini viene utilizzata per la creazione e la memorizzazione di un nuovo cittadino all'interno della struttura dati dell'applicazione.
+ * La classe <b>RegistraCittadini</b> viene utilizzata per la creazione e la memorizzazione di un nuovo cittadino all'interno della struttura dati dell'applicazione.
  * @author Andrea Mottini 742605 VA
  * @author Riccardo Bianchi 736701 VA
  */
