@@ -40,8 +40,7 @@ public class GeneralFunctions {
     /**
      *  Path per il recupero dell'icona di CovidFree
      */
-    public static final String LOGODIR = System.getProperty("user.dir") + File.separator + "src" + File.separator + "img" + File.separator + "app-logo.png";
-    
+    public static final String LOGODIR = System.getProperty("user.dir") + File.separator + "data" + File.separator + "src" + File.separator + "app-logo.png";
     /**
      * Path per il recupero della cartella padre
      */

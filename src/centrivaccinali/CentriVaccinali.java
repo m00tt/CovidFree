@@ -97,7 +97,7 @@ public final class CentriVaccinali extends javax.swing.JFrame {
         userManualBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Covid Free");
+        setTitle("CovidFree");
         setIconImage(new ImageIcon(LOGODIR).getImage());
         setName("frame_CentriVaccinali"); // NOI18N
         setResizable(false);
@@ -106,7 +106,7 @@ public final class CentriVaccinali extends javax.swing.JFrame {
 
         appTitle_covidfree.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         appTitle_covidfree.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/app-logo.png"))); // NOI18N
-        appTitle_covidfree.setText("Covid Free");
+        appTitle_covidfree.setText("CovidFree");
         appTitle_covidfree.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 appTitle_covidfreeMouseClicked(evt);
@@ -263,6 +263,8 @@ public final class CentriVaccinali extends javax.swing.JFrame {
                 .addComponent(Panel_covidfree, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
+
+        getAccessibleContext().setAccessibleName("");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
