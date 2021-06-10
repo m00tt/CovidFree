@@ -287,6 +287,11 @@ public class VisualizzaCentriVaccinali extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Richiama il costruttore della classe <b>HomeCittadini</b><br>
+     * @see cittadini.HomeCittadini#HomeCittadini() 
+     * @param evt - Evento
+     */
     private void btnIndietro_VisualizzaCentriVaccinaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIndietro_VisualizzaCentriVaccinaliActionPerformed
         HomeCittadini hc = new HomeCittadini();
         hc.setVisible(true);

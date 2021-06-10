@@ -252,30 +252,51 @@ public class RegistraEventiAvversi extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Modifica contenuto nella textbox txtDesc quando non selezionata
+     * @param evt - Evento
+     */
     private void txtDesc_RegistraEventiAvversiFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtDesc_RegistraEventiAvversiFocusLost
          if (txtDesc_RegistraEventiAvversi.getText().equals("")){
             txtDesc_RegistraEventiAvversi.setText("Inserisci una descizione per l'evento risontrontato (da 8 a 256 caratteri)...");
         }
     }//GEN-LAST:event_txtDesc_RegistraEventiAvversiFocusLost
 
+    /**
+     * Modifica contenuto nella textbox txtName quando selezionata
+     * @param evt - Evento
+     */
     private void txtName_RegistraEventoAversiFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtName_RegistraEventoAversiFocusGained
         if (txtName_RegistraEventoAversi.getText().equals("Inserisci Nome Evento (da 3 a 40 caratteri)...")){
             txtName_RegistraEventoAversi.setText("");
         }
     }//GEN-LAST:event_txtName_RegistraEventoAversiFocusGained
 
+    /**
+     * Modifica contenuto nella textbox txtDesc quando selezionata
+     * @param evt - Evento
+     */
     private void txtDesc_RegistraEventiAvversiFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtDesc_RegistraEventiAvversiFocusGained
          if (txtDesc_RegistraEventiAvversi.getText().equals("Inserisci una descizione per l'evento risontrontato (da 8 a 256 caratteri)...")){
             txtDesc_RegistraEventiAvversi.setText("");
         }
     }//GEN-LAST:event_txtDesc_RegistraEventiAvversiFocusGained
 
+    /**
+     * Modifica contenuto nella textbox txtName quando non selezionata
+     * @param evt - Evento
+     */
     private void txtName_RegistraEventoAversiFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtName_RegistraEventoAversiFocusLost
         if (txtName_RegistraEventoAversi.getText().equals("")){
             txtName_RegistraEventoAversi.setText("Inserisci Nome Evento (da 3 a 40 caratteri)...");
         }
     }//GEN-LAST:event_txtName_RegistraEventoAversiFocusLost
 
+   /**
+     * Richiama il costruttore della classe <b>HomeCittadini</b><br>
+     * @see cittadini.HomeCittadini#HomeCittadini() 
+     * @param evt - Evento
+     */
     private void btnAnnulla_RegistraeventiAvversiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAnnulla_RegistraeventiAvversiMouseClicked
         HomeCittadini hcl = new HomeCittadini();
         hcl.setVisible(true);
@@ -283,6 +304,11 @@ public class RegistraEventiAvversi extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnAnnulla_RegistraeventiAvversiMouseClicked
 
+    /**
+     * Richiama il metodo <b>inserisciEventiAvversi</b><br>
+     * @see cittadini.RegistraEventiAvversi#inserisciEventiAvversi() 
+     * @param evt - Evento
+     */
     private void btnConfirm_registraEventiAvversiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirm_registraEventiAvversiActionPerformed
         try {
             inserisciEventiAvversi();
@@ -290,8 +316,7 @@ public class RegistraEventiAvversi extends javax.swing.JFrame {
              showMessageDialog(null, "Errore nella scrittura dei dati.\n\nDescrizione dettagliata: "+ex.toString(), "CovidFree", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(LOGODIR));
         }
     }//GEN-LAST:event_btnConfirm_registraEventiAvversiActionPerformed
-
-    
+  
     /**
      * Il metodo <b>main</b> viene richiamato al fine di richiamare il costruttore della classe HomeCentriVaccinali al fine di rendere visibile la classe.
      * @param args argomenti iniettabili da linea di comando
