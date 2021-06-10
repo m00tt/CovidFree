@@ -269,9 +269,10 @@ public final class CentriVaccinali extends javax.swing.JFrame {
 
     
     /**
-     * Inizializza un nuovo oggetto di tipo <b>HomeCentriVaccinali<b> <br>
+     * Richiama il costruttore della classe <b>HomeCentriVaccinali</b> <br>
      * Posiziona finestra al centro dello schermo
-     * @param evt - Evento 
+     * @param evt - Evento
+     * @see centrivaccinali.HomeCentriVaccinali#HomeCentriVaccinali()
      */
     private void centrovacciniBtn_covidfreeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_centrovacciniBtn_covidfreeActionPerformed
         HomeCentriVaccinali homeCentriVaccinali = new HomeCentriVaccinali();
@@ -281,9 +282,10 @@ public final class CentriVaccinali extends javax.swing.JFrame {
     }//GEN-LAST:event_centrovacciniBtn_covidfreeActionPerformed
 
      /**
-     * Inizializza un nuovo oggetto di tipo <b>HomeCittadini<b> <br>
+     * Richiama il costruttore della classe <b>HomeCittadini</b> <br>
      * Posiziona finestra al centro dello schermo
      * @param evt - Evento 
+     * @see cittadini.HomeCittadini#HomeCittadini() 
      */
     private void cittadiniBtn_covidfreeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cittadiniBtn_covidfreeActionPerformed
         HomeCittadini homeCittadini = new HomeCittadini();
