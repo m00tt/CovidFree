@@ -123,11 +123,6 @@ public class RegistraCittadini extends javax.swing.JFrame {
                 codiceFiscale_RegistrazioneCittadinoFocusLost(evt);
             }
         });
-        codiceFiscale_RegistrazioneCittadino.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                codiceFiscale_RegistrazioneCittadinoActionPerformed(evt);
-            }
-        });
 
         nomeLbl_RegistrazioneCittadino.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         nomeLbl_RegistrazioneCittadino.setText("Nome");
@@ -348,91 +343,144 @@ public class RegistraCittadini extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void codiceFiscale_RegistrazioneCittadinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_codiceFiscale_RegistrazioneCittadinoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_codiceFiscale_RegistrazioneCittadinoActionPerformed
-
+    
+    /**
+     * Richiama il costruttore della classe <b>HomeCittadini</b><br>
+     * @see cittadini.HomeCittadini#HomeCittadini() 
+     * @param evt - Evento
+     */
     private void ann_RegistrazioneCittadinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ann_RegistrazioneCittadinoActionPerformed
         HomeCittadini homeCittadini = new HomeCittadini();
         homeCittadini.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_ann_RegistrazioneCittadinoActionPerformed
 
-    
+    /**
+     * Modifica contenuto nella textbox Nome quando selezionata
+     * @param evt - Evento
+     */
     private void nome_RegistrazioneCittadinoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_nome_RegistrazioneCittadinoFocusGained
         if(nome_RegistrazioneCittadino.getText().equals("Da 3 a 40 caratteri...")){
             nome_RegistrazioneCittadino.setText("");
         }
     }//GEN-LAST:event_nome_RegistrazioneCittadinoFocusGained
 
+     /**
+     * Modifica contenuto nella textbox Cognome quando non selezionata
+     * @param evt - Evento
+     */
     private void cognome_RegistrazioneCittadinoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cognome_RegistrazioneCittadinoFocusLost
        if(cognome_RegistrazioneCittadino.getText().equals("")){
             cognome_RegistrazioneCittadino.setText("Da 3 a 40 caratteri...");
         }
     }//GEN-LAST:event_cognome_RegistrazioneCittadinoFocusLost
 
-   
+     /**
+     * Modifica contenuto nella textbox Email quando selezionata
+     * @param evt - Evento
+     */
     private void email_RegistrazioneCittadinoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_email_RegistrazioneCittadinoFocusGained
         if(email_RegistrazioneCittadino.getText().equals("Inserisci una mail valida...")){
             email_RegistrazioneCittadino.setText("");
         }
     }//GEN-LAST:event_email_RegistrazioneCittadinoFocusGained
 
+     /**
+     * Modifica contenuto nella textbox Email quando non selezionata
+     * @param evt - Evento
+     */
     private void email_RegistrazioneCittadinoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_email_RegistrazioneCittadinoFocusLost
         if(email_RegistrazioneCittadino.getText().equals("")){
             email_RegistrazioneCittadino.setText("Inserisci una mail valida...");
         }
     }//GEN-LAST:event_email_RegistrazioneCittadinoFocusLost
 
-    
+     /**
+     * Modifica contenuto nella textbox Nome quando selezionata
+     * @param evt - Evento
+     */
     private void nome_RegistrazioneCittadinoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_nome_RegistrazioneCittadinoFocusLost
         if(nome_RegistrazioneCittadino.getText().equals("")){
             nome_RegistrazioneCittadino.setText("Da 3 a 40 caratteri...");
         }
     }//GEN-LAST:event_nome_RegistrazioneCittadinoFocusLost
 
+     /**
+     * Modifica contenuto nella textbox codiceFiscale quando selezionata
+     * @param evt - Evento
+     */
     private void codiceFiscale_RegistrazioneCittadinoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_codiceFiscale_RegistrazioneCittadinoFocusGained
        if (codiceFiscale_RegistrazioneCittadino.getText().equals("Inserisci Codice Fiscale...")){
            codiceFiscale_RegistrazioneCittadino.setText("");
        }
     }//GEN-LAST:event_codiceFiscale_RegistrazioneCittadinoFocusGained
 
+     /**
+     * Modifica contenuto nella textbox codiceFiscale quando non selezionata
+     * @param evt - Evento
+     */
     private void codiceFiscale_RegistrazioneCittadinoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_codiceFiscale_RegistrazioneCittadinoFocusLost
         if (codiceFiscale_RegistrazioneCittadino.getText().equals("")){
            codiceFiscale_RegistrazioneCittadino.setText("Inserisci Codice Fiscale...");
         }
     }//GEN-LAST:event_codiceFiscale_RegistrazioneCittadinoFocusLost
 
+     /**
+     * Modifica contenuto nella textbox userID quando selezionata
+     * @param evt - Evento
+     */
     private void userId_RegistrazioneCittadinoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_userId_RegistrazioneCittadinoFocusGained
      if (userId_RegistrazioneCittadino.getText().equals("Da 3 a 8 caratteri...")){
          userId_RegistrazioneCittadino.setText("");
      }
     }//GEN-LAST:event_userId_RegistrazioneCittadinoFocusGained
 
+     /**
+     * Modifica contenuto nella textbox userID quando non selezionata
+     * @param evt - Evento
+     */
     private void userId_RegistrazioneCittadinoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_userId_RegistrazioneCittadinoFocusLost
         if (userId_RegistrazioneCittadino.getText().equals("")){
          userId_RegistrazioneCittadino.setText("Da 3 a 8 caratteri...");
      }
     }//GEN-LAST:event_userId_RegistrazioneCittadinoFocusLost
 
+     /**
+     * Modifica contenuto nella textbox idVaccino quando selezionata
+     * @param evt - Evento
+     */
     private void idVaccino_RegistrazioneCittadinoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_idVaccino_RegistrazioneCittadinoFocusGained
         if (idVaccino_RegistrazioneCittadino.getText().equals("16 cifre...")){
          idVaccino_RegistrazioneCittadino.setText("");
      }
     }//GEN-LAST:event_idVaccino_RegistrazioneCittadinoFocusGained
 
+
+    /**
+     * Modifica contenuto nella textbox idVaccino quando non selezionata
+     * @param evt - Evento
+     */
     private void idVaccino_RegistrazioneCittadinoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_idVaccino_RegistrazioneCittadinoFocusLost
         if (idVaccino_RegistrazioneCittadino.getText().equals("")){
          idVaccino_RegistrazioneCittadino.setText("16 cifre...");
      }
     }//GEN-LAST:event_idVaccino_RegistrazioneCittadinoFocusLost
 
+    /**
+     * Modifica contenuto nella textbox cognome quando non selezionata
+     * @param evt - Evento
+     */
     private void cognome_RegistrazioneCittadinoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cognome_RegistrazioneCittadinoFocusGained
         if(cognome_RegistrazioneCittadino.getText().equals("Da 3 a 40 caratteri...")){
             cognome_RegistrazioneCittadino.setText("");
         }
     }//GEN-LAST:event_cognome_RegistrazioneCittadinoFocusGained
 
+    /**
+     * Richiama il motodo <b>registraCittadino</b>
+     * @see cittadini.RegistraCittadini#registraCittadino() 
+     * @param evt - Evento
+     */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try {
             registraCittadino();

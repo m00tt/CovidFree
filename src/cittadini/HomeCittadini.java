@@ -289,6 +289,13 @@ public class HomeCittadini extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Permette di selezionare i centri vaccinali all'interno della lista
+     * Richiama il costruttore della classe <b>VisualizzaCentriVaccinali</b>
+     * Posiziona la finestra al centro dello schermo
+     * @param evt - Evento
+     * @see cittadini.VisualizzaCentriVaccinali#VisualizzaCentriVaccinali(java.lang.String) 
+     */
     private void infocentriList_HomeCittadiniMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_infocentriList_HomeCittadiniMouseClicked
         JList list = (JList)evt.getSource();
         if (evt.getClickCount() == 2) {
@@ -299,30 +306,62 @@ public class HomeCittadini extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_infocentriList_HomeCittadiniMouseClicked
 
+    /**
+     * Richiama il metodo <b>cercaCentroVaccinale</b>
+     * @see #cercaCentroVaccinale() 
+     * @param evt - Evento 
+     */
     private void cmbSearchType_HomeCittadinoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbSearchType_HomeCittadinoItemStateChanged
         cercaCentroVaccinale();
     }//GEN-LAST:event_cmbSearchType_HomeCittadinoItemStateChanged
 
+    /**
+     * Per ogni tasto della tastiera premuto richiama il metodo <b>cercaCentroVaccinale</b>
+     * @see #cercaCentroVaccinale() 
+     * @param evt - Evento
+     */
     private void search_HomeCittadiniKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_search_HomeCittadiniKeyPressed
         cercaCentroVaccinale();
     }//GEN-LAST:event_search_HomeCittadiniKeyPressed
 
+    /**
+     * Richiama il metodo <b>checkTargetSearch</b>
+     * @see #checkTargetSearch()
+     * @param evt - Evento
+     */
     private void targetSearch_HomeCittadiniItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_targetSearch_HomeCittadiniItemStateChanged
         checkTargetSearch();
     }//GEN-LAST:event_targetSearch_HomeCittadiniItemStateChanged
 
+    /**
+     * Richiama il costruttore della classe <b>LoginCittadino</b><br>
+     * Rende la finestra visibile
+     * @see cittadini.LoginCittadino#LoginCittadino() 
+     * @param evt - Evento
+     */
     private void loginBtn_HomeCittadiniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtn_HomeCittadiniActionPerformed
         LoginCittadino login = new LoginCittadino();
         login.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_loginBtn_HomeCittadiniActionPerformed
 
+     /**
+     * Richiama il costruttore della classe <b>RegistraCittadini</b><br>
+     * Rende la finestra visibile
+     * @see cittadini.RegistraCittadini#RegistraCittadini() 
+     * @param evt - Evento
+     */
     private void registerBtn_HomeCittadiniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerBtn_HomeCittadiniActionPerformed
         RegistraCittadini reg = new RegistraCittadini();
         reg.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_registerBtn_HomeCittadiniActionPerformed
 
+   /**
+    * Richiama il costruttore della classe <b>CentriVaccinali</b><br>
+    * @see centrivaccinali.CentriVaccinali#CentriVaccinali() 
+    * @param evt - Evento
+    */ 
     private void back_HomeCittadiniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_back_HomeCittadiniActionPerformed
         CentriVaccinali centrivaccinali = new CentriVaccinali();
         centrivaccinali.setVisible(true);

@@ -196,24 +196,46 @@ public class LoginCittadino extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Richiama il costruttore della classe <b>HomeCittadini</b><br>
+     * @see cittadini.HomeCittadini#HomeCittadini() 
+     * @param evt - Evento
+     */
     private void indietroBtn_LoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_indietroBtn_LoginActionPerformed
         HomeCittadini hc= new HomeCittadini();
         hc.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_indietroBtn_LoginActionPerformed
 
+    /**
+     * Modifica contenuto nella textbox usrIDField quando selezionata
+     * @param evt 
+     */
     private void usrIDField_LoginFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_usrIDField_LoginFocusGained
         if (usrIDField_Login.getText().equals("Inserisci il tuo User ID...")){
             usrIDField_Login.setText("");
         }
     }//GEN-LAST:event_usrIDField_LoginFocusGained
-
+  
+    /**
+     * Modifica contenuto nella textbox usrIDField quando non selezionata
+     * @param evt 
+     */
     private void usrIDField_LoginFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_usrIDField_LoginFocusLost
         if (usrIDField_Login.getText().equals("")){
             usrIDField_Login.setText("Inserisci il tuo User ID...");
         }
     }//GEN-LAST:event_usrIDField_LoginFocusLost
 
+    /**
+     * Verifica se i parametri di input per il login sono stati inseriti correttamente<br>
+     * Richiama i metodi di verifica sui dati di autenticazione dell'utente<br>
+     * Se l'autenticazione avviene con successo richiama il costruttore della classe <b>RegistraEventiAvversi</b><br>
+     * @see utils.GeneralFunctions#toHexString(byte[]) 
+     * @see cittadini.LoginCittadino#checkLogin(java.lang.String, java.lang.String) 
+     * @see cittadini.RegistraEventiAvversi#RegistraEventiAvversi(java.lang.String, java.lang.String) 
+     * @param evt - Evento
+     */
     private void accediBtn_LoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accediBtn_LoginActionPerformed
         String username = usrIDField_Login.getText().strip();
         String tmppsw = new String(pwdField_Login.getPassword());

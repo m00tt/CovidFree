@@ -249,7 +249,6 @@
               <Events>
                 <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="codiceFiscale_RegistrazioneCittadinoFocusGained"/>
                 <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="codiceFiscale_RegistrazioneCittadinoFocusLost"/>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="codiceFiscale_RegistrazioneCittadinoActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="nomeLbl_RegistrazioneCittadino">
